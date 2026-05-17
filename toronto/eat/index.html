@@ -45,6 +45,7 @@
 <li><a href="#tier4">Tier 4 · Late-night &amp; lunch</a></li>
 <li><a href="#tier5">Tier 5 · Breakfast &amp; lunch by area</a></li>
 </ul>
+<div class="filters" id="filters"></div>
 </aside>
 <main class="article">
 <section class="chapter" id="overview">
@@ -93,7 +94,6 @@
 <div class="insight"><div class="insight-num">D</div><div class="insight-content"><h3>Lunch is where Chinatown and Kensington shine.</h3><p>Pai Northern Thai's Duncan original for khao soi. Hong Shing for late-night Cantonese on the Friday after the train. Sunny's Chinese as the walk-in patio if dinner couldn't be booked. Nu Bügel for Montreal bagels and Moonbean for coffee, both 90 seconds apart in Kensington. Build one Chinatown afternoon around two of these.</p></div></div>
 </div>
 </section>
-<div class="filters" id="filters"></div>
 <section class="chapter" id="tier1">
 <div class="tier-intro">
 <div class="tier-num">— Tier 01</div>
@@ -755,7 +755,7 @@
     all.className = 'filter-chip filter-chip-active';
     all.setAttribute('data-filter', filterKey);
     all.setAttribute('data-value', 'all');
-    all.textContent = 'All';
+    all.innerHTML = '<span>All</span><span class="filter-chip-count">' + cards.length + '</span>';
     row.appendChild(all);
 
     Object.keys(counts).sort().forEach(function(v){
@@ -764,7 +764,7 @@
       b.className = 'filter-chip';
       b.setAttribute('data-filter', filterKey);
       b.setAttribute('data-value', v);
-      b.textContent = label(v) + ' (' + counts[v] + ')';
+      b.innerHTML = '<span>' + label(v) + '</span><span class="filter-chip-count">' + counts[v] + '</span>';
       row.appendChild(b);
     });
     return row;
