@@ -30,14 +30,16 @@ field-guides/                       # On GitHub at Aaron's username; GitHub Page
     └── do/index.html                # Placeholder — activities coming
 ```
 
-### The Boston Eat section (the reference implementation)
+### The cities
 
-- **45 restaurants** across 5 tiers
+- **Issue 01 — Boston** (40 restaurants, sushi cuts applied), **Issue 02 — Toronto** (32 restaurants, couple-by-train framing)
 - **Tier 1-4** by critical consensus (number of publications listing them)
 - **Tier 5** organized by neighborhood/area for breakfast and lunch (different framework — built around the day, not consensus)
-- **Real photos** on 6 of 10 Tier 5 entries plus most of Tier 1-4 (sourced via Google Places and restaurant websites). 4 entries kept styled gradient placeholders because their websites only have logos in their og:image. **This is fine — placeholders look intentional in the design.**
-- **Leaflet map** at the top of the page with all 45 restaurants pinned, color-coded by tier
-- **Sources:** NYT, CN Traveler, Eater 38, Bon Appétit, Boston Magazine, The Infatuation, Resy Hit List, plus Boston Globe Best of the Best for Tier 5
+- **No photos.** Cards are text-only. Decision made after iteration — the image-on-card pattern created empty-space problems with placeholder gradients, and the editorial copy carries the page on its own. **Do not reintroduce photos** unless Aaron explicitly asks. The `.r-image` / `.r-image-placeholder` blocks remain in the markup but are hidden via `display: none` in the stylesheet, so the markup is portable if the decision ever reverses.
+- **Filter UI on the eat pages** — neighborhood and cuisine chips, JS-driven. Map markers link to the corresponding list entry on click.
+- **Leaflet map** at the top of each eat page with restaurants pinned, color-coded by tier
+- **Sources for Boston:** NYT, CN Traveler, Eater 38, Bon Appétit, Boston Magazine, The Infatuation, Resy Hit List, plus Boston Globe Best of the Best for Tier 5
+- **Sources for Toronto:** Toronto Life (Best New + 100 Best), NYT 36 Hours, Canada's 100 Best, Michelin Guide Toronto, Air Canada enRoute, The Infatuation, CN Traveler, blogTO, Toronto Star, Foodism
 
 ### Design system
 
@@ -71,10 +73,11 @@ The voice guide in the skill (see below) goes deeper.
 A skill called **`field-guide-builder`** has been created. It encodes:
 - The full research methodology (publications to use, how to tier, how to organize)
 - The voice guide (with examples of what's good and what's not)
-- The photo-sourcing approach (with honest limitations about copyright and scale)
 - Section-specific methodology (eat vs. stay vs. drink vs. do — they work differently)
 - HTML templates for new eat sections and new city covers
 - A quick-reference cheat sheet for common markup blocks
+
+**Note:** The skill's "Phase 5: Photos" section is no longer in scope for this project. Cards are text-only. Skip the photo-sourcing pass entirely.
 
 The skill files are bundled with this handoff. Install them at the standard skills path before starting work (typically `~/.claude/skills/` or wherever your local environment expects).
 
@@ -86,7 +89,7 @@ The skill files are bundled with this handoff. Install them at the standard skil
 
 2. **Add a second city.** NYC, Miami, and Tokyo are likely candidates based on Aaron's travel pattern. The skill walks through scoping, research, and build for a new city.
 
-3. **Improve image coverage on existing sections.** The 4 entries without real photos in the Boston eat page (Mike & Patty's, Modern Pastry, Caffè Vittoria, Sweet Cheeks Q) could potentially get photos via different sourcing — worth a second pass.
+3. **Refine the filter taxonomy.** As the guide grows, the cuisine and neighborhood filter chips might need consolidation or grouping. Watch how the filter UI scales when a third city is added.
 
 ### Standard workflow
 
