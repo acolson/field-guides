@@ -916,6 +916,10 @@
   }
 
   function setFilter(filterKey, value){
+    // Click the already-active non-All chip to clear back to All
+    if (state[filterKey] === value && value !== 'all') {
+      value = 'all';
+    }
     state[filterKey] = value;
     filterContainer.querySelectorAll('[data-filter="' + filterKey + '"]').forEach(function(b){
       b.classList.toggle('filter-chip-active', b.getAttribute('data-value') === value);
@@ -924,10 +928,15 @@
   }
 
   filterContainer.addEventListener('click', function(e){
-    var t = e.target;
-    if (t.classList && t.classList.contains('filter-chip')) {
-      setFilter(t.getAttribute('data-filter'), t.getAttribute('data-value'));
-    } else if (t.id === 'filter-reset') {
+    var chip = e.target.closest && e.target.closest('.filter-chip');
+    if (chip) {
+      e.preventDefault();
+      setFilter(chip.getAttribute('data-filter'), chip.getAttribute('data-value'));
+      return;
+    }
+    var reset = e.target.closest && e.target.closest('#filter-reset');
+    if (reset) {
+      e.preventDefault();
       setFilter('neighborhood', 'all');
       setFilter('cuisine', 'all');
     }
