@@ -742,10 +742,18 @@
   });
 
   function buildRow(filterKey, rowLabel, counts){
-    var row = document.createElement('div');
+    var row = document.createElement('details');
     row.className = 'filter-row';
+    // Restore open/closed from localStorage; default open
+    var storeKey = 'fg-filter-' + filterKey + '-open';
+    var stored = null;
+    try { stored = window.localStorage.getItem(storeKey); } catch(e){}
+    row.open = (stored === null) ? true : (stored === 'true');
+    row.addEventListener('toggle', function(){
+      try { window.localStorage.setItem(storeKey, row.open ? 'true' : 'false'); } catch(e){}
+    });
 
-    var lbl = document.createElement('span');
+    var lbl = document.createElement('summary');
     lbl.className = 'filter-label';
     lbl.textContent = rowLabel;
     row.appendChild(lbl);
