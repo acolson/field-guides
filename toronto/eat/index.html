@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where to Eat in Toronto — Field Guide</title>
+<meta name="description" content="Thirty-two Toronto restaurants ranked by critical consensus, organized by neighborhood. Sources: Toronto Life, NYT, Infatuation, Canada's 100 Best, Michelin, enRoute, blogTO, CN Traveler, Toronto Star, Foodism.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+</head>
+<body>
+<div class="topbar">
+<div class="brand"><a href="../../">Field <em>Guide</em></a></div>
+<div class="meta">Issue 02 · Toronto</div>
+</div>
+<div class="section-nav">
+<div class="city-name"><a href="../">Toronto</a></div>
+<div class="sections">
+<a href="../eat/" class="current">Eat</a>
+<a href="../stay/">Stay</a>
+<a href="../drink/">Drink</a>
+<a href="../do/">Do</a>
+</div>
+</div>
+<section class="hero">
+<div class="hero-kicker">— Part 01 · Where to eat</div>
+<h1 class="hero-title">Where to eat in Toronto, between the <em>new wave</em> and the old guard.</h1>
+<p class="hero-dek">A mapped, ranked, and reservation-aware guide to the restaurants worth your nights – calibrated for two travelers, three nights, arriving by train at Union Station and walking everywhere that walks.</p>
+<p class="hero-byline">Sources: <strong>Toronto Life</strong> · <strong>NYT 36 Hours</strong> · <strong>Canada's 100 Best</strong> · <strong>Michelin Toronto</strong> · <strong>enRoute</strong> · <strong>The Infatuation</strong> · <strong>CN Traveler</strong> · <strong>blogTO</strong> · <strong>Toronto Star</strong> · <strong>Foodism</strong></p>
+</section>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In this guide</div>
+<ul class="toc">
+<li><a href="#overview">Executive summary</a></li>
+<li><a href="#map">The map</a></li>
+<li><a href="#planning">Trip-planning notes</a></li>
+<li><a href="#tier1">Tier 1 · The consensus</a></li>
+<li><a href="#tier2">Tier 2 · Strong picks</a></li>
+<li><a href="#tier3">Tier 3 · Specialists</a></li>
+<li><a href="#tier4">Tier 4 · Late-night &amp; lunch</a></li>
+<li><a href="#tier5">Tier 5 · Breakfast &amp; lunch by area</a></li>
+</ul>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">Executive summary</div>
+<h2 class="chapter-title">By the numbers: a <em>composite</em> picture.</h2>
+<p class="chapter-dek">Ten publications, hundreds of restaurants. Filtered to walkable Toronto plus the close-in west end and Yorkville. The pattern is unusually clear at the top and productively varied below it.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">32</div><div class="stat-label">restaurants on the final list, after filtering for geography</div></div>
+<div class="stat"><div class="stat-num">6</div><div class="stat-label">restaurants appear on five or more critics' lists</div></div>
+<div class="stat"><div class="stat-num">7</div><div class="stat-label">neighborhoods anchor the dining map</div></div>
+<div class="stat"><div class="stat-num">2</div><div class="stat-label">reservations to set a phone alarm for, two months out</div></div>
+</div>
+<div class="chapter-body">
+<p>The methodology mirrors Boston's: pull every restaurant on any of ten major critics' lists from 2024–2025, filter to downtown Toronto and the close-in neighborhoods you can reach without a car, count overlaps, and weight by how often a place was named. The Canadian publications carry real weight here – Toronto Life's 100 Best, enRoute's Best New, and Canada's 100 Best are the gravitational center of the local consensus.</p>
+<p>Six restaurants drew agreement from a majority of critics. We call them <strong>Tier 1</strong> – Alo, Edulis, Quetzal, Bar Isabel, Osteria Giulia, and Sunny's Chinese. Below that: a second tier of nine places on three or four lists; a third tier of seven specialist rooms; a small Tier 4 for the late-night Cantonese the locals point at; and a Tier 5 of breakfast and lunch organized by where you'll already be.</p>
+</div>
+<div class="pullquote">Toronto's top tier is harder to book than its food culture lets on. Alo opens reservations <em>two months</em> in advance on the first Tuesday of each month. Edulis releases the 15th, prepaid. Set the alarms before you set the trip.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>The consensus picks are scattered, not clustered.</h3><p>Alo sits on Spadina. Edulis is on Niagara. Quetzal and Bar Isabel are on College in Little Italy. Osteria Giulia is in Yorkville. Sunny's hides in Kensington Market. A downtown hotel reaches all six within a 15-minute Uber or a 30-minute walk – but no two of them share a corner.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>The hardest reservations open monthly, not nightly.</h3><p>Alo drops two months out on the first Tuesday at 10am ET. Edulis drops on the 15th of each month at 6pm ET, prepaid in full on Tock. 20 Victoria sits on Tock with a multi-month wait. Quetzal, Bar Isabel, Osteria Giulia, Bernhardt's are gettable two weeks out and forgiving.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>The new wave is a 2024–25 story – and Toronto Life is the local Bible.</h3><p>Half of Tier 2 opened in the last 24 months: General Public (Toronto Life's #1 new restaurant of 2025), Maven, Linny's, aKin, Yan Dining Room. Toronto Life's Best New and 100 Best lists are the single biggest signal in the city. If a new opening lands there, every other critic follows.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>Chinatown is the secret value pick.</h3><p>Sunny's Chinese, Yan Dining Room (tucked inside Hong Shing), Hong Shing for late-night Cantonese, and Pai Northern Thai's Duncan Street original are all within a five-minute walk of each other. Plan one Chinatown afternoon and you can hit two lists and a Tier 5 lunch without ever leaving Dundas West.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The map</div>
+<h2 class="chapter-title">Thirty-two restaurants, <em>seven</em> neighborhoods.</h2>
+<p class="chapter-dek">Pinned and color-coded by tier. Click any marker for details. Union Station and Kensington Market are marked for orientation.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Tier 1</strong> · 5+ lists</span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Tier 2</strong> · 3–4 lists</span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Tier 3</strong> · Specialist</span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Tier 4</strong> · Late-night &amp; lunch</span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Landmark</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="planning">
+<div class="chapter-label">Trip-planning notes</div>
+<h2 class="chapter-title">Four <em>practical</em> things to know.</h2>
+<p class="chapter-dek">What changes when you're two travelers, three nights, arriving at Union Station by train and walking everywhere that walks.</p>
+<div class="insights">
+<div class="insight"><div class="insight-num">A</div><div class="insight-content"><h3>Stay downtown and you walk to most of this.</h3><p>A hotel near Union, King West, or the Financial District puts 20 Victoria, Canoe, Alo, Aloette, Yan, Hong Shing, Pai Northern Thai, Mira, and the St. Lawrence Market all within a 15-minute walk. Add a 10-minute Uber and you've got Quetzal, Bar Isabel, Edulis, DaNico. Yorkville and Ossington each want their own night.</p></div></div>
+<div class="insight"><div class="insight-num">B</div><div class="insight-content"><h3>Three nights, four dinners – here's the shape.</h3><p>The play for a couple: one splurge on the tasting menu (Alo, Edulis, 20 Victoria, or aKin – pick by mood); one loud-room consensus pick (Quetzal or Bar Isabel); one discovery (Sunny's, Yan Dining Room, or General Public); and one casual room (Aloette, Bernhardt's, or Linny's). Add a late lunch at Pai or Hong Shing for the Saturday rebound.</p></div></div>
+<div class="insight"><div class="insight-num">C</div><div class="insight-content"><h3>The reservation calendar is the part that breaks trips.</h3><p>Alo's window opens the first Tuesday at 10am ET, two months out – set a phone reminder before you book the train. Edulis is the 15th at 6pm ET, prepaid in full on Tock. 20 Victoria opens monthly on Tock. Quetzal, Bar Isabel, Osteria Giulia, Bernhardt's, General Public, Maven all sit on OpenTable or Resy two weeks out and are gettable on weeknights.</p></div></div>
+<div class="insight"><div class="insight-num">D</div><div class="insight-content"><h3>Lunch is where Chinatown and Kensington shine.</h3><p>Pai Northern Thai's Duncan original for khao soi. Hong Shing for late-night Cantonese on the Friday after the train. Sunny's Chinese as the walk-in patio if dinner couldn't be booked. Nu Bügel for Montreal bagels and Moonbean for coffee, both 90 seconds apart in Kensington. Build one Chinatown afternoon around two of these.</p></div></div>
+</div>
+</section>
+<section class="chapter" id="tier1">
+<div class="tier-intro">
+<div class="tier-num">— Tier 01</div>
+<h2 class="tier-name">Where everyone <em>agrees</em>.</h2>
+<p class="tier-dek">Six restaurants, five or more critics' lists each. Different cuisines, different neighborhoods, different price points. The consensus is rare and worth honoring.</p>
+</div>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://alorestaurant.com/" target="_blank" rel="noopener" title="Visit Alo"><div class="r-image-placeholder"><span>Alo</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Alo</h3><div class="r-meta"><span class="nb">Spadina</span> · $$$$ · Modern French</div></div>
+<p class="r-tag">The tasting room every critic agrees on.</p>
+<p class="r-blurb">Seven lists, including Canada's 100 Best <strong>#3</strong>, Michelin one star, and Toronto Life's flagship 100 Best. Patrick Kriss has run the city's most consistent fine-dining room out of a third-floor Chinatown walkup for nearly a decade. Six- or ten-course blind tasting; Hokkaido scallop with smoked beurre blanc, lamb with Thai curry, Koshihikari risotto. The restaurant Toronto names without thinking.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>The blind tasting · wine or non-alc pairing recommended</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>First Tuesday of each month at 10am ET, two months out · via the website</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Sat dinner only · closed Sun/Mon</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">C100 #3</span><span class="chip">Michelin ★</span><span class="chip">Toronto Life 100</span><span class="chip">Infatuation</span><span class="chip">Foodism</span></div>
+<div class="r-links"><a class="r-link" href="https://alorestaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://alorestaurant.com/reservations/" target="_blank" rel="noopener">Reserve ↗</a><a class="r-link" href="https://maps.google.com/?q=Alo+163+Spadina+Ave+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.edulisrestaurant.com/" target="_blank" rel="noopener" title="Visit Edulis"><div class="r-image-placeholder"><span>Edulis</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Edulis</h3><div class="r-meta"><span class="nb">Niagara</span> · $$$$ · Mediterranean</div></div>
+<p class="r-tag">The truffle-and-paella temple that books one date at a time.</p>
+<p class="r-blurb">Six lists, Canada's 100 Best <strong>#4</strong>, Michelin one star. Tobey Nemeth and Michael Caballo's 30-seat room in a converted Niagara Street house. White-truffle pasta in season, paella for two, anything wild-foraged. Felt-lined walls, candlelight, Spanish-French through a Toronto lens. The intimacy is the point.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>White-truffle pasta in season · paella for two · whatever's foraged</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Tock; one month at a time on the 15th at 6pm ET, prepaid in full</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner · closed Sun/Mon/Tue</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">C100 #4</span><span class="chip">Michelin ★</span><span class="chip">Toronto Life 100</span><span class="chip">Infatuation</span><span class="chip">Foodism</span></div>
+<div class="r-links"><a class="r-link" href="https://www.edulisrestaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.exploretock.com/edulis/" target="_blank" rel="noopener">Book on Tock ↗</a><a class="r-link" href="https://maps.google.com/?q=Edulis+169+Niagara+St+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://quetzaltoronto.com/" target="_blank" rel="noopener" title="Visit Quetzal"><div class="r-image-placeholder"><span>Quetzal</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Quetzal</h3><div class="r-meta"><span class="nb">Little Italy</span> · $$$ · Wood-fired Mexican</div></div>
+<p class="r-tag">Every dish passes through wood fire.</p>
+<p class="r-blurb">Six lists and the city's only Mexican Michelin star. Erik Joyal and chef Julio Guajardo built a 12-foot wood-fired hearth as the kitchen's centerpiece – secreto al pastor with charred pineapple, lamb barbacoa on blue-masa tortillas, charred maitake with crema poblana. The $125 tasting if you want it; à la carte if you don't. Loud, smoky, alive in the way the best College Street rooms always are.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Secreto al pastor · lamb barbacoa · charred maitake · the $125 tasting</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, two weeks out is usually fine · bar seats walk-in friendly</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">Michelin ★</span><span class="chip">C100 #8</span><span class="chip">Toronto Life 100</span><span class="chip">Infatuation</span><span class="chip">Foodism</span><span class="chip">blogTO</span></div>
+<div class="r-links"><a class="r-link" href="https://quetzaltoronto.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/quetzal-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=Quetzal+419+College+St+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://barisabel.com/" target="_blank" rel="noopener" title="Visit Bar Isabel"><div class="r-image-placeholder"><span>Bar Isabel</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Bar Isabel</h3><div class="r-meta"><span class="nb">Little Italy</span> · $$$ · Spanish Tapas</div></div>
+<p class="r-tag">The College Street tavern that taught Toronto how to do tapas.</p>
+<p class="r-blurb">Five lists across more than a decade of operation. Grant van Gameren's Spanish tavern opened in 2013 and somehow still sets the bar. Grilled whole octopus, jamón croquetas, bone marrow, Basque cake with sherry cream. Dark wood, candle-lit, loud in the way that makes a Thursday feel like a Saturday. Half the room is held back for walk-ins; bar seats are first-come.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Grilled octopus · jamón croquetas · bone marrow · Basque cake</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable / Tock · about half the seats walk-in</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed/Thu for the calm version, Fri/Sat for full energy</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Toronto Life 100</span><span class="chip">Infatuation</span><span class="chip">C100</span><span class="chip">Foodism</span><span class="chip">CN Traveler</span></div>
+<div class="r-links"><a class="r-link" href="https://barisabel.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/bar-isabel-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=Bar+Isabel+797+College+St+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.osteriagiulia.ca/" target="_blank" rel="noopener" title="Visit Osteria Giulia"><div class="r-image-placeholder"><span>Osteria Giulia</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Osteria Giulia</h3><div class="r-meta"><span class="nb">Yorkville</span> · $$$ · Coastal Italian</div></div>
+<p class="r-tag">The Ligurian seafood room every list names.</p>
+<p class="r-blurb">Five lists, Michelin one star, Toronto Life 100 Best. Rob Rossi's Yorkville Italian, no pizza on purpose. Spaghetti with sea urchin, branzino, Chilean sea bass in tomato-mussel broth. The bread program alone justifies the room. Adult Yorkville energy without the Yorkville price tag (mostly).</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Spaghetti with sea urchin · whole branzino · the bread · panna cotta</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, two to three weeks out</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Sat dinner · closed Sun/Mon</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Michelin ★</span><span class="chip">Toronto Life 100</span><span class="chip">C100</span><span class="chip">Foodism</span><span class="chip">CN Traveler</span></div>
+<div class="r-links"><a class="r-link" href="https://www.osteriagiulia.ca/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/osteria-giulia-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=Osteria+Giulia+134+Avenue+Rd+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.sunnyschinese.com/" target="_blank" rel="noopener" title="Visit Sunny's Chinese"><div class="r-image-placeholder"><span>Sunny's Chinese</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Sunny's Chinese</h3><div class="r-meta"><span class="nb">Kensington</span> · $$ · Modern Chinese</div></div>
+<p class="r-tag">The Kensington favorite the NYT 36 Hours singled out.</p>
+<p class="r-blurb">Five lists – and the rare Toronto restaurant the NYT names by itself. Tiny room down a Kensington Avenue hallway. Dan dan noodles slicked in chili oil, Typhoon Shelter squid, Hong Kong French toast with black-sesame jam, silver-needle noodles in superior broth. The patio (in the old Cold Tea space) is walk-in. The room rewards a small group ordering wide.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Dan dan noodles · Typhoon Shelter squid · Hong Kong French toast</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable for the room · patio walk-in</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">NYT 36 Hours</span><span class="chip">Michelin</span><span class="chip">Toronto Life 100</span><span class="chip">Infatuation</span><span class="chip">C100</span></div>
+<div class="r-links"><a class="r-link" href="https://www.sunnyschinese.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/sunnys-chinese-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=Sunnys+Chinese+60+Kensington+Ave+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+</section>
+
+<section class="chapter" id="tier2">
+<div class="tier-intro">
+<div class="tier-num">— Tier 02</div>
+<h2 class="tier-name">The <em>second</em> round.</h2>
+<p class="tier-dek">Three or four lists each. Distinct points of view. These are where you go on night three, when the consensus picks are booked or you want a different mood.</p>
+</div>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.20victoria.com/" target="_blank" rel="noopener" title="Visit 20 Victoria"><div class="r-image-placeholder"><span>20 Victoria</span></div></a></div>
+<div class="r-header"><h3 class="r-name">20 Victoria</h3><div class="r-meta"><span class="nb">Financial District</span> · $$$$ · Contemporary Seafood</div></div>
+<p class="r-tag">Twenty seats, one Michelin star, the hardest reservation downtown.</p>
+<p class="r-blurb">Four lists, Canada's 100 Best <strong>#5</strong>, Michelin one star. A 20-seat counter on Victoria Street, seven-course set menu Wed–Sat, plus a smaller four-course "Kitchen Gallery" Wed–Fri. Seafood-driven contemporary, the kind of room every Toronto food obsessive is fighting for. Walk to it from the train.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Seven-course set menu · or the four-course Kitchen Gallery for a shorter night</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Tock, books months out · prepaid</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat · closed Sun–Tue</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">C100 #5</span><span class="chip">Michelin ★</span><span class="chip">Toronto Life 100</span><span class="chip">Foodism</span></div>
+<div class="r-links"><a class="r-link" href="https://www.20victoria.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.exploretock.com/20victoria/" target="_blank" rel="noopener">Book on Tock ↗</a><a class="r-link" href="https://maps.google.com/?q=20+Victoria+Restaurant+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.tavernebernhardts.com/" target="_blank" rel="noopener" title="Visit Bernhardt's"><div class="r-image-placeholder"><span>Bernhardt's</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Taverne Bernhardt's</h3><div class="r-meta"><span class="nb">Ossington</span> · $$$ · French Rotisserie</div></div>
+<p class="r-tag">The rotisserie chicken Toronto didn't know it needed.</p>
+<p class="r-blurb">Four lists, including the NYT 36 Hours name-check and Canada's 100 Best <strong>#45</strong>. Off Ossington, in a corner room that feels like a Paris bistro grew up in Toronto. Rotisserie chicken with jus and a slab of bread underneath catching the drippings, the vegetable plate, smoked-trout dip. Counter seats are the move if you can get one.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Rotisserie chicken · the vegetable plate · whatever's seasonal</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable · counter walk-in friendly</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">NYT 36 Hours</span><span class="chip">Infatuation</span><span class="chip">C100 #45</span><span class="chip">Foodism</span></div>
+<div class="r-links"><a class="r-link" href="https://www.tavernebernhardts.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/taverne-bernhardts-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=Bernhardts+202+Dovercourt+Rd+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.dreyfusrestaurant.com/" target="_blank" rel="noopener" title="Visit Dreyfus"><div class="r-image-placeholder"><span>Dreyfus</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Dreyfus</h3><div class="r-meta"><span class="nb">Harbord Village</span> · $$$ · French Small Plates</div></div>
+<p class="r-tag">Twenty-four seats, no menu repeats, Toronto Life's quiet pick.</p>
+<p class="r-blurb">Three lists, Canada's 100 Best <strong>#42</strong>, Michelin recommended. A 24-seat counter on Harbord Street with a rotating French-inspired short menu and a chef who wants to cook for you, not at you. The Toronto Life critic's favorite room that still doesn't get the press the consensus picks do – which means you can usually book it two weeks out.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Whatever's on · ask the chef's pick</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy / OpenTable, two to three weeks</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Toronto Life 100</span><span class="chip">C100 #42</span><span class="chip">Michelin</span></div>
+<div class="r-links"><a class="r-link" href="https://www.dreyfusrestaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/toronto-on/venues/dreyfus" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?q=Dreyfus+96+Harbord+St+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.canoerestaurant.com/" target="_blank" rel="noopener" title="Visit Canoe"><div class="r-image-placeholder"><span>Canoe</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Canoe</h3><div class="r-meta"><span class="nb">Financial District</span> · $$$$ · Contemporary Canadian</div></div>
+<p class="r-tag">The 54th-floor view that has earned its place.</p>
+<p class="r-blurb">Three lists, including Canada's 100 Best <strong>#50</strong> and CN Traveler. Thirty years on the 54th floor of the TD Tower and somehow still the only Toronto view-dinner that justifies the price. Taste Canoe tasting menu is the play. Lunch (Mon–Fri 11:30–2) is the version most travelers miss and the best deal in the building.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Taste Canoe tasting · or the prix-fixe lunch on a weekday</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Direct website, up to three months ahead</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Mon–Fri lunch is the secret; Tue–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Toronto Life 100</span><span class="chip">C100 #50</span><span class="chip">CN Traveler</span></div>
+<div class="r-links"><a class="r-link" href="https://www.canoerestaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.canoerestaurant.com/reservations/" target="_blank" rel="noopener">Reserve ↗</a><a class="r-link" href="https://maps.google.com/?q=Canoe+Restaurant+66+Wellington+St+W+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://akinrestaurant.com/" target="_blank" rel="noopener" title="Visit aKin"><div class="r-image-placeholder"><span>aKin</span></div></a></div>
+<div class="r-header"><h3 class="r-name">aKin</h3><div class="r-meta"><span class="nb">Little Italy</span> · $$$$ · Chinese-inspired Tasting</div></div>
+<p class="r-tag">Michelin star in year one, enRoute #3 in Canada.</p>
+<p class="r-blurb">Three lists, Michelin one star, enRoute Best New <strong>#3</strong> in 2025. Eric Chong and Alvin Leung's blind 10-course tasting – Chinese ingredients filtered through tasting-menu structure. The youngest restaurant in Toronto to land a Michelin star out of the gate. Bar Italia-adjacent, the room is sleek without being precious.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Ten-course blind tasting · wine pairing</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Tock, books out fast since the Michelin star · prepaid</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">Michelin ★</span><span class="chip featured">enRoute #3</span><span class="chip">Toronto Life</span></div>
+<div class="r-links"><a class="r-link" href="https://akinrestaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.exploretock.com/akin/" target="_blank" rel="noopener">Book on Tock ↗</a><a class="r-link" href="https://maps.google.com/?q=aKin+restaurant+717+College+St+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.yandiningroom.com/" target="_blank" rel="noopener" title="Visit Yan Dining Room"><div class="r-image-placeholder"><span>Yan Dining Room</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Yan Dining Room</h3><div class="r-meta"><span class="nb">Chinatown</span> · $$$ · Regional Chinese</div></div>
+<p class="r-tag">Twenty-eight seats hidden inside a 1997 Chinatown banquet hall.</p>
+<p class="r-blurb">Three lists, Toronto Life Best New <strong>#2</strong> in 2025, enRoute Top 10. Eva Chin's micro-restaurant tucked inside Hong Shing on Dundas West. Twenty-eight seats, eight courses, three nights a week. Aged Cantonese sea bream, scallop crudo with Sichuan peppercorn, a $108 prix fixe that punches above the room. Find the door at the back of Hong Shing.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Eight-course prix fixe ($108) · sake or wine pairing</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy · Wed–Fri only, books a month out</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Fri dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">Toronto Life Best New #2</span><span class="chip">enRoute Top 10</span><span class="chip">blogTO</span></div>
+<div class="r-links"><a class="r-link" href="https://www.yandiningroom.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/toronto-on/venues/yan-dining-room" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?q=Yan+Dining+Room+195+Dundas+St+W+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://generalpublic.ca/" target="_blank" rel="noopener" title="Visit General Public"><div class="r-image-placeholder"><span>General Public</span></div></a></div>
+<div class="r-header"><h3 class="r-name">General Public</h3><div class="r-meta"><span class="nb">Geary</span> · $$$ · Modern Pub</div></div>
+<p class="r-tag">Toronto Life's #1 new restaurant of 2025.</p>
+<p class="r-blurb">Three lists, Toronto Life Best New <strong>#1</strong> in 2025, enRoute finalist. Jen Agg's Geary Avenue steakhouse-pub – thick-boy burger, surf-and-turf with sweetbreads, a two-ounce shotgun martini delivered to your table. The energy is theater-bar-meets-chophouse. The bar is the seat to take.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Thick-boy burger · surf-and-turf · shotgun martini</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, two to three weeks · bar walk-in friendly</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">Toronto Life Best New #1</span><span class="chip">enRoute</span><span class="chip">blogTO</span></div>
+<div class="r-links"><a class="r-link" href="https://generalpublic.ca/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/general-public-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=General+Public+252+Geary+Ave+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.mavendupont.com/" target="_blank" rel="noopener" title="Visit Maven"><div class="r-image-placeholder"><span>Maven</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Maven</h3><div class="r-meta"><span class="nb">The Annex</span> · $$$ · Jewish / Eastern European</div></div>
+<p class="r-tag">Nostalgia and modernity on the same plate.</p>
+<p class="r-blurb">Three lists, Toronto Life Best New <strong>#4</strong>, enRoute Top 10 in 2025. Shauna Godfrey's rotating Jewish and Eastern European menu on Dupont – matzo ball soup, pickled fish, mushroom soup with sour cream and dill, the kind of cooking that feels like a grandmother who reads cookbooks for fun.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Matzo ball · pickled fish · whatever's seasonal</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, two weeks out</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">Toronto Life Best New #4</span><span class="chip">enRoute Top 10</span><span class="chip">blogTO</span></div>
+<div class="r-links"><a class="r-link" href="https://www.mavendupont.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/maven-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=Maven+restaurant+240+Dupont+St+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://linnystoronto.com/" target="_blank" rel="noopener" title="Visit Linny's"><div class="r-image-placeholder"><span>Linny's</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Linny's</h3><div class="r-meta"><span class="nb">Ossington</span> · $$$ · Deli-Steakhouse</div></div>
+<p class="r-tag">The deli-meets-chophouse with house salami.</p>
+<p class="r-blurb">Three lists, Toronto Life Best New <strong>#6</strong>, Canada's 100 Best People's Choice 2025. David Schwartz's Ossington deli-steakhouse hybrid – cured Ora King salmon on a potato pancake, in-house salami, hard-aged steak. Looser than a steakhouse, more serious than a deli. The Saturday-night room.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Cured Ora King salmon · in-house salami · the steak</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, two weeks out</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">C100 People's Choice</span><span class="chip">Toronto Life Best New #6</span><span class="chip">enRoute</span></div>
+<div class="r-links"><a class="r-link" href="https://linnystoronto.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/toronto-on/venues/linnys" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?q=Linnys+822+Dundas+St+W+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+</section>
+
+<section class="chapter" id="tier3">
+<div class="tier-intro">
+<div class="tier-num">— Tier 03</div>
+<h2 class="tier-name">The <em>specialists</em>.</h2>
+<p class="tier-dek">Two lists each. Distinct, single-minded, worth a night if the dish fits your mood. A Peruvian room, an Italian counter, a Jamaican-Chinese fusion, a Vietnamese-by-way-of-Saigon room.</p>
+</div>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://aloetterestaurant.com/" target="_blank" rel="noopener" title="Visit Aloette"><div class="r-image-placeholder"><span>Aloette</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Aloette</h3><div class="r-meta"><span class="nb">Spadina</span> · $$ · Diner-Bistro</div></div>
+<p class="r-tag">Alo's downstairs cousin – the burger that earns the room.</p>
+<p class="r-blurb">Two lists, Toronto Life 100, CN Traveler. Patrick Kriss's diner-bistro on the ground floor under Alo. The cheeseburger with fried cheese and pickled Vidalia onion, an iceberg wedge with green goddess, lemon meringue tart, fries that pass the test. The casual antidote to the Alo splurge upstairs – often the trip's most surprising room.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Cheeseburger · iceberg wedge · fries · lemon meringue tart</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable · counter walk-in</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Sat · lunch is the easy slot</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Toronto Life 100</span><span class="chip">CN Traveler</span></div>
+<div class="r-links"><a class="r-link" href="https://aloetterestaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/aloette-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=Aloette+163+Spadina+Ave+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://thelunchladyto.com/" target="_blank" rel="noopener" title="Visit The Lunch Lady"><div class="r-image-placeholder"><span>The Lunch Lady</span></div></a></div>
+<div class="r-header"><h3 class="r-name">The Lunch Lady</h3><div class="r-meta"><span class="nb">Ossington</span> · $$$ · Modern Vietnamese</div></div>
+<p class="r-tag">Saigon's cult street kitchen, upscaled but still recognizable.</p>
+<p class="r-blurb">Two lists, Infatuation, Toronto Life 100. Nguyen Tran's outpost of his cult Saigon street stall, on Ossington. Shaking beef with peppercorn sauce and burnt scallion butter, papaya salad, com tam. The room is brighter and slightly more polished than the original – the cooking is exactly as direct.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Shaking beef · papaya salad · com tam</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, two weeks</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Infatuation</span><span class="chip">Toronto Life 100</span></div>
+<div class="r-links"><a class="r-link" href="https://thelunchladyto.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/toronto-on/venues/the-lunch-lady" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?q=The+Lunch+Lady+50+Ossington+Ave+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://miratoronto.com/" target="_blank" rel="noopener" title="Visit Mira"><div class="r-image-placeholder"><span>Mira</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Mira</h3><div class="r-meta"><span class="nb">King West</span> · $$$ · Modern Peruvian</div></div>
+<p class="r-tag">Ceviche, sausage, and fun.</p>
+<p class="r-blurb">Two lists, Infatuation, Foodism. The Peruvian room downtown still talks about. Ceviches, pollo a la brasa, a popcorn-and-sausage opener that sets the tone, pisco cocktails done with care. King West, close enough to the train to be the easy first-night dinner.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Ceviche flight · popcorn-and-sausage · pollo a la brasa</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, one week</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Infatuation</span><span class="chip">Foodism</span></div>
+<div class="r-links"><a class="r-link" href="https://miratoronto.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/mira-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=Mira+restaurant+420+Wellington+St+W+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://patoistoronto.com/" target="_blank" rel="noopener" title="Visit Patois"><div class="r-image-placeholder"><span>Patois</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Patois</h3><div class="r-meta"><span class="nb">Dundas West</span> · $$ · Jamaican-Chinese</div></div>
+<p class="r-tag">Craig Wong's Caribbean-Chinese mash-up, on the NYT route.</p>
+<p class="r-blurb">Two lists, NYT 36 Hours, Toronto Life 100. Jerk-fried chicken with waffles, dragon bowl, oxtail dumplings, the kind of menu that started a cuisine conversation in Toronto. Loud, fun, walk-in friendly at the bar. The Friday-night neighborhood room.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Jerk-fried chicken · oxtail dumplings · dragon bowl</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy · bar walk-in</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Thu–Sat for the full energy</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">NYT 36 Hours</span><span class="chip">Toronto Life 100</span></div>
+<div class="r-links"><a class="r-link" href="https://patoistoronto.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/toronto-on/venues/patois" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?q=Patois+794+Dundas+St+W+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://takjabbq.com/" target="_blank" rel="noopener" title="Visit Takja BBQ House"><div class="r-image-placeholder"><span>Takja BBQ</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Takja BBQ House</h3><div class="r-meta"><span class="nb">Yorkville</span> · $$$$ · Korean BBQ</div></div>
+<p class="r-tag">Dry-aged Korean BBQ, banchan as a flight.</p>
+<p class="r-blurb">Two lists, enRoute <strong>#4</strong> in 2024, Toronto Life 100. The Yorkville Korean BBQ that takes banchan seriously enough that enRoute named it Sides of the Year. Dry-aged short rib, mustard greens, the full grill experience without the strip-mall vibe. Worth the splurge for an anchor dinner if the tasting-menu set is booked.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Dry-aged short rib · banchan flight · mustard greens</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, two weeks</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">enRoute #4</span><span class="chip">Toronto Life 100</span></div>
+<div class="r-links"><a class="r-link" href="https://takjabbq.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/takja-bbq-house-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=Takja+BBQ+House+17+Bedford+Rd+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.danicotoronto.com/" target="_blank" rel="noopener" title="Visit DaNico"><div class="r-image-placeholder"><span>DaNico</span></div></a></div>
+<div class="r-header"><h3 class="r-name">DaNico</h3><div class="r-meta"><span class="nb">Little Italy</span> · $$$$ · Refined Italian</div></div>
+<p class="r-tag">The Don Alfonso chef's solo room.</p>
+<p class="r-blurb">Two lists, Michelin one star, Toronto Life 100. Daniele Corona left the kitchen at Don Alfonso to open this 40-seat room on College – set menus, classical Italian discipline, the technical precision of a hotel restaurant in a neighborhood storefront. The opposite of Quetzal's energy and a 90-second walk down the same street.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Set tasting menu (no à la carte)</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Direct website, two to three weeks · prepaid</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">Michelin ★</span><span class="chip">Toronto Life 100</span></div>
+<div class="r-links"><a class="r-link" href="https://www.danicotoronto.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.danicotoronto.com/reservations" target="_blank" rel="noopener">Reserve ↗</a><a class="r-link" href="https://maps.google.com/?q=DaNico+restaurant+595+College+St+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.painorthernthai.com/" target="_blank" rel="noopener" title="Visit Pai"><div class="r-image-placeholder"><span>Pai Northern Thai</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Pai Northern Thai Kitchen</h3><div class="r-meta"><span class="nb">Entertainment District</span> · $$ · Northern Thai</div></div>
+<p class="r-tag">The downtown khao soi standby that earns the Michelin nod.</p>
+<p class="r-blurb">Two lists, Michelin recommended, Foodism. Chef Nuit Regular's Northern Thai room on Duncan Street – khao soi that introduced a generation of Toronto to Chiang Mai cooking, pad Thai done right, moo ping skewers, fiery pad gra prow. Walk-in-leaning, but they'll honor a reservation request by email 72 hours ahead. The lunch standby that doesn't drop.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Khao soi · pad Thai · moo ping · pad gra prow</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Email 72 hours ahead · or walk-in (15–30 min wait peak)</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Lunch · or before 6:30pm dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Michelin</span><span class="chip">Foodism</span></div>
+<div class="r-links"><a class="r-link" href="https://www.painorthernthai.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in friendly</span><a class="r-link" href="https://maps.google.com/?q=Pai+Northern+Thai+Kitchen+18+Duncan+St+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+</section>
+
+<section class="chapter" id="tier4">
+<div class="tier-intro">
+<div class="tier-num">— Tier 04</div>
+<h2 class="tier-name">The <em>late-night</em> Cantonese.</h2>
+<p class="tier-dek">One pick, single list, very strong signal. The Friday-after-the-train room.</p>
+</div>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://hongshing.com/" target="_blank" rel="noopener" title="Visit Hong Shing"><div class="r-image-placeholder"><span>Hong Shing</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Hong Shing</h3><div class="r-meta"><span class="nb">Chinatown</span> · $$ · Cantonese</div></div>
+<p class="r-tag">The 1997 Chinatown banquet hall that quietly hosts Yan Dining Room.</p>
+<p class="r-blurb">The 28-year Cantonese institution on Dundas West. Open until 3am Thu–Sun, which makes it the late-night rebound after a Friday train arrival or a Saturday show. Salt-and-pepper squid, BBQ pork, lobster in ginger and scallions, congee that fixes hangovers. The same room that hides Yan Dining Room behind a back door.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Salt-and-pepper squid · BBQ pork · lobster ginger-scallion · congee</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · open until 3am Thu–Sun, midnight other nights</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Late-night Friday or Saturday after dinner elsewhere</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Chinatown Institution</span><span class="chip">Late-night</span></div>
+<div class="r-links"><a class="r-link" href="https://hongshing.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?q=Hong+Shing+195+Dundas+St+W+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+</section>
+
+<section class="chapter" id="tier5">
+<div class="tier-intro">
+<div class="tier-num">— Tier 05</div>
+<h2 class="tier-name">Breakfast and lunch, <em>built around the day</em>.</h2>
+<p class="tier-dek">The dinner picks are most of the work, but the daytime meals tie a trip together. Organized by where you'll already be – the train station, Kensington, St. Lawrence Market, or the east end if you're walking the boardwalk.</p>
+</div>
+
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;font-style:italic;color:var(--accent);margin:3rem 0 0;letter-spacing:-.01em">Near Union Station / Distillery</h3>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.stlawrencemarket.com/" target="_blank" rel="noopener" title="Visit St. Lawrence Market"><div class="r-image-placeholder"><span>St. Lawrence Market</span></div></a></div>
+<div class="r-header"><h3 class="r-name">St. Lawrence Market</h3><div class="r-meta"><span class="nb">Old Town</span> · $ · Market Hall</div></div>
+<p class="r-tag">The peameal bacon sandwich is the pilgrimage.</p>
+<p class="r-blurb">Toronto's 200-year-old market hall, ten minutes on foot from Union Station. The peameal bacon sandwich at <strong>Carousel Bakery</strong> is the standard – cornmeal-crusted back bacon on a kaiser roll, $7. <strong>St. Urbain</strong> for Montreal-style bagels. <strong>Buster's Sea Cove</strong> for fish-and-chips and lobster rolls. Open Tue–Sat 9am–7pm, Sun 10am–5pm; closed Mondays.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Peameal sandwich (Carousel) · St. Urbain bagels · Buster's lobster roll</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · busiest Saturdays 11–2</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Saturday morning for the full market · weekday lunch is calmer</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Toronto Institution</span><span class="chip">Est. 1803</span></div>
+<div class="r-links"><a class="r-link" href="https://www.stlawrencemarket.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?q=St+Lawrence+Market+93+Front+St+E+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.clunybistro.com/" target="_blank" rel="noopener" title="Visit Cluny Bistro"><div class="r-image-placeholder"><span>Cluny Bistro</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Cluny Bistro</h3><div class="r-meta"><span class="nb">Distillery District</span> · $$ · French Brasserie</div></div>
+<p class="r-tag">The Distillery brasserie that turns a tourist walk into lunch.</p>
+<p class="r-blurb">Inside the Distillery District, a real French brasserie with a real wine list. Steak frites, salade Lyonnaise, mussels, a long bar that takes walk-ins. The pairing for a Saturday-afternoon walk through the cobbled streets and the gallery district.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Steak frites · salade Lyonnaise · moules · onion soup</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable for brunch on weekends · walk-in midweek</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Weekday lunch · or Sunday brunch with reservations</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Distillery</span><span class="chip">French Brasserie</span></div>
+<div class="r-links"><a class="r-link" href="https://www.clunybistro.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/cluny-bistro-toronto" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?q=Cluny+Bistro+35+Tank+House+Lane+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;font-style:italic;color:var(--accent);margin:3rem 0 0;letter-spacing:-.01em">Kensington Market / Chinatown</h3>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://nubugel.com/" target="_blank" rel="noopener" title="Visit Nu Bügel"><div class="r-image-placeholder"><span>Nu Bügel</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Nu Bügel</h3><div class="r-meta"><span class="nb">Kensington</span> · $ · Montreal-style Bagels</div></div>
+<p class="r-tag">Wood-fired Montreal bagels, made fresh through the day.</p>
+<p class="r-blurb">A Kensington corner shop turning out wood-fired Montreal-style bagels in small batches. Sesame, poppy, everything, plus the smoked-salmon and cream-cheese bagel sandwich that's earned its line. Pair with a Moonbean coffee a block away and you've solved Saturday morning.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Sesame and poppy by the half-dozen · smoked-salmon bagel</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · arrive before 11am for the best selection</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Weekday morning</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Kensington</span><span class="chip">Wood-fired</span></div>
+<div class="r-links"><a class="r-link" href="https://nubugel.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?q=Nu+Bugel+240+Augusta+Ave+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.moonbeancoffee.com/" target="_blank" rel="noopener" title="Visit Moonbean"><div class="r-image-placeholder"><span>Moonbean Coffee</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Moonbean Coffee Company</h3><div class="r-meta"><span class="nb">Kensington</span> · $ · Coffee</div></div>
+<p class="r-tag">The Kensington coffee shop that hasn't moved in 30 years.</p>
+<p class="r-blurb">A St. Andrew Street coffee shop that's roasted in Kensington since the 90s and still pulls one of the most reliable espressos downtown. Outdoor patio that looks like the rest of Kensington – mismatched chairs, friendly dogs, slow Sunday energy. Coffee, an alfajor, a paper, an hour.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Cortado · alfajor · iced coffee in summer</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · cash and card</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Saturday or Sunday mid-morning</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Kensington Institution</span></div>
+<div class="r-links"><a class="r-link" href="https://www.moonbeancoffee.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?q=Moonbean+Coffee+30+St+Andrew+St+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://maps.google.com/?q=Khao+San+Road+Toronto" target="_blank" rel="noopener" title="Visit Khao San Road"><div class="r-image-placeholder"><span>Khao San Road</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Khao San Road</h3><div class="r-meta"><span class="nb">Entertainment District</span> · $$ · Bangkok-style Thai</div></div>
+<p class="r-tag">The Bangkok-style lunch a five-minute walk from the train.</p>
+<p class="r-blurb">Chef Nuit Regular's other downtown room (she also runs Pai). Bangkok-style street food – kuay teow ruea boat noodles, crispy duck salad, larb. Quick, bright, cheap-ish. Charlotte Street location is the current one; verify the address before walking.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Boat noodle soup · crispy duck salad · larb gai</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · busiest 12–1pm and 6–7pm</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Weekday lunch · or pre-show</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Nuit Regular</span><span class="chip">Downtown Thai</span></div>
+<div class="r-links"><a class="r-link" href="https://www.khaosanroad.ca/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?q=Khao+San+Road+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;font-style:italic;color:var(--accent);margin:3rem 0 0;letter-spacing:-.01em">Queen West / Geary Avenue</h3>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.badattitudebread.com/" target="_blank" rel="noopener" title="Visit Bad Attitude Bread"><div class="r-image-placeholder"><span>Bad Attitude Bread</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Bad Attitude Bread</h3><div class="r-meta"><span class="nb">Geary</span> · $ · Bakery</div></div>
+<p class="r-tag">The NYT-cited bakery in a former Geary garage.</p>
+<p class="r-blurb">The NYT 36 Hours name-checked west-end bakery turning out sourdough, focaccia, and laminated pastries from a converted Geary Avenue garage. Pairs with a morning at General Public or Milky's, both within a one-minute walk. Limited hours, sells out by mid-afternoon.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Country sourdough · focaccia by the slab · seasonal galette</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · arrive before noon · check IG for daily bake</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Saturday morning</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">NYT 36 Hours</span></div>
+<div class="r-links"><a class="r-link" href="https://www.instagram.com/badattitudebread/" target="_blank" rel="noopener">Instagram ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?q=Bad+Attitude+Bread+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.milkyscoffee.ca/" target="_blank" rel="noopener" title="Visit Milky's"><div class="r-image-placeholder"><span>Milky's Coffee</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Milky's Coffee</h3><div class="r-meta"><span class="nb">Geary</span> · $ · Coffee</div></div>
+<p class="r-tag">The Geary corridor's morning anchor.</p>
+<p class="r-blurb">A two-room cafe with one of the city's better espresso programs, on the Geary corridor alongside Bad Attitude Bread, General Public, and the Bernhardt's-Linny's axis. If you're already heading west for an Ossington dinner, this is the morning slot.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Cortado · pour-over · oat-milk latte</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · most seats on weekend mornings</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Weekday morning</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Geary Corridor</span></div>
+<div class="r-links"><a class="r-link" href="https://www.milkyscoffee.ca/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?q=Milkys+Coffee+Geary+Ave+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;font-style:italic;color:var(--accent);margin:3rem 0 0;letter-spacing:-.01em">East End / Leslieville</h3>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.whitelilydiner.com/" target="_blank" rel="noopener" title="Visit White Lily Diner"><div class="r-image-placeholder"><span>White Lily Diner</span></div></a></div>
+<div class="r-header"><h3 class="r-name">White Lily Diner</h3><div class="r-meta"><span class="nb">Riverside</span> · $$ · Diner</div></div>
+<p class="r-tag">Biscuits and gravy on Queen East, NYT-cited.</p>
+<p class="r-blurb">The NYT 36 Hours-named breakfast room on Queen East at Logan – biscuits and gravy, fried-chicken sandwich, brown-butter pancakes, a small but careful menu of diner classics done well. The east-end pairing if you're walking the boardwalk or biking Leslieville.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Biscuits and gravy · fried-chicken sandwich · brown-butter pancakes</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · weekends busy 9–11</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Saturday or Sunday morning</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">NYT 36 Hours</span></div>
+<div class="r-links"><a class="r-link" href="https://www.whitelilydiner.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?q=White+Lily+Diner+678+Queen+St+E+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://www.bonjourbrioche.com/" target="_blank" rel="noopener" title="Visit Bonjour Brioche"><div class="r-image-placeholder"><span>Bonjour Brioche</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Bonjour Brioche</h3><div class="r-meta"><span class="nb">Leslieville</span> · $ · French Bakery</div></div>
+<p class="r-tag">Two decades of French pastry on Queen East.</p>
+<p class="r-blurb">A Leslieville fixture since the 90s. Croissants, pain au chocolat, quiche, brioche French toast on weekends. Small room, busy on Saturday mornings, the kind of bakery that feels like it's been there long enough to deserve to stay.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Almond croissant · quiche · brioche French toast (weekends)</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · cash and card</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Weekday morning, or Saturday before 10</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Leslieville Fixture</span></div>
+<div class="r-links"><a class="r-link" href="https://www.bonjourbrioche.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?q=Bonjour+Brioche+812+Queen+St+E+Toronto" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<div class="pullquote" style="margin-top:3rem">Two things already in this guide that double as <em>excellent</em> lunches: Aloette on Spadina (the burger, the wedge, the tart), and Pai Northern Thai on Duncan (khao soi, by yourself or a hundred others, fine either way).</div>
+
+</section>
+</main>
+</div>
+<section class="next-up">
+<div class="next-up-inner">
+<div>
+<div class="next-up-label">— Continue the guide</div>
+<h3>Next: <em>Where to stay</em></h3>
+</div>
+<a href="../stay/" class="next-up-cta">Hotels by neighborhood →</a>
+</div>
+</section>
+
+<footer>
+<div class="footer-inner">
+<div class="footer-top">
+<div class="footer-brand"><a href="../../">Field <em>Guide</em></a></div>
+<div class="footer-tagline">Issue 02 — Toronto · Part 01, Where to eat.</div>
+</div>
+<div class="footer-bottom">
+<div>© 2026 Field Guide. Researched against Toronto Life, NYT, Infatuation, Canada's 100 Best, Michelin, enRoute, CN Traveler, blogTO, Toronto Star, Foodism.</div>
+<div>No affiliate links · No paid placements</div>
+</div>
+</div>
+</footer>
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') {
+      setTimeout(initMap, 100);
+      return;
+    }
+    var map = L.map('map').setView([43.652, -79.395], 13);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    var restaurants = [
+      {name:'Alo',tier:1,lat:43.6478,lng:-79.3982,tag:'Modern French · Spadina',lists:7,label:'★'},
+      {name:'Edulis',tier:1,lat:43.6418,lng:-79.4047,tag:'Mediterranean · Niagara',lists:6,label:'★'},
+      {name:'Quetzal',tier:1,lat:43.6557,lng:-79.4070,tag:'Wood-fired Mexican · Little Italy',lists:6,label:'★'},
+      {name:'Bar Isabel',tier:1,lat:43.6549,lng:-79.4188,tag:'Spanish Tapas · Little Italy',lists:5,label:'★'},
+      {name:'Osteria Giulia',tier:1,lat:43.6736,lng:-79.3940,tag:'Coastal Italian · Yorkville',lists:5,label:'★'},
+      {name:"Sunny's Chinese",tier:1,lat:43.6543,lng:-79.4015,tag:'Modern Chinese · Kensington',lists:5,label:'★'},
+      {name:'20 Victoria',tier:2,lat:43.6510,lng:-79.3779,tag:'Contemporary Seafood · Financial District',lists:4,label:'4'},
+      {name:"Bernhardt's",tier:2,lat:43.6486,lng:-79.4239,tag:'French Rotisserie · Ossington',lists:4,label:'4'},
+      {name:'Dreyfus',tier:2,lat:43.6657,lng:-79.4060,tag:'French Small Plates · Harbord',lists:3,label:'3'},
+      {name:'Canoe',tier:2,lat:43.6479,lng:-79.3811,tag:'Contemporary Canadian · Financial District',lists:3,label:'3'},
+      {name:'aKin',tier:2,lat:43.6537,lng:-79.4153,tag:'Chinese-inspired Tasting · Little Italy',lists:3,label:'3'},
+      {name:'Yan Dining Room',tier:2,lat:43.6549,lng:-79.3865,tag:'Regional Chinese · Chinatown',lists:3,label:'3'},
+      {name:'General Public',tier:2,lat:43.6709,lng:-79.4392,tag:'Modern Pub · Geary',lists:3,label:'3'},
+      {name:'Maven',tier:2,lat:43.6678,lng:-79.4070,tag:'Jewish / Eastern European · Annex',lists:3,label:'3'},
+      {name:"Linny's",tier:2,lat:43.6492,lng:-79.4097,tag:'Deli-Steakhouse · Ossington',lists:3,label:'3'},
+      {name:'Aloette',tier:3,lat:43.6478,lng:-79.3982,tag:'Diner-Bistro · Spadina',lists:2,label:'2'},
+      {name:'The Lunch Lady',tier:3,lat:43.6432,lng:-79.4205,tag:'Modern Vietnamese · Ossington',lists:2,label:'2'},
+      {name:'Mira',tier:3,lat:43.6451,lng:-79.3979,tag:'Modern Peruvian · King West',lists:2,label:'2'},
+      {name:'Patois',tier:3,lat:43.6499,lng:-79.4083,tag:'Jamaican-Chinese · Dundas West',lists:2,label:'2'},
+      {name:'Takja BBQ',tier:3,lat:43.6712,lng:-79.3935,tag:'Korean BBQ · Yorkville',lists:2,label:'2'},
+      {name:'DaNico',tier:3,lat:43.6557,lng:-79.4108,tag:'Refined Italian · Little Italy',lists:2,label:'2'},
+      {name:'Pai Northern Thai',tier:3,lat:43.6478,lng:-79.3886,tag:'Northern Thai · Entertainment District',lists:2,label:'2'},
+      {name:'Hong Shing',tier:4,lat:43.6549,lng:-79.3865,tag:'Cantonese · Chinatown',lists:1,label:'1'},
+      {name:'St. Lawrence Market',tier:4,lat:43.6489,lng:-79.3717,tag:'Market Hall · Old Town',lists:1,label:'1'},
+      {name:'Cluny Bistro',tier:4,lat:43.6504,lng:-79.3592,tag:'French Brasserie · Distillery',lists:1,label:'1'},
+      {name:'Nu Bügel',tier:4,lat:43.6552,lng:-79.4015,tag:'Montreal Bagels · Kensington',lists:1,label:'1'},
+      {name:'Moonbean Coffee',tier:4,lat:43.6548,lng:-79.4012,tag:'Coffee · Kensington',lists:1,label:'1'},
+      {name:'Khao San Road',tier:4,lat:43.6479,lng:-79.3905,tag:'Bangkok Thai · Downtown',lists:1,label:'1'},
+      {name:'Bad Attitude Bread',tier:4,lat:43.6688,lng:-79.4392,tag:'Bakery · Geary',lists:1,label:'1'},
+      {name:"Milky's Coffee",tier:4,lat:43.6699,lng:-79.4358,tag:'Coffee · Geary',lists:1,label:'1'},
+      {name:'White Lily Diner',tier:4,lat:43.6594,lng:-79.3492,tag:'Diner · Riverside',lists:1,label:'1'},
+      {name:'Bonjour Brioche',tier:4,lat:43.6595,lng:-79.3461,tag:'French Bakery · Leslieville',lists:1,label:'1'}
+    ];
+
+    restaurants.forEach(function(r){
+      var tierClass = 'tier' + r.tier;
+      var icon = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="custom-pin ' + tierClass + '">' + r.label + '</div>',
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+      var marker = L.marker([r.lat, r.lng], { icon: icon }).addTo(map);
+      marker.bindPopup(
+        '<div class="pop-name">' + r.name + '</div>' +
+        '<div class="pop-tag">' + r.tag + '</div>' +
+        '<div class="pop-meta">' + r.lists + (r.lists === 1 ? ' list' : ' lists') + '</div>'
+      );
+    });
+
+    var unionIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Union</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([43.6453, -79.3806], { icon: unionIcon }).addTo(map);
+
+    var kensingtonIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Kensington</div>',
+      iconSize: [86, 22],
+      iconAnchor: [43, 11]
+    });
+    L.marker([43.6541, -79.4018], { icon: kensingtonIcon }).addTo(map);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMap);
+  } else {
+    initMap();
+  }
+})();
+</script>
+</body>
+</html>

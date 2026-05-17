@@ -10,9 +10,15 @@ field-guides/
 ├── README.md
 ├── shared/
 │   └── styles.css          ← design system, loaded by every page
-└── boston/
-    ├── index.html          ← city cover (TL;DR + section navigation)
-    ├── eat/index.html      ← restaurants (45 places, 5 tiers)
+├── boston/                 ← Issue 01
+│   ├── index.html          ← city cover (TL;DR + section navigation)
+│   ├── eat/index.html      ← restaurants (40 places, 5 tiers)
+│   ├── stay/index.html     ← hotels (in progress)
+│   ├── drink/index.html    ← bars (coming soon)
+│   └── do/index.html       ← activities (coming soon)
+└── toronto/                ← Issue 02
+    ├── index.html          ← city cover
+    ├── eat/index.html      ← restaurants (32 places, 5 tiers)
     ├── stay/index.html     ← hotels (in progress)
     ├── drink/index.html    ← bars (coming soon)
     └── do/index.html       ← activities (coming soon)
