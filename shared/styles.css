@@ -48,7 +48,7 @@ img{max-width:100%;height:auto;display:block}
 .masthead-meta strong{color:var(--ink);font-weight:600;display:block;margin-bottom:.35rem;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}
 
 /* ---------- HERO (eat-page style, for content-heavy pages) ---------- */
-.hero{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem;display:grid;grid-template-columns:1fr 280px;gap:5rem;border-bottom:1px solid var(--rule)}
+.hero{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem;border-bottom:1px solid var(--rule)}
 .hero-kicker{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:2rem}
 h1.hero-title{font-family:'Source Serif 4',serif;font-weight:400;font-size:clamp(2.5rem,6vw,5rem);line-height:1.02;letter-spacing:-.025em;margin-bottom:1.5rem;max-width:950px}
 h1.hero-title em{font-style:italic;font-weight:300;color:var(--accent)}
@@ -96,9 +96,9 @@ h2.tier-name em{font-style:italic;font-weight:300;color:var(--accent)}
 /* ---------- RESTAURANT / TIER FEATURE CARD ---------- */
 .restaurant-feature{display:grid;grid-template-columns:1fr 1.2fr;gap:0;margin-bottom:3rem;border:1px solid var(--rule);background:var(--paper);transition:border-color .25s,box-shadow .25s;overflow:hidden}
 .restaurant-feature:hover{border-color:var(--rule-strong);box-shadow:0 4px 24px rgba(0,0,0,.04)}
-.r-image{position:relative;overflow:hidden;background:var(--canvas)}
-.r-image img{width:100%;height:100%;object-fit:cover;min-height:340px}
-.r-image-placeholder{width:100%;height:340px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 50%,var(--accent) 100%);color:var(--paper);font-family:'Source Serif 4',serif;font-size:3rem;font-style:italic;font-weight:300;letter-spacing:-.02em}
+.r-image{grid-column:1;grid-row:1 / -1;position:relative;overflow:hidden;background:var(--canvas);min-height:340px}
+.r-image img{width:100%;height:100%;object-fit:cover}
+.r-image-placeholder{width:100%;height:100%;min-height:340px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 50%,var(--accent) 100%);color:var(--paper);font-family:'Source Serif 4',serif;font-size:3rem;font-style:italic;font-weight:300;letter-spacing:-.02em}
 .r-image-placeholder span{padding:2rem;text-align:center}
 
 .r-header{grid-column:2;padding:2.5rem 2.5rem 1rem}
