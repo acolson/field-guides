@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where to Eat in Boston — Field Guide</title>
+<meta name="description" content="Forty-five Boston restaurants ranked by critical consensus, organized by neighborhood and time of day. Sources: NYT, Eater, Boston Magazine, Infatuation, Globe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+</head>
+<body>
+<div class="topbar">
+<div class="brand"><a href="../../">Field <em>Guide</em></a></div>
+<div class="meta">Issue 01 · Boston</div>
+</div>
+<div class="section-nav">
+<div class="city-name"><a href="../">Boston</a></div>
+<div class="sections">
+<a href="../eat/" class="current">Eat</a>
+<a href="../stay/">Stay</a>
+<a href="../drink/">Drink</a>
+<a href="../do/">Do</a>
+</div>
+</div>
+<section class="hero">
+<div class="hero-kicker">— Part 01 · Where to eat</div>
+<h1 class="hero-title">Where to eat in Boston, when seven critics finally <em>agree</em>.</h1>
+<p class="hero-dek">A mapped, ranked, and reservation-aware guide to the restaurants worth your nights — calibrated for a group staying near the Common and the South End, with a show night at Fenway.</p>
+<p class="hero-byline">Sources: <strong>NYT</strong> · <strong>CN Traveler</strong> · <strong>Eater 38</strong> · <strong>Bon Appétit</strong> · <strong>Boston Magazine</strong> · <strong>The Infatuation</strong> · <strong>Resy Hit List</strong></p>
+</section>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In this guide</div>
+<ul class="toc">
+<li><a href="#overview">Executive summary</a></li>
+<li><a href="#map">The map</a></li>
+<li><a href="#planning">Trip-planning notes</a></li>
+<li><a href="#tier1">Tier 1 · The consensus</a></li>
+<li><a href="#tier2">Tier 2 · Strong picks</a></li>
+<li><a href="#tier3">Tier 3 · Specialists</a></li>
+<li><a href="#tier4">Tier 4 · Lunch &amp; casual</a></li>
+<li><a href="#tier5">Tier 5 · Breakfast &amp; lunch by area</a></li>
+</ul>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">Executive summary</div>
+<h2 class="chapter-title">By the numbers: a <em>composite</em> picture</h2>
+<p class="chapter-dek">Seven publications, hundreds of restaurants. Filtered to Boston and Cambridge, with one Somerville exception that no critic could leave off. The pattern that emerges is unusually clear.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">36</div><div class="stat-label">restaurants on the final list, after filtering for geography</div></div>
+<div class="stat"><div class="stat-num">7</div><div class="stat-label">restaurants appear on five or more critics' lists</div></div>
+<div class="stat"><div class="stat-num">5</div><div class="stat-label">neighborhoods anchor the dining map</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">restaurant outside Boston/Cambridge worth the Lyft</div></div>
+</div>
+<div class="chapter-body">
+<p>The methodology was simple: pull every restaurant on any of seven major critics' lists from 2025–2026, filter to Boston neighborhoods plus Cambridge, count overlaps, and weight by how often a place was named. The result is less a ranking than a consensus map.</p>
+<p>Seven restaurants drew agreement from a majority of critics. We call them <strong>Tier 1</strong> — if you eat at nothing else, eat at these. Below that: a second tier of 12 places on three or four lists; a third tier of specialist picks; and a fourth of essential lunch and casual stops.</p>
+</div>
+<div class="pullquote">The pattern is unusual: there's <em>real</em> consensus at the top, but very little overlap below it. The critics agree on which Boston restaurants are the best — and disagree productively on everything else.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>The consensus picks cluster in the South End, Bay Village, and Back Bay.</h3><p>Mooncusser, Toro, La Padrona, O Ya, and Neptune Oyster are all within a fifteen-minute walk of the Common. Comfort Kitchen in Dorchester and Sarma in Somerville are the geography exceptions worth making.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>Reservations open earlier than you'd expect.</h3><p>Sarma releases on Resy 14 days out at 9am. Giulia drops 14 days at 10am. Mooncusser is 30 days out on OpenTable. 311 Omakase releases monthly — set calendar reminders for the hard gets.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>Fenway show night solves itself.</h3><p>Eastern Standard sits across the street from the park. Grill 23 is an eight-minute Lyft. Both take pre-show reservations two weeks out. Book early on the show night.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>The lobster roll question is settled — and it's a tie.</h3><p>Neptune Oyster (warm with butter, walk-in only) and Saltie Girl (warm with butter, reservations) split the city. Both are top-tier. Saltie Girl is the easier reservation; Neptune is the louder bragging right.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The map</div>
+<h2 class="chapter-title">Thirty-six restaurants, <em>three</em> clusters.</h2>
+<p class="chapter-dek">Pinned and color-coded by tier. Click any marker for details. Common and Fenway are marked for orientation.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Tier 1</strong> · 5+ lists</span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Tier 2</strong> · 3–4 lists</span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Tier 3</strong> · Specialist</span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Tier 4</strong> · Casual</span></div>
+<div class="legend-item"><span class="legend-dot fenway"></span><span><strong>Fenway-adjacent</strong></span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Landmark</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="planning">
+<div class="chapter-label">Trip-planning notes</div>
+<h2 class="chapter-title">Four <em>practical</em> things to know.</h2>
+<p class="chapter-dek">What changes when you're staying near the Common and the South End, with a Fenway show night on the calendar.</p>
+<div class="insights">
+<div class="insight"><div class="insight-num">A</div><div class="insight-content"><h3>Your hotel area gets you 18 of these 36 within a 15-minute walk.</h3><p>The South End / Common / Back Bay triangle includes Toro, Kaia, Mooncusser, La Padrona, O Ya, Saltie Girl, Bar Mezzana, Baleia, SRV, 311 Omakase, Grill 23, Uni, Asta, Somaek, Sushi @ Temple Records, and Neptune Oyster (twelve-minute walk to the North End). Plan two or three nights without ever needing a Lyft.</p></div></div>
+<div class="insight"><div class="insight-num">B</div><div class="insight-content"><h3>Sarma is the geography exception. Build a night around it.</h3><p>The most-cited Boston-area restaurant across all seven critics and Boston Magazine's #1 for the year. Somerville, fifteen-minute Lyft from the Common. Reservations release on Resy 14 days out at 9am ET; or arrive at 8:30pm to gamble for bar seats.</p></div></div>
+<div class="insight"><div class="insight-num">C</div><div class="insight-content"><h3>Show night at Fenway: book Eastern Standard.</h3><p>Directly across Beacon Street from the park — three-minute walk to the gates. Reserve two hours before showtime. Grill 23 in Back Bay is the upgraded play if you want a real steakhouse pre-show; eight-minute Lyft to the park, wine list is a small book.</p></div></div>
+<div class="insight"><div class="insight-num">D</div><div class="insight-content"><h3>Lunch is where Cambridge shines.</h3><p>The Red Line gets you to Bagelsaurus (best bagels in Boston), Sofra (Middle Eastern, Ana Sortun), Yume Ga Arukara (hand-pulled udon), and Bánh Mì Ba Lẹ in Dorchester — all walk-in. Build one Cambridge afternoon around two of those plus an early dinner at Oleana or Pammy's.</p></div></div>
+</div>
+</section>
+<section class="chapter" id="tier1">
+<div class="tier-intro">
+<div class="tier-num">— Tier 01</div>
+<h2 class="tier-name">Where everyone <em>agrees</em>.</h2>
+<p class="tier-dek">Seven restaurants, five or more critics' lists each. Different cuisines, different neighborhoods, different price points. The consensus is rare and worth honoring.</p>
+</div>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://www.sarmarestaurant.com/" target="_blank" rel="noopener" title="Visit Sarma"><div class="r-image-placeholder"><span>Sarma</span></div></a>
+</div><div class="r-header"><h3 class="r-name">Sarma</h3><div class="r-meta"><span class="nb">Somerville</span> · $$$ · Mediterranean</div></div>
+<p class="r-tag">The exception to the geography rule.</p>
+<p class="r-blurb">Boston Magazine's <strong>#1</strong> for 2025 and the top of the Resy Hit List. Cassie Piuma's Turkish meyhane in a sleepy Somerville corner — playful mezze (lentil nachos, brussels sprouts bravas), the legendary fried chicken that comes out when it comes out. Casual room, serious cooking, the energy every Boston restaurant aspires to.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Feta-honey cornbread, harissa duck shish, passed-around fried chicken if it appears</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 14 days ahead at 9am ET sharp — or 8:30pm for bar walk-ins</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue/Wed for the calm version, Thu for the full energy</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">BostonMag #1</span><span class="chip">NYT 25 Best</span><span class="chip">CN Traveler</span><span class="chip">Eater 38</span><span class="chip featured">Resy #1</span></div><div class="r-links"><a class="r-link" href="https://www.sarmarestaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/sarma" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=12030020024834030854" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=11275688916845161397" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqEpsg5TiBoSodhpIn8be9aWoxnNmgYQ6w5yvmZVO0cuYW93LZCJZL2R_Ngw17ADXIBvB03qZOhk-wIf55aNxGkNTr43x6itngQ=s800-w800-h600" alt="Mooncusser" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Mooncusser</h3><div class="r-meta"><span class="nb">Bay Village</span> · $$$ · Seafood Tasting</div></div>
+<p class="r-tag">The most quietly thrilling tasting menu in Boston.</p>
+<p class="r-blurb">Boston Magazine's <strong>#3</strong>. Four courses with two choices each, plus bookend bites, $125. Menu rotates every six weeks. Sauces and spice combinations you won't find at other New England seafood spots — cod with mango mustard, smoked trout with crispy tortilla and salsa verde. Go with a partner, pick different courses, eat the whole menu in one sitting.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>The full tasting · wine pairing recommended</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, 30 days ahead · validates $15 parking across the street</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Thu; closed Sun/Mon</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">BostonMag #3</span><span class="chip">NYT 25 Best</span><span class="chip">CN Traveler</span><span class="chip">Eater 38</span><span class="chip">Infatuation 8.8</span></div><div class="r-links"><a class="r-link" href="https://www.mooncusserboston.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/mooncusser-fish-house-boston" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=11275688916845161397" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=12751640672792424316" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqHAudxpXue4xBojLp3tmAdyBOA6HQQUm8fuKFaUE4DonbCMuP3d3rxtlmjkhc_Cm0ovjk84jNw7qrGWbDsXaXtnz5z1qkFacVU=s800-w800-h600" alt="Comfort Kitchen" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Comfort Kitchen</h3><div class="r-meta"><span class="nb">Dorchester</span> · $$ · Diaspora</div></div>
+<p class="r-tag">A restaurant with a thesis.</p>
+<p class="r-blurb">Boston Magazine's <strong>#5</strong>. Chef Biplaw Rai traces the African diaspora through spice and ingredient — Nepali chicken next to Caribbean curry next to West African suya. The menu reads like a syllabus and eats like a feast. Worth the Lyft from downtown, or build it into a Dorchester loop with Bánh Mì Ba Lẹ and Via Cannuccia.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Prawn curry, jerk duck drumettes, jerk jackfruit sliders, goat ragu cassava gnudi</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 1–2 weeks · weekend brunch is a separate experience</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Fri dinner, or Sat/Sun brunch (10am–3pm)</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">BostonMag #5</span><span class="chip">NYT 25 Best</span><span class="chip">CN Traveler</span><span class="chip">Eater 38</span></div><div class="r-links"><a class="r-link" href="http://comfortkitchenbos.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/comfort-kitchen" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=12751640672792424316" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=4320043846255745255" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMK0xzT1EFH8wflnsrJg5GwF-4VD4aOsswEYYPatNFQ3Kp81eYFKEEl3K7x90ikK7uoli0rTwfMibzPcW4qkboWRpoA4X5SRSWvyditDjdpX3jcxcV0G3fSh0olnoYqGVViERiYlJX7vVh4K6o=s800-w800-h600" alt="Neptune Oyster" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Neptune Oyster</h3><div class="r-meta"><span class="nb">North End</span> · $$$ · Seafood</div></div>
+<p class="r-tag">The lobster roll question, settled.</p>
+<p class="r-blurb">Infatuation <strong>9.0</strong>. No reservations, ever. A tight 42-seat bar in the North End where you wait outside in any weather for what most critics call the best lobster roll in the city (warm with butter is the move). The johnnycake with smoked trout and honey is the dark-horse order.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Warm-buttered lobster roll, johnnycake, whatever crudo is on</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in only · arrive 15–30 min before opening on a weekday, or 2pm on a cold Tuesday</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Lunch over dinner — the line is much more manageable</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT 25 Best</span><span class="chip">CN Traveler</span><span class="chip">Eater 38</span><span class="chip">BostonMag</span><span class="chip featured">Infatuation 9.0</span></div><div class="r-links"><a class="r-link" href="http://www.neptuneoyster.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in only</span><a class="r-link" href="https://maps.google.com/?cid=4320043846255745255" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=2070050931615360062" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPA8g1XUaTXpFtd8Va7tP9wmdPicYDAdj6CLT8a1tupL_RH5OjVczee7HfHicRb10in2ufWspvba-DMYZneta94SOQnAW9_3Un4COPAwuOUDodiku5ubW0xgAVgJ0rL58ViI6g8VByRJUZqXg=s800-w800-h600" alt="O Ya" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">O Ya</h3><div class="r-meta"><span class="nb">Leather District</span> · $$$$ · Omakase</div></div>
+<p class="r-tag">The omakase that built Boston's omakase scene.</p>
+<p class="r-blurb">Eighteen years in, still the destination splurge. Tim and Nancy Cushman's tiny Leather District room delivers nigiri and small plates with theatrical precision. Not the cheap option — but the consistency is what every other Boston sushi room measures itself against. Recently snubbed by Michelin, to widespread local outrage.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Full omakase + sake pairing · go vegan and they'll match the experience</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Reserve through their site, 30 days out · bar seats are best</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Sat dinner only · closed Sun/Mon</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT 25 Best</span><span class="chip">CN Traveler</span><span class="chip">Eater 38</span><span class="chip">BostonMag</span></div><div class="r-links"><a class="r-link" href="https://www.o-ya.restaurant/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/o-ya-boston" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=2070050931615360062" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=12221852768954856409" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqGKw26xPxSJ4WatI2a316gj1r570CzXf-GhDG6n42zvXy-XN4UAKQJaqZ6ZIZteeP4RuG3El9LJK2UudA3IpfLQkhmpR8vhNQY=s800-w800-h600" alt="Toro" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Toro</h3><div class="r-meta"><span class="nb">South End</span> · $$$ · Spanish</div></div>
+<p class="r-tag">Ken Oringer's loud, perfect tapas room.</p>
+<p class="r-blurb">Twenty years in and somehow still has the best energy in the South End. Charred corn with cotija, gambas al ajillo that has launched a thousand date nights, paella for the table. Loud in the best way. Walkable from anywhere on Washington Street.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Maíz asado, pulpo a la plancha, croquetas, paella if there are four of you</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, 2–3 weeks out · bar seats are first-come</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Any night except Sunday brunch (which is also great)</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT 25 Best</span><span class="chip">CN Traveler</span><span class="chip">Eater 38</span><span class="chip">BostonMag</span></div><div class="r-links"><a class="r-link" href="https://www.toro-restaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/toro-boston" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=12221852768954856409" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=16838728014215720275" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqGpmTs0OO4gPJv_zgazSoCsb4OtgnDroLaP8m0XiNnqWsNHuSfZLfHELu2Qpur6mSSW_l6L2E95gyMaJIywwNFjS5yontoNDxs=s800-w800-h600" alt="La Padrona" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">La Padrona</h3><div class="r-meta"><span class="nb">Back Bay</span> · $$$ · Italian</div></div>
+<p class="r-tag">Golden Age cinema meets regional Italian.</p>
+<p class="r-blurb">Inside the Raffles Hotel. Jody Adams' return to form after her Rialto days. Velvet booths, dramatic staircase, brilliant pastas. Made the NYT 50 Best in America 2025 and got a four-star Globe review. Loud and theatrical, in the way the room demands.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Cacio e pepe focaccia, tagliatelle Emilia-Romagna, 40oz bistecca for the table</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 14 days ahead · request a "Hollywood" half-circle booth</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Thursday or Friday for full theater · weeknights are calmer</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">CN Traveler</span><span class="chip">Eater 38</span><span class="chip">BostonMag</span><span class="chip">Infatuation 8.8</span><span class="chip featured">NYT 50 Best USA</span></div><div class="r-links"><a class="r-link" href="https://www.lapadronaboston.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/la-padrona" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=16838728014215720275" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+</section>
+<section class="chapter" id="tier2">
+<div class="tier-intro">
+<div class="tier-num">— Tier 02</div>
+<h2 class="tier-name">The <em>second</em> round.</h2>
+<p class="tier-dek">Three or four lists each. Distinct points of view. These are where you go on night three or four, when the consensus picks are booked or you want a specific vibe.</p>
+</div>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=10349544881384014530" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNzTMfVnkW-30dgOdUZQzDG70wUm-P-Te5nwQA13x_KO_wwwkdXadlbkKrEJ-5Y09g-ECe-UEBGp7hOvlxCxiQkMi4IyPI79ZlzmY9zkjSxqG26aydFkxH5BWAxaPqXIXRN6itjdCKbWz9SRg=s800-w800-h600" alt="Tonino" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Tonino</h3><div class="r-meta"><span class="nb">Jamaica Plain</span> · $$ · Italian</div></div>
+<p class="r-tag">A 28-seat neighborhood gem.</p>
+<p class="r-blurb">On five lists, including Resy #6. The hardest reservation in JP. Cabbage Caesar, countneck clams with guanciale, pizza by the slice, a tight list of hand-cut pastas. The room is small and warm, the wine list is short and good. Worth the Orange Line ride.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Bucatini in anchovy chile butter, pizza bianca with stracciatella, cappelletti</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 2 weeks out, drops at 9am · or 9:30pm walk-in shot</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Thu–Sat dinner; closed Tue/Wed</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT 25 Best</span><span class="chip">CN Traveler</span><span class="chip">Eater 38</span><span class="chip">BostonMag</span><span class="chip featured">Resy #6</span></div><div class="r-links"><a class="r-link" href="http://www.toninojp.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/tonino" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=10349544881384014530" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=12575214040088679503" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqG_9bcz1eCYYVUIk1WGd5TQuC312pzW_xKu_fnJzoiNfV3K6yFurLGgLczxCL6LbjH_mprG4nM36GadQ_De3xVMtK3mwCbLjxU=s800-w800-h600" alt="Oleana" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Oleana</h3><div class="r-meta"><span class="nb">Cambridge</span> · $$$ · Mediterranean</div></div>
+<p class="r-tag">Ana Sortun, 25 years in.</p>
+<p class="r-blurb">Infatuation <strong>9.0</strong> and Resy #12. Eastern Mediterranean mezze that defined a generation of Cambridge dining. Whipped feta you'll think about for weeks, brick chicken that rethinks poultry, the baked Alaska for dessert. The Inman Square garden patio in summer is one of the city's best tables.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Spinach falafel with beet tzatziki, Sultan's Delight, brick chicken, baked Alaska</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 14 days ahead · garden seating books fastest</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Sat · open all week</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Eater 38</span><span class="chip">BostonMag</span><span class="chip featured">Infatuation 9.0</span><span class="chip">Resy #12</span></div><div class="r-links"><a class="r-link" href="http://www.oleanarestaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/oleana-restaurant" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=12575214040088679503" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=16556774543629338928" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMCFGC_UgSSYxurGktks2L0ZjdKSjHXtbFsz5Ggz-LAYMGb2ZFCAP9jDoWg6GSRUgGliq9VB2hFRAuWQzgWqvuCmwjIfCL_vPIo2AHT4RfPgic-fzs39SMEyNEhVPEdLdfj3B--M6D8h0cCmpg=s800-w800-h600" alt="Kaia" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Kaia</h3><div class="r-meta"><span class="nb">South End</span> · $$$ · Greek</div></div>
+<p class="r-tag">Boston Magazine's Best New Restaurant for 2025.</p>
+<p class="r-blurb">Five-star Globe review and Bon Appétit Hot List. Modern coastal Greek in a swanky Harrison Avenue room — whole grilled fish, octopus with charred lemon, an octave-louder lamb shawarma. Pre- or post-Toro material if you're staying in the South End. Open till 1am Thu–Sat.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Octopus, lamb shawarma, hamachi, focaccia — save room for basil ice cream</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 2–3 weeks ahead · open until 1am Thu–Sat</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Thu–Sat — they lean into late nights</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">CN Traveler</span><span class="chip featured">BA Hot List</span><span class="chip featured">BostonMag Best New</span><span class="chip">5★ Globe</span></div><div class="r-links"><a class="r-link" href="http://www.kaiasouthend.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/kaia" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=16556774543629338928" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=15166510286926001834" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPqy2NPau3U8JJ1noEz1zlwxD19oZaCz-6C0x5V-_GMl_tdx6KQFLnxVZOUlykt4Df3DmKx1kH9bQhm0IbRtLZB8hWwc6TFo4KSzHYuVq6NXmuCDSWKZt-YDXOl18zHZZvlaCSLQXd0yzPVpA=s800-w800-h600" alt="Uni" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Uni</h3><div class="r-meta"><span class="nb">Back Bay</span> · $$$$ · Japanese</div></div>
+<p class="r-tag">Boston Magazine's #2.</p>
+<p class="r-blurb">Ken Oringer's garden-level sushi bar in a Back Bay brownstone. Different beast from O Ya — more izakaya energy, larger menu, foie gras tataki and spicy tuna alongside the nigiri. Boston Magazine's own food editor calls it the easiest top-five reservation to score.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Spicy tuna + foie gras tataki, sake salmon sashimi, duck confit gyoza</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, 2 weeks ahead · counter seats are the experience</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Any night — most-available among Tier 1/2 picks</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">CN Traveler</span><span class="chip featured">BostonMag #2</span></div><div class="r-links"><a class="r-link" href="https://uni-boston.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/uni-boston" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=15166510286926001834" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=9325226968641544344" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMeG7MIiYU-0txi_thsVJgWwEQu8QmiXLi56ZDLEpW3BbACxDRZNEAKNZJyUxy0GrdlnKcBWE6hQfVk7sOHXuaGjWVhFb7x3z5oRgRTASeoY4Rk5LkHwDVr3dr12P5eLf39OjhrqaJWjCC13C7UMtscyw=s800-w800-h600" alt="Somaek" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Somaek</h3><div class="r-meta"><span class="nb">Downtown</span> · $$ · Korean</div></div>
+<p class="r-tag">Jamie Bissonnette and his Korean mother-in-law.</p>
+<p class="r-blurb">Named for the Korean drink combo (soju + maekju). Bissonnette's homestyle Korean room, made with Soon Han, who knows what she's doing. Got the nod from the NYT 50 Best in America 2024. Tight space, generous food, soju shots on the house if you're celebrating.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Dwaeji bulgogi, the full banchan spread, bibim noodles if they offer</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 1–2 weeks · closed Sundays</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Mid-week for calm; Fri/Sat is the party</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT 25 Best</span><span class="chip">Eater 38</span><span class="chip">BostonMag</span><span class="chip featured">NYT 50 Best USA</span></div><div class="r-links"><a class="r-link" href="http://www.somaek.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/somaek" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=9325226968641544344" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=5709768501426785538" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPO0tVtkM8W_ms3Fn0a-kZbrj_lQz1tGjlbm5CK4LrIV9Z6NZ6FimR26fGBQzhECnCI8Ts5DJqsnV2gTg3J6sb2D3YauOxY4afMvdyygDNDLn7I8BmtY7tTSy7X92YQgzhgvT5PfHVQ4K7woHU=s800-w800-h600" alt="Pammy's" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Pammy's</h3><div class="r-meta"><span class="nb">Cambridge</span> · $$$ · Trattoria</div></div>
+<p class="r-tag">The Italian-ish trattoria you'd live in.</p>
+<p class="r-blurb">NYT, Eater, Boston Mag, and Michelin Recommended. Chris Willis's lasagna is the destination dish — long-braised ragù, almost-crispy edges, a slice that ruins other lasagnas for you. The room glows. Lumache with gochujang cream is the wild card.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Lasagna (non-negotiable), lumache, branzino, cavatelli</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 14 days · weekend bookings open Monday at 9am</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Thu for the calm version; closed Sunday</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT 25 Best</span><span class="chip">Eater 38</span><span class="chip">BostonMag</span><span class="chip">Michelin Rec</span></div><div class="r-links"><a class="r-link" href="https://www.pammyscambridge.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/pammys" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=5709768501426785538" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=1850195991803436904" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqGeNm5R8zoymfsF_CnVFH-Sjoc6o4gt2P5pBolU9PSpmS5OZgUtKyZkno3kRhxlNMfQXpmZFcOfIJbbJFZRx8JeYzezGa4Rutc=s800-w800-h600" alt="Saltie Girl" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Saltie Girl</h3><div class="r-meta"><span class="nb">Back Bay</span> · $$$ · Seafood</div></div>
+<p class="r-tag">Tinned-fish bar that became a destination.</p>
+<p class="r-blurb">CN Traveler, Eater 38, Boston Mag. The warm-buttered lobster roll is a serious Neptune rival (this one's lunch and dinner). Caviar on latkes is the move if you're celebrating. Walkable from any Back Bay hotel. Open till 11pm Thu–Sat — useful for late dinners.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Warm lobster roll, caviar on latkes, clam chowder, tinned-fish board</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 1 week · walk-in friendly at bar</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Late dinner — quieter and the lobster roll is just as good</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">CN Traveler</span><span class="chip">Eater 38</span><span class="chip">BostonMag</span></div><div class="r-links"><a class="r-link" href="http://www.saltiegirl.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/saltie-girl-boston" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=1850195991803436904" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=1779677615220388279" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOqDbx5jKL5bnm1AsUHzv1hy8Tuf_uqZynrLBQNGONC0-Av52V8XI2jQkriid9CTseBOXEtsOubYoQ7WE1WMkjyunDtYk6m7C1N3TzuvnT6rJ9WNo8guiUyxfMJ4SvKI11dDzNTeEKqcCFIB5o=s800-w800-h600" alt="Giulia" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Giulia</h3><div class="r-meta"><span class="nb">Cambridge</span> · $$$ · Italian</div></div>
+<p class="r-tag">The hardest pasta reservation in Cambridge.</p>
+<p class="r-blurb">NYT and Eater 38, Michelin Recommended. Michael Pagliarini's handmade pasta room near Porter — semolina cakes with truffle, pappardelle bolognese, erbazzone. Reservations drop exactly 14 days out at 10am ET. Set an alarm.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Pappardelle, erbazzone, semolina cakes, porchetta flatbread</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, exactly 14 days out at 10am ET sharp · closed Sun</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Thu for the room at its best</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT 25 Best</span><span class="chip">Eater 38</span><span class="chip">Michelin Rec</span></div><div class="r-links"><a class="r-link" href="http://www.giuliarestaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/giulia-cambridge" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=1779677615220388279" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=8076021366476371228" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNwaWXKRmoXATrlJfw1KmQ4Y2PUs6Gu5fsV7GmayqO46iNj-PGjKxZT6K_QGMfmGD09nPdRHZyE5L1XHZqieoM2bZtVQ7pM4bs_cVHflEJPMh1E3NTWwaa4rYxXGwzbsWGgiGj05qZ7oNRMKug=s800-w800-h600" alt="Moëca" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Moëca</h3><div class="r-meta"><span class="nb">Cambridge</span> · $$$ · Seafood</div></div>
+<p class="r-tag">Pagliarini's other restaurant.</p>
+<p class="r-blurb">Eater 38, Boston Mag, Bon Appétit 2023 Best New Restaurant. Sister to Giulia, focused on nose-to-tail seafood through a Mediterranean lens. Beautiful raw and crudo program. Smaller, quieter, and slightly easier to book than Giulia.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Crudi misti, Loligo squid, Jonah crab, cauliflower if it's on</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, 2 weeks · bar seats walk-in at 5:30pm sharp</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Thu; closed Sun/Mon</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Eater 38</span><span class="chip">BostonMag</span><span class="chip featured">BA Best New 2023</span></div><div class="r-links"><a class="r-link" href="https://www.moecarestaurant.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/moeca-cambridge" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=8076021366476371228" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=8318925105811420752" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNHgJfc6k9U6t2sq7tRkzLXZLVkJM-Y0_DhMf-8_Yf8mfvlMRGHHLZc_m88PxnSljufOvMIRzu2WQRLnFQ5B5TUq9050_G78JCTUyL_B0J_Ix5CtiGXJfkWZTnvY3yubJCfqC136btyj-dBclM=s800-w800-h600" alt="Brassica Kitchen + Café" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Brassica Kitchen + Café</h3><div class="r-meta"><span class="nb">Jamaica Plain</span> · $$ · New American</div></div>
+<p class="r-tag">Boston Magazine's #10.</p>
+<p class="r-blurb">CN Traveler, Eater 38, and #10 on Boston Magazine. Jeremy Kean and Phil Kruta's JP room, recently expanded. The koji risotto is the most-cited Boston dish of 2025 — partly made from the previous batch, stretching back to opening. Ask about the off-menu burger.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Koji risotto, whipped bluefish with sourdough, the off-menu burger if available</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, easier post-expansion · brunch walk-in friendly</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Weekend brunch (Sat 10am) or Wed–Fri dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">CN Traveler</span><span class="chip">Eater 38</span><span class="chip featured">BostonMag #10</span></div><div class="r-links"><a class="r-link" href="http://www.brassicakitchen.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/brassica-kitchen" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=8318925105811420752" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=3727243479163966534" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqGMqoM5nXCYgT0kt85DeJmfzPP7CeD_cD7LAc9vuQLW-pAtjF_l6QQ-kxL_j5sfo0ldxQnD0GOg9HdxQk_RP_PvuMy5duUWD6o=s800-w800-h600" alt="Cafe Sushi" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Cafe Sushi</h3><div class="r-meta"><span class="nb">Cambridge</span> · $$ · Japanese</div></div>
+<p class="r-tag">A 40-year sushi sleeper.</p>
+<p class="r-blurb">CN Traveler, Eater 38, and Resy #9. Don't let the strip-mall location and unassuming name fool you — this is one of the city's best sushi rooms, recently expanded for dine-in. Half the price of O Ya or Uni, with sablefish and creative house rolls worth the trip.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Spicy scallop hand roll, miso-glazed sablefish, the ceviche house roll</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 1 week · closed Mon/Tue/Sun</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Wed–Thu for the room; Fri–Sat fills fast</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">CN Traveler</span><span class="chip">Eater 38</span><span class="chip">Resy #9</span></div><div class="r-links"><a class="r-link" href="http://www.cafesushicambridge.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/cafe-sushi" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=3727243479163966534" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=5410867276121471904" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqFWDiGs7-JO02OhweGYmRtG0VzefPezAgcCv1ZPd2l7X4twf_vG2xHd4thkBVNDfK0YtPpXJNfSxWLBrhyb9s-YVNKYApmNC14=s800-w800-h600" alt="Via Cannuccia" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Via Cannuccia</h3><div class="r-meta"><span class="nb">Dorchester</span> · $$ · Roman</div></div>
+<p class="r-tag">A Roman trattoria, far from the North End.</p>
+<p class="r-blurb">NYT, Eater 38, Infatuation 8.1. Chef-owner Stefano runs a tiny Dorchester room with the freshest pasta south of the Mass Pike. Cacio pepe suppli, lasagna bolognese, four-cheese pizza. Weekend brunch deserves its own visit. Worth the Red Line ride.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Cacio pepe suppli, lasagna bolognese, four-cheese pizza, pistachio croissant</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 1–2 weeks · brunch open Fri/Sat/Sun mornings</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Thu–Sat dinner; Sat brunch is a separate experience</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT 25 Best</span><span class="chip">Eater 38</span><span class="chip">Infatuation 8.1</span></div><div class="r-links"><a class="r-link" href="http://www.viacannuccia.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/via-cannuccia" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=5410867276121471904" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+</section>
+<section class="chapter" id="tier3">
+<div class="tier-intro">
+<div class="tier-num">— Tier 03</div>
+<h2 class="tier-name">For specific <em>occasions</em>.</h2>
+<p class="tier-dek">Two-list mentions, but each does one thing exceptionally well. The Fenway pre-show, the late nightcap, the $280 splurge.</p>
+</div>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=2903064501732029609" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqE4qbLV7DF4zaWdJNG9MsL18x7cjZoFcA54d1nKC9wIrSZDbpsQvbbeStgyKoCl4xFDRxCfPovaRAm2cTZ5pXnMS6xLqTRANZU=s800-w800-h600" alt="Eastern Standard" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Eastern Standard</h3><div class="r-meta"><span class="nb">Fenway</span> · $$$ · American</div></div>
+<p class="r-tag">Your Fenway pre-show.</p>
+<p class="r-blurb">CN Traveler. Directly across Beacon Street from Fenway Park — three-minute walk to the gates. Reopened in 2023 after the original closed; same grand bistro feel, classic cocktail program, oysters and steak frites. Pre-game energy is part of the experience. Open till midnight Fri/Sat.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Oysters, fried calamari, steak frites, bone marrow if you have time</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, 2 weeks if there's a game · walk-in friendly otherwise</dd></div>
+<div class="r-detail"><dt>Show night</dt><dd>Reserve 2 hours before showtime · 3 min walk to the park</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">CN Traveler</span><span class="chip featured">Fenway-adjacent</span></div><div class="r-links"><a class="r-link" href="https://easternstandardboston.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/eastern-standard-boston" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=2903064501732029609" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=6469828923787576180" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPZR1IxqXbTgTAB56pnZgkQo4C4G96oG4Ty6aoFZ_qKbliNXhOM9Mu4rQwwgkcLxck-QifNok04ow0MhNXWKyHNXha7ou_ClYsM7FOwGXBN25f-seUnWOnBn5j1yvixpd2cB11mCuB7Ueb89Q=s800-w800-h600" alt="311 Omakase" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">311 Omakase</h3><div class="r-meta"><span class="nb">South End</span> · $$$$ · Omakase</div></div>
+<p class="r-tag">Boston's only Michelin star.</p>
+<p class="r-blurb">Infatuation <strong>9.0</strong>. Ten seats in a converted South End apartment, $280 per person, 18 courses. Chef Wei Fa Chen sources the fish himself. Got the city's only Michelin star in 2025. Reservations open monthly and disappear in minutes.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Trust the chef · sake pairing recommended</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Direct on their site · first of the month, 10am · set a calendar reminder</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Any · 5:30 or 8pm seatings only</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">Infatuation 9.0</span><span class="chip featured">Michelin ★</span></div><div class="r-links"><a class="r-link" href="http://311boston.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://311boston.com/reservations" target="_blank" rel="noopener">Book on Direct ↗</a><a class="r-link" href="https://maps.google.com/?cid=6469828923787576180" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=7621820859707903826" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPVNDLBfqzVWPYWpDElOBLkabDH0v7R6-75c3iUbXjvd0vejHcqRm_3jrK69uqS0CpuPFOM-oi52KAiIHmlM_gRTe6mU_MQU3proJQQTjFbA859HG8V2VFyPTcn1zAWEMe-TJgv5rIZ31RBxg=s800-w800-h600" alt="SRV" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">SRV</h3><div class="r-meta"><span class="nb">South End</span> · $$$ · Venetian</div></div>
+<p class="r-tag">Infatuation 9.0 — Venetian cicchetti.</p>
+<p class="r-blurb">Serene Republic of Venice. South End cicchetti bar with an all-Italian wine list and pasta made from locally milled flour. Service is the kind people say doesn't exist anymore. Quiet, classy date night.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Squid ink bigoli, mussels in Calabrian chile, stuffed peppers, gelato</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 2 weeks · bar seats best for the cicchetti experience</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Mon–Thu intimate; Fri–Sat livelier</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">Infatuation 9.0</span></div><div class="r-links"><a class="r-link" href="http://www.srvboston.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/srv" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=7621820859707903826" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=4980109478314823036" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOqW0NP9NSfAKXVzWmWLIMRb-SQyHj3J1aYOH51XNB37eLXERHPuhaYC_DbBeZugODLwJSSfK5sD5nRF7IQ0FGMTqUXJGkMErP5Dqx2Oim2EeWkixlir9sWwGLwYVd0EtajAUJ-6O405b9R2Q=s800-w800-h600" alt="Grill 23 &amp; Bar" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Grill 23 &amp; Bar</h3><div class="r-meta"><span class="nb">Back Bay</span> · $$$$ · Steakhouse</div></div>
+<p class="r-tag">Old-school, since 1983.</p>
+<p class="r-blurb">CN Traveler, Infatuation 8.2. The Boston steakhouse — A5 wagyu striploin, 14oz prime NY strip, martinis with chunks of ice. Two stories. Wine list is a small book. Five-minute Lyft to Fenway. Pre- or post-show territory.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>A5 wagyu striploin, 14oz NY strip, 1000-layer potato, lobster bisque</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, 2 weeks · second-floor tables are quieter</dd></div>
+<div class="r-detail"><dt>Show night</dt><dd>Reserve 6:30pm for a 7:30 game · 8 min Lyft to the park</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">CN Traveler</span><span class="chip">Infatuation 8.2</span><span class="chip featured">Fenway-adjacent</span></div><div class="r-links"><a class="r-link" href="http://www.grill23.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/grill-23-and-bar-boston" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=4980109478314823036" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=4328696491229219639" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqEI5548emVxY0OLjKiTudK2XYpnmoX-AzI7f6w6jjyLsqmeJrLq4tflm-wwwWii2gmvwovZupnR7TroXDiUZR4H1hZG2wd2SO8=s800-w800-h600" alt="Bar Mezzana" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Bar Mezzana</h3><div class="r-meta"><span class="nb">South End</span> · $$$ · Coastal Italian</div></div>
+<p class="r-tag">Crudo bar, expanded.</p>
+<p class="r-blurb">CN Traveler. Michael Serpa's coastal Italian on Harrison Avenue — crudo program is the calling card, but the orecchiette with sausage and fennel is the dish people return for. Outdoor patio in summer with heaters in shoulder season.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Orecchiette, lobster paccheri, crispy artichoke, crudo of the day</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 1–2 weeks · weekday lunch is sleeper-good</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Sun brunch or Tue–Thu dinner</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">CN Traveler</span></div><div class="r-links"><a class="r-link" href="https://www.barmezzana.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/bar-mezzana" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=4328696491229219639" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=6226159705763387175" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNu8cZ6piDYnYt8uEMWT_Au_XqohRZQn6OtcXHQLtZke1jbX9gKvCZaQrQCFmdI_TrZrOwDMfSy8T17lTBMYsu2AMVwlE-E-sUQM2jXW-rRWaQhrnOSIw5xqsF0AIRauFej3BZ4SwIt_-r05jwwxQcSPQ=s800-w800-h600" alt="Baleia" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Baleia</h3><div class="r-meta"><span class="nb">South End</span> · $$$ · Portuguese</div></div>
+<p class="r-tag">NYT's 2025 addition.</p>
+<p class="r-blurb">Newly added to the NYT 25 Best. Coda Restaurant Group's modern Portuguese room on East Berkeley. Whole roasted fish, Mozambique shrimp in saffron broth, octopus carpaccio. The $70 tasting menu is the best-value upper-tier meal in the South End.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Whole roasted fish, Mozambique shrimp, sweet rolls, pastel de nata</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 2 weeks · tasting menu pre-set for the table</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Thu for the calm; Fri–Sat livelier</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">NYT 2025 addition</span></div><div class="r-links"><a class="r-link" href="https://www.baleiaboston.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/baleia" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=6226159705763387175" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=5578535171060764560" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPBt6FD8PvpuBjlGkj7i7bAC73cAxAAc7NWHTKvue-cJsSXh4O46a5TiD_UDB5b8jCDETnA5erkajqZXqngw9_1If-VbQ0D-eHtzhKPUI6yGttdgWFCbLifrwxgi_dOQpuwgMmCOPsUo0vdnJS8T86p=s800-w800-h600" alt="Asta" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Asta</h3><div class="r-meta"><span class="nb">Back Bay</span> · $$$ · Tasting</div></div>
+<p class="r-tag">Quietly working since 2013.</p>
+<p class="r-blurb">Resy #16, Michelin Recommended. Alex Crabb's 8-course tasting menu doesn't chase trends — same format for 13 years, daily-changing, optionally vegetarian/vegan/pescatarian. First Saturday of the month they serve fried chicken on a biscuit, noon to 2pm.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>The tasting · add caviar + macarons if celebrating</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Direct on their site, 4 weeks · the Saturday fried chicken is a separate thing</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Thu for the calm dining room</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Resy #16</span><span class="chip">Michelin Rec</span></div><div class="r-links"><a class="r-link" href="http://www.astaboston.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/asta" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=5578535171060764560" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=3463669471667343541" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMmYH1WDzMW5E_bAStu_PC-ODWgkUYGvymri9DoNTOKHSOkQDwS1sq1sitgV2RRQMhbJmspxNDhDrEmumejgmXjoJyqEG4pYGV70_CtOHxMs3J0rCqY8teKvzy-By5ycjiqVRT1UJyJCEXsRpM=s800-w800-h600" alt="Sushi @ Temple Records" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Sushi @ Temple Records</h3><div class="r-meta"><span class="nb">Downtown</span> · $$$ · Sushi</div></div>
+<p class="r-tag">Sushi in the basement under a vinyl bar.</p>
+<p class="r-blurb">Infatuation 8.3. Walk into the Temple Records vinyl bar, go downstairs, find a 14-seat sushi room with brick walls and rotating deep cuts from the collection upstairs. Quietly one of the best omakase values in town — cheaper than O Ya, 311, or Uni.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Kan shiromi moriawase set, spicy tuna maki, owan bowl, sake nigiri</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 2 weeks · weekday seats easier than weekend</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Tue–Thu; closed Sunday</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Infatuation 8.3</span></div><div class="r-links"><a class="r-link" href="https://www.sushiattemplerecords.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/sushi-at-temple-records" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=3463669471667343541" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+</section>
+<section class="chapter" id="tier4">
+<div class="tier-intro">
+<div class="tier-num">— Tier 04</div>
+<h2 class="tier-name">For <em>daytime</em> and between-meal.</h2>
+<p class="tier-dek">Bagels, bánh mì, late-night dim sum, and the spots that don't ask for a reservation. Cheap, fast, consistently great.</p>
+</div>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=13893111464813560623" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZM07ypET5QLxviLB4BeT91M2FTnq6-k_Bk-XpvRXekrDwfJ_eTdfIZ_1QTW3dcl6IHGWZs_nRv0msMZCkabkglmimORlIi_cFkhC553CEm1yBeMRLjtmXFGrRuNIk8CRRzd9Kfts5RDOs4f5H8MOMvEfw=s800-w800-h600" alt="Bánh Mì Ba Lẹ" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Bánh Mì Ba Lẹ</h3><div class="r-meta"><span class="nb">Dorchester</span> · $ · Vietnamese</div></div>
+<p class="r-tag">$8 sandwiches, decades of practice.</p>
+<p class="r-blurb">NYT, Eater 38, Globe Best Bánh Mì. Counter-service Vietnamese sandwich shop on Dorchester Avenue. Crispy baguette, properly composed pâté plus cold cuts plus cucumber plus cilantro. Open 6am–6pm, seven days. Worth a Red Line ride if you're doing a Dorchester loop with Comfort Kitchen.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Roasted pork bánh mì, chicken bánh mì, fresh sugarcane juice</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in only · lines move fast, assembly-line operation</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Morning or early afternoon, 7 days</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT</span><span class="chip">Eater 38</span><span class="chip featured">Globe Best</span></div><div class="r-links"><a class="r-link" href="http://balebanhmiboston.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in only</span><a class="r-link" href="https://maps.google.com/?cid=13893111464813560623" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=18077088557012994328" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqE1JAKHDFcw7Si3BMpOP3a3YsKeBMe_MclK0EBaViRww9k-S3l4z14ctEewlNGT9hjosEvhXA53gDHLZVMOaZIj9oH8XDCoy7M=s800-w800-h600" alt="Bagelsaurus" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Bagelsaurus</h3><div class="r-meta"><span class="nb">Cambridge</span> · $ · Bagels</div></div>
+<p class="r-tag">The Bon Appétit pick for best bagels in Boston.</p>
+<p class="r-blurb">NYT, Eater 38, BA Best Bagels. Sourdough bagels in Porter Square, fluffy-chewy in the right proportion. Hot Smoked and Cold Smoked sandwiches are the destinations. Line moves fast. Worth the Red Line ride from anywhere.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Hot Smoked sandwich, Classic Jumbo with bacon, spicy pepper cream cheese</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in only · arrive before 9am to beat the weekend rush</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Tue–Sun mornings · closed Mondays</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT</span><span class="chip">Eater 38</span><span class="chip featured">BA Best Bagels</span></div><div class="r-links"><a class="r-link" href="http://bagelsaurus.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in only</span><a class="r-link" href="https://maps.google.com/?cid=18077088557012994328" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=2568787580636384140" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMWZ89huFMZDwwdlkPKZoHVr_NNMAvvz7X6Cu2RzhfyNKc_hNAEib80cMyv0Yzy1Cc1LGyOAQstb-eq1oJHIvAINtlsdYfIj3Ef9-tZRG8dtgwMqcg_ndu444QgWPta2qS0DMY3yzsov4UqvhQ=s800-w800-h600" alt="Sofra" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Sofra</h3><div class="r-meta"><span class="nb">Cambridge</span> · $ · Middle Eastern</div></div>
+<p class="r-tag">Ana Sortun's bakery counterpart.</p>
+<p class="r-blurb">NYT, Eater 38, Infatuation 8.2. Counter-service Middle Eastern bakery and breakfast/lunch spot in Cambridge. Shakshuka, Turkish breakfast, mezze platters, baked goods that have made generations of Harvard grad students weak in the knees. Lunch only — closes at 5pm.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Shakshuka, Turkish breakfast, Persian Spiced Kouign Amann, za'atar man'ouche</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in only · counter service · weekend mornings are packed</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Weekday mornings; open 8am–5pm daily</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT</span><span class="chip">Eater 38</span><span class="chip">Infatuation 8.2</span></div><div class="r-links"><a class="r-link" href="http://www.sofrabakery.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in only</span><a class="r-link" href="https://maps.google.com/?cid=2568787580636384140" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=16825734176436793797" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqHRT4NKt3mGhUMT6_jDS1n40DdzqigDIs0UOGFOoPZcxdaw-IWmp8Zbx1WowgmZRrgFUZT8yQ9-83Z9Mb4VWahH7GKU5Wa-fjc=s800-w800-h600" alt="Sumiao Hunan Kitchen" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Sumiao Hunan Kitchen</h3><div class="r-meta"><span class="nb">Cambridge</span> · $$ · Chinese</div></div>
+<p class="r-tag">Hunanese, Bib Gourmand.</p>
+<p class="r-blurb">NYT, Eater 38, Michelin Bib Gourmand. Hunanese cooking in Kendall Square. Fish in foil, duck egg-yolk-coated shrimp, beef on fire. Generous portions and reasonable prices. Ask for "authentic" spice level if you can handle heat.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Fish in foil, duck egg yolk shrimp, beef on fire, cucumber starter</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, 1 week · ask about Dine Out Boston tasting menu</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Open Tue–Sun, all dinner service</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT</span><span class="chip">Eater 38</span><span class="chip featured">Michelin Bib</span></div><div class="r-links"><a class="r-link" href="http://www.sumiaohunan.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/sumiao-hunan-kitchen-cambridge" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=16825734176436793797" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=10486221440957658875" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqFD1glLsBLJ1yI9tj7sJr-yPLS6AMNVqF4PM6_wXqXC0aAkUDH-qBrUgoB6cGPl3EfkjXn1-DlbFRXLWhGeoTDQxfvcO2yXP7c=s800-w800-h600" alt="Yume Ga Arukara" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Yume Ga Arukara</h3><div class="r-meta"><span class="nb">Cambridge</span> · $ · Udon</div></div>
+<p class="r-tag">Hand-pulled udon in Porter Square.</p>
+<p class="r-blurb">NYT, Eater 38. Cramped, focused, devoted to udon. The cold noodles are the destination — perfectly chewy, balanced sweet-savory broth, beef and onsen egg. 25-minute wait on weekends, less on weekdays. Second outpost in the Seaport.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Cold udon with beef + onsen egg, spicy hot version, tempura flakes on top</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in only · 25 min wait on weekend, less weekday lunch</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Open 11am–8:45pm, 7 days; Seaport outpost has same menu</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT</span><span class="chip">Eater 38</span></div><div class="r-links"><a class="r-link" href="https://yumegaarukara.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in only</span><a class="r-link" href="https://maps.google.com/?cid=10486221440957658875" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=7150035807497802063" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqH1Ad4uru-nWGCMtP3faRhWRUfnEsVFKFSPZ_NCrQwkdnf72bq-hXEHU8AQ8gVrHVBOYj1WhBm4TSOegylqp7o1mSGU3oVmIZU=s800-w800-h600" alt="Darling" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Darling</h3><div class="r-meta"><span class="nb">Cambridge</span> · $$ · Dim Sum + Cocktails</div></div>
+<p class="r-tag">Resy #2 — the old Mary Chung space, reborn.</p>
+<p class="r-blurb">A cocktail lounge with serious dim sum from former O Ya chef Mark O'Leary. Hope I Packed a Parachute (matcha milk punch) and the Filet o Fish Bao (salt cod, American cheese, pickled mustard) are the calling cards. Open till midnight, late nightcap territory.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Filet o Fish Bao, $8 cucumber, red braised pork ribs, Hope I Packed a Parachute</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Resy, 1–2 weeks · open till midnight (1am Fri/Sat)</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Late dinner or post-show drinks; closed Mondays</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">Resy #2</span></div><div class="r-links"><a class="r-link" href="https://darlingcambridge.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/darling-cambridge" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=7150035807497802063" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=10765170246693359951" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNfK0gSCztmEKNl4vjtLrXKgvmvsCps0ooSqInN93A8xZmaw9mUsaUB6G3TZ-3VNgrooVVHbPfiisXbXhT5Db3hwd_M_7fVj2f7rNB7asfuQAJjD66xROwoUnCrA-PcbEzekvbyJajMZNcNnuE=s800-w800-h600" alt="Dear Annie" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">Dear Annie</h3><div class="r-meta"><span class="nb">Cambridge</span> · $$ · Wine Bar</div></div>
+<p class="r-tag">Natural wine, communal table.</p>
+<p class="r-blurb">Eater 38, Infatuation 8.1. A natural wine bar that doubles as a vegetarian-leaning kitchen — the menu is a zine. Sea Dog (fishcake shaped like a ballpark dog), grilled cheese that surprised everyone, and a wine list focused on low-intervention producers.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Sea Dog, the grilled cheese, onion dips and chips, anything by the glass</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>Walk-in friendly · communal table seats first-come</dd></div>
+<div class="r-detail"><dt>Best night</dt><dd>Late-evening hang; open till 11pm Tue–Sat</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Eater 38</span><span class="chip">Infatuation 8.1</span></div><div class="r-links"><a class="r-link" href="http://dearanniebar.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://resy.com/cities/bos/venues/dear-annie" target="_blank" rel="noopener">Book on Resy ↗</a><a class="r-link" href="https://maps.google.com/?cid=10765170246693359951" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+<article class="restaurant-feature">
+<div class="r-image">
+<a href="https://maps.google.com/?cid=2572576889612327642" target="_blank" rel="noopener" title="Open in Google Maps"><img src="https://lh3.googleusercontent.com/places/ANXAkqHHLPkXsRpgCncpoNBqm47cJOguCQdPAF1n6jvYUKS13Q1ttKPIdF2whqQqDmgGrrTKyoFH5B2Y3LRRByNdXPPlRRTPqNRTVfI=s800-w800-h600" alt="The Dubliner" loading="lazy"></a>
+</div><div class="r-header"><h3 class="r-name">The Dubliner</h3><div class="r-meta"><span class="nb">Downtown</span> · $$ · Irish</div></div>
+<p class="r-tag">Boston's Irish pub, recalibrated.</p>
+<p class="r-blurb">Infatuation 8.0. Center Plaza, walkable from the Common. Best fish and chips, scotch eggs, soda bread, and Irish stew east of Dublin. Live music on weekends. Pre-show territory if you're heading to the Garden, post-show if you're in Beacon Hill.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Fish &amp; chips, scotch egg, beef stew, the Guinness</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, 1 week if there's a game · walk-in friendly</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Pre-Garden game or weekend afternoon · open till 2am</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Infatuation 8.0</span></div><div class="r-links"><a class="r-link" href="http://www.thedublinerboston.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/the-dubliner-boston" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=2572576889612327642" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+</section>
+<section class="chapter" id="tier5">
+<div class="tier-intro">
+<div class="tier-num">— Tier 05</div>
+<h2 class="tier-name">Breakfast and lunch, <em>built around the day</em>.</h2>
+<p class="tier-dek">The dinner picks are most of the work, but the daytime meals are what tie a trip together. Organized by neighborhood, so you can pair them with what you're already doing — museums in Fenway, Freedom Trail in the North End, the Harborwalk to the ICA, or a slow morning in the South End.</p>
+</div>
+
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;font-style:italic;color:var(--accent);margin:3rem 0 0;letter-spacing:-.01em">Near the hotel — South End, Back Bay, Bay Village</h3>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://maps.google.com/?q=Tatte+Bakery+South+End+Boston" target="_blank" rel="noopener" title="Visit Tatte"><img src="https://a.mktgcdn.com/p/0tmRPVsy7YGebUWgXkJ38mQ5qDJmqHJNadsD1VeHYNc/500x1000.jpg" alt="Tatte Bakery & Café" loading="lazy"></a></div>
+<div class="r-header"><h3 class="r-name">Tatte Bakery &amp; Café</h3><div class="r-meta"><span class="nb">South End</span> · $$ · Breakfast / Café</div></div>
+<p class="r-tag">The all-purpose morning anchor.</p>
+<p class="r-blurb">Multiple locations, but the Harrison Avenue spot in the South End is a five-minute walk from anywhere near the Common. Excellent pastries, shakshuka, halloumi sandwiches, strong coffee. Cozy enough to linger over a meeting, fast enough to grab and go. Open 7am daily. There's also a Back Bay location on Newbury if that's closer.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Shakshuka, halloumi breakfast sandwich, almond croissant, oat-milk matcha latte</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · busy 8-10am weekends, calm midweek mornings</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Open 7am–7:30pm daily; breakfast served all day</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Time Out</span><span class="chip">Boston Insider</span></div>
+<div class="r-links"><a class="r-link" href="http://tattebakery.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?cid=11298018937595908869" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://maps.google.com/?q=Mike+and+Pattys+Bay+Village+Boston" target="_blank" rel="noopener" title="Visit Mike &amp; Patty's"><div class="r-image-placeholder"><span>Mike &amp; Patty's</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Mike &amp; Patty's</h3><div class="r-meta"><span class="nb">Bay Village</span> · $ · Breakfast Sandwich</div></div>
+<p class="r-tag">Boston's best breakfast sandwich, no question.</p>
+<p class="r-blurb">A tiny Bay Village storefront with two stools and a line out the door. The Fancy — fried eggs, bacon, cheddar, avocado, red onion, house mayo on toasted multigrain — has been the city's reference breakfast sandwich for a decade. Grab one, walk two minutes to the Common pocket park at Charles and Melrose, eat on a stoop. Open 7:30am–2pm daily.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>The Fancy · or the Egg &amp; Cheese on a roll, classic version</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in only · order ahead online to skip the line</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Open 7:30am–2pm, 7 days · weekday mornings calmer</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Time Out</span><span class="chip featured">Boston Mag Best</span></div>
+<div class="r-links"><a class="r-link" href="http://www.mikeandpattys.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?cid=11844068989013952631" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://maps.google.com/?q=South+End+Buttery+Boston" target="_blank" rel="noopener" title="Visit The Buttery"><img src="https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/gsqhvebd/e2d89f32-db8a-430b-b008-4235ef9ba77d.png" alt="The Buttery interior" loading="lazy"></a></div>
+<div class="r-header"><h3 class="r-name">South End Buttery</h3><div class="r-meta"><span class="nb">South End</span> · $$ · Breakfast / Brunch</div></div>
+<p class="r-tag">The sit-down option.</p>
+<p class="r-blurb">When someone wants real eggs Benedict and a long table — this is the spot. Two-level South End café-bistro on Shawmut Ave. Huevos rancheros, eggs Benedict, smoked salmon plate, a full bakery case, and a full bar. Takes reservations for brunch, which matters on weekends. Open 6:30am–9pm daily.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Huevos rancheros, smoked salmon plate, eggs Benedict, the chili</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable for weekend brunch · walk-in midweek</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Weekday mornings or reserved weekend brunch</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Boston Insider</span></div>
+<div class="r-links"><a class="r-link" href="https://www.southendbuttery.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/the-south-end-buttery-boston" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=13005006540817154952" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;font-style:italic;color:var(--accent);margin:3rem 0 0;letter-spacing:-.01em">North End / Freedom Trail</h3>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://maps.google.com/?q=Monicas+Mercato+Salem+Street+Boston" target="_blank" rel="noopener" title="Visit Monica's Mercato"><img src="https://www.monicasnorthend.com/static/d5bebcb97a2aeb6ff081b9b06fcb3626/5267c/italian_sub-min.jpg" alt="Monica's Mercato Italian sub" loading="lazy"></a></div>
+<div class="r-header"><h3 class="r-name">Monica's Mercato</h3><div class="r-meta"><span class="nb">North End</span> · $$ · Italian Sub</div></div>
+<p class="r-tag">The Italian sub. Pause for it.</p>
+<p class="r-blurb">Boston Globe Best of the Best 2025 for sandwiches, plus a stack of consensus picks from every other publication that's looked. Family-owned since 1995 on Salem Street. The Italian — prosciutto, mortadella, salami, provolone on a soft-crusty roll with the right amount of oil, vinegar, lettuce, tomato, hots, balsamic glaze — runs $20 and feeds two. Order ahead online to skip the line. Pairs with a Paul Revere House walk before or after.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>The Italian (split it) · chicken cutlet sandwich · prosciutto + fresh mozzarella</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in or order ahead online · line moves but worth the wait</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Open 9am–8pm, 7 days · lunch hour is busiest</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">Globe Best 2025</span><span class="chip">Food Lens Top 10</span><span class="chip">Yelp #1</span></div>
+<div class="r-links"><a class="r-link" href="https://www.monicasnorthend.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?cid=11421795988866684399" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://maps.google.com/?q=Mikes+Pastry+Hanover+Street+Boston" target="_blank" rel="noopener" title="Visit Mike's Pastry"><img src="https://goldbelly.imgix.net/uploads/showcase_media_asset/image/133468/mikes-famous-cannoli-kit.28187f167eb451143b1b6c252bd480a7.jpg?w=800&h=600&fit=crop" alt="Mike's Pastry cannoli" loading="lazy"></a></div>
+<div class="r-header"><h3 class="r-name">Mike's Pastry <span style="color:var(--ink-muted);font-size:.55em;font-style:italic;font-weight:300"> vs. </span> Modern Pastry</h3><div class="r-meta"><span class="nb">North End</span> · $ · The Cannoli Debate</div></div>
+<p class="r-tag">Try both. Decide for yourself. That's the game.</p>
+<p class="r-blurb">The 80-year North End cannoli rivalry, conveniently a 100-yard walk apart on Hanover Street. <strong>Mike's</strong> (300 Hanover, since 1946) has the bigger cannoli and 19 flavors — limoncello, pistachio, Florentine, ricotta classic. Bigger line, more famous, cash only. <strong>Modern</strong> (257 Hanover, since 1930) makes a smaller cannoli but fills it to order, and has a sit-down café upstairs and a bar downstairs. Both shells stay crisp because the filling goes in fresh. The honest answer: get one of each, walk between them, and pick a winner. Bring cash.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Mike's order</dt><dd>Florentine cannoli, ricotta classic, lobster tail, sfogliatelle</dd></div>
+<div class="r-detail"><dt>Modern's order</dt><dd>Filled-to-order ricotta cannoli, lobster tail, tiramisu in the café</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Cash only at both · expect a line at Mike's, usually shorter at Modern</dd></div>
+</dl>
+<div class="r-chips"><span class="chip featured">North End Tradition</span><span class="chip">Mike's est. 1946</span><span class="chip">Modern est. 1930</span></div>
+<div class="r-links"><a class="r-link" href="http://www.mikespastry.com/" target="_blank" rel="noopener">Mike's site ↗</a><a class="r-link" href="http://www.modernpastry.com/" target="_blank" rel="noopener">Modern's site ↗</a><a class="r-link" href="https://maps.google.com/?cid=12609816929664692062" target="_blank" rel="noopener">Mike's directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://maps.google.com/?q=Caffe+Vittoria+Hanover+Street+Boston" target="_blank" rel="noopener" title="Visit Caffè Vittoria"><div class="r-image-placeholder"><span>Caffè Vittoria</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Caffè Vittoria</h3><div class="r-meta"><span class="nb">North End</span> · $ · Espresso / Pastries</div></div>
+<p class="r-tag">Boston's oldest Italian café, since 1929.</p>
+<p class="r-blurb">If you've eaten the sub from Monica's and need a sit-down espresso somewhere with marble tabletops and antique espresso machines on display, this is the move. Vintage Italian charm — old wood, kitschy décor, espresso pulled the way it should be. Tiramisu, rum cake, pistachio cannoli. Open till 11pm or midnight, so this also works for an after-dinner stop in the North End.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Cappuccino, tiramisu, pistachio cannoli, espresso martini</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Walk-in · cash only · seat yourself</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Open 8am–11pm (midnight Fri/Sat); afternoons quietest</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Est. 1929</span><span class="chip">North End Icon</span></div>
+<div class="r-links"><a class="r-link" href="http://www.caffevittoria.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?cid=18336947183751889553" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;font-style:italic;color:var(--accent);margin:3rem 0 0;letter-spacing:-.01em">Near the museums — MFA, Gardner, Fenway</h3>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://maps.google.com/?q=Saloniki+Greek+Kilmarnock+Boston" target="_blank" rel="noopener" title="Visit Saloniki"><img src="https://static.wixstatic.com/media/df3f10_05aaf024ba484dc698e1625b077527eb~mv2.jpg/v1/fit/w_2500,h_1330,al_c/df3f10_05aaf024ba484dc698e1625b077527eb~mv2.jpg" alt="Saloniki Greek" loading="lazy"></a></div>
+<div class="r-header"><h3 class="r-name">Saloniki Greek</h3><div class="r-meta"><span class="nb">Fenway</span> · $ · Fast-Casual Greek</div></div>
+<p class="r-tag">Jody Adams (Rialto, La Padrona), at lunch speed.</p>
+<p class="r-blurb">The James Beard winner's fast-casual Greek spot on Kilmarnock Street — five-minute walk from the MFA and Gardner. Build-your-own pita or grain bowl, zucchini-feta fritters, gyros, lamb meatballs, a good vegetarian option in the zucchini fritter pita. Counter service, you'll be in and out in 25 minutes, ready to walk back into the museum. There's also a beer and wine list and Greek frozen yogurt for dessert.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Build-your-own pita, zucchini-feta fritters, lamb gyro, Greek frozen yogurt</dd></div>
+<div class="r-detail"><dt>Strategy</dt><dd>Counter service · walk-in · busiest 12-1pm</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Open 11am–9pm, 7 days · arrive before noon or after 1pm</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Boston Mag</span><span class="chip">Jody Adams</span></div>
+<div class="r-links"><a class="r-link" href="http://www.salonikigreek.com/" target="_blank" rel="noopener">Website ↗</a><span class="r-link r-link-disabled">Walk-in</span><a class="r-link" href="https://maps.google.com/?cid=17725115617022804076" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://maps.google.com/?q=Sweet+Cheeks+Q+Fenway+Boston" target="_blank" rel="noopener" title="Visit Sweet Cheeks Q"><div class="r-image-placeholder"><span>Sweet Cheeks Q</span></div></a></div>
+<div class="r-header"><h3 class="r-name">Sweet Cheeks Q</h3><div class="r-meta"><span class="nb">Fenway</span> · $$ · BBQ</div></div>
+<p class="r-tag">Texas BBQ from Tiffani Faison.</p>
+<p class="r-blurb">Top Chef alum's Fenway BBQ joint on Boylston, ten minutes from the Gardner. Brisket, pulled pork, ribs, smoked wings — and biscuits with honey butter that have earned their own following. Rustic-loud room, friendly to a hungry group post-museum. Sit-down with table service, takes reservations on OpenTable. Pair with a Fenway show night if you're not doing Eastern Standard or Grill 23.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Brisket plate, pork belly, ribs, the biscuits with honey butter (non-negotiable)</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, 1 week · walk-in late-lunch friendly</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Open 11:30am–9pm (10pm Fri/Sat) · lunch is the quieter version</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">Tiffani Faison</span><span class="chip">Boston Mag</span></div>
+<div class="r-links"><a class="r-link" href="http://www.sweetcheeksq.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/sweet-cheeks-q-boston" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=2718812148247813181" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;font-style:italic;color:var(--accent);margin:3rem 0 0;letter-spacing:-.01em">Seaport / ICA / Harborwalk</h3>
+
+<article class="restaurant-feature">
+<div class="r-image"><a href="https://maps.google.com/?q=Row+34+Seaport+Boston" target="_blank" rel="noopener" title="Visit Row 34"><img src="https://images.getbento.com/accounts/0458dfcde69e52599298b5a6f7714c1d/media/images/35028Row34-July2021-AGL-173.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&h=600" alt="Row 34 Seaport" loading="lazy"></a></div>
+<div class="r-header"><h3 class="r-name">Row 34</h3><div class="r-meta"><span class="nb">Seaport</span> · $$$ · Oyster Bar</div></div>
+<p class="r-tag">NYT 25 Best — but the lunch version is the move.</p>
+<p class="r-blurb">Island Creek Oyster Bar's Seaport sibling in a converted Fort Point textile warehouse. East Coast oysters, halibut ceviche tacos, lager-steamed mussels, the bacon cheddar burger. Made the NYT 25 Best list, but mostly cited there for dinner — at lunch the room is calm, the seats are easy to get, and the oyster-and-burger combo is genuinely one of the best $30 lunches in the city. Six-minute walk from the ICA.</p>
+<dl class="r-details">
+<div class="r-detail"><dt>Order</dt><dd>Island Creek oysters, halibut ceviche tacos, bacon cheddar burger, clam chowder</dd></div>
+<div class="r-detail"><dt>Book</dt><dd>OpenTable, 1 week for dinner · walk-in friendly at lunch</dd></div>
+<div class="r-detail"><dt>Best time</dt><dd>Lunch (11:30am opening) before the dinner crowd · open 7 days</dd></div>
+</dl>
+<div class="r-chips"><span class="chip">NYT 25 Best</span><span class="chip">Infatuation</span><span class="chip">Boston Mag</span></div>
+<div class="r-links"><a class="r-link" href="https://row34.com/" target="_blank" rel="noopener">Website ↗</a><a class="r-link r-link-primary" href="https://www.opentable.com/r/row-34-boston" target="_blank" rel="noopener">Book on OpenTable ↗</a><a class="r-link" href="https://maps.google.com/?cid=13328928068275627038" target="_blank" rel="noopener">Directions ↗</a></div>
+</article>
+
+<div class="pullquote" style="margin-top:3rem">Two things already in this guide that double as <em>excellent</em> lunches: Saltie Girl for the lobster roll (Back Bay), and Neptune Oyster — at lunch, before the dinner line forms (North End, off the Freedom Trail).</div>
+
+</section>
+</main>
+</div>
+<section class="next-up">
+<div class="next-up-inner">
+<div>
+<div class="next-up-label">— Continue the guide</div>
+<h3>Next: <em>Where to stay</em></h3>
+</div>
+<a href="../stay/" class="next-up-cta">Hotels by neighborhood →</a>
+</div>
+</section>
+
+<footer>
+<div class="footer-inner">
+<div class="footer-top">
+<div class="footer-brand"><a href="../../">Field <em>Guide</em></a></div>
+<div class="footer-tagline">Issue 01 — Boston · Part 01, Where to eat.</div>
+</div>
+<div class="footer-bottom">
+<div>© 2026 Field Guide. Researched against NYT, Eater, Boston Mag, CN Traveler, Infatuation, Resy, Boston Globe.</div>
+<div>No affiliate links · No paid placements</div>
+</div>
+</div>
+</footer>
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') {
+      setTimeout(initMap, 100);
+      return;
+    }
+    var map = L.map('map').setView([42.351, -71.075], 13);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    var restaurants = [
+      {name:'Sarma',tier:1,lat:42.3851,lng:-71.1003,tag:'Mediterranean · Somerville',lists:5,label:'★'},
+      {name:'Mooncusser',tier:1,lat:42.3498,lng:-71.0707,tag:'Seafood Tasting · Bay Village',lists:5,label:'★'},
+      {name:'Comfort Kitchen',tier:1,lat:42.3175,lng:-71.0641,tag:'Diaspora · Dorchester',lists:4,label:'4'},
+      {name:'Neptune Oyster',tier:1,lat:42.3632,lng:-71.0560,tag:'Seafood · North End',lists:5,label:'★'},
+      {name:'O Ya',tier:1,lat:42.3515,lng:-71.0569,tag:'Omakase · Leather District',lists:4,label:'4'},
+      {name:'Toro',tier:1,lat:42.3370,lng:-71.0759,tag:'Spanish · South End',lists:4,label:'4'},
+      {name:'La Padrona',tier:1,lat:42.3484,lng:-71.0751,tag:'Italian · Back Bay',lists:5,label:'★'},
+      {name:'Tonino',tier:2,lat:42.3125,lng:-71.1143,tag:'Italian · Jamaica Plain',lists:5,label:'★'},
+      {name:'Oleana',tier:2,lat:42.3705,lng:-71.0972,tag:'Mediterranean · Cambridge',lists:4,label:'4'},
+      {name:'Kaia',tier:2,lat:42.3441,lng:-71.0636,tag:'Greek · South End',lists:4,label:'4'},
+      {name:'Uni',tier:2,lat:42.3487,lng:-71.0888,tag:'Japanese · Back Bay',lists:2,label:'2'},
+      {name:'Somaek',tier:2,lat:42.3552,lng:-71.0626,tag:'Korean · Downtown',lists:4,label:'4'},
+      {name:"Pammy's",tier:2,lat:42.3684,lng:-71.1092,tag:'Trattoria · Cambridge',lists:4,label:'4'},
+      {name:'Saltie Girl',tier:2,lat:42.3512,lng:-71.0776,tag:'Seafood · Back Bay',lists:3,label:'3'},
+      {name:'Giulia',tier:2,lat:42.3825,lng:-71.1200,tag:'Italian · Cambridge',lists:3,label:'3'},
+      {name:'Moëca',tier:2,lat:42.3819,lng:-71.1201,tag:'Seafood · Cambridge',lists:3,label:'3'},
+      {name:'Brassica',tier:2,lat:42.3003,lng:-71.1132,tag:'New American · JP',lists:3,label:'3'},
+      {name:'Cafe Sushi',tier:2,lat:42.3706,lng:-71.1134,tag:'Japanese · Cambridge',lists:3,label:'3'},
+      {name:'Via Cannuccia',tier:2,lat:42.2909,lng:-71.0630,tag:'Roman · Dorchester',lists:3,label:'3'},
+      {name:'Eastern Standard',tier:'fenway',lat:42.3475,lng:-71.1014,tag:'American · Fenway',lists:2,label:'F'},
+      {name:'311 Omakase',tier:3,lat:42.3431,lng:-71.0736,tag:'Omakase · South End',lists:2,label:'2'},
+      {name:'SRV',tier:3,lat:42.3410,lng:-71.0817,tag:'Venetian · South End',lists:1,label:'1'},
+      {name:'Grill 23',tier:'fenway',lat:42.3495,lng:-71.0720,tag:'Steakhouse · Back Bay',lists:2,label:'F'},
+      {name:'Bar Mezzana',tier:3,lat:42.3446,lng:-71.0636,tag:'Italian · South End',lists:1,label:'1'},
+      {name:'Baleia',tier:3,lat:42.3432,lng:-71.0629,tag:'Portuguese · South End',lists:1,label:'1'},
+      {name:'Asta',tier:3,lat:42.3498,lng:-71.0893,tag:'Tasting · Back Bay',lists:2,label:'2'},
+      {name:'Sushi @ Temple Records',tier:3,lat:42.3552,lng:-71.0626,tag:'Sushi · Downtown',lists:1,label:'1'},
+      {name:'Bánh Mì Ba Lẹ',tier:4,lat:42.3148,lng:-71.0567,tag:'Vietnamese · Dorchester',lists:3,label:'3'},
+      {name:'Bagelsaurus',tier:4,lat:42.3860,lng:-71.1196,tag:'Bagels · Cambridge',lists:3,label:'3'},
+      {name:'Sofra',tier:4,lat:42.3749,lng:-71.1503,tag:'Middle Eastern · Cambridge',lists:3,label:'3'},
+      {name:'Sumiao Hunan',tier:4,lat:42.3659,lng:-71.0820,tag:'Chinese · Cambridge',lists:3,label:'3'},
+      {name:'Yume Ga Arukara',tier:4,lat:42.3876,lng:-71.1187,tag:'Udon · Cambridge',lists:2,label:'2'},
+      {name:'Darling',tier:4,lat:42.3636,lng:-71.1013,tag:'Dim Sum · Cambridge',lists:1,label:'1'},
+      {name:'Dear Annie',tier:4,lat:42.3846,lng:-71.1192,tag:'Wine Bar · Cambridge',lists:2,label:'2'},
+      {name:'The Dubliner',tier:4,lat:42.3600,lng:-71.0602,tag:'Irish Pub · Downtown',lists:1,label:'1'}
+    ];
+
+    restaurants.forEach(function(r){
+      var tierClass = 'tier' + r.tier;
+      var icon = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="custom-pin ' + tierClass + '">' + r.label + '</div>',
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+      var marker = L.marker([r.lat, r.lng], { icon: icon }).addTo(map);
+      marker.bindPopup(
+        '<div class="pop-name">' + r.name + '</div>' +
+        '<div class="pop-tag">' + r.tag + '</div>' +
+        '<div class="pop-meta">' + r.lists + (r.lists === 1 ? ' list' : ' lists') + '</div>'
+      );
+    });
+
+    var fenwayIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Fenway</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([42.3467, -71.0972], { icon: fenwayIcon }).addTo(map);
+
+    var commonIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Common</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([42.3551, -71.0657], { icon: commonIcon }).addTo(map);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMap);
+  } else {
+    initMap();
+  }
+})();
+</script>
+</body>
+</html>
