@@ -7,100 +7,20 @@
 <meta name="description" content="A series of editorial city guides — restaurants, plans, and practical notes for traveling well.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0a0a0a;--ink-soft:#2a2a2a;--ink-muted:#6b6b6b;--paper:#fff;--canvas:#fafaf8;--rule:#e5e3df;--rule-strong:#1a1a1a;--accent:#c8463a;--accent-soft:#f4e8e6}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-
-/* Topbar — same as guide */
-.topbar{background:var(--ink);color:var(--paper);padding:.85rem 2rem;font-size:.85rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.topbar .brand{font-family:'Source Serif 4',serif;font-weight:500;font-size:1.05rem;letter-spacing:-.01em}
-.topbar .meta{color:#999;font-size:.78rem;letter-spacing:.05em}
-
-/* Masthead */
-.masthead{max-width:1200px;margin:0 auto;padding:6rem 2rem 4rem;border-bottom:1px solid var(--rule)}
-.masthead-kicker{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:2rem}
-.masthead-title{font-family:'Source Serif 4',serif;font-weight:400;font-size:clamp(3.5rem,9vw,7rem);line-height:.95;letter-spacing:-.035em;margin-bottom:2rem}
-.masthead-title em{font-style:italic;font-weight:300;color:var(--accent)}
-.masthead-dek{font-family:'Source Serif 4',serif;font-weight:300;font-size:clamp(1.25rem,2.2vw,1.65rem);line-height:1.45;color:var(--ink-soft);max-width:760px;margin-bottom:3rem}
-.masthead-meta{display:flex;gap:3rem;padding-top:2rem;border-top:1px solid var(--rule);font-size:.8rem;letter-spacing:.05em;color:var(--ink-muted);flex-wrap:wrap}
-.masthead-meta strong{color:var(--ink);font-weight:600;display:block;margin-bottom:.35rem;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}
-
-/* About strip */
-.about{background:var(--canvas);border-bottom:1px solid var(--rule)}
-.about-inner{max-width:1200px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 2fr;gap:4rem}
-.about-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600}
-.about-body{font-family:'Source Serif 4',serif;font-size:1.2rem;font-weight:300;line-height:1.6;color:var(--ink-soft)}
-.about-body p+p{margin-top:1.25rem}
-.about-body strong{color:var(--ink);font-weight:500}
-@media (max-width:768px){.about-inner{grid-template-columns:1fr;gap:1.5rem;padding:3rem 1.5rem}}
-
-/* Guide section */
-.guides{max-width:1200px;margin:0 auto;padding:5rem 2rem 6rem}
-.guides-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1px solid var(--rule-strong);flex-wrap:wrap;gap:1rem}
-.guides-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);font-weight:600}
-.guides-count{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;color:var(--ink-muted);font-size:1rem}
-
-/* Featured city card */
-.city-feature{display:grid;grid-template-columns:1.1fr 1fr;gap:0;border:1px solid var(--rule);background:var(--paper);margin-bottom:3rem;transition:border-color .25s;overflow:hidden}
-.city-feature:hover{border-color:var(--rule-strong)}
-.city-feature .feature-body{padding:3.5rem 3rem}
-.city-feature .feature-num{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;color:var(--accent);font-size:.95rem;letter-spacing:.05em;margin-bottom:1.25rem}
-.city-feature h2{font-family:'Source Serif 4',serif;font-weight:400;font-size:clamp(2.5rem,5vw,4rem);line-height:1;letter-spacing:-.03em;margin-bottom:1.25rem}
-.city-feature h2 em{font-style:italic;font-weight:300;color:var(--accent)}
-.city-feature .feature-dek{font-family:'Source Serif 4',serif;font-weight:300;font-size:1.25rem;line-height:1.5;color:var(--ink-soft);margin-bottom:2rem}
-.city-feature .feature-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding:2rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:2rem}
-.city-feature .feature-stat-num{font-family:'Source Serif 4',serif;font-weight:300;font-size:2.25rem;line-height:1;letter-spacing:-.02em;margin-bottom:.4rem}
-.city-feature .feature-stat-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);line-height:1.3}
-.city-feature .feature-cta{display:inline-flex;align-items:center;gap:.75rem;font-size:.9rem;font-weight:600;letter-spacing:.05em;color:var(--ink);padding-bottom:.4rem;border-bottom:2px solid var(--accent);transition:gap .2s}
-.city-feature:hover .feature-cta{gap:1.25rem}
-.city-feature .feature-meta{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);display:flex;gap:2rem;font-size:.75rem;letter-spacing:.05em;color:var(--ink-muted);flex-wrap:wrap}
-.city-feature .feature-meta strong{color:var(--ink);font-weight:600}
-
-.feature-cover{background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 40%,var(--accent) 100%);position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:3rem;color:var(--paper);min-height:540px}
-.cover-num{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:1rem;letter-spacing:.05em;opacity:.7}
-.cover-city{font-family:'Source Serif 4',serif;font-weight:300;font-size:clamp(4rem,9vw,7rem);line-height:.95;letter-spacing:-.04em;font-style:italic}
-.cover-city span{display:block;font-style:normal;font-weight:400;font-size:.5em;letter-spacing:-.02em;margin-top:.5rem;opacity:.75}
-.cover-bottom{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;font-weight:500}
-.cover-rule{width:60px;height:1px;background:rgba(255,255,255,.5);margin-bottom:1rem}
-
-@media (max-width:900px){.city-feature{grid-template-columns:1fr}.city-feature .feature-body{padding:2.5rem 1.75rem}.feature-cover{min-height:340px;padding:2rem 1.75rem}.city-feature .feature-stats{grid-template-columns:repeat(3,1fr);gap:1rem}.city-feature .feature-stat-num{font-size:1.75rem}}
-
-/* Coming soon strip */
-.coming-soon{margin-top:5rem;padding:3.5rem 0;border-top:1px solid var(--rule);text-align:center}
-.coming-soon-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1.25rem}
-.coming-soon-text{font-family:'Source Serif 4',serif;font-weight:300;font-style:italic;font-size:1.5rem;line-height:1.4;color:var(--ink-soft);max-width:600px;margin:0 auto}
-
-/* Editorial note */
-.note{background:var(--canvas);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.note-inner{max-width:900px;margin:0 auto;padding:4rem 2rem;text-align:center}
-.note-kicker{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1.5rem}
-.note-text{font-family:'Source Serif 4',serif;font-weight:300;font-size:1.45rem;line-height:1.55;color:var(--ink-soft)}
-.note-text em{font-style:italic;color:var(--ink)}
-
-/* Footer */
-footer{background:var(--ink);color:#999;padding:4rem 2rem 3rem}
-.footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:2rem;border-bottom:1px solid #2a2a2a;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
-.footer-brand{font-family:'Source Serif 4',serif;color:var(--paper);font-size:1.5rem;font-weight:400;letter-spacing:-.01em}
-.footer-brand em{font-style:italic;font-weight:300;color:var(--accent)}
-.footer-tagline{font-family:'Source Serif 4',serif;font-style:italic;font-weight:300;font-size:.95rem;color:#999}
-.footer-bottom{font-size:.78rem;letter-spacing:.05em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/styles.css">
 </head>
 <body>
 
 <div class="topbar">
-<div class="brand">Field Guide</div>
+<div class="brand">Field <em>Guide</em></div>
 <div class="meta">A series</div>
 </div>
 
 <section class="masthead">
-<div class="masthead-kicker">— A field guide series</div>
+<div class="masthead-kicker">A Series</div>
 <h1 class="masthead-title">Field <em>Guide</em>.</h1>
-<p class="masthead-dek">Editorial city guides for traveling well — researched against the publications that matter, organized for the way people actually move through a city.</p>
+<p class="masthead-dek">Editorial city guides for traveling well – researched against the publications that matter, organized for the way people actually move through a city.</p>
 <div class="masthead-meta">
 <div><strong>Format</strong>Long-form, neighborhood-organized</div>
 <div><strong>Approach</strong>Cross-publication consensus</div>
@@ -110,10 +30,10 @@ footer{background:var(--ink);color:#999;padding:4rem 2rem 3rem}
 
 <section class="about">
 <div class="about-inner">
-<div class="about-label">— About the series</div>
+<div class="about-label">About the series</div>
 <div class="about-body">
 <p>Every city guide on the internet is either a list of the same ten restaurants or a sea of paid placements. Neither is useful when you actually have a trip to plan.</p>
-<p>These guides take a different approach: cross-reference the publications that still do real reporting — the <strong>Times</strong>, <strong>Eater</strong>, <strong>Boston Magazine</strong>, <strong>Infatuation</strong>, the local alt-weeklies — find what they agree on, then organize around how a trip actually unfolds. Tiered by consensus. Mapped by neighborhood. Annotated with what to order, when to book, and what to skip.</p>
+<p>These guides take a different approach: cross-reference the publications that still do real reporting – the <strong>Times</strong>, <strong>Eater</strong>, <strong>Boston Magazine</strong>, <strong>Infatuation</strong>, the local alt-weeklies – find what they agree on, then organize around how a trip actually unfolds. Tiered by consensus. Mapped by neighborhood. Annotated with what to order, when to book, and what to skip.</p>
 <p>No affiliate links. No paid placements. Just a careful read of the field.</p>
 </div>
 </div>
@@ -127,7 +47,7 @@ footer{background:var(--ink);color:#999;padding:4rem 2rem 3rem}
 
 <a href="boston/" class="city-feature">
 <div class="feature-body">
-<div class="feature-num">— Issue 01</div>
+<div class="feature-num">Issue 01</div>
 <h2>Boston, <em>a long weekend</em>.</h2>
 <p class="feature-dek">Forty restaurants across five tiers, organized by neighborhood and time of day, with a focus on what's worth a reservation, what's worth the line, and what doubles as a museum lunch.</p>
 <div class="feature-stats">
@@ -150,13 +70,13 @@ footer{background:var(--ink);color:#999;padding:4rem 2rem 3rem}
 <div class="cover-rule"></div>
 <h3 class="cover-city">Boston<span>Massachusetts</span></h3>
 </div>
-<div class="cover-bottom">— A Field Guide</div>
+<div class="cover-bottom">A Field Guide</div>
 </div>
 </a>
 
 <a href="toronto/" class="city-feature">
 <div class="feature-body">
-<div class="feature-num">— Issue 02</div>
+<div class="feature-num">Issue 02</div>
 <h2>Toronto, <em>a long weekend by train</em>.</h2>
 <p class="feature-dek">Thirty-two restaurants across five tiers, calibrated for two travelers arriving by train at Union Station and walking everywhere that walks – with one Chinatown afternoon and a late-night Cantonese stop built in.</p>
 <div class="feature-stats">
@@ -179,20 +99,20 @@ footer{background:var(--ink);color:#999;padding:4rem 2rem 3rem}
 <div class="cover-rule"></div>
 <h3 class="cover-city">Toronto<span>Ontario</span></h3>
 </div>
-<div class="cover-bottom">— A Field Guide</div>
+<div class="cover-bottom">A Field Guide</div>
 </div>
 </a>
 
 <div class="coming-soon">
-<div class="coming-soon-label">— What's next</div>
+<div class="coming-soon-label">What's next</div>
 <p class="coming-soon-text">More cities in the pipeline. Each guide takes weeks of research, so they arrive when they're ready, not on a schedule.</p>
 </div>
 </section>
 
 <section class="note">
 <div class="note-inner">
-<div class="note-kicker">— Editorial note</div>
-<p class="note-text">Field Guide is a personal project. The recommendations reflect <em>what the city's best publications agree on</em> — filtered through the kind of judgment a careful traveler would bring. Take the picks seriously; take the framing as one person's read.</p>
+<div class="note-kicker">Editorial note</div>
+<p class="note-text">Field Guide is a personal project. The recommendations reflect <em>what the city's best publications agree on</em> – filtered through the kind of judgment a careful traveler would bring. Take the picks seriously; take the framing as one person's read.</p>
 </div>
 </section>
 

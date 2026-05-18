@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color palette exploration — Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a;
+  --ink-soft:#2a2a2a;
+  --ink-muted:#6b6b6b;
+  --paper:#fff;
+  --canvas:#fafaf8;
+  --rule:#e5e3df;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f0eee9;color:var(--ink);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;padding:3rem 2rem}
+
+.page-header{max-width:960px;margin:0 auto 3rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+.page-header h1{font-family:'Source Serif 4',serif;font-weight:500;font-size:2.5rem;line-height:1.05;letter-spacing:-.02em;margin-bottom:.75rem}
+.page-header p{font-size:1rem;color:var(--ink-soft);max-width:720px}
+.page-header p+p{margin-top:.75rem}
+.page-header strong{color:var(--ink);font-weight:600}
+
+.swatch-row{max-width:960px;margin:0 auto 2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.swatch{padding:1.25rem;border-radius:10px;cursor:default}
+.swatch-name{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem;color:var(--paper)}
+.swatch-hex{font-family:'Inter',sans-serif;font-size:.72rem;color:rgba(255,255,255,.75);font-variant-numeric:tabular-nums}
+
+.variant-block{max-width:960px;margin:0 auto 3rem}
+.variant-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.25rem;padding-bottom:.85rem;border-bottom:1px solid var(--rule);flex-wrap:wrap;gap:1rem}
+.variant-header h2{font-family:'Source Serif 4',serif;font-weight:500;font-size:1.5rem;letter-spacing:-.01em}
+.variant-header h2 .swatch-tag{display:inline-block;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .65rem;margin-right:.65rem;vertical-align:middle;border-radius:99px;color:var(--paper)}
+.variant-header .desc{font-size:.85rem;color:var(--ink-muted);max-width:520px;text-align:right}
+
+/* Each card uses CSS variables scoped to its parent so accent swaps cleanly. */
+.vb-card{
+  background:var(--paper);
+  border-radius:14px;
+  padding:2.25rem 2.25rem 2rem;
+  box-shadow:0 1px 3px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.04);
+  border:1px solid #ececec;
+}
+.vb-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem;gap:1rem;flex-wrap:wrap}
+.vb-meta{display:flex;align-items:center;gap:.6rem;margin-bottom:.65rem;flex-wrap:wrap}
+.vb-tier-tag{
+  font-family:'Inter',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.3rem .7rem;background:#111;color:#fff;border-radius:99px;
+}
+.vb-list-count{
+  position:relative;
+  font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-muted);font-weight:500;
+  cursor:help;
+  border-bottom:1px dashed var(--ink-muted);
+  padding-bottom:1px;
+}
+.vb-list-count:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.vb-list-count::after{
+  content:attr(data-lists);
+  position:absolute;bottom:calc(100% + 10px);left:0;
+  background:var(--ink);color:var(--paper);
+  padding:.7rem .9rem;border-radius:8px;
+  font-size:.78rem;font-weight:500;line-height:1.5;
+  width:max-content;max-width:280px;
+  opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;transform:translateY(4px);
+  z-index:10;box-shadow:0 6px 20px rgba(0,0,0,.15);
+}
+.vb-list-count::before{
+  content:'';position:absolute;bottom:calc(100% + 4px);left:1.25rem;
+  border:6px solid transparent;border-top-color:var(--ink);
+  opacity:0;pointer-events:none;transition:opacity .15s;z-index:11;
+}
+.vb-list-count:hover::after,.vb-list-count:focus::after{opacity:1;transform:translateY(0)}
+.vb-list-count:hover::before,.vb-list-count:focus::before{opacity:1}
+.vb-name{
+  font-family:'Inter',sans-serif;font-weight:800;
+  font-size:2.1rem;letter-spacing:-.03em;line-height:1.05;margin-bottom:.5rem;
+}
+.vb-tag{
+  font-family:'Inter',sans-serif;font-weight:500;
+  font-size:1rem;line-height:1.4;color:var(--ink-soft);
+}
+.vb-pills{display:flex;gap:.35rem;flex-wrap:wrap;margin:.75rem 0 1.25rem}
+.vb-pill{
+  font-family:'Inter',sans-serif;font-size:.76rem;font-weight:600;
+  padding:.35rem .8rem;background:#f3f3f1;border-radius:99px;color:var(--ink);
+}
+.vb-pill-accent{background:var(--accent-soft);color:var(--accent-deep);font-weight:700}
+.vb-blurb{font-size:.97rem;line-height:1.6;color:var(--ink-soft);margin-bottom:1.5rem;max-width:680px}
+.vb-details{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+.vb-detail{padding:.85rem 1rem;background:var(--canvas);border-radius:10px}
+.vb-detail dt{
+  font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-muted);margin-bottom:.35rem;
+}
+.vb-detail dd{font-size:.86rem;line-height:1.45;color:var(--ink-soft)}
+.vb-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.vb-btn{
+  font-family:'Inter',sans-serif;font-size:.86rem;font-weight:600;
+  padding:.7rem 1.35rem;border-radius:99px;text-decoration:none;
+  background:#f3f3f1;color:var(--ink);transition:all .15s;
+}
+.vb-btn:hover{background:#e6e6e3}
+.vb-btn-primary{background:var(--ink);color:var(--paper)}
+.vb-btn-primary:hover{background:var(--accent);color:var(--paper)}
+
+/* ---------- PALETTE: TEAL ---------- */
+.palette-teal{--accent:#0E7C7B;--accent-soft:#dff0ef;--accent-deep:#0B5C5B}
+.palette-teal .swatch{background:var(--accent)}
+.palette-teal .vb-tier-tag{background:var(--accent);color:var(--paper)}
+
+/* ---------- PALETTE: BURNT ORANGE ---------- */
+.palette-orange{--accent:#C44E2A;--accent-soft:#fbe7dc;--accent-deep:#9A3A1A}
+.palette-orange .swatch{background:var(--accent)}
+.palette-orange .vb-tier-tag{background:var(--accent);color:var(--paper)}
+
+/* ---------- PALETTE: FOREST GREEN ---------- */
+.palette-forest{--accent:#2D5A3D;--accent-soft:#e1ece4;--accent-deep:#1F4128}
+.palette-forest .swatch{background:var(--accent)}
+.palette-forest .vb-tier-tag{background:var(--accent);color:var(--paper)}
+
+/* ---------- PALETTE: NAVY ---------- */
+.palette-navy{--accent:#1F3A68;--accent-soft:#e3e8f0;--accent-deep:#142849}
+.palette-navy .swatch{background:var(--accent)}
+.palette-navy .vb-tier-tag{background:var(--accent);color:var(--paper)}
+
+/* ---------- PALETTE: CURRENT RED (for comparison) ---------- */
+.palette-red{--accent:#c8463a;--accent-soft:#f4e8e6;--accent-deep:#a8362c}
+.palette-red .swatch{background:var(--accent)}
+.palette-red .vb-tier-tag{background:var(--accent);color:var(--paper)}
+
+.note{max-width:960px;margin:2rem auto 0;padding:1.5rem 0;border-top:1px solid var(--rule);font-size:.9rem;color:var(--ink-muted);font-style:italic}
+.note strong{color:var(--ink);font-style:normal;font-weight:600}
+
+@media (max-width:760px){
+  .vb-details{grid-template-columns:1fr}
+  .vb-name{font-size:1.85rem}
+  .swatch-row{grid-template-columns:repeat(2,1fr)}
+  .variant-header .desc{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+<h1>Color palette exploration.</h1>
+<p>Resy Clean layout, five different accent palettes. The accent shows up in three places per card: the tier tag at the top, the pill background for special chips (Michelin ★), and the primary CTA button on hover.</p>
+<p><strong>Hover "Six lists"</strong> in any card to see the per-restaurant source list — a dark tooltip with the publications. Same interaction across all palettes.</p>
+</div>
+
+<!-- ===================== TEAL ===================== -->
+<div class="palette-teal">
+<div class="swatch-row">
+<div class="swatch"><div class="swatch-name">Accent</div><div class="swatch-hex">#0E7C7B</div></div>
+<div class="swatch" style="background:var(--accent-soft);color:var(--ink)"><div class="swatch-name" style="color:var(--ink)">Accent soft</div><div class="swatch-hex" style="color:var(--ink-muted)">#DFF0EF</div></div>
+<div class="swatch" style="background:var(--accent-deep)"><div class="swatch-name">Accent deep</div><div class="swatch-hex">#0B5C5B</div></div>
+<div class="swatch" style="background:#111"><div class="swatch-name">Ink</div><div class="swatch-hex">#0A0A0A</div></div>
+</div>
+<div class="variant-block">
+<div class="variant-header">
+<h2><span class="swatch-tag" style="background:#0E7C7B">Option 1</span>Deep Teal</h2>
+<div class="desc">Sophisticated, distinctly travel-feeling. Far from food clichés (red, orange). Reads as "considered" and modern.</div>
+</div>
+<article class="vb-card">
+<div class="vb-top"><div>
+<div class="vb-meta">
+<span class="vb-tier-tag">Tier 1</span>
+<span class="vb-list-count" tabindex="0" data-lists="Canada's 100 Best #4 · Michelin ★ · Toronto Life 100 · Infatuation · Foodism · CN Traveler">Six lists</span>
+</div>
+<h3 class="vb-name">Edulis</h3>
+<p class="vb-tag">The truffle-and-paella temple that books one date at a time.</p>
+</div></div>
+<div class="vb-pills">
+<span class="vb-pill">Niagara</span>
+<span class="vb-pill">Mediterranean</span>
+<span class="vb-pill">$$$$</span>
+<span class="vb-pill vb-pill-accent">Michelin ★</span>
+</div>
+<p class="vb-blurb">Six lists, Canada's 100 Best #4, Michelin one star. Tobey Nemeth and Michael Caballo's 30-seat room in a converted Niagara Street house. White-truffle pasta in season, paella for two, anything wild-foraged. Felt-lined walls, candlelight, Spanish-French through a Toronto lens. The intimacy is the point.</p>
+<div class="vb-details">
+<div class="vb-detail"><dt>Order</dt><dd>White-truffle pasta in season · paella for two · whatever's foraged</dd></div>
+<div class="vb-detail"><dt>Book</dt><dd>Tock; one month at a time on the 15th at 6pm ET, prepaid in full</dd></div>
+<div class="vb-detail"><dt>Best night</dt><dd>Wed–Sat dinner · closed Sun/Mon/Tue</dd></div>
+</div>
+<div class="vb-actions">
+<a class="vb-btn" href="#">Website</a>
+<a class="vb-btn vb-btn-primary" href="#">Book on Tock</a>
+<a class="vb-btn" href="#">Directions</a>
+</div>
+</article>
+</div>
+</div>
+
+<!-- ===================== BURNT ORANGE ===================== -->
+<div class="palette-orange">
+<div class="swatch-row">
+<div class="swatch"><div class="swatch-name">Accent</div><div class="swatch-hex">#C44E2A</div></div>
+<div class="swatch" style="background:var(--accent-soft);color:var(--ink)"><div class="swatch-name" style="color:var(--ink)">Accent soft</div><div class="swatch-hex" style="color:var(--ink-muted)">#FBE7DC</div></div>
+<div class="swatch" style="background:var(--accent-deep)"><div class="swatch-name">Accent deep</div><div class="swatch-hex">#9A3A1A</div></div>
+<div class="swatch" style="background:#111"><div class="swatch-name">Ink</div><div class="swatch-hex">#0A0A0A</div></div>
+</div>
+<div class="variant-block">
+<div class="variant-header">
+<h2><span class="swatch-tag" style="background:#C44E2A">Option 2</span>Burnt Orange</h2>
+<div class="desc">Warm and inviting, Eater-adjacent but darker. Magazine-y. Reads as "appetite" without being aggressive like the current red.</div>
+</div>
+<article class="vb-card">
+<div class="vb-top"><div>
+<div class="vb-meta">
+<span class="vb-tier-tag">Tier 1</span>
+<span class="vb-list-count" tabindex="0" data-lists="Canada's 100 Best #4 · Michelin ★ · Toronto Life 100 · Infatuation · Foodism · CN Traveler">Six lists</span>
+</div>
+<h3 class="vb-name">Edulis</h3>
+<p class="vb-tag">The truffle-and-paella temple that books one date at a time.</p>
+</div></div>
+<div class="vb-pills">
+<span class="vb-pill">Niagara</span>
+<span class="vb-pill">Mediterranean</span>
+<span class="vb-pill">$$$$</span>
+<span class="vb-pill vb-pill-accent">Michelin ★</span>
+</div>
+<p class="vb-blurb">Six lists, Canada's 100 Best #4, Michelin one star. Tobey Nemeth and Michael Caballo's 30-seat room in a converted Niagara Street house. White-truffle pasta in season, paella for two, anything wild-foraged. Felt-lined walls, candlelight, Spanish-French through a Toronto lens. The intimacy is the point.</p>
+<div class="vb-details">
+<div class="vb-detail"><dt>Order</dt><dd>White-truffle pasta in season · paella for two · whatever's foraged</dd></div>
+<div class="vb-detail"><dt>Book</dt><dd>Tock; one month at a time on the 15th at 6pm ET, prepaid in full</dd></div>
+<div class="vb-detail"><dt>Best night</dt><dd>Wed–Sat dinner · closed Sun/Mon/Tue</dd></div>
+</div>
+<div class="vb-actions">
+<a class="vb-btn" href="#">Website</a>
+<a class="vb-btn vb-btn-primary" href="#">Book on Tock</a>
+<a class="vb-btn" href="#">Directions</a>
+</div>
+</article>
+</div>
+</div>
+
+<!-- ===================== FOREST GREEN ===================== -->
+<div class="palette-forest">
+<div class="swatch-row">
+<div class="swatch"><div class="swatch-name">Accent</div><div class="swatch-hex">#2D5A3D</div></div>
+<div class="swatch" style="background:var(--accent-soft);color:var(--ink)"><div class="swatch-name" style="color:var(--ink)">Accent soft</div><div class="swatch-hex" style="color:var(--ink-muted)">#E1ECE4</div></div>
+<div class="swatch" style="background:var(--accent-deep)"><div class="swatch-name">Accent deep</div><div class="swatch-hex">#1F4128</div></div>
+<div class="swatch" style="background:#111"><div class="swatch-name">Ink</div><div class="swatch-hex">#0A0A0A</div></div>
+</div>
+<div class="variant-block">
+<div class="variant-header">
+<h2><span class="swatch-tag" style="background:#2D5A3D">Option 3</span>Forest Green</h2>
+<div class="desc">Restaurant-industry classic (think Eleven Madison, Le Bernardin branding). Grounded, sophisticated, never trendy. Hint of outdoorsiness suits travel.</div>
+</div>
+<article class="vb-card">
+<div class="vb-top"><div>
+<div class="vb-meta">
+<span class="vb-tier-tag">Tier 1</span>
+<span class="vb-list-count" tabindex="0" data-lists="Canada's 100 Best #4 · Michelin ★ · Toronto Life 100 · Infatuation · Foodism · CN Traveler">Six lists</span>
+</div>
+<h3 class="vb-name">Edulis</h3>
+<p class="vb-tag">The truffle-and-paella temple that books one date at a time.</p>
+</div></div>
+<div class="vb-pills">
+<span class="vb-pill">Niagara</span>
+<span class="vb-pill">Mediterranean</span>
+<span class="vb-pill">$$$$</span>
+<span class="vb-pill vb-pill-accent">Michelin ★</span>
+</div>
+<p class="vb-blurb">Six lists, Canada's 100 Best #4, Michelin one star. Tobey Nemeth and Michael Caballo's 30-seat room in a converted Niagara Street house. White-truffle pasta in season, paella for two, anything wild-foraged. Felt-lined walls, candlelight, Spanish-French through a Toronto lens. The intimacy is the point.</p>
+<div class="vb-details">
+<div class="vb-detail"><dt>Order</dt><dd>White-truffle pasta in season · paella for two · whatever's foraged</dd></div>
+<div class="vb-detail"><dt>Book</dt><dd>Tock; one month at a time on the 15th at 6pm ET, prepaid in full</dd></div>
+<div class="vb-detail"><dt>Best night</dt><dd>Wed–Sat dinner · closed Sun/Mon/Tue</dd></div>
+</div>
+<div class="vb-actions">
+<a class="vb-btn" href="#">Website</a>
+<a class="vb-btn vb-btn-primary" href="#">Book on Tock</a>
+<a class="vb-btn" href="#">Directions</a>
+</div>
+</article>
+</div>
+</div>
+
+<!-- ===================== NAVY ===================== -->
+<div class="palette-navy">
+<div class="swatch-row">
+<div class="swatch"><div class="swatch-name">Accent</div><div class="swatch-hex">#1F3A68</div></div>
+<div class="swatch" style="background:var(--accent-soft);color:var(--ink)"><div class="swatch-name" style="color:var(--ink)">Accent soft</div><div class="swatch-hex" style="color:var(--ink-muted)">#E3E8F0</div></div>
+<div class="swatch" style="background:var(--accent-deep)"><div class="swatch-name">Accent deep</div><div class="swatch-hex">#142849</div></div>
+<div class="swatch" style="background:#111"><div class="swatch-name">Ink</div><div class="swatch-hex">#0A0A0A</div></div>
+</div>
+<div class="variant-block">
+<div class="variant-header">
+<h2><span class="swatch-tag" style="background:#1F3A68">Option 4</span>Navy</h2>
+<div class="desc">Classic editorial — Condé Nast, NYT, Resy itself. Conservative in the best way, ages well, never goes out of style. Slightly cooler than the others.</div>
+</div>
+<article class="vb-card">
+<div class="vb-top"><div>
+<div class="vb-meta">
+<span class="vb-tier-tag">Tier 1</span>
+<span class="vb-list-count" tabindex="0" data-lists="Canada's 100 Best #4 · Michelin ★ · Toronto Life 100 · Infatuation · Foodism · CN Traveler">Six lists</span>
+</div>
+<h3 class="vb-name">Edulis</h3>
+<p class="vb-tag">The truffle-and-paella temple that books one date at a time.</p>
+</div></div>
+<div class="vb-pills">
+<span class="vb-pill">Niagara</span>
+<span class="vb-pill">Mediterranean</span>
+<span class="vb-pill">$$$$</span>
+<span class="vb-pill vb-pill-accent">Michelin ★</span>
+</div>
+<p class="vb-blurb">Six lists, Canada's 100 Best #4, Michelin one star. Tobey Nemeth and Michael Caballo's 30-seat room in a converted Niagara Street house. White-truffle pasta in season, paella for two, anything wild-foraged. Felt-lined walls, candlelight, Spanish-French through a Toronto lens. The intimacy is the point.</p>
+<div class="vb-details">
+<div class="vb-detail"><dt>Order</dt><dd>White-truffle pasta in season · paella for two · whatever's foraged</dd></div>
+<div class="vb-detail"><dt>Book</dt><dd>Tock; one month at a time on the 15th at 6pm ET, prepaid in full</dd></div>
+<div class="vb-detail"><dt>Best night</dt><dd>Wed–Sat dinner · closed Sun/Mon/Tue</dd></div>
+</div>
+<div class="vb-actions">
+<a class="vb-btn" href="#">Website</a>
+<a class="vb-btn vb-btn-primary" href="#">Book on Tock</a>
+<a class="vb-btn" href="#">Directions</a>
+</div>
+</article>
+</div>
+</div>
+
+<!-- ===================== CURRENT RED (for comparison) ===================== -->
+<div class="palette-red">
+<div class="swatch-row">
+<div class="swatch"><div class="swatch-name">Accent</div><div class="swatch-hex">#C8463A</div></div>
+<div class="swatch" style="background:var(--accent-soft);color:var(--ink)"><div class="swatch-name" style="color:var(--ink)">Accent soft</div><div class="swatch-hex" style="color:var(--ink-muted)">#F4E8E6</div></div>
+<div class="swatch" style="background:var(--accent-deep)"><div class="swatch-name">Accent deep</div><div class="swatch-hex">#A8362C</div></div>
+<div class="swatch" style="background:#111"><div class="swatch-name">Ink</div><div class="swatch-hex">#0A0A0A</div></div>
+</div>
+<div class="variant-block">
+<div class="variant-header">
+<h2><span class="swatch-tag" style="background:#c8463a">For reference</span>Current Red</h2>
+<div class="desc">What's on the live site today. Included so you can compare against the four alternatives.</div>
+</div>
+<article class="vb-card">
+<div class="vb-top"><div>
+<div class="vb-meta">
+<span class="vb-tier-tag">Tier 1</span>
+<span class="vb-list-count" tabindex="0" data-lists="Canada's 100 Best #4 · Michelin ★ · Toronto Life 100 · Infatuation · Foodism · CN Traveler">Six lists</span>
+</div>
+<h3 class="vb-name">Edulis</h3>
+<p class="vb-tag">The truffle-and-paella temple that books one date at a time.</p>
+</div></div>
+<div class="vb-pills">
+<span class="vb-pill">Niagara</span>
+<span class="vb-pill">Mediterranean</span>
+<span class="vb-pill">$$$$</span>
+<span class="vb-pill vb-pill-accent">Michelin ★</span>
+</div>
+<p class="vb-blurb">Six lists, Canada's 100 Best #4, Michelin one star. Tobey Nemeth and Michael Caballo's 30-seat room in a converted Niagara Street house. White-truffle pasta in season, paella for two, anything wild-foraged. Felt-lined walls, candlelight, Spanish-French through a Toronto lens. The intimacy is the point.</p>
+<div class="vb-details">
+<div class="vb-detail"><dt>Order</dt><dd>White-truffle pasta in season · paella for two · whatever's foraged</dd></div>
+<div class="vb-detail"><dt>Book</dt><dd>Tock; one month at a time on the 15th at 6pm ET, prepaid in full</dd></div>
+<div class="vb-detail"><dt>Best night</dt><dd>Wed–Sat dinner · closed Sun/Mon/Tue</dd></div>
+</div>
+<div class="vb-actions">
+<a class="vb-btn" href="#">Website</a>
+<a class="vb-btn vb-btn-primary" href="#">Book on Tock</a>
+<a class="vb-btn" href="#">Directions</a>
+</div>
+</article>
+</div>
+</div>
+
+<div class="note">
+<strong>How to use this file:</strong> Hover any "Six lists" to see the source tooltip. Pick a palette. After you decide, I'll apply the chosen accent + the Resy Clean layout across the entire site — both eat pages, both city covers, the landing page, the filter sidebar, the map pins, and the leaflet popups. Mockup file lives at the workspace root and isn't linked from anywhere on the live site.
+</div>
+
+</body>
+</html>

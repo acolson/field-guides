@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Library — Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/styles.css">
+<style>
+/* Style-library chrome (NOT part of the design system — just for organizing this page) */
+.sg-body{max-width:1100px;margin:0 auto;padding:3rem 2rem 6rem;background:var(--canvas);min-height:100vh}
+.sg-header{padding-bottom:2.5rem;border-bottom:1px solid var(--rule);margin-bottom:3rem}
+.sg-header h1{font-family:'Inter',sans-serif;font-weight:800;font-size:3rem;letter-spacing:-.035em;margin-bottom:.5rem;color:var(--ink)}
+.sg-header h1 em{font-style:normal;color:var(--accent);font-weight:800}
+.sg-header p{font-size:1.05rem;color:var(--ink-soft);max-width:780px;line-height:1.5}
+.sg-header p+p{margin-top:.75rem}
+.sg-toc{background:var(--paper);border:1px solid #ececec;border-radius:14px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.4rem 1.25rem}
+.sg-toc a{color:var(--ink-soft);font-size:.88rem;font-weight:500;padding:.25rem 0;display:block}
+.sg-toc a:hover{color:var(--accent)}
+.sg-toc-label{grid-column:1/-1;font-family:'Inter',sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);font-weight:700;margin-bottom:.25rem}
+
+.sg-section{margin-bottom:4rem}
+.sg-section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.25rem;padding-bottom:.65rem;border-bottom:1px solid var(--rule-strong);gap:1rem;flex-wrap:wrap}
+.sg-section-head h2{font-family:'Inter',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-.02em;color:var(--ink)}
+.sg-section-head .sg-section-note{font-size:.85rem;color:var(--ink-muted);font-style:italic}
+
+.sg-component{background:var(--paper);border:1px solid #ececec;border-radius:14px;margin-bottom:1.25rem;overflow:hidden}
+.sg-component-head{padding:1rem 1.5rem;border-bottom:1px solid var(--rule);background:var(--paper);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.sg-component-head h3{font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);letter-spacing:-.005em}
+.sg-component-head .sg-class{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;color:var(--accent);background:var(--accent-soft);padding:.25rem .55rem;border-radius:99px;font-weight:600}
+.sg-component-note{padding:0 1.5rem 0;font-size:.85rem;color:var(--ink-muted);margin-top:.75rem;line-height:1.5}
+.sg-preview{padding:2rem 1.5rem;background:var(--canvas);border-bottom:1px solid var(--rule)}
+.sg-preview.sg-preview-dark{background:var(--ink)}
+.sg-preview-paper{background:var(--paper)}
+.sg-code{padding:1rem 1.5rem;background:#1a1a1a;color:#e0e0d8;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.55;overflow-x:auto;white-space:pre}
+.sg-code .tag{color:#7aa6e0}
+.sg-code .attr{color:#c8c1b6}
+.sg-code .str{color:#d4a437}
+
+/* Color swatches */
+.sg-swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.65rem}
+.sg-swatch{padding:1rem 1.15rem 1.15rem;border-radius:10px;border:1px solid #ececec;background:var(--paper)}
+.sg-swatch-color{width:100%;height:60px;border-radius:6px;margin-bottom:.65rem;border:1px solid rgba(0,0,0,.05)}
+.sg-swatch-name{font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:.15rem}
+.sg-swatch-var{font-family:ui-monospace,monospace;font-size:.72rem;color:var(--ink-muted);margin-bottom:.1rem}
+.sg-swatch-hex{font-family:ui-monospace,monospace;font-size:.72rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+
+/* Typography demo helper */
+.sg-type-row{display:flex;align-items:baseline;gap:1.5rem;padding:.65rem 0;border-bottom:1px dashed var(--rule);flex-wrap:wrap}
+.sg-type-row:last-of-type{border-bottom:none}
+.sg-type-spec{font-family:ui-monospace,monospace;font-size:.74rem;color:var(--ink-muted);min-width:240px;font-variant-numeric:tabular-nums}
+.sg-type-example{flex:1;color:var(--ink)}
+
+/* Token table */
+.sg-tokens{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem 1.5rem;font-size:.85rem}
+.sg-tokens > div{padding:.4rem 0;border-bottom:1px dashed var(--rule);font-family:ui-monospace,monospace}
+.sg-tokens > div.head{font-family:'Inter',sans-serif;font-weight:700;color:var(--ink-muted);text-transform:uppercase;font-size:.7rem;letter-spacing:.08em;border-bottom-color:var(--rule-strong)}
+
+@media (max-width:768px){
+  .sg-body{padding:2rem 1.25rem 4rem}
+  .sg-header h1{font-size:2.25rem}
+  .sg-component-head{padding:.85rem 1.25rem}
+  .sg-preview{padding:1.5rem 1.25rem}
+  .sg-code{padding:.85rem 1.25rem;font-size:.74rem}
+  .sg-tokens{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="sg-body">
+
+<header class="sg-header">
+<h1>Field Guide <em>Style Library</em>.</h1>
+<p>Live reference for the Resy Clean design system. Every component on this page reads from the actual <code style="font-family:ui-monospace,monospace;font-size:.9em;background:var(--paper);padding:.15rem .4rem;border-radius:4px;border:1px solid var(--rule)">shared/styles.css</code> — when the stylesheet changes, this page reflects it.</p>
+<p>Use as the source of truth when building new components or adjusting existing ones. Add new components to this page as we introduce them.</p>
+</header>
+
+<nav class="sg-toc">
+<div class="sg-toc-label">On this page</div>
+<a href="#colors">Colors & tokens</a>
+<a href="#typography">Typography</a>
+<a href="#pills">Pills & tags</a>
+<a href="#buttons">Buttons</a>
+<a href="#cards">Restaurant card</a>
+<a href="#tier-intro">Tier intro</a>
+<a href="#chapter">Chapter header</a>
+<a href="#hero">Hero</a>
+<a href="#stat-grid">Stat grid</a>
+<a href="#insights">Insights</a>
+<a href="#pullquote">Pullquote</a>
+<a href="#filters">Filter list</a>
+<a href="#map">Map legend</a>
+<a href="#feature">City feature card</a>
+<a href="#section-card">Section card</a>
+</nav>
+
+<!-- ====================== COLORS ====================== -->
+<section class="sg-section" id="colors">
+<div class="sg-section-head"><h2>Colors & tokens</h2><div class="sg-section-note">CSS custom properties live on :root in shared/styles.css</div></div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Brand palette</h3><span class="sg-class">--accent / --ink</span></div>
+<div class="sg-preview sg-preview-paper">
+<div class="sg-swatches">
+<div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--accent)"></div><div class="sg-swatch-name">Accent</div><div class="sg-swatch-var">--accent</div><div class="sg-swatch-hex">#c8463a</div></div>
+<div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--accent-soft);border:1px solid var(--rule)"></div><div class="sg-swatch-name">Accent soft</div><div class="sg-swatch-var">--accent-soft</div><div class="sg-swatch-hex">#f4e8e6</div></div>
+<div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--accent-deep)"></div><div class="sg-swatch-name">Accent deep</div><div class="sg-swatch-var">--accent-deep</div><div class="sg-swatch-hex">#a8362c</div></div>
+<div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--ink)"></div><div class="sg-swatch-name">Ink</div><div class="sg-swatch-var">--ink</div><div class="sg-swatch-hex">#0a0a0a</div></div>
+<div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--ink-soft)"></div><div class="sg-swatch-name">Ink soft</div><div class="sg-swatch-var">--ink-soft</div><div class="sg-swatch-hex">#2a2a2a</div></div>
+<div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--ink-muted)"></div><div class="sg-swatch-name">Ink muted</div><div class="sg-swatch-var">--ink-muted</div><div class="sg-swatch-hex">#6b6b6b</div></div>
+<div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--paper);border:1px solid var(--rule)"></div><div class="sg-swatch-name">Paper</div><div class="sg-swatch-var">--paper</div><div class="sg-swatch-hex">#fff</div></div>
+<div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--canvas);border:1px solid var(--rule)"></div><div class="sg-swatch-name">Canvas</div><div class="sg-swatch-var">--canvas</div><div class="sg-swatch-hex">#fafaf8</div></div>
+<div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--canvas-2);border:1px solid var(--rule)"></div><div class="sg-swatch-name">Canvas 2</div><div class="sg-swatch-var">--canvas-2</div><div class="sg-swatch-hex">#f3f3f1</div></div>
+</div>
+</div>
+</div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Tokens</h3><span class="sg-class">radii / shadows</span></div>
+<div class="sg-preview sg-preview-paper">
+<div class="sg-tokens">
+<div class="head">Token</div><div class="head">Value</div><div class="head">Use</div>
+<div>--radius-card</div><div>14px</div><div>Restaurant cards, city features, map</div>
+<div>--radius-block</div><div>10px</div><div>Detail blocks, stat blocks, insights</div>
+<div>--radius-pill</div><div>99px</div><div>All pills, buttons, list-count</div>
+<div>--shadow-card</div><div>2-layer soft</div><div>Restaurant cards (resting state)</div>
+<div>--shadow-card-hover</div><div>2-layer lifted</div><div>Restaurant cards (on hover)</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ====================== TYPOGRAPHY ====================== -->
+<section class="sg-section" id="typography">
+<div class="sg-section-head"><h2>Typography</h2><div class="sg-section-note">Inter for display + body. Source Serif reserved for the topbar Field Guide wordmark only.</div></div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Type scale</h3><span class="sg-class">Inter 400 / 500 / 600 / 700 / 800</span></div>
+<div class="sg-preview sg-preview-paper">
+<div class="sg-type-row"><div class="sg-type-spec">Masthead · 800 · clamp 3–6rem</div><div class="sg-type-example" style="font-family:'Inter',sans-serif;font-weight:800;font-size:3.5rem;line-height:1;letter-spacing:-.035em">Boston, <em style="font-style:normal;color:var(--accent)">a long weekend</em>.</div></div>
+<div class="sg-type-row"><div class="sg-type-spec">Hero title · 800 · clamp 2.5–4.5rem</div><div class="sg-type-example" style="font-family:'Inter',sans-serif;font-weight:800;font-size:2.5rem;line-height:1.02;letter-spacing:-.03em">Where to eat in Boston.</div></div>
+<div class="sg-type-row"><div class="sg-type-spec">Tier name · 800 · clamp 2–3rem</div><div class="sg-type-example" style="font-family:'Inter',sans-serif;font-weight:800;font-size:2.25rem;line-height:1.05;letter-spacing:-.03em">Where everyone <em style="font-style:normal;color:var(--accent)">agrees</em>.</div></div>
+<div class="sg-type-row"><div class="sg-type-spec">Chapter title · 800 · clamp 1.85–2.5rem</div><div class="sg-type-example" style="font-family:'Inter',sans-serif;font-weight:800;font-size:1.85rem;line-height:1.1;letter-spacing:-.025em">By the numbers.</div></div>
+<div class="sg-type-row"><div class="sg-type-spec">Restaurant name · 800 · 2.1rem</div><div class="sg-type-example" style="font-family:'Inter',sans-serif;font-weight:800;font-size:2.1rem;line-height:1.05;letter-spacing:-.03em">Edulis</div></div>
+<div class="sg-type-row"><div class="sg-type-spec">Dek (large body) · 400 · 1.1rem</div><div class="sg-type-example" style="font-family:'Inter',sans-serif;font-weight:400;font-size:1.1rem;line-height:1.55;color:var(--ink-soft)">A mapped, ranked, and reservation-aware guide to the restaurants worth your nights.</div></div>
+<div class="sg-type-row"><div class="sg-type-spec">Tag (italic-tone, not italic) · 500 · 1rem</div><div class="sg-type-example" style="font-family:'Inter',sans-serif;font-weight:500;font-size:1rem;line-height:1.4;color:var(--ink-soft)">The truffle-and-paella temple that books one date at a time.</div></div>
+<div class="sg-type-row"><div class="sg-type-spec">Body · 400 · .97rem</div><div class="sg-type-example" style="font-family:'Inter',sans-serif;font-weight:400;font-size:.97rem;line-height:1.6;color:var(--ink-soft)">Six lists, Canada's 100 Best <strong style="color:var(--ink);font-weight:700">#4</strong>. Felt-lined walls, candlelight, Spanish-French through a Toronto lens.</div></div>
+<div class="sg-type-row"><div class="sg-type-spec">Label · 700 · .7rem · UPPER · letter-sp .1em</div><div class="sg-type-example" style="font-family:'Inter',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted)">Trip-planning notes</div></div>
+</div>
+</div>
+</section>
+
+<!-- ====================== PILLS ====================== -->
+<section class="sg-section" id="pills">
+<div class="sg-section-head"><h2>Pills & tags</h2><div class="sg-section-note">Foundation of the design language. Used for tier markers, metadata, and badges.</div></div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Tier tag</h3><span class="sg-class">.r-tier-tag</span></div>
+<div class="sg-preview"><span class="r-tier-tag">Tier 1</span> &nbsp; <span class="r-tier-tag">Tier 2</span> &nbsp; <span class="r-tier-tag">Tier 3</span></div>
+<div class="sg-code">&lt;span class="r-tier-tag"&gt;Tier 1&lt;/span&gt;</div>
+</div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Hero pill</h3><span class="sg-class">.hero-pill</span></div>
+<div class="sg-preview"><span class="hero-pill">Part 01</span></div>
+<div class="sg-code">&lt;span class="hero-pill"&gt;Part 01&lt;/span&gt;</div>
+</div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Tier intro pill</h3><span class="sg-class">.tier-pill</span></div>
+<div class="sg-preview"><span class="tier-pill">Tier 02</span></div>
+<div class="sg-code">&lt;div class="tier-pill"&gt;Tier 02&lt;/div&gt;</div>
+</div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Restaurant pills (metadata + accent)</h3><span class="sg-class">.r-pill / .r-pill-accent</span></div>
+<div class="sg-preview">
+<div class="r-pills" style="margin:0">
+<span class="r-pill">Niagara</span>
+<span class="r-pill">Mediterranean</span>
+<span class="r-pill">$$$$</span>
+<span class="r-pill r-pill-accent">Michelin ★</span>
+</div>
+</div>
+<div class="sg-code">&lt;div class="r-pills"&gt;
+  &lt;span class="r-pill"&gt;Niagara&lt;/span&gt;
+  &lt;span class="r-pill"&gt;Mediterranean&lt;/span&gt;
+  &lt;span class="r-pill"&gt;$$$$&lt;/span&gt;
+  &lt;span class="r-pill r-pill-accent"&gt;Michelin ★&lt;/span&gt;
+&lt;/div&gt;</div>
+</div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>List count with hover tooltip</h3><span class="sg-class">.r-list-count</span></div>
+<div class="sg-preview" style="min-height:60px;display:flex;align-items:center"><span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best #4 · Michelin ★ · Toronto Life 100 · Infatuation · Foodism">Six lists</span> &nbsp; <span style="font-size:.78rem;color:var(--ink-muted);font-style:italic">← hover or focus to see tooltip</span></div>
+<div class="sg-code">&lt;span class="r-list-count" tabindex="0"
+      data-lists="C100 #4 · Michelin · Toronto Life · Infatuation"&gt;Six lists&lt;/span&gt;</div>
+</div>
+</section>
+
+<!-- ====================== BUTTONS ====================== -->
+<section class="sg-section" id="buttons">
+<div class="sg-section-head"><h2>Buttons</h2><div class="sg-section-note">All buttons are pill-shaped. Primary = ink-on-paper with accent hover.</div></div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Card action buttons</h3><span class="sg-class">.r-btn / .r-btn-primary / .r-btn-disabled</span></div>
+<div class="sg-preview">
+<div class="r-actions" style="margin:0">
+<a class="r-btn" href="#">Website ↗</a>
+<a class="r-btn r-btn-primary" href="#">Book on Tock ↗</a>
+<a class="r-btn" href="#">Directions ↗</a>
+<span class="r-btn r-btn-disabled">Walk-in only</span>
+</div>
+</div>
+<div class="sg-code">&lt;div class="r-actions"&gt;
+  &lt;a class="r-btn" href="..."&gt;Website ↗&lt;/a&gt;
+  &lt;a class="r-btn r-btn-primary" href="..."&gt;Book on Tock ↗&lt;/a&gt;
+  &lt;a class="r-btn" href="..."&gt;Directions ↗&lt;/a&gt;
+  &lt;span class="r-btn r-btn-disabled"&gt;Walk-in only&lt;/span&gt;
+&lt;/div&gt;</div>
+</div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Next-up CTA</h3><span class="sg-class">.next-up-cta</span></div>
+<div class="sg-preview" style="background:var(--canvas)"><a href="#" class="next-up-cta">Read the eat section →</a></div>
+<div class="sg-code">&lt;a href="..." class="next-up-cta"&gt;Read the eat section →&lt;/a&gt;</div>
+</div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Section card CTA</h3><span class="sg-class">.section-card-cta</span></div>
+<div class="sg-preview"><span class="section-card-cta">Read →</span> &nbsp; <span class="section-card-cta disabled">Coming soon</span></div>
+<div class="sg-code">&lt;span class="section-card-cta"&gt;Read →&lt;/span&gt;
+&lt;span class="section-card-cta disabled"&gt;Coming soon&lt;/span&gt;</div>
+</div>
+</section>
+
+<!-- ====================== RESTAURANT CARD ====================== -->
+<section class="sg-section" id="cards">
+<div class="sg-section-head"><h2>Restaurant card</h2><div class="sg-section-note">The core component. 72 of these live across the eat pages.</div></div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Full card</h3><span class="sg-class">.restaurant-feature</span></div>
+<div class="sg-preview" style="padding:1.5rem">
+<article class="restaurant-feature" style="margin:0">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="C100 #4 · Michelin ★ · Toronto Life 100 · Infatuation · Foodism">Six lists</span>
+</div>
+<h3 class="r-name">Edulis</h3>
+<p class="r-tag">The truffle-and-paella temple that books one date at a time.</p>
+<div class="r-pills">
+  <span class="r-pill">Niagara</span>
+  <span class="r-pill">Mediterranean</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">Michelin ★</span>
+</div>
+<p class="r-blurb">Six lists, Canada's 100 Best <strong>#4</strong>, Michelin one star. Tobey Nemeth and Michael Caballo's 30-seat room in a converted Niagara Street house.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Order</dt><dd>White-truffle pasta · paella for two</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Tock; 15th at 6pm ET, prepaid</dd></div>
+  <div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="#">Website ↗</a>
+  <a class="r-btn r-btn-primary" href="#">Book on Tock ↗</a>
+  <a class="r-btn" href="#">Directions ↗</a>
+</div>
+</article>
+</div>
+<div class="sg-code">&lt;article class="restaurant-feature" id="r-edulis"
+         data-neighborhood="niagara" data-cuisine="mediterranean"&gt;
+  &lt;div class="r-header-row"&gt;
+    &lt;span class="r-tier-tag"&gt;Tier 1&lt;/span&gt;
+    &lt;span class="r-list-count" tabindex="0" data-lists="..."&gt;Six lists&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;h3 class="r-name"&gt;Edulis&lt;/h3&gt;
+  &lt;p class="r-tag"&gt;The truffle-and-paella temple…&lt;/p&gt;
+  &lt;div class="r-pills"&gt;…&lt;/div&gt;
+  &lt;p class="r-blurb"&gt;…&lt;/p&gt;
+  &lt;div class="r-details"&gt;…&lt;/div&gt;
+  &lt;div class="r-actions"&gt;…&lt;/div&gt;
+&lt;/article&gt;</div>
+</div>
+</section>
+
+<!-- ====================== TIER INTRO ====================== -->
+<section class="sg-section" id="tier-intro">
+<div class="sg-section-head"><h2>Tier intro</h2><div class="sg-section-note">Sits above each tier's batch of cards.</div></div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Tier intro block</h3><span class="sg-class">.tier-intro / .tier-pill / .tier-name / .tier-dek</span></div>
+<div class="sg-preview" style="padding:2rem 1.75rem">
+<div class="tier-intro" style="margin:0">
+<div class="tier-pill">Tier 02</div>
+<h2 class="tier-name">The <em>second</em> round.</h2>
+<p class="tier-dek">Three or four lists each. Distinct points of view. These are where you go on night three, when the consensus picks are booked or you want a different mood.</p>
+</div>
+</div>
+<div class="sg-code">&lt;div class="tier-intro"&gt;
+  &lt;div class="tier-pill"&gt;Tier 02&lt;/div&gt;
+  &lt;h2 class="tier-name"&gt;The &lt;em&gt;second&lt;/em&gt; round.&lt;/h2&gt;
+  &lt;p class="tier-dek"&gt;Three or four lists each…&lt;/p&gt;
+&lt;/div&gt;</div>
+</div>
+</section>
+
+<!-- ====================== CHAPTER ====================== -->
+<section class="sg-section" id="chapter">
+<div class="sg-section-head"><h2>Chapter header</h2><div class="sg-section-note">Used for non-tier sections (Executive Summary, The Map, Trip-Planning Notes).</div></div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Chapter header</h3><span class="sg-class">.chapter-label / .chapter-title / .chapter-dek</span></div>
+<div class="sg-preview" style="padding:2rem 1.75rem">
+<div class="chapter-label">Executive Summary</div>
+<h2 class="chapter-title">By the numbers: a <em>composite</em> picture.</h2>
+<p class="chapter-dek">Ten publications, hundreds of restaurants. The pattern that emerges is unusually clear.</p>
+</div>
+<div class="sg-code">&lt;div class="chapter-label"&gt;Executive Summary&lt;/div&gt;
+&lt;h2 class="chapter-title"&gt;By the numbers: a &lt;em&gt;composite&lt;/em&gt; picture.&lt;/h2&gt;
+&lt;p class="chapter-dek"&gt;Ten publications…&lt;/p&gt;</div>
+</div>
+</section>
+
+<!-- ====================== HERO ====================== -->
+<section class="sg-section" id="hero">
+<div class="sg-section-head"><h2>Hero</h2><div class="sg-section-note">Top of every section page (eat, stay, drink, do).</div></div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Hero block</h3><span class="sg-class">.hero / .hero-kicker / .hero-pill / .hero-title / .hero-dek / .hero-byline</span></div>
+<div class="sg-preview" style="padding:2rem 1.75rem">
+<section class="hero" style="padding:0;border:none;max-width:none">
+<div class="hero-kicker"><span class="hero-pill">Part 01</span> Where to eat</div>
+<h1 class="hero-title" style="font-size:2.5rem;margin-bottom:1rem">Where to eat in Toronto, between the <em>new wave</em> and the old guard.</h1>
+<p class="hero-dek" style="margin-bottom:1.25rem">A mapped, ranked, and reservation-aware guide to the restaurants worth your nights.</p>
+<p class="hero-byline">Sources: <strong>Toronto Life</strong> · <strong>NYT 36 Hours</strong> · <strong>Canada's 100 Best</strong></p>
+</section>
+</div>
+<div class="sg-code">&lt;section class="hero"&gt;
+  &lt;div class="hero-kicker"&gt;&lt;span class="hero-pill"&gt;Part 01&lt;/span&gt; Where to eat&lt;/div&gt;
+  &lt;h1 class="hero-title"&gt;Where to eat in Toronto…&lt;/h1&gt;
+  &lt;p class="hero-dek"&gt;A mapped, ranked, and reservation-aware guide…&lt;/p&gt;
+  &lt;p class="hero-byline"&gt;Sources: &lt;strong&gt;Toronto Life&lt;/strong&gt;…&lt;/p&gt;
+&lt;/section&gt;</div>
+</div>
+</section>
+
+<!-- ====================== STAT GRID ====================== -->
+<section class="sg-section" id="stat-grid">
+<div class="sg-section-head"><h2>Stat grid</h2></div>
+<div class="sg-component">
+<div class="sg-component-head"><h3>4-up number callouts</h3><span class="sg-class">.stat-grid / .stat / .stat-num / .stat-label</span></div>
+<div class="sg-preview">
+<div class="stat-grid" style="margin:0">
+<div class="stat"><div class="stat-num">32</div><div class="stat-label">restaurants on the final list</div></div>
+<div class="stat"><div class="stat-num">6</div><div class="stat-label">restaurants on five or more lists</div></div>
+<div class="stat"><div class="stat-num">7</div><div class="stat-label">neighborhoods anchor the map</div></div>
+<div class="stat"><div class="stat-num">2</div><div class="stat-label">reservations to set a phone alarm for</div></div>
+</div>
+</div>
+<div class="sg-code">&lt;div class="stat-grid"&gt;
+  &lt;div class="stat"&gt;&lt;div class="stat-num"&gt;32&lt;/div&gt;&lt;div class="stat-label"&gt;…&lt;/div&gt;&lt;/div&gt;
+  …
+&lt;/div&gt;</div>
+</div>
+</section>
+
+<!-- ====================== INSIGHTS ====================== -->
+<section class="sg-section" id="insights">
+<div class="sg-section-head"><h2>Insights</h2><div class="sg-section-note">Numbered callout blocks for trip-planning notes and methodology.</div></div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Insight stack</h3><span class="sg-class">.insights / .insight / .insight-num / .insight-content</span></div>
+<div class="sg-preview">
+<div class="insights" style="margin:0">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>The consensus picks are scattered, not clustered.</h3><p>Alo sits on Spadina. Edulis is on Niagara. Quetzal and Bar Isabel are on College.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>The hardest reservations open monthly.</h3><p>Alo drops two months out on the first Tuesday at 10am ET. Edulis on the 15th.</p></div></div>
+</div>
+</div>
+<div class="sg-code">&lt;div class="insights"&gt;
+  &lt;div class="insight"&gt;
+    &lt;div class="insight-num"&gt;1&lt;/div&gt;
+    &lt;div class="insight-content"&gt;
+      &lt;h3&gt;Headline of the insight.&lt;/h3&gt;
+      &lt;p&gt;Supporting prose…&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+</div>
+</section>
+
+<!-- ====================== PULLQUOTE ====================== -->
+<section class="sg-section" id="pullquote">
+<div class="sg-section-head"><h2>Pullquote</h2></div>
+<div class="sg-component">
+<div class="sg-component-head"><h3>Pullquote block</h3><span class="sg-class">.pullquote</span></div>
+<div class="sg-preview" style="padding:2rem 1.75rem">
+<div class="pullquote" style="margin:0">Toronto's top tier is harder to book than its food culture lets on. Alo opens reservations <em>two months</em> in advance. Edulis releases the 15th, prepaid. Set the alarms before you set the trip.</div>
+</div>
+<div class="sg-code">&lt;div class="pullquote"&gt;
+  Toronto's top tier is harder to book than its food culture lets on…
+  Set the alarms &lt;em&gt;before&lt;/em&gt; you set the trip.
+&lt;/div&gt;</div>
+</div>
+</section>
+
+<!-- ====================== FILTERS ====================== -->
+<section class="sg-section" id="filters">
+<div class="sg-section-head"><h2>Filter list</h2><div class="sg-section-note">Lives inside &lt;aside class="sidebar"&gt;. JS-driven, persists open/closed via localStorage.</div></div>
+
+<div class="sg-component">
+<div class="sg-component-head"><h3>Collapsible filter row</h3><span class="sg-class">.filter-row / .filter-label / .filter-chip / .filter-chip-active</span></div>
+<div class="sg-preview" style="max-width:280px;background:var(--paper)">
+<details class="filter-row" open style="margin:0">
+<summary class="filter-label">Neighborhood</summary>
+<button class="filter-chip filter-chip-active"><span>All</span><span class="filter-chip-count">32</span></button>
+<button class="filter-chip"><span>Chinatown</span><span class="filter-chip-count">2</span></button>
+<button class="filter-chip"><span>Kensington</span><span class="filter-chip-count">3</span></button>
+<button class="filter-chip"><span>Little Italy</span><span class="filter-chip-count">4</span></button>
+</details>
+</div>
+<div class="sg-code">&lt;details class="filter-row" open&gt;
+  &lt;summary class="filter-label"&gt;Neighborhood&lt;/summary&gt;
+  &lt;button class="filter-chip filter-chip-active"&gt;
+    &lt;span&gt;All&lt;/span&gt;&lt;span class="filter-chip-count"&gt;32&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button class="filter-chip"&gt;…&lt;/button&gt;
+&lt;/details&gt;</div>
+</div>
+</section>
+
+<!-- ====================== MAP LEGEND ====================== -->
+<section class="sg-section" id="map">
+<div class="sg-section-head"><h2>Map legend</h2></div>
+<div class="sg-component">
+<div class="sg-component-head"><h3>Color-coded tier legend</h3><span class="sg-class">.map-legend / .legend-item / .legend-dot</span></div>
+<div class="sg-preview">
+<div class="map-legend" style="margin:0">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Tier 1</strong> · 5+ lists</span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Tier 2</strong> · 3–4 lists</span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Tier 3</strong> · Specialist</span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Tier 4</strong> · Casual</span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Landmark</strong></span></div>
+</div>
+</div>
+<div class="sg-code">&lt;div class="map-legend"&gt;
+  &lt;div class="legend-item"&gt;
+    &lt;span class="legend-dot tier1"&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;strong&gt;Tier 1&lt;/strong&gt; · 5+ lists&lt;/span&gt;
+  &lt;/div&gt;
+  …
+&lt;/div&gt;</div>
+</div>
+</section>
+
+<!-- ====================== CITY FEATURE ====================== -->
+<section class="sg-section" id="feature">
+<div class="sg-section-head"><h2>City feature card</h2><div class="sg-section-note">Landing page only. Two-column with gradient cover.</div></div>
+<div class="sg-component">
+<div class="sg-component-head"><h3>Full feature card</h3><span class="sg-class">.city-feature / .feature-body / .feature-cover</span></div>
+<div class="sg-preview" style="padding:1.5rem">
+<a href="#" class="city-feature" style="margin:0">
+<div class="feature-body">
+<div class="feature-num">Issue 02</div>
+<h2>Toronto, <em>a long weekend by train</em>.</h2>
+<p class="feature-dek">Thirty-two restaurants across five tiers, calibrated for two travelers arriving by train.</p>
+<div class="feature-stats">
+<div><div class="feature-stat-num">32</div><div class="feature-stat-label">Restaurants</div></div>
+<div><div class="feature-stat-num">10</div><div class="feature-stat-label">Publications</div></div>
+<div><div class="feature-stat-num">7</div><div class="feature-stat-label">Neighborhoods</div></div>
+</div>
+<span class="feature-cta">Read the guide →</span>
+</div>
+<div class="feature-cover" style="background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 40%,#2c6e8f 100%)">
+<div><div class="cover-num">Issue Nº 02</div></div>
+<div><div class="cover-rule"></div><h3 class="cover-city">Toronto<span>Ontario</span></h3></div>
+<div class="cover-bottom">A Field Guide</div>
+</div>
+</a>
+</div>
+<div class="sg-code">&lt;a href="..." class="city-feature"&gt;
+  &lt;div class="feature-body"&gt;
+    &lt;div class="feature-num"&gt;Issue 02&lt;/div&gt;
+    &lt;h2&gt;Toronto, &lt;em&gt;a long weekend by train&lt;/em&gt;.&lt;/h2&gt;
+    &lt;p class="feature-dek"&gt;…&lt;/p&gt;
+    &lt;div class="feature-stats"&gt;…&lt;/div&gt;
+    &lt;span class="feature-cta"&gt;Read the guide →&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="feature-cover"&gt;
+    &lt;div class="cover-num"&gt;Issue Nº 02&lt;/div&gt;
+    &lt;h3 class="cover-city"&gt;Toronto&lt;span&gt;Ontario&lt;/span&gt;&lt;/h3&gt;
+    &lt;div class="cover-bottom"&gt;A Field Guide&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;</div>
+</div>
+</section>
+
+<!-- ====================== SECTION CARD ====================== -->
+<section class="sg-section" id="section-card">
+<div class="sg-section-head"><h2>Section card</h2><div class="sg-section-note">City covers only. 2-up grid linking to eat / stay / drink / do.</div></div>
+<div class="sg-component">
+<div class="sg-component-head"><h3>Live vs placeholder</h3><span class="sg-class">.section-card / .section-card.live / .section-card.placeholder</span></div>
+<div class="sg-preview">
+<div class="sections-grid" style="padding:0;max-width:none">
+<a href="#" class="section-card live">
+<div>
+<div class="section-card-num">Part 01</div>
+<h3>Eat</h3>
+<p class="section-card-dek">Thirty-two restaurants across five tiers, organized by neighborhood.</p>
+</div>
+<span class="section-card-cta">Read →</span>
+</a>
+<div class="section-card placeholder">
+<div>
+<div class="section-card-num">Part 02</div>
+<h3>Stay</h3>
+<p class="section-card-dek">Hotels by neighborhood and vibe.</p>
+</div>
+<span class="section-card-cta disabled">In progress</span>
+</div>
+</div>
+</div>
+<div class="sg-code">&lt;a href="..." class="section-card live"&gt;
+  &lt;div&gt;
+    &lt;div class="section-card-num"&gt;Part 01&lt;/div&gt;
+    &lt;h3&gt;Eat&lt;/h3&gt;
+    &lt;p class="section-card-dek"&gt;…&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;span class="section-card-cta"&gt;Read →&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;div class="section-card placeholder"&gt;
+  &lt;div&gt;…&lt;/div&gt;
+  &lt;span class="section-card-cta disabled"&gt;In progress&lt;/span&gt;
+&lt;/div&gt;</div>
+</div>
+</section>
+
+</div>
+</body>
+</html>
