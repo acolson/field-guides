@@ -118,6 +118,21 @@
 </div>
 
 <div class="sg-component">
+<div class="sg-component-head"><h3>Per-city accent override</h3><span class="sg-class">body[data-city]</span></div>
+<div class="sg-component-note" style="padding:.75rem 1.5rem 0">Each city scopes its own accent via a body attribute. Brand red is the default; cities override --accent, --accent-soft, --accent-deep.</div>
+<div class="sg-preview sg-preview-paper">
+<div class="sg-swatches">
+<div class="sg-swatch" style="background:#fafaf8"><div class="sg-swatch-color" style="background:#c8463a"></div><div class="sg-swatch-name">Boston</div><div class="sg-swatch-var">data-city="boston"</div><div class="sg-swatch-hex">#c8463a · brand red</div></div>
+<div class="sg-swatch" style="background:#fafaf8"><div class="sg-swatch-color" style="background:#2c6e8f"></div><div class="sg-swatch-name">Toronto</div><div class="sg-swatch-var">data-city="toronto"</div><div class="sg-swatch-hex">#2c6e8f · deep teal-navy</div></div>
+<div class="sg-swatch" style="background:#fafaf8;opacity:.5"><div class="sg-swatch-color" style="background:#e5e3df"></div><div class="sg-swatch-name">Future city</div><div class="sg-swatch-var">data-city="…"</div><div class="sg-swatch-hex">add CSS var block</div></div>
+</div>
+</div>
+<div class="sg-code">&lt;body data-city="toronto"&gt; &nbsp; <span style="color:#888">/* Toronto pages */</span>
+&lt;body data-city="boston"&gt; &nbsp; <span style="color:#888">/* Boston pages */</span>
+&lt;body&gt; &nbsp; <span style="color:#888">/* Landing — uses default red */</span></div>
+</div>
+
+<div class="sg-component">
 <div class="sg-component-head"><h3>Tokens</h3><span class="sg-class">radii / shadows</span></div>
 <div class="sg-preview sg-preview-paper">
 <div class="sg-tokens">
@@ -208,16 +223,16 @@
 <div class="sg-component-head"><h3>Card action buttons</h3><span class="sg-class">.r-btn / .r-btn-primary / .r-btn-disabled</span></div>
 <div class="sg-preview">
 <div class="r-actions" style="margin:0">
-<a class="r-btn" href="#">Website ↗</a>
-<a class="r-btn r-btn-primary" href="#">Book on Tock ↗</a>
-<a class="r-btn" href="#">Directions ↗</a>
+<a class="r-btn" href="#">Website</a>
+<a class="r-btn r-btn-primary" href="#">Book on Tock</a>
+<a class="r-btn" href="#">Directions</a>
 <span class="r-btn r-btn-disabled">Walk-in only</span>
 </div>
 </div>
 <div class="sg-code">&lt;div class="r-actions"&gt;
-  &lt;a class="r-btn" href="..."&gt;Website ↗&lt;/a&gt;
-  &lt;a class="r-btn r-btn-primary" href="..."&gt;Book on Tock ↗&lt;/a&gt;
-  &lt;a class="r-btn" href="..."&gt;Directions ↗&lt;/a&gt;
+  &lt;a class="r-btn" href="..."&gt;Website&lt;/a&gt;
+  &lt;a class="r-btn r-btn-primary" href="..."&gt;Book on Tock&lt;/a&gt;
+  &lt;a class="r-btn" href="..."&gt;Directions&lt;/a&gt;
   &lt;span class="r-btn r-btn-disabled"&gt;Walk-in only&lt;/span&gt;
 &lt;/div&gt;</div>
 </div>
@@ -263,9 +278,9 @@
   <div class="r-detail"><dt>Best night</dt><dd>Wed–Sat dinner</dd></div>
 </div>
 <div class="r-actions">
-  <a class="r-btn" href="#">Website ↗</a>
-  <a class="r-btn r-btn-primary" href="#">Book on Tock ↗</a>
-  <a class="r-btn" href="#">Directions ↗</a>
+  <a class="r-btn" href="#">Website</a>
+  <a class="r-btn r-btn-primary" href="#">Book on Tock</a>
+  <a class="r-btn" href="#">Directions</a>
 </div>
 </article>
 </div>

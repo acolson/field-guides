@@ -13,15 +13,53 @@
   --canvas-2:#f3f3f1;
   --rule:#e5e3df;
   --rule-strong:#1a1a1a;
+
+  /* Default brand accent (used on landing) */
   --accent:#c8463a;
   --accent-soft:#f4e8e6;
   --accent-deep:#a8362c;
+
   --shadow-card:0 1px 3px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.04);
   --shadow-card-hover:0 2px 6px rgba(0,0,0,.06),0 8px 20px rgba(0,0,0,.06);
   --radius-card:14px;
   --radius-block:10px;
   --radius-pill:99px;
 }
+
+/* ---------- PER-CITY ACCENT OVERRIDES ---------- */
+/* Boston: the brand red (matches default) */
+body[data-city="boston"]{
+  --accent:#c8463a;
+  --accent-soft:#f4e8e6;
+  --accent-deep:#a8362c;
+}
+/* Toronto: deep teal-navy (matches the cover gradient already in use) */
+body[data-city="toronto"]{
+  --accent:#2c6e8f;
+  --accent-soft:#e1ecf2;
+  --accent-deep:#1f5070;
+}
+
+/* ---------- EXTERNAL-LINK ICON (inline SVG via CSS) ---------- */
+/* Applied to any .r-btn that links to an http(s) URL.
+   Heroicons-style "arrow-top-right-on-square" — currentColor adapts to button text color. */
+.r-btn[href^="http"]::after,
+.r-btn[href^="//"]::after{
+  content:"";
+  display:inline-block;
+  width:.78em;
+  height:.78em;
+  margin-left:.5em;
+  vertical-align:-.06em;
+  background-color:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 4h3v3'/%3E%3Cpath d='M17 4l-8 8'/%3E%3Cpath d='M14 11v4a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 4 15v-7A1.5 1.5 0 0 1 5.5 6.5h4'/%3E%3C/svg%3E") no-repeat center / contain;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 4h3v3'/%3E%3Cpath d='M17 4l-8 8'/%3E%3Cpath d='M14 11v4a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 4 15v-7A1.5 1.5 0 0 1 5.5 6.5h4'/%3E%3C/svg%3E") no-repeat center / contain;
+  opacity:.75;
+  transition:opacity .15s;
+}
+.r-btn[href^="http"]:hover::after,
+.r-btn[href^="//"]:hover::after{opacity:1}
+.r-btn-disabled::after{display:none !important}
 
 /* ---------- RESET & BASE ---------- */
 *{margin:0;padding:0;box-sizing:border-box}
