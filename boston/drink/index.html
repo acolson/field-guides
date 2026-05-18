@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Where to Drink in Boston — Field Guide</title>
-<meta name="description" content="Boston bars by type and neighborhood. Coming soon.">
+<meta name="description" content="Twenty-eight Boston bars ranked by critical consensus, organized by tier and filterable by neighborhood + category. Sources: Boston Magazine, Globe, Time Out, Infatuation, Esquire, North America's 50 Best Bars, James Beard Foundation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 <body data-city="boston">
-
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
 <div class="meta">Issue 01 · Boston</div>
@@ -19,45 +20,1066 @@
 <div class="section-nav">
 <div class="city-name"><a href="../">Boston</a></div>
 <div class="sections">
-<a href="../eat/">Eat</a>
 <a href="../stay/">Stay</a>
+<a href="../eat/">Eat</a>
 <a href="../drink/" class="current">Drink</a>
 <a href="../do/">Do</a>
 </div>
 </div>
-
-<section class="hero" style="grid-template-columns:1fr;padding-bottom:6rem">
-<div class="hero-kicker"><span class="hero-pill">Part 03</span> Where to drink</div>
-<h1 class="hero-title">Bars, <em>by what kind of night you're having</em>.</h1>
-<p class="hero-dek">Coming soon. The plan: organize by occasion — pre-dinner cocktail, late-night dive, wine bar that wants the whole evening, hotel bar that takes itself seriously. Less ranking, more matching.</p>
-<div class="pullquote">
-In the meantime, a few that always come up in the research: <em>Drink</em> in Fort Point for cocktails (no menu, you describe what you want), <em>Yvonne's</em> downtown for the speakeasy treatment, <em>haley.henry</em> in the Financial District for wine, and <em>The Hawthorne</em> in Kenmore for Jackson Cannon's classic program.
+<section class="hero">
+<div class="hero-kicker"><span class="hero-pill">Part 3</span> Where to drink</div>
+<h1 class="hero-title">Where to Drink in Boston, by <em>Kind of Night</em>.</h1>
+<p class="hero-dek">A mapped, tiered, and category-filtered guide to twenty-eight Boston bars – calibrated for a group staying near the Common and the South End, with a Fenway show night on the calendar.</p>
+<p class="hero-byline">Sources: <strong>Boston Magazine</strong> · <strong>Boston Globe</strong> · <strong>Time Out</strong> · <strong>The Infatuation</strong> · <strong>Esquire Best Bars</strong> · <strong>North America's 50 Best Bars</strong> · <strong>James Beard Foundation</strong> · <strong>NYT 36 Hours</strong></p>
+</section>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">Executive Summary</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#planning">Trip-Planning Notes</a></li>
+<li><a href="#tier1"><strong>Tier 1</strong> · The Consensus</a></li>
+<li><a href="#tier2"><strong>Tier 2</strong> · Strong Picks</a></li>
+<li><a href="#tier3"><strong>Tier 3</strong> · Specialists</a></li>
+<li><a href="#tier4"><strong>Tier 4</strong> · Pre-Fenway</a></li>
+<li><a href="#historic">Historic Taverns</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">Executive Summary</div>
+<h2 class="chapter-title">By the Numbers: a <em>Cocktail-Forward</em> City.</h2>
+<p class="chapter-dek">Eight publications, dozens of bars. Filtered to Boston, Cambridge, Brookline, and Somerville. The pattern: Boston's bar journalism leans heavily on cocktail rooms, and the list reflects that honestly.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">28</div><div class="stat-label">bars on the final list</div></div>
+<div class="stat"><div class="stat-num">9</div><div class="stat-label">consensus picks across 3+ lists</div></div>
+<div class="stat"><div class="stat-num">6</div><div class="stat-label">categories: cocktail, wine, dive, hotel, live-music, pre-Fenway</div></div>
+<div class="stat"><div class="stat-num">3</div><div class="stat-label">bars within a five-minute walk of Fenway</div></div>
 </div>
-<p class="chapter-body" style="margin-top:2rem">A handful of the dinner picks in the Eat section also work as a bar-first stop — <strong>Saltie Girl</strong> for an oyster and a martini, <strong>Eastern Standard</strong> for a 1am old-fashioned, <strong>Toro</strong> for the bar seats without a reservation. Until this section is built out, those are reliable.</p>
+<div class="chapter-body">
+<p>The methodology mirrors the eat section: pull every bar on a 2024–2025 critics' list, count overlaps, weight by frequency. The bar landscape is thinner – Boston has fewer publications doing real bar journalism than restaurant journalism – but the consensus is clear at the top.</p>
+<p>Nine bars made <strong>Tier 1</strong>, all but one of them cocktail rooms. <strong>Tier 2</strong> opens up to wine bars, dives, hotel rooms, and the South End's Wally's Cafe (a jazz institution since 1947). <strong>Tier 3</strong> is the specialist tier – a sake bar, a Harvard Square room, the Ritz, plus a single legacy callout for Drink. (the Barbara Lynch room that defined Boston's cocktail era and doesn't get the press it used to). <strong>Tier 4</strong> handles the Fenway show-night logic. Historic taverns get an acknowledgment paragraph at the end.</p>
+</div>
+<div class="pullquote">Boston's bar story is <em>cocktail-forward</em>. Twelve of the twenty-eight picks are cocktail rooms. The Tier 1 has nine entries and eight are cocktail bars. The list reflects how Boston critics actually write – not how we wish they wrote.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>The Tier 1 cocktail picks cluster downtown and Back Bay.</h3><p>Hecate (Back Bay), The Wig Shop (Downtown Crossing), Hue (Theater District), Temple Records (Downtown), Yvonne's (Downtown Crossing), Carrie Nation (Beacon Hill) are all within a fifteen-minute walk of the Common. Equal Measure (Kenmore), Marcelino's (Seaport), and Farmacia (North End) are the geography exceptions, each worth their own night.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>Farmacia is the hardest reservation in the section.</h3><p>Nine seats, tasting-menu format, books 60 days out. Set a phone alarm before you book the trip. Treat it as the whole evening, not a stop.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>Fenway show night is a four-bar question.</h3><p>If you want a proper cocktail before the game, walk to <strong>Equal Measure</strong> (Tier 1, across Brookline Ave). If you want the structural Fenway experience: <strong>Cask 'n Flagon</strong> before (the line, the TVs, the Sam Adams), <strong>Bleacher Bar</strong> if you can book the centerfield window, <strong>Loretta's Last Call</strong> after the game for chicken and waffles and the late-night anchor.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>The wine bar and dive tiers are intentionally thin.</h3><p>Boston has more cocktail journalism than wine or dive journalism, and the list honors that. Haley.Henry and Krasi for wine; Delux and Merai for dives. If you want twenty wine bars, this isn't your guide – the critics didn't write them.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Twenty-eight bars, <em>five</em> clusters.</h2>
+<p class="chapter-dek">Pinned and color-coded by tier. Click any marker for details. Common and Fenway are marked for orientation.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Tier 1</strong> · 3+ lists</span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Tier 2</strong> · 2 lists</span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Tier 3</strong> · Specialist</span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Tier 4</strong> · Pre-Fenway</span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Landmark</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="planning">
+<div class="chapter-label">Trip-Planning Notes</div>
+<h2 class="chapter-title">Four <em>Practical</em> Things to Know.</h2>
+<p class="chapter-dek">What changes when you're staying near the Common and the South End, with a Fenway show night on the calendar.</p>
+<div class="insights">
+<div class="insight"><div class="insight-num">A</div><div class="insight-content"><h3>Your hotel area gets you nine of the Tier 1+2 picks on foot.</h3><p>Downtown / Beacon Hill / Back Bay / South End is a tight walking quad – Hecate, Wig Shop, Carrie Nation, Yvonne's, Temple Records, Map Room, Long Bar at Raffles, Krasi, Delux all reachable without a Lyft. Save the rideshare budget for Marcelino's (Seaport), Equal Measure (Kenmore), and Backbar (Somerville).</p></div></div>
+<div class="insight"><div class="insight-num">B</div><div class="insight-content"><h3>Reservations: Farmacia 60 days, Hecate two weeks, the rest one week.</h3><p>Farmacia is the only multi-month reservation in the section. Hecate's 24 seats fill 10–14 days ahead via Resy. Wig Shop, Equal Measure, Backbar, Marcelino's all gettable on Resy one week ahead for a weeknight. Yvonne's, Carrie Nation, Long Bar are walk-in friendly.</p></div></div>
+<div class="insight"><div class="insight-num">C</div><div class="insight-content"><h3>Show night at Fenway: pick your story.</h3><p>The cocktail story: <strong>Equal Measure</strong> across Brookline Ave. The view story: <strong>Bleacher Bar</strong> under the bleachers with the centerfield window. The crowd story: <strong>Cask 'n Flagon</strong> for the line and the memorabilia. The after-game story: <strong>Loretta's Last Call</strong> with the chicken and waffles. You pick two; the night writes itself.</p></div></div>
+<div class="insight"><div class="insight-num">D</div><div class="insight-content"><h3>The night-that-isn't-dinner room exists, and it's Hue.</h3><p>When you've got a free Friday night and don't want a sit-down dinner, the move is Hue in the Theater District – cocktails until 10, dance floor after. Dress for it. The Wig Shop is the late-night anchor if the night runs past midnight.</p></div></div>
+</div>
 </section>
 
+<section class="chapter" id="tier1">
+<div class="tier-intro">
+<div class="tier-pill">Tier 1</div>
+<h2 class="tier-name">Where Everyone <em>Agrees</em>.</h2>
+<p class="tier-dek">Nine bars, three or more critics' lists each. Eight cocktail rooms and a Beacon Hill speakeasy. The consensus is cocktail-forward and worth honoring.</p>
+</div>
+
+<article class="restaurant-feature" id="b-hecate" data-neighborhood="back-bay" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Magazine · Boston Globe · Time Out · North America's 50 Best Bars #88 · Infatuation">Five lists</span>
+</div>
+<h3 class="r-name">Hecate</h3>
+<p class="r-tag">The candlelit cocktail cave that prohibits vodka sodas.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">50 Best #88</span>
+</div>
+<p class="r-blurb">Twenty-four seats down a Public Alley off Newbury. Candles, low ceilings, a rotating menu that the bartenders prefer you trust. North America's 50 Best Bars named it #88 in 2026. The menu literally bans vodka sodas.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Trust the rotating menu · seasonal botanicals</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy · 24 seats fill weeks ahead</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Post-dinner · intimate · pairs (not groups)</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.hecateboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/hecate" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Hecate+Bar+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-wig-shop" data-neighborhood="downtown-crossing" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Magazine · Boston Globe · Time Out · 50 Best #86 · Infatuation · NYT 36 Hours">Five lists</span>
+</div>
+<h3 class="r-name">The Wig Shop</h3>
+<p class="r-tag">Through the wig-store door, into the neon-pink lounge.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown Crossing</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">50 Best #86</span>
+</div>
+<p class="r-blurb">The speakeasy-but-actually-clever entrance: walk through a working wig storefront, find a hot-pink cocktail lounge open until 2am. Drinks named after Carly Rae Jepsen songs. The late-night cocktail room Boston was missing.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Channing Ta-Yum · Rise & Grind · Yo Soy</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy · or walk in past midnight</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Late night · after-dinner anchor</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thewigshopboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/the-wig-shop" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Wig+Shop+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-equal-measure" data-neighborhood="kenmore" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Magazine · Boston Globe · Time Out · Esquire Best Bars in America 2024 · JBF 2025 semifinalist">Five lists</span>
+</div>
+<h3 class="r-name">Equal Measure</h3>
+<p class="r-tag">The Eastern Standard team's basement cocktail room. The pre-Fenway pick.</p>
+<div class="r-pills">
+  <span class="r-pill">Kenmore</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Esquire 2024</span>
+</div>
+<p class="r-blurb">Eleven seats at the bar plus a small lounge, in a former Kenmore police station basement. Esquire's Best Bars in America 2024. The cocktail pre-game when you've got Fenway on the calendar but don't want to be in a sports bar.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Velveteen · seasonal flips · rotating menu</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy · book 2 weeks ahead</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-Fenway · post-dinner · cocktail seriousness</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.equalmeasureboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/equal-measure" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Equal+Measure+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-hue" data-neighborhood="theater-district" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Magazine · Boston Globe · Time Out">Three lists</span>
+</div>
+<h3 class="r-name">Hue</h3>
+<p class="r-tag">Supper club, speakeasy, dance lounge — all at once.</p>
+<div class="r-pills">
+  <span class="r-pill">Theater District</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$$</span>
+</div>
+<p class="r-blurb">The Warrenton Street room that pulls cocktails from cachaça to Japanese whisky and turns the dance floor on after 10pm. Dress like you mean it. The night-that-isn't-dinner room.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Globe-trotting menu · cachaça, shochu, mezcal</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy · dress code enforced</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Group night · post-dinner · staying late</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.hueboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/hue" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Hue+Boston+Theater+District" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-farmacia" data-neighborhood="north-end" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Magazine · Time Out · Infatuation">Three lists</span>
+</div>
+<h3 class="r-name">Farmacia</h3>
+<p class="r-tag">Nine seats, tasting-menu cocktails, books 60 days out.</p>
+<div class="r-pills">
+  <span class="r-pill">North End</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">9 seats</span>
+</div>
+<p class="r-blurb">Hanover Street's smallest serious cocktail room — nine seats, a multi-cocktail tasting format with snacks between, reservations released 60 days in advance. Set a phone alarm. The whole evening, not a stop.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Tasting menu only · seasonal · paired with bites</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>60 days out · prepaid · set a phone alarm</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Anniversary · two people · the whole night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.farmaciaboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/farmacia" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Farmacia+Bar+North+End+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-temple-records" data-neighborhood="downtown" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Magazine · Boston Globe · NYT 36 Hours">Three lists</span>
+</div>
+<h3 class="r-name">Temple Records</h3>
+<p class="r-tag">Japanese listening bar. Vinyl, gin, whisky, low lights.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">NYT 36 Hours</span>
+</div>
+<p class="r-blurb">Temple Place's quiet upstairs cocktail room programmed around vinyl. The NYT 36 Hours pick. Order a Japanese whisky, sit at the bar, let the records play. (Not the same as the sushi spot that closed.)</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Japanese whisky · gin highballs · sake flights</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy · walk-in possible early</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Post-dinner · quiet conversation · no big groups</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.templerecordsboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/temple-records" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Temple+Records+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-yvonnes" data-neighborhood="downtown-crossing" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Magazine · Time Out · Infatuation">Three lists</span>
+</div>
+<h3 class="r-name">Yvonne's</h3>
+<p class="r-tag">Three rooms, one hidden behind a bookshelf.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown Crossing</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+</div>
+<p class="r-blurb">The clubby supper-club-meets-cocktail-bar in the old Locke-Ober space. Faux salon entrance, mahogany bar, a back room hidden through a bookshelf. Group-friendly, theatrical, the right move for a pre-dinner round of six.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Classics done properly · barrel-aged old fashioneds</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Open Table · groups welcome</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Group · pre-dinner · the theatrical round</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.yvonnesboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/yvonnes-boston" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Yvonnes+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-marcelinos" data-neighborhood="seaport" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Magazine BoB 2025 (readers' Best Bar) · Boston Globe · Time Out">Three lists</span>
+</div>
+<h3 class="r-name">Marcelino's</h3>
+<p class="r-tag">Boston Mag readers' Best Bar 2025, in the old Daily Catch space.</p>
+<div class="r-pills">
+  <span class="r-pill">Seaport</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">BoB 2025 Reader's Best</span>
+</div>
+<p class="r-blurb">Levantine-leaning cocktails on the Seaport water — soy balsamic in the Mushrooms drink, za'atar rim on the martini, snacks that count as dinner if you stay long enough. Newest Tier 1 entry, Boston Mag's readers picked it #1 in 2025.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Mushrooms · Za'atar Martini · arak sour</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy · the bar takes walk-ins</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Between dinners · group room · waterside summer</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.marcelinosboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/marcelinos" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Marcelinos+Seaport+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-carrie-nation" data-neighborhood="beacon-hill" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Time Out · USA Today Best Bars in America 2025 · Boston.com">Three lists</span>
+</div>
+<h3 class="r-name">Carrie Nation</h3>
+<p class="r-tag">Front bar for after work, speakeasy with billiards in the back.</p>
+<div class="r-pills">
+  <span class="r-pill">Beacon Hill</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">USA Today Best 2025</span>
+</div>
+<p class="r-blurb">Two-room Beacon Hill cocktail club — proper bar up front for the after-work round, sneak past the shoeshine stand into the back speakeasy with billiards and the quieter list. The group-friendly Tier 1.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Punches · barrel-aged classics · house old fashioned</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Open Table · or walk in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>After work · groups · the warm-up round</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.carrienation.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/carrie-nation-boston" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Carrie+Nation+Cocktail+Club+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier2">
+<div class="tier-intro">
+<div class="tier-pill">Tier 2</div>
+<h2 class="tier-name">The <em>Strong</em> Picks.</h2>
+<p class="tier-dek">Twelve bars, two lists each. Where the wine bars, dives, hotel rooms, and the city's jazz institution live. Where you go on night three or four, when the consensus picks are booked or you want a different mood.</p>
+</div>
+
+<article class="restaurant-feature" id="b-daiquiris-daisies" data-neighborhood="downtown" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Infatuation · Boston Magazine">Two lists</span>
+</div>
+<h3 class="r-name">Daiquiris & Daisies</h3>
+<p class="r-tag">Rum and tequila classics, inside a food hall.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+</div>
+<p class="r-blurb">Bar veterans Daren Swisher and Joseph Cammarata's stall inside High Street Place. Tight rum-and-tequila list, no-frills, walk-in-friendly. The lunchtime-to-after-work move when you want a real cocktail without the room.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Daiquiri · Margarita · house punch</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in only</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>After work · between meetings · solo drink</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.daiquirisanddaisies.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Daiquiris+and+Daisies+High+Street+Place+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-backbar" data-neighborhood="somerville" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Magazine · Time Out (World's 28 Coolest)">Two lists</span>
+</div>
+<h3 class="r-name">Backbar</h3>
+<p class="r-tag">The unmarked alley door cocktail bar Time Out put on its global list.</p>
+<div class="r-pills">
+  <span class="r-pill">Somerville</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Time Out World's Coolest</span>
+</div>
+<p class="r-blurb">Sanborn Court in Union Square Somerville, behind an unmarked door. Sam Treadway's themed menus rotate hard — pop culture, music, holidays. The cocktail-serious night that's worth the cab to Somerville.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Rotating themed menu · ask the bartender</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy strongly recommended</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Cocktail nerds · destination night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.backbarunion.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/backbar" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Backbar+Somerville" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-merai" data-neighborhood="brookline" data-cuisine="dive">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Magazine · Boston Globe · JBF 2025 finalist Best New Bar">Two lists</span>
+</div>
+<h3 class="r-name">Merai</h3>
+<p class="r-tag">Thai-style dive, JBF 2025 finalist for Best New Bar.</p>
+<div class="r-pills">
+  <span class="r-pill">Brookline</span>
+  <span class="r-pill">Dive</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">JBF 2025 Finalist</span>
+</div>
+<p class="r-blurb">From the Mahaniyom team — Thai dive vibe, inventive drinks (galangal, makrut lime, shochu, cheese foam), the kind of room you didn't know Boston had. Beard Foundation 2025 Best New Bar finalist.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Galangal-shochu · makrut-lime gimlet · cheese-foam highball</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in mostly · small reservations on Resy</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Cocktail-curious crowd · different kind of night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.meraibar.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in friendly</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Merai+Brookline" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-haley-henry" data-neighborhood="downtown-crossing" data-cuisine="wine">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Time Out · Infatuation · JBF 2024 wine semifinalist">Two lists</span>
+</div>
+<h3 class="r-name">Haley.Henry</h3>
+<p class="r-tag">Natural wine and tinned fish.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown Crossing</span>
+  <span class="r-pill">Wine</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">JBF Wine Semifinalist</span>
+</div>
+<p class="r-blurb">Province Street's tiny wine bar, all natural list, all tinned fish, no pretense about either. JBF 2024 Outstanding Wine Program semifinalist. The pre-dinner room for two.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Natural wine list · sherry · vermouth</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in friendly · 25 seats total</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-dinner · intimate · two people</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.haleyhenrybar.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Haley+Henry+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-krasi" data-neighborhood="back-bay" data-cuisine="wine">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Time Out · Infatuation">Two lists</span>
+</div>
+<h3 class="r-name">Krasi</h3>
+<p class="r-tag">The Greek wine list — sister concept to Hecate.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Wine</span>
+  <span class="r-pill">$$$</span>
+</div>
+<p class="r-blurb">Gloucester Street Greek wine bar with the deepest list of Greek bottles in Boston. Mezedes are good enough to make this the whole night. Same group as Hecate.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Greek wine flights · ouzo · tsipouro</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Open Table</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-dinner · wine-curious · couples</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.krasiboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/krasi-meze-wine-boston" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Krasi+Meze+Wine+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-bar-lunette" data-neighborhood="brookline" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Globe · Boston Magazine">Two lists</span>
+</div>
+<h3 class="r-name">Bar Lunette</h3>
+<p class="r-tag">Cocktails in a former Coolidge Corner opticians.</p>
+<div class="r-pills">
+  <span class="r-pill">Brookline</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+</div>
+<p class="r-blurb">French cocktail bar in the bones of an old eyewear shop on Harvard Street. Negroni riff called Day for Night, eight-seat counter, neighborhood-quiet on Tuesdays.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Day for Night · Lost in Translation · vermouth list</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Date night · out-of-core escape · quieter night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.barlunette.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/bar-lunette" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Bar+Lunette+Brookline" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-map-room" data-neighborhood="back-bay" data-cuisine="hotel">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Infatuation · Boston Magazine">Two lists</span>
+</div>
+<h3 class="r-name">The Map Room</h3>
+<p class="r-tag">The cocktail bar inside the Boston Public Library.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Hotel</span>
+  <span class="r-pill">$$</span>
+</div>
+<p class="r-blurb">The library's hidden bar — Copley Square, off the courtyard. Locals forget it exists because tourists are always there, but the cocktails are real and the room is a Boston original.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Classics · seasonal menu · short list</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in · library closes 9pm Sun</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Between activities · daytime · solo drink</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.bpl.org/the-map-room-tea-lounge/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Map+Room+Tea+Lounge+Boston+Public+Library" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-long-bar-raffles" data-neighborhood="back-bay" data-cuisine="hotel">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Infatuation · Boston Magazine">Two lists</span>
+</div>
+<h3 class="r-name">Long Bar at Raffles</h3>
+<p class="r-tag">Seventeenth floor of the new Raffles, with the view to match.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Hotel</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">17th floor</span>
+</div>
+<p class="r-blurb">The hotel bar Boston didn't have until 2023. Big windows, big drinks, the long bar that anchors the room. The pre-dinner round when the round itself is the point.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Singapore Sling (original) · classic martinis · high-shelf</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in OK · reservations for the view tables</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-dinner · the view round · special-occasion drink</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.raffles.com/boston/dining/long-bar/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in friendly</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Long+Bar+Raffles+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-coquette" data-neighborhood="seaport" data-cuisine="hotel">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Infatuation · Boston Magazine">Two lists</span>
+</div>
+<h3 class="r-name">Coquette</h3>
+<p class="r-tag">Flirty, frilly Omni Seaport bar — the pretty-room night.</p>
+<div class="r-pills">
+  <span class="r-pill">Seaport</span>
+  <span class="r-pill">Hotel</span>
+  <span class="r-pill">$$$$</span>
+</div>
+<p class="r-blurb">The Omni Seaport's signature cocktail bar, designed to be Instagrammed. Frilly upholstery, pink everything, a cocktail list that takes itself seriously inside the frame. The night when you want the room to look like the drink.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Floral martinis · house spritzes · champagne flights</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Open Table · reservation strongly recommended</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pretty-room night · celebrations · groups of four</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.omnihotels.com/hotels/boston-seaport/dining/coquette" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/coquette-omni-boston" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Coquette+Omni+Seaport+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-delux-cafe" data-neighborhood="south-end" data-cuisine="dive">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Time Out · Infatuation">Two lists</span>
+</div>
+<h3 class="r-name">Delux Cafe</h3>
+<p class="r-tag">PBR Christmas trees, Elvis on the walls, a real kitchen behind the chips.</p>
+<div class="r-pills">
+  <span class="r-pill">South End</span>
+  <span class="r-pill">Dive</span>
+  <span class="r-pill">$</span>
+</div>
+<p class="r-blurb">The neighborhood dive on Chandler that gets cited in actual cocktail guides because the food is good and the room is the real article. No frills, full kitchen, the night you want to feel like you've left curated Boston.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Beer · house cocktails · the punch when offered</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in · cash friendly · no reservations</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The drop-in · late-night food · escape from polish</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.deluxcafeboston.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Delux+Cafe+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-wallys-cafe" data-neighborhood="south-end" data-cuisine="live-music">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Infatuation · Time Out">Two lists</span>
+</div>
+<h3 class="r-name">Wally's Cafe</h3>
+<p class="r-tag">Family-run jazz club since 1947. A cultural pick, not a cocktail one.</p>
+<div class="r-pills">
+  <span class="r-pill">South End</span>
+  <span class="r-pill">Live-Music</span>
+  <span class="r-pill">$</span>
+  <span class="r-pill r-pill-accent">Est. 1947</span>
+</div>
+<p class="r-blurb">Mass Ave's tiny jazz club. The Walcott family has run it since 1947 — same room, same energy, same no-cover policy most nights. Not a 'best bars' list per se, but Boston's bar story includes it.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Beer · house pours · cash</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in only · no cover most nights</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Jazz night · cultural pick · late stop</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.wallyscafe.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Wallys+Cafe+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-parla" data-neighborhood="north-end" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Globe · Eater Boston">Two lists</span>
+</div>
+<h3 class="r-name">Parla</h3>
+<p class="r-tag">Dark wood, botanical riffs, the North End's serious cocktail room.</p>
+<div class="r-pills">
+  <span class="r-pill">North End</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+</div>
+<p class="r-blurb">The Hanover Street cocktail-and-Italian-snacks spot that runs the bar program harder than the food menu lets on. Botanical riffs on classics, dark wood paneling, low light. Between dinners or as the dinner.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Botanical classics · amaro list · house digestifs</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Between dinners in the North End · post-Neptune</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.parlaboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/parla" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Parla+North+End+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier3">
+<div class="tier-intro">
+<div class="tier-pill">Tier 3</div>
+<h2 class="tier-name">The <em>Specialists</em>.</h2>
+<p class="tier-dek">Single-list-strong-signal picks – the Ritz cocktail bar, Boston's first sake bar, Harvard Square's quiet cocktail room, plus a legacy callout for Drink., the Barbara Lynch bar that defined Boston cocktails in 2008 and still earns the visit.</p>
+</div>
+
+<article class="restaurant-feature" id="b-longfellow" data-neighborhood="cambridge" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Infatuation Boston">One list</span>
+</div>
+<h3 class="r-name">Longfellow</h3>
+<p class="r-tag">Harvard Square cocktail bar, hand-eaten food, hidden upstairs.</p>
+<div class="r-pills">
+  <span class="r-pill">Cambridge</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Infatuation Pick</span>
+</div>
+<p class="r-blurb">Bow Street's upstairs cocktail room — high-end drinks, snacks meant to be eaten with hands, Harvard-adjacent quiet on a weeknight. Worth the Red Line if you're already in Cambridge.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Bartender's choice menu · seasonal list</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Cambridge night · post-museum drink</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.longfellowbar.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/longfellow-bar" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Longfellow+Bar+Harvard+Square" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-koji-club" data-neighborhood="back-bay" data-cuisine="wine">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="JBF 2025 semifinalist Outstanding Beverage Service · Condé Nast Traveler">One list</span>
+</div>
+<h3 class="r-name">Koji Club</h3>
+<p class="r-tag">Boston's first sake bar.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Wine</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">JBF 2025 Semifinalist</span>
+</div>
+<p class="r-blurb">Sake flights, Japanese spirits, a sake program that earned Beard Foundation recognition in 2025. CN Traveler nod too. Small room near the Hynes — the post-dinner pivot when the night needs a quieter chapter.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Sake flights · Japanese whisky · shochu</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Post-dinner · sake-curious · couples</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.kojiclubboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/koji-club" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Koji+Club+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-avery-bar" data-neighborhood="downtown" data-cuisine="hotel">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Forbes Travel Guide — Meiji Manhattan named one of best cocktails worldwide 2024">One list</span>
+</div>
+<h3 class="r-name">Avery Bar</h3>
+<p class="r-tag">The Ritz hotel bar with Forbes' best-cocktail-worldwide pick.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Hotel</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">Forbes Best Cocktail 2024</span>
+</div>
+<p class="r-blurb">The Ritz-Carlton's understated cocktail bar. Forbes Travel Guide named the Meiji Manhattan (Hayashi Koyo, Cynar, soy, bitters) one of the best cocktails in the world in 2024. Hotel-bar quiet, drink-list serious.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Meiji Manhattan · classic martinis · single-malt list</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in OK · reservations for groups</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Hotel-quiet drink · pre-dinner · solo</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.ritzcarlton.com/en/hotels/bosrz-the-ritz-carlton-boston/dining/avery-bar" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in friendly</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Avery+Bar+Ritz+Carlton+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-drink" data-neighborhood="fort-point" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Legacy callout — not on current best-of lists, but historically Boston's most-influential cocktail bar">One list</span>
+</div>
+<h3 class="r-name">Drink.</h3>
+<p class="r-tag">The 2008 cocktail bar that taught Boston cocktails. Still going.</p>
+<div class="r-pills">
+  <span class="r-pill">Fort Point</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Boston cocktail legacy</span>
+</div>
+<p class="r-blurb">Barbara Lynch's Fort Point cocktail room — no menu, you tell the bartender what you like and they build the drink. Opened 2008, defined an era of Boston cocktail culture. Doesn't get the press it used to but the room is still right. Worth a stop if you're in Fort Point.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Bartender's choice · no menu by design</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in · arrive early</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Cocktail history · solo bar seat · Fort Point evening</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://drinkfortpoint.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Drink+Fort+Point+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier4">
+<div class="tier-intro">
+<div class="tier-pill">Tier 4</div>
+<h2 class="tier-name"><em>Pre-Fenway</em>: The Show-Night Tier.</h2>
+<p class="tier-dek">Three bars critics don't rank but the show-night trip needs. Equal Measure (Tier 1, the cocktail anchor) handles one slot; these handle the dive/view/late-night ones. Frame honestly: critics don't pick these; the trip does.</p>
+</div>
+
+<article class="restaurant-feature" id="b-bleacher-bar" data-neighborhood="fenway" data-cuisine="pre-fenway">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 4</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Globe Fenway feature · structural pick for the show-night trip">One list</span>
+</div>
+<h3 class="r-name">Bleacher Bar</h3>
+<p class="r-tag">The garage-window view straight into Fenway's centerfield.</p>
+<div class="r-pills">
+  <span class="r-pill">Fenway</span>
+  <span class="r-pill">Pre-Fenway</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Window into Fenway</span>
+</div>
+<p class="r-blurb">Under the bleachers, with a wall of garage windows looking onto the centerfield warning track. Not a critic's pick — a structural one. The bar to book if you have a Fenway show night and want the view without the seat.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Beer · house cocktails · standard</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy on game days · book aggressively</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-game · the view · group of four</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.bleacherbarboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/bos/venues/bleacher-bar" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Bleacher+Bar+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-cask-n-flagon" data-neighborhood="fenway" data-cuisine="pre-fenway">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 4</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Globe Fenway feature · Boston.com · MeetBoston">One list</span>
+</div>
+<h3 class="r-name">Cask 'n Flagon</h3>
+<p class="r-tag">Forty TVs, Sam Adams on tap, the default Red Sox bar.</p>
+<div class="r-pills">
+  <span class="r-pill">Fenway</span>
+  <span class="r-pill">Pre-Fenway</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Fenway default</span>
+</div>
+<p class="r-blurb">Corner of Brookline and Lansdowne. Memorabilia walls, forty TVs, Sam Adams on tap, the walk-in line that forms two hours before first pitch. Not subtle. The bar to hit when you want it to feel like a Red Sox game before you get in.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Beer · Sam Adams · standard cocktails</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in · expect a line on game days</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-game · the full Fenway experience · groups</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.casknflagon.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Cask+n+Flagon+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-lorettas" data-neighborhood="fenway" data-cuisine="pre-fenway">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 4</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boston Globe Fenway feature · Boston.com">One list</span>
+</div>
+<h3 class="r-name">Loretta's Last Call</h3>
+<p class="r-tag">Nashville theme, line dancing, chicken and waffles. After the game.</p>
+<div class="r-pills">
+  <span class="r-pill">Fenway</span>
+  <span class="r-pill">Pre-Fenway</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Late-night Fenway</span>
+</div>
+<p class="r-blurb">Lansdowne Street, opposite ends of the park from Bleacher. Country music, line dancing nights, chicken-and-waffles in the kitchen, the late-night anchor when the game's over and the night isn't.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Beer · whiskey · house cocktails</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>After the game · late-night · group of six</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.lorettaslastcall.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Lorettas+Last+Call+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="historic">
+<div class="chapter-label">Historic Taverns</div>
+<h2 class="chapter-title">Acknowledgment, <em>Not</em> Recommendation.</h2>
+<p class="chapter-dek">Boston has the two oldest taverns in continuous operation in America. Neither makes a modern critics' list. Both are tourist-heavy. The city's bar story includes them; the trip doesn't really point you there.</p>
+<div class="chapter-body">
+<p><strong>Bell in Hand Tavern</strong> opened on Marshall Street in 1795 – America's oldest continuously-operating tavern. It's a stop on the Freedom Trail. The bar is fine, the room is fine, the line outside is mostly people who walked over from Faneuil Hall. Worth a five-minute drink-and-look if you're already on the Trail; not worth a destination.</p>
+<p><strong>Warren Tavern</strong> in Charlestown is older – 1780, in its original building. Paul Revere drank there. George Washington stopped in. The bar program is exactly what you'd expect for a 245-year-old room. Worth the trip if you're doing the Bunker Hill / Constitution loop; otherwise, save the bar slot for somewhere where the drinks are the point.</p>
+</div>
+</section>
+</main>
+</div>
 <section class="next-up">
 <div class="next-up-inner">
 <div>
-<div class="next-up-label">— Continue the guide</div>
-<h3>Back to: <em>Where to eat</em></h3>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Next: <em>Where to Stay</em></h3>
 </div>
-<a href="../eat/" class="next-up-cta">Read the eat section →</a>
+<a href="../stay/" class="next-up-cta">Hotels by neighborhood →</a>
 </div>
 </section>
-
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
 <div class="footer-brand"><a href="../../">Field <em>Guide</em></a></div>
-<div class="footer-tagline">Issue 01 — Boston · Part 03, Where to drink.</div>
+<div class="footer-tagline">Issue 01 — Boston · Part 3, Where to drink.</div>
 </div>
 <div class="footer-bottom">
-<div>© 2026 Field Guide. Bars section coming soon.</div>
+<div>© 2026 Field Guide. Researched against Boston Magazine, Globe, Time Out, Infatuation, Esquire, 50 Best, James Beard, NYT.</div>
 <div>No affiliate links · No paid placements</div>
 </div>
 </div>
 </footer>
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([42.351, -71.075], 13);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
 
+    var restaurants = [
+      {name:'Hecate',id:'b-hecate',tier:1,lat:42.3505,lng:-71.0775,tag:'Cocktail · Back Bay',lists:5,label:'★'},
+      {name:'The Wig Shop',id:'b-wig-shop',tier:1,lat:42.3554,lng:-71.0608,tag:'Cocktail · Downtown Crossing',lists:5,label:'★'},
+      {name:'Equal Measure',id:'b-equal-measure',tier:1,lat:42.3489,lng:-71.0951,tag:'Cocktail · Kenmore',lists:5,label:'★'},
+      {name:'Hue',id:'b-hue',tier:1,lat:42.3522,lng:-71.0633,tag:'Cocktail · Theater District',lists:3,label:'★'},
+      {name:'Farmacia',id:'b-farmacia',tier:1,lat:42.3636,lng:-71.0556,tag:'Cocktail · North End',lists:3,label:'★'},
+      {name:'Temple Records',id:'b-temple-records',tier:1,lat:42.3548,lng:-71.0608,tag:'Cocktail · Downtown',lists:3,label:'★'},
+      {name:'Yvonne\'s',id:'b-yvonnes',tier:1,lat:42.3556,lng:-71.0606,tag:'Cocktail · Downtown Crossing',lists:3,label:'★'},
+      {name:'Marcelino\'s',id:'b-marcelinos',tier:1,lat:42.352,lng:-71.0457,tag:'Cocktail · Seaport',lists:3,label:'★'},
+      {name:'Carrie Nation',id:'b-carrie-nation',tier:1,lat:42.3582,lng:-71.066,tag:'Cocktail · Beacon Hill',lists:3,label:'★'},
+      {name:'Daiquiris & Daisies',id:'b-daiquiris-daisies',tier:2,lat:42.3565,lng:-71.0556,tag:'Cocktail · Downtown',lists:2,label:'2'},
+      {name:'Backbar',id:'b-backbar',tier:2,lat:42.3787,lng:-71.0958,tag:'Cocktail · Somerville',lists:2,label:'2'},
+      {name:'Merai',id:'b-merai',tier:2,lat:42.3429,lng:-71.1212,tag:'Dive · Brookline',lists:2,label:'2'},
+      {name:'Haley.Henry',id:'b-haley-henry',tier:2,lat:42.3548,lng:-71.0608,tag:'Wine · Downtown Crossing',lists:2,label:'2'},
+      {name:'Krasi',id:'b-krasi',tier:2,lat:42.3494,lng:-71.082,tag:'Wine · Back Bay',lists:2,label:'2'},
+      {name:'Bar Lunette',id:'b-bar-lunette',tier:2,lat:42.3413,lng:-71.1227,tag:'Cocktail · Brookline',lists:2,label:'2'},
+      {name:'The Map Room',id:'b-map-room',tier:2,lat:42.3494,lng:-71.0779,tag:'Hotel · Back Bay',lists:2,label:'2'},
+      {name:'Long Bar at Raffles',id:'b-long-bar-raffles',tier:2,lat:42.3494,lng:-71.079,tag:'Hotel · Back Bay',lists:2,label:'2'},
+      {name:'Coquette',id:'b-coquette',tier:2,lat:42.3475,lng:-71.0418,tag:'Hotel · Seaport',lists:2,label:'2'},
+      {name:'Delux Cafe',id:'b-delux-cafe',tier:2,lat:42.3445,lng:-71.0728,tag:'Dive · South End',lists:2,label:'2'},
+      {name:'Wally\'s Cafe',id:'b-wallys-cafe',tier:2,lat:42.3411,lng:-71.0823,tag:'Live-Music · South End',lists:2,label:'2'},
+      {name:'Parla',id:'b-parla',tier:2,lat:42.364,lng:-71.0548,tag:'Cocktail · North End',lists:2,label:'2'},
+      {name:'Longfellow',id:'b-longfellow',tier:3,lat:42.3736,lng:-71.119,tag:'Cocktail · Cambridge',lists:1,label:'1'},
+      {name:'Koji Club',id:'b-koji-club',tier:3,lat:42.347,lng:-71.083,tag:'Wine · Back Bay',lists:1,label:'1'},
+      {name:'Avery Bar',id:'b-avery-bar',tier:3,lat:42.3526,lng:-71.064,tag:'Hotel · Downtown',lists:1,label:'1'},
+      {name:'Drink.',id:'b-drink',tier:3,lat:42.3527,lng:-71.0501,tag:'Cocktail · Fort Point',lists:1,label:'1'},
+      {name:'Bleacher Bar',id:'b-bleacher-bar',tier:4,lat:42.3464,lng:-71.0976,tag:'Pre-Fenway · Fenway',lists:1,label:'1'},
+      {name:'Cask \'n Flagon',id:'b-cask-n-flagon',tier:4,lat:42.347,lng:-71.0985,tag:'Pre-Fenway · Fenway',lists:1,label:'1'},
+      {name:'Loretta\'s Last Call',id:'b-lorettas',tier:4,lat:42.3469,lng:-71.0967,tag:'Pre-Fenway · Fenway',lists:1,label:'1'}
+    ];
+
+    restaurants.forEach(function(r){
+      var tierClass = 'tier' + r.tier;
+      var icon = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="custom-pin ' + tierClass + '">' + r.label + '</div>',
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+      var marker = L.marker([r.lat, r.lng], { icon: icon }).addTo(map);
+      marker.bindPopup(
+        '<div class="pop-name">' + r.name + '</div>' +
+        '<div class="pop-tag">' + r.tag + '</div>' +
+        '<div class="pop-meta">' + r.lists + (r.lists === 1 ? ' list' : ' lists') + '</div>' +
+        (r.id ? '<a href="#' + r.id + '" class="pop-link" onclick="return window.fieldGuideJumpTo(\'' + r.id + '\')">View entry \u2192</a>' : '')
+      );
+    });
+
+    var commonIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Common</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([42.3551, -71.0657], { icon: commonIcon }).addTo(map);
+
+    var fenwayIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Fenway</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([42.3467, -71.0972], { icon: fenwayIcon }).addTo(map);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMap);
+  else initMap();
+})();
+</script>
+
+<script>
+(function(){
+  var LABEL_MAP = {
+    'back-bay':'Back Bay', 'downtown-crossing':'Downtown Crossing', 'downtown':'Downtown',
+    'kenmore':'Kenmore', 'theater-district':'Theater District', 'north-end':'North End',
+    'seaport':'Seaport', 'beacon-hill':'Beacon Hill', 'somerville':'Somerville',
+    'brookline':'Brookline', 'south-end':'South End', 'cambridge':'Cambridge',
+    'fort-point':'Fort Point', 'fenway':'Fenway',
+    'cocktail':'Cocktail', 'wine':'Wine', 'dive':'Dive', 'hotel':'Hotel',
+    'pre-fenway':'Pre-Fenway', 'live-music':'Live Music', 'historic':'Historic'
+  };
+  function label(slug){
+    if (LABEL_MAP[slug]) return LABEL_MAP[slug];
+    return slug.split('-').map(function(w){ return w.charAt(0).toUpperCase() + w.slice(1); }).join(' ');
+  }
+
+  var filterContainer = document.getElementById('filters');
+  if (!filterContainer) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]'));
+  if (cards.length === 0) return;
+
+  var neighborhoods = {}, cuisines = {};
+  cards.forEach(function(c){
+    var n = c.dataset.neighborhood, k = c.dataset.cuisine;
+    neighborhoods[n] = (neighborhoods[n] || 0) + 1;
+    cuisines[k] = (cuisines[k] || 0) + 1;
+  });
+
+  function buildRow(filterKey, rowLabel, counts){
+    var row = document.createElement('details');
+    row.className = 'filter-row';
+    var storeKey = 'fg-filter-' + filterKey + '-open';
+    var stored = null;
+    try { stored = window.localStorage.getItem(storeKey); } catch(e){}
+    row.open = (stored === null) ? true : (stored === 'true');
+    row.addEventListener('toggle', function(){
+      try { window.localStorage.setItem(storeKey, row.open ? 'true' : 'false'); } catch(e){}
+    });
+    var lbl = document.createElement('summary');
+    lbl.className = 'filter-label';
+    lbl.textContent = rowLabel;
+    row.appendChild(lbl);
+    var all = document.createElement('button');
+    all.type = 'button';
+    all.className = 'filter-chip filter-chip-active';
+    all.setAttribute('data-filter', filterKey);
+    all.setAttribute('data-value', 'all');
+    all.innerHTML = '<span>All</span><span class="filter-chip-count">' + cards.length + '</span>';
+    row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'filter-chip';
+      b.setAttribute('data-filter', filterKey);
+      b.setAttribute('data-value', v);
+      b.innerHTML = '<span>' + label(v) + '</span><span class="filter-chip-count">' + counts[v] + '</span>';
+      row.appendChild(b);
+    });
+    return row;
+  }
+
+  filterContainer.innerHTML = '';
+  filterContainer.appendChild(buildRow('neighborhood', 'Neighborhood', neighborhoods));
+  filterContainer.appendChild(buildRow('cuisine', 'Category', cuisines));
+
+  var status = document.createElement('div');
+  status.className = 'filter-status';
+  status.innerHTML = '<span class="filter-count" id="filter-count"><strong>' + cards.length + '</strong> of ' + cards.length + ' bars</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>';
+  filterContainer.appendChild(status);
+
+  var state = { neighborhood: 'all', cuisine: 'all' };
+
+  function applyFilters(){
+    var visible = 0;
+    cards.forEach(function(c){
+      var mN = state.neighborhood === 'all' || c.dataset.neighborhood === state.neighborhood;
+      var mC = state.cuisine === 'all' || c.dataset.cuisine === state.cuisine;
+      if (mN && mC) { c.style.display = ''; visible++; } else { c.style.display = 'none'; }
+    });
+    document.querySelectorAll('section.chapter[id^="tier"]').forEach(function(s){
+      var any = Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature'))
+        .some(function(c){ return c.style.display !== 'none'; });
+      s.classList.toggle('tier-empty', !any);
+    });
+    var countEl = document.getElementById('filter-count');
+    if (countEl) countEl.innerHTML = '<strong>' + visible + '</strong> of ' + cards.length + ' bars';
+  }
+  function setFilter(filterKey, value){
+    if (state[filterKey] === value && value !== 'all') value = 'all';
+    state[filterKey] = value;
+    filterContainer.querySelectorAll('[data-filter="' + filterKey + '"]').forEach(function(b){
+      b.classList.toggle('filter-chip-active', b.getAttribute('data-value') === value);
+    });
+    applyFilters();
+  }
+  filterContainer.addEventListener('click', function(e){
+    var chip = e.target.closest && e.target.closest('.filter-chip');
+    if (chip) { e.preventDefault(); setFilter(chip.getAttribute('data-filter'), chip.getAttribute('data-value')); return; }
+    var reset = e.target.closest && e.target.closest('#filter-reset');
+    if (reset) { e.preventDefault(); setFilter('neighborhood', 'all'); setFilter('cuisine', 'all'); }
+  });
+
+  window.fieldGuideJumpTo = function(id){
+    var el = document.getElementById(id);
+    if (!el) return false;
+    if (el.style.display === 'none') { setFilter('neighborhood', 'all'); setFilter('cuisine', 'all'); }
+    if (window._fgMap && window._fgMap.closePopup) window._fgMap.closePopup();
+    setTimeout(function(){
+      var top = el.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      el.classList.remove('highlight');
+      void el.offsetWidth;
+      el.classList.add('highlight');
+      setTimeout(function(){ el.classList.remove('highlight'); }, 1600);
+    }, 50);
+    return false;
+  };
+
+  if (window.location.hash && window.location.hash.indexOf('#b-') === 0) {
+    setTimeout(function(){ window.fieldGuideJumpTo(window.location.hash.slice(1)); }, 200);
+  }
+})();
+</script>
 </body>
 </html>
