@@ -14,7 +14,18 @@
 
 <div class="topbar">
 <div class="brand">Field <em>Guide</em></div>
-<div class="meta">A series</div>
+<div class="city-switcher" data-open="false">
+<button class="city-switcher-trigger" type="button" aria-haspopup="true">
+  <span><span class="city-switcher-current">All Issues</span></span>
+  <span class="city-switcher-arrow">▾</span>
+</button>
+<div class="city-switcher-menu" role="menu">
+<a href="./" class="city-switcher-item current">All Issues<span class="city-switcher-item-meta">Series landing page</span></a>
+<div class="city-switcher-divider"></div>
+<a href="./boston/" class="city-switcher-item">Boston<span class="city-switcher-item-meta">Issue 01 · Massachusetts</span></a>
+<a href="./toronto/" class="city-switcher-item">Toronto<span class="city-switcher-item-meta">Issue 02 · Ontario</span></a>
+</div>
+</div>
 </div>
 
 <section class="masthead">
@@ -129,5 +140,6 @@
 </div>
 </footer>
 
+<script src="shared/site.js" defer></script>
 </body>
 </html>

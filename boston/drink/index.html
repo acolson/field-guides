@@ -15,7 +15,18 @@
 <body data-city="boston">
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
-<div class="meta">Issue 01 · Boston</div>
+<div class="city-switcher" data-open="false">
+<button class="city-switcher-trigger" type="button" aria-haspopup="true">
+  <span>Issue 01 · <span class="city-switcher-current">Boston</span></span>
+  <span class="city-switcher-arrow">▾</span>
+</button>
+<div class="city-switcher-menu" role="menu">
+<a href="../../" class="city-switcher-item">All Issues<span class="city-switcher-item-meta">Series landing page</span></a>
+<div class="city-switcher-divider"></div>
+<a href="../../boston/" class="city-switcher-item current">Boston<span class="city-switcher-item-meta">Issue 01 · Massachusetts</span></a>
+<a href="../../toronto/" class="city-switcher-item">Toronto<span class="city-switcher-item-meta">Issue 02 · Ontario</span></a>
+</div>
+</div>
 </div>
 <div class="section-nav">
 <div class="city-name"><a href="../">Boston</a></div>
@@ -1028,5 +1039,6 @@
   }
 })();
 </script>
+<script src="../../shared/site.js" defer></script>
 </body>
 </html>
