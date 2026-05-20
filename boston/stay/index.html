@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Where to Stay in Boston — Field Guide</title>
-<meta name="description" content="Boston hotels by neighborhood and vibe. In progress.">
+<meta name="description" content="Seventeen Boston hotels organized by neighborhood and vibe. MICHELIN Keys, Forbes 5-Star, T+L IT List, and Hotels Above Par — filtered, not voted on.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 <body data-city="boston">
-
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
 <div class="city-switcher" data-open="false">
@@ -30,33 +31,617 @@
 <div class="section-nav">
 <div class="city-name"><a href="../">Boston</a></div>
 <div class="sections">
-<a href="../eat/">Eat</a>
 <a href="../stay/" class="current">Stay</a>
+<a href="../eat/">Eat</a>
 <a href="../drink/">Drink</a>
 <a href="../do/">Do</a>
 </div>
 </div>
-
-<section class="hero" style="grid-template-columns:1fr;padding-bottom:6rem">
+<section class="hero">
 <div class="hero-kicker"><span class="hero-pill">Part 1</span> Where to stay</div>
-<h1 class="hero-title">Hotels, <em>by Neighborhood and Vibe</em>.</h1>
-<p class="hero-dek">In progress. Hotels don't lend themselves to the same cross-publication consensus methodology that restaurants do — there's no equivalent of Eater's Best Of for hotels. Working on a different framework for this section.</p>
-<div class="pullquote">
-For now, the short version: <em>stay near the South End, Back Bay, or Boston Common</em>. From any of those, you can walk to the North End in 15 minutes, Lyft to the Seaport in 10, and reach Fenway by T in one stop. Anywhere in the financial district is fine; anywhere past the Pike or out by the airport is a mistake.
+<h1 class="hero-title">Where to Stay in Boston, by <em>Neighborhood and Vibe</em>.</h1>
+<p class="hero-dek">A neighborhood-organized hotel guide — seventeen properties across eight neighborhoods, tagged by vibe and price band, filtered against the editorial signals that don't get corrupted by loyalty-points voting.</p>
+<p class="hero-byline">Signals weighted: <strong>MICHELIN Keys</strong> · <strong>Forbes 5-Star</strong> · <strong>AAA 5-Diamond</strong> · <strong>T+L IT List</strong> · <strong>T+L World's Best</strong> · <strong>Hotels Above Par</strong> · <strong>CN Traveler Gold List</strong> (editorial picks only)</p>
+</section>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">Why Neighborhood-First</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#planning">Trip-Planning Notes</a></li>
+<li><a href="#tier-back-bay"><strong>Back Bay</strong> · 6 hotels</a></li>
+<li><a href="#tier-beacon-hill"><strong>Beacon Hill</strong> · 3 hotels</a></li>
+<li><a href="#tier-common-downtown"><strong>Common / Downtown</strong> · 2 hotels</a></li>
+<li><a href="#tier-south-end"><strong>South End</strong> · 2 hotels</a></li>
+<li><a href="#tier-fenway"><strong>Fenway / Kenmore</strong> · 1 hotel</a></li>
+<li><a href="#tier-west-end"><strong>West End</strong> · 1 hotel</a></li>
+<li><a href="#tier-seaport"><strong>Seaport</strong> · 1 hotel</a></li>
+<li><a href="#tier-cambridge"><strong>Cambridge</strong> · 1 hotel</a></li>
+<li><a href="#cuts">Hotels That Didn&rsquo;t Make It</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">Why Neighborhood-First</div>
+<h2 class="chapter-title">Hotels don't have <em>an Eater</em>.</h2>
+<p class="chapter-dek">The restaurant section tiers by critical consensus because Eater, Boston Magazine, the Globe, and the Infatuation all rank restaurants. For hotels, the equivalent doesn't exist — and the rankings that do exist get corrupted.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">17</div><div class="stat-label">hotels across 8 neighborhoods</div></div>
+<div class="stat"><div class="stat-num">5</div><div class="stat-label">grand-luxury picks (MICHELIN Keys, Forbes 5-Star)</div></div>
+<div class="stat"><div class="stat-num">4</div><div class="stat-label">vibes: Grand Luxury, Modern Design, Historic, Value</div></div>
+<div class="stat"><div class="stat-num">7</div><div class="stat-label">hotels cut despite high reader-vote rankings</div></div>
 </div>
-<p class="chapter-body" style="margin-top:2rem">A few names worth searching while this section gets researched: <strong>The Newbury</strong> (Back Bay, classic), <strong>The Whitney Hotel</strong> (Beacon Hill, small), <strong>Raffles Boston</strong> (Back Bay, new luxury), <strong>The Liberty</strong> (Beacon Hill, in a former jail — yes really), <strong>The Boxer</strong> (West End, budget-friendly), <strong>The Inn at St. Botolph</strong> (South End, residential feel). The Eat section is fully built out; start there.</p>
+<div class="chapter-body">
+<p>CN Traveler Readers' Choice — the most-cited hotel ranking — gets driven by which loyalty program is recruiting voters. That's how the InterContinental shows up at #1 over the Newbury and the Four Seasons. It's a vote, not a verdict. Same goes for TripAdvisor.</p>
+<p>This section weights the signals that don't have a voting mechanic: <strong>MICHELIN Keys</strong> (new program, 2024), <strong>Forbes Five-Star</strong>, <strong>AAA Five-Diamond</strong>, <strong>Travel + Leisure's IT List</strong> (the new-hotel list reviewed by editors, not readers), <strong>Hotels Above Par</strong> (independent, no advertising), and the print editorial in CN Traveler and T+L (as distinct from their reader-poll Gold List). When properties show up across multiple signals, they cluster at the top of each neighborhood.</p>
+</div>
+<div class="pullquote">The structure: <em>pick the neighborhood first</em>. Each section is one or more hotels across price bands — grand luxury, modern design, historic, or value. The filter sidebar lets you slice by vibe across the whole list.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>Back Bay is the default. The Newbury is the default of the default.</h3><p>Six hotels in this section means you have options at every price band. The Newbury — across from the Common, three MICHELIN Keys, Contessa rooftop — is the hotel I'd point most travelers to if they asked for one name and nothing else. Charlesmark, Lenox, Eliot give you Back Bay at half the price.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>Beacon Hill is the quieter alternative.</h3><p>The Whitney is the residential-quiet boutique; XV Beacon is the understated grand luxury (no one will know what hotel you stayed at unless you tell them); the Liberty is the building-as-story (former jail, social bar scene). All within five blocks of each other.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>The Seaport / Fenway / West End / Cambridge picks are itinerary-driven.</h3><p>These aren't 'better' or 'worse' than Back Bay — they're for travelers whose specific itinerary points there. Sox tickets? Hotel Commonwealth. Bruins game? Boxer. Summer rooftop scene? Envoy. Kendall meetings? Marlowe.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>The cuts matter.</h3><p>Seven hotels with high reader rankings didn't make the list. The InterContinental (Marriott loyalty-driven), Mandarin Oriental (yes great but Back Bay already has six), Boston Harbor Hotel (geographically isolated for a long weekend), Langham (currently mid-renovation), YOTEL (corporate Seaport stack), Loews (corporate Back Bay stack), Revere (uneven service). The full case for each is at the bottom.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Seventeen hotels, <em>color-coded by vibe</em>.</h2>
+<p class="chapter-dek">Pinned by vibe — gold stars for grand luxury, diamonds for modern design, dots for historic, dollar signs for value. Boston Common is marked for orientation. Click any marker for details.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Grand Luxury</strong> · MICHELIN Keys / Forbes 5-Star</span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Modern Design</strong> · Boutique-luxury · MICHELIN 1–2 Keys</span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Historic</strong> · 1900s-era buildings</span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Value</strong> · Independent boutique</span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Landmark</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="planning">
+<div class="chapter-label">Trip-Planning Notes</div>
+<h2 class="chapter-title">Four <em>Practical</em> Things to Know.</h2>
+<p class="chapter-dek">How to choose your neighborhood before you pick your hotel.</p>
+<div class="insights">
+<div class="insight"><div class="insight-num">A</div><div class="insight-content"><h3>For a first Boston trip: Back Bay or Common.</h3><p>If you're picking on instinct and want to walk to most of the eat and drink sections, base in Back Bay (six hotels here) or directly on the Common (two hotels). From either you can walk to Beacon Hill in 10 minutes, the North End in 15, and Lyft to Seaport or Fenway in 10. The South End is also a fine first-trip choice if dinner walkability matters more than tourist proximity.</p></div></div>
+<div class="insight"><div class="insight-num">B</div><div class="insight-content"><h3>For a quiet stay: Beacon Hill or South End.</h3><p>If you've been to Boston before and want residential quiet, Beacon Hill (Whitney, XV Beacon) or the South End (Inn at St. Botolph, Revolution) are the moves. You give up some 'I'm walking to everything' geography but gain a sense of staying somewhere people actually live.</p></div></div>
+<div class="insight"><div class="insight-num">C</div><div class="insight-content"><h3>For a game / show night: Hotel Commonwealth (Fenway) or Boxer (TD Garden).</h3><p>If your itinerary is anchored by Red Sox at Fenway or Bruins/Celtics at TD Garden, the right answer is the hotel adjacent to the venue. Hotel Commonwealth is five minutes from Fenway. Boxer is three minutes from TD Garden. You'll spend the rest of the trip getting around via T anyway.</p></div></div>
+<div class="insight"><div class="insight-num">D</div><div class="insight-content"><h3>Skip: anywhere past the Pike, anywhere out by the airport.</h3><p>Avoid hotels in the Back Bay <em>South</em> stretch (past Mass Ave), the airport-adjacent properties (Hyatt Harborside, etc.), and anywhere advertised as 'minutes from downtown' that's actually in Quincy or Brookline Village. The walkable Boston trip lives between Mass Ave and Atlantic Avenue.</p></div></div>
+</div>
 </section>
 
+<section class="chapter" id="tier-back-bay">
+<div class="tier-intro">
+<div class="tier-pill">Back Bay</div>
+<h2 class="tier-name">Back Bay · <em>6 hotels</em>.</h2>
+<p class="tier-dek">Six hotels across price bands. The Back Bay default — grand-luxury at the top (Newbury, Raffles, Four Seasons One Dalton), historic four-stars in the middle (Eliot, Lenox), and the city's best value at Charlesmark.</p>
+</div>
+
+<article class="restaurant-feature" id="h-newbury" data-neighborhood="back-bay" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN 3 Keys · Forbes 5-Star · T+L IT List 2022 · 5-Star Forbes Rating">Signals</span>
+</div>
+<h3 class="r-name">The Newbury</h3>
+<p class="r-tag">The Back Bay grande dame, reimagined by Major Food Group.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">MICHELIN 3 Keys</span>
+</div>
+<p class="r-blurb">The former Ritz-Carlton, reopened in 2021 after a full Highgate-led restoration. Major Food Group's Contessa anchors the rooftop. Three MICHELIN Keys at the 2024 inaugural — one of only seven hotels in the U.S. to earn the highest rating. Across from Boston Common.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>286 rooms · historic luxury · 1927 building</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Across from Boston Common · Newbury Street outside</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Anniversary · Back Bay base · Contessa rooftop</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://thenewburyboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://thenewburyboston.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Newbury+Boston+15+Arlington+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-raffles" data-neighborhood="back-bay" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN 2 Keys · Forbes 5-Star · T+L IT List 2024 · Hotels Above Par 2024">Signals</span>
+</div>
+<h3 class="r-name">Raffles Boston</h3>
+<p class="r-tag">Raffles' first North American property. A 35-story vertical hotel.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">T+L IT List 2024</span>
+</div>
+<p class="r-blurb">Opened 2023. Singapore's Raffles brought their first North American property to Back Bay — 147 rooms, 146 condos, sky lobby on the 17th floor. Long Bar (their signature) lives here. Forbes 5-Star out of the gate. Made for the splurge-night-in approach.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>147 rooms · new-build luxury · sky lobby</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>5 min to Boston Common · Back Bay station 3 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Big-occasion stay · Long Bar nights · view rooms</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.raffles.com/boston/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.raffles.com/boston/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Raffles+Boston+40+Trinity+Pl" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-four-seasons-dalton" data-neighborhood="back-bay" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN 2 Keys · Forbes 5-Star · CN Traveler Gold List · 215 rooms">Signals</span>
+</div>
+<h3 class="r-name">Four Seasons One Dalton</h3>
+<p class="r-tag">The third-tallest tower in Boston, top 22 floors are the hotel.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">MICHELIN 2 Keys</span>
+</div>
+<p class="r-blurb">Henry Cobb's 61-story Pelli Clarke Pelli tower at One Dalton. Four Seasons occupies floors 1–22; the rest is residential. The Trifecta bar on 22 has the city's best high-altitude martini. Sister property to the original Four Seasons across the Common — sharper, newer, more design-forward.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>215 rooms · contemporary luxury · panoramic views</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>12 min to Common · adjacent to Prudential</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>View-room obsessives · second-FS Boston stay</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.fourseasons.com/onedalton/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.fourseasons.com/onedalton/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Four+Seasons+One+Dalton+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-eliot" data-neighborhood="back-bay" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Forbes 4-Star · Historic Hotels of America · all-suite property">Signals</span>
+</div>
+<h3 class="r-name">The Eliot Hotel</h3>
+<p class="r-tag">1925 Italianate brownstone, all-suite, same family since 1939.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">All-Suite Historic</span>
+</div>
+<p class="r-blurb">Three generations of the Ullian family. Ninety-five suites with French doors between living room and bedroom. Uni Sashimi Bar (Ken Oringer) in the lobby. The quieter, more residential Back Bay luxury option — the one you stay at when you want to feel like you live in the neighborhood.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>95 suites · 1925 historic property · family-owned</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>10 min to Common · Hynes Convention Center 2 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Longer stays · all-suite preference · Uni dinner</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.eliothotel.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.eliothotel.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Eliot+Hotel+370+Commonwealth+Ave+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-lenox" data-neighborhood="back-bay" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Forbes 4-Star · 1900 historic · family-run · TripAdvisor top 10 Boston">Signals</span>
+</div>
+<h3 class="r-name">The Lenox Hotel</h3>
+<p class="r-tag">1900 Boylston Street landmark, Saunders family since 1963.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">1900 Historic</span>
+</div>
+<p class="r-blurb">Off Copley Square. Built 1900 as one of the first 'modern' hotels in Boston. Family-run, four-star service, wood-burning fireplaces in the corner suites. City Bar in the lobby is a hidden Back Bay cocktail room. Better-priced than the grand-luxury tier, more polished than the boutique tier.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>214 rooms · historic property · fireplace corner suites</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>8 min to Common · Copley Square outside the door</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Mid-price Back Bay · Copley convenience · couples</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.lenoxhotel.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.lenoxhotel.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Lenox+Hotel+61+Exeter+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-charlesmark" data-neighborhood="back-bay" data-cuisine="value">
+<div class="r-header-row">
+  <span class="r-tier-tag">Value</span>
+  <span class="r-list-count" tabindex="0" data-lists="Boutique 40 rooms · Conde Nast Traveler value mentions · TripAdvisor top picks">Signals</span>
+</div>
+<h3 class="r-name">Charlesmark Hotel</h3>
+<p class="r-tag">Forty rooms on Boylston, directly on the Marathon finish line.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Value</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Best Per-Dollar</span>
+</div>
+<p class="r-blurb">1892 brownstone, completely renovated in 2003. Forty rooms, free wine reception nightly, the location: Boylston Street between Exeter and Dartmouth, directly on the Marathon finish line. The Back Bay address at less than half the grand-luxury price.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>40 rooms · boutique · wine reception nightly</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>8 min to Common · Copley T outside the door</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Budget Back Bay · Marathon weekend · short stays</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.charlesmarkhotel.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.charlesmarkhotel.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Charlesmark+Hotel+655+Boylston+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-beacon-hill">
+<div class="tier-intro">
+<div class="tier-pill">Beacon Hill</div>
+<h2 class="tier-name">Beacon Hill · <em>3 hotels</em>.</h2>
+<p class="tier-dek">Three hotels, three very different ideas. Whitney is the residential-quiet boutique, XV Beacon is the understated grand luxury, Liberty is the building-as-story (former jail). All within five blocks of each other.</p>
+</div>
+
+<article class="restaurant-feature" id="h-whitney" data-neighborhood="beacon-hill" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN 2 Keys · Forbes 4-Star · Hotels Above Par favorite · 65 rooms">Signals</span>
+</div>
+<h3 class="r-name">The Whitney Hotel</h3>
+<p class="r-tag">Beacon Hill's only true boutique luxury. Sixty-five rooms.</p>
+<div class="r-pills">
+  <span class="r-pill">Beacon Hill</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">MICHELIN 2 Keys</span>
+</div>
+<p class="r-blurb">Charles Street, in a restored 19th-century building. Opened 2020. Two MICHELIN Keys at the 2024 inaugural. The Peregrine restaurant downstairs is a destination on its own. The right answer when you want Beacon Hill's residential quiet without sacrificing service.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>65 rooms · boutique luxury · 2020 opening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>8 min to Common · Charles/MGH T 2 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Beacon Hill base · Peregrine dinner · couples</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.whitneyhotelboston.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.whitneyhotelboston.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Whitney+Hotel+170+Charles+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-xv-beacon" data-neighborhood="beacon-hill" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="Forbes 5-Star · AAA 5-Diamond · CN Traveler reader top 5 · 63 rooms">Signals</span>
+</div>
+<h3 class="r-name">XV Beacon</h3>
+<p class="r-tag">Sixty-three rooms in a 1903 Beaux-Arts tower. Boston's quietest luxury.</p>
+<div class="r-pills">
+  <span class="r-pill">Beacon Hill</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">Forbes 5-Star</span>
+</div>
+<p class="r-blurb">Off Beacon Street, in a converted 1903 office tower. Sixty-three rooms, all-black-and-mahogany interiors, gas fireplaces in every room, Lexus chauffeur service. Forbes 5-Star and AAA 5-Diamond every year since 2000. The understated alternative to the grand hotels — for travelers who don't want to be seen.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>63 rooms · ultra-luxury · in-room fireplaces</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>5 min to Common · State Street T 3 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The quiet luxury approach · State Street commute</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://xvbeacon.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://xvbeacon.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=XV+Beacon+Hotel+15+Beacon+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-liberty" data-neighborhood="beacon-hill" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Marriott Luxury Collection · former Charles Street Jail · CN Traveler · 298 rooms">Signals</span>
+</div>
+<h3 class="r-name">The Liberty Hotel</h3>
+<p class="r-tag">The Charles Street Jail of 1851, converted in 2007.</p>
+<div class="r-pills">
+  <span class="r-pill">Beacon Hill</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Former Jail (1851)</span>
+</div>
+<p class="r-blurb">Yes, really a former jail. The original 1851 granite jail building anchors the property; the new tower attaches behind it. The 90-foot atrium is the old central rotunda. Clink restaurant lives in the former cellblock. Most photographed hotel in Boston. Worth knowing it's a Marriott — service can vary.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>298 rooms · historic conversion · Marriott Luxury Collection</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>10 min to Common · Charles/MGH T outside · Esplanade-adjacent</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Building-as-story · group with one design fan · social bars</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.libertyhotel.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.libertyhotel.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Liberty+Hotel+215+Charles+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-common-downtown">
+<div class="tier-intro">
+<div class="tier-pill">Common / Downtown</div>
+<h2 class="tier-name">Common / Downtown · <em>2 hotels</em>.</h2>
+<p class="tier-dek">Two hotels both directly on Boston Common — one modern-design at boutique pricing (Hotel AKA), one grand luxury with park views (Four Seasons Boston). The cleanest 'walk to everything' base.</p>
+</div>
+
+<article class="restaurant-feature" id="h-aka-common" data-neighborhood="common-downtown" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="T+L World's Best 2024 · MICHELIN 1 Key · Hotels Above Par · 196 rooms">Signals</span>
+</div>
+<h3 class="r-name">Hotel AKA Boston Common</h3>
+<p class="r-tag">AKA's first New England property. Across from Boston Common.</p>
+<div class="r-pills">
+  <span class="r-pill">Boston Common</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">MICHELIN 1 Key</span>
+</div>
+<p class="r-blurb">Tremont Street, directly across from the Common. The AKA hospitality formula (Philadelphia-based, design-led, extended-stay roots) lands in Boston with a contemporary interior over the old Hotel 9 Zero bones. Yotel-adjacent prices for a much sharper room. T+L's World's Best list 2024.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>196 rooms · modern boutique · across from Common</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Across from Boston Common · Park Street T 1 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Common-first base · modern aesthetic · solid value</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.stayaka.com/aka-boston-common" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.stayaka.com/aka-boston-common" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Hotel+AKA+Boston+Common+9+Tremont+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-four-seasons-boylston" data-neighborhood="common-downtown" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="Forbes 5-Star · AAA 5-Diamond · 273 rooms · the original FS Boston">Signals</span>
+</div>
+<h3 class="r-name">Four Seasons Boston</h3>
+<p class="r-tag">The original Four Seasons Boston. Park-view rooms over the Common.</p>
+<div class="r-pills">
+  <span class="r-pill">Boston Common</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">Forbes 5-Star</span>
+</div>
+<p class="r-blurb">200 Boylston, opened 1985. The Boston grand hotel for a generation, with the views to match — park-side rooms look directly onto Boston Common. Bristol Lounge afternoon tea is a Boston institution. Slightly older bones than One Dalton, but the location is unbeatable.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>273 rooms · grand luxury · Common-facing rooms</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>On Boston Common · 1 min · Arlington T 2 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The park view · family stays · Bristol Lounge tea</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.fourseasons.com/boston/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.fourseasons.com/boston/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Four+Seasons+Boston+200+Boylston+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-south-end">
+<div class="tier-intro">
+<div class="tier-pill">South End</div>
+<h2 class="tier-name">South End · <em>2 hotels</em>.</h2>
+<p class="tier-dek">Two design-forward independents. Revolution is the budget-boutique answer with shared-bath options; Inn at St. Botolph is the all-suite brownstone for travelers who want to feel like they live there. Both put South End dinner on foot.</p>
+</div>
+
+<article class="restaurant-feature" id="h-revolution" data-neighborhood="south-end" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="Hotels Above Par · CN Traveler boutique mentions · 173 rooms · independent">Signals</span>
+</div>
+<h3 class="r-name">The Revolution Hotel</h3>
+<p class="r-tag">Independent South End boutique with shared-bath room types.</p>
+<div class="r-pills">
+  <span class="r-pill">South End</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Independent Boutique</span>
+</div>
+<p class="r-blurb">Berkeley Street, in a former Boston YWCA. Independent, locally owned, designed by Studio Hellmann. Three room types including some shared-bath singles that drop the rate dramatically. The right answer when you want South End brownstone proximity to dinner without the Back Bay price.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>173 rooms · independent boutique · shared-bath options</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>12 min to Common · Back Bay station 5 min · South End dinner walkable</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>South End dinner base · design-conscious budget</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://therevolutionhotel.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://therevolutionhotel.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Revolution+Hotel+40+Berkeley+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-st-botolph" data-neighborhood="south-end" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="Independent · all-suite · CN Traveler boutique · TripAdvisor top 5">Signals</span>
+</div>
+<h3 class="r-name">The Inn at St. Botolph</h3>
+<p class="r-tag">All-suite South End brownstone. No front desk — feels like a friend's apartment.</p>
+<div class="r-pills">
+  <span class="r-pill">South End</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">All-Suite</span>
+</div>
+<p class="r-blurb">Sixteen suites in a restored 1890s brownstone on St. Botolph Street. No traditional front desk; check-in is by code. Kitchenettes in every suite. The 'staying in a friend's South End apartment' approach — best when you want to disappear into the neighborhood.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>16 suites · all-suite · self check-in</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>15 min to Common · Prudential T 3 min · South End restaurants</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Longer stays · privacy seekers · couples</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.innatstbotolph.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.innatstbotolph.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Inn+at+St+Botolph+99+St+Botolph+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-fenway">
+<div class="tier-intro">
+<div class="tier-pill">Fenway / Kenmore</div>
+<h2 class="tier-name">Fenway / Kenmore · <em>1 hotel</em>.</h2>
+<p class="tier-dek">One hotel: Hotel Commonwealth. The right call when you have Red Sox or a Fenway show on the calendar — and now that Eastern Standard has reopened here, the dinner case stands up on its own.</p>
+</div>
+
+<article class="restaurant-feature" id="h-commonwealth" data-neighborhood="fenway" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="Forbes 4-Star · CN Traveler top 10 Boston · Eastern Standard return · 245 rooms">Signals</span>
+</div>
+<h3 class="r-name">Hotel Commonwealth</h3>
+<p class="r-tag">Kenmore Square hotel. Eastern Standard reopened here in 2024.</p>
+<div class="r-pills">
+  <span class="r-pill">Fenway / Kenmore</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Eastern Standard Return</span>
+</div>
+<p class="r-blurb">Kenmore Square, walking distance to Fenway. Eastern Standard (the iconic brasserie that closed in 2020) reopened here in 2024 in a Hotel Commonwealth-adjacent space. The hotel itself is consistently in CN Traveler's top 10 Boston picks. The right call when you have Red Sox tickets on the calendar.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>245 rooms · contemporary luxury · Sox-adjacent</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>5 min to Fenway Park · 1 stop on T to Back Bay</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Game weekends · Kenmore base · Eastern Standard dinner</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.hotelcommonwealth.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.hotelcommonwealth.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Hotel+Commonwealth+500+Commonwealth+Ave+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-west-end">
+<div class="tier-intro">
+<div class="tier-pill">West End</div>
+<h2 class="tier-name">West End · <em>1 hotel</em>.</h2>
+<p class="tier-dek">The Boxer is the only hotel in this section. Eighty rooms, industrial-modern, three minutes from North Station and TD Garden — the right answer for Bruins or Celtics nights or a budget-conscious stay.</p>
+</div>
+
+<article class="restaurant-feature" id="h-boxer" data-neighborhood="west-end" data-cuisine="value">
+<div class="r-header-row">
+  <span class="r-tier-tag">Value</span>
+  <span class="r-list-count" tabindex="0" data-lists="Eurostars boutique · 80 rooms · 1904 building · industrial-modern · acquired Sept 2025">Signals</span>
+</div>
+<h3 class="r-name">Eurostars The Boxer</h3>
+<p class="r-tag">Eighty-room industrial-modern boutique near North Station. Recently rebranded.</p>
+<div class="r-pills">
+  <span class="r-pill">West End</span>
+  <span class="r-pill">Value</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">1904 Boutique</span>
+</div>
+<p class="r-blurb">Merrimac Street, in a converted 1904 building. Eighty rooms, exposed brick, Bulfinch Social downstairs for breakfast and casual dinner. Acquired by Spain's Eurostars Hotels in September 2025 (the property and renovation are unchanged — only the brand). Steps from North Station and TD Garden. The right answer for Bruins or Celtics nights, and the budget-conscious Boston stay.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>80 rooms · Eurostars boutique · 1904 building</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>12 min to Common · North Station 3 min · TD Garden 3 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Bruins/Celtics nights · budget · North Station commuters</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.eurostarshotels.us/eurostars-the-boxer.html" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.eurostarshotels.us/eurostars-the-boxer.html" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Eurostars+The+Boxer+107+Merrimac+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-seaport">
+<div class="tier-intro">
+<div class="tier-pill">Seaport</div>
+<h2 class="tier-name">Seaport · <em>1 hotel</em>.</h2>
+<p class="tier-dek">One pick: The Envoy. Marriott Autograph Collection, waterfront, and one of the city's best summer rooftops. The Seaport-first base for travelers whose itinerary points there.</p>
+</div>
+
+<article class="restaurant-feature" id="h-envoy" data-neighborhood="seaport" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="Marriott Autograph Collection · Lookout Rooftop · 136 rooms · waterfront">Signals</span>
+</div>
+<h3 class="r-name">The Envoy Hotel</h3>
+<p class="r-tag">Seaport waterfront boutique. The Lookout rooftop is the social anchor.</p>
+<div class="r-pills">
+  <span class="r-pill">Seaport</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Lookout Rooftop</span>
+</div>
+<p class="r-blurb">Sleeper Street, on the Seaport waterfront. Marriott Autograph Collection — independent design language with Marriott loyalty. The Lookout rooftop is one of the best summer-night bars in the city, with views straight across to the Financial District. Newer construction, sharper design than the corporate Seaport stack.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>136 rooms · Autograph Collection · waterfront views</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Seaport restaurants 5 min · Common 15 min via Silver Line</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Seaport-first trips · summer rooftop nights · waterfront</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.theenvoyhotel.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.theenvoyhotel.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Envoy+Hotel+70+Sleeper+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-cambridge">
+<div class="tier-intro">
+<div class="tier-pill">Cambridge</div>
+<h2 class="tier-name">Cambridge · <em>1 hotel</em>.</h2>
+<p class="tier-dek">Kimpton Marlowe on the East Cambridge waterfront. The Cambridge base — quieter, more residential, Red Line to Park Street in ten minutes. Best for trips with Kendall or MIT meetings, or for stays longer than a long weekend.</p>
+</div>
+
+<article class="restaurant-feature" id="h-marlowe" data-neighborhood="cambridge" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="Kimpton boutique · CN Traveler reader top 20 · 236 rooms · pet-friendly">Signals</span>
+</div>
+<h3 class="r-name">Kimpton Marlowe Hotel</h3>
+<p class="r-tag">Cambridge boutique on the Charles. Pet-friendly Kimpton.</p>
+<div class="r-pills">
+  <span class="r-pill">East Cambridge</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Charles River-Adjacent</span>
+</div>
+<p class="r-blurb">East Cambridge, adjacent to the Charles River and Lechmere station. Kimpton's design-forward approach: hosted wine hour daily, complimentary bike rentals, exceptional pet policies. Easy Red Line to Park Street. The Cambridge stay when you want quiet residential and a quick downtown ride.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>236 rooms · Kimpton boutique · pet-friendly</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Lechmere/Science Park · Red Line to Downtown 10 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Cambridge base · Kendall meetings · longer stays</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.hotelmarlowe.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.hotelmarlowe.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Kimpton+Marlowe+Hotel+25+Edwin+H+Land+Blvd+Cambridge" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="cuts">
+<div class="chapter-label">Hotels That Didn&rsquo;t Make It</div>
+<h2 class="chapter-title">Seven Cuts, <em>and Why</em>.</h2>
+<p class="chapter-dek">Hotels with reader-vote prominence that didn't make the editorial list. Worth knowing about — and worth knowing why each was cut.</p>
+<div class="chapter-body">
+<p><strong>InterContinental Boston</strong> shows up at the top of CN Traveler Readers' Choice nearly every year. IHG One Rewards has a recruitment machine that drives loyalty voters. Service is fine; the building is uninspired; the Atlantic Avenue location is geographically isolated for walking trips. Not bad; not interesting.</p>
+<p><strong>Mandarin Oriental Boston</strong> is a perfectly fine Forbes 5-Star property, and on any list of Back Bay luxury it would land in the top five. Cut for redundancy — Back Bay already has six hotels in this section across price bands, and Mandarin's identity is harder to distinguish from Four Seasons One Dalton (same block, same vibe) than the Newbury, Raffles, or Eliot. If those three are sold out, this is a fine call.</p>
+<p><strong>Boston Harbor Hotel</strong> at Rowes Wharf has the iconic arched entry from the water and a beautiful Forbes 4-Star operation, but the waterfront location requires either a Silver Line or a 20-minute walk to anything in this guide's eat or drink sections. Best for cruise-departure trips, business stays in the Financial District, or summer water-taxi adventures. Not for a walking long weekend.</p>
+<p><strong>The Langham Boston</strong> in the Financial District is mid a multi-year renovation that hasn't yet shipped, and reviews from the partial reopening have been uneven. Worth revisiting in 2026 once the renovation completes; not yet.</p>
+<p><strong>YOTEL Boston</strong> in the Seaport is interesting on the design-budget axis (Japanese capsule influence, automated check-in), but the Seaport's corporate-stack feel works against it and the rooms feel cramped after one night. The Envoy gives you the Seaport waterfront vibe in a much sharper package; Charlesmark gives you the budget angle at a better address.</p>
+<p><strong>Loews Boston Hotel</strong> in Back Bay is a corporate Marriott-tier stack, not the curated Back Bay luxury this section weights. Pleasant; forgettable.</p>
+<p><strong>The Revere Hotel</strong> off the Common had a great moment around 2017–2019 with the Emerald Lounge and the rooftop. The service has been uneven since the pandemic, and the property is now more conference-hotel than boutique-luxury. The Hotel AKA Boston Common is in the same neighborhood at a similar price and is the better call.</p>
+<p><em>One closure to note:</em> <strong>The Beacon Hill Hotel & Bistro</strong> appears on stale 'best of' lists. It closed in 2023. The current Beacon Hill picks (Whitney, XV Beacon, Liberty) are the working list.</p>
+</div>
+</section>
+</main>
+</div>
 <section class="next-up">
 <div class="next-up-inner">
 <div>
-<div class="next-up-label">— Continue the guide</div>
-<h3>Back to: <em>Where to eat</em></h3>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Next: <em>Where to Eat</em></h3>
 </div>
 <a href="../eat/" class="next-up-cta">Read the eat section →</a>
 </div>
 </section>
-
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
@@ -64,12 +649,186 @@ For now, the short version: <em>stay near the South End, Back Bay, or Boston Com
 <div class="footer-tagline">Issue 01 — Boston · Part 1, Where to stay.</div>
 </div>
 <div class="footer-bottom">
-<div>© 2026 Field Guide. Hotels section in progress.</div>
+<div>© 2026 Field Guide. Signals weighted: MICHELIN Keys, Forbes 5-Star, AAA 5-Diamond, T+L IT List, Hotels Above Par.</div>
 <div>No affiliate links · No paid placements</div>
 </div>
 </div>
 </footer>
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([42.355, -71.075], 13);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
 
+    var restaurants = [
+      {name:'The Newbury',id:'h-newbury',tier:1,lat:42.3534,lng:-71.0716,tag:'Grand Luxury · Back Bay',lists:0,label:'★',price:'$$$$'},
+      {name:'Raffles Boston',id:'h-raffles',tier:1,lat:42.3496,lng:-71.076,tag:'Grand Luxury · Back Bay',lists:0,label:'★',price:'$$$$'},
+      {name:'Four Seasons One Dalton',id:'h-four-seasons-dalton',tier:1,lat:42.3471,lng:-71.083,tag:'Grand Luxury · Back Bay',lists:0,label:'★',price:'$$$$'},
+      {name:'The Eliot Hotel',id:'h-eliot',tier:3,lat:42.3493,lng:-71.0871,tag:'Historic · Back Bay',lists:0,label:'◉',price:'$$$'},
+      {name:'The Lenox Hotel',id:'h-lenox',tier:3,lat:42.3492,lng:-71.0796,tag:'Historic · Back Bay',lists:0,label:'◉',price:'$$$'},
+      {name:'Charlesmark Hotel',id:'h-charlesmark',tier:4,lat:42.3496,lng:-71.0779,tag:'Value · Back Bay',lists:0,label:'$',price:'$$'},
+      {name:'The Whitney Hotel',id:'h-whitney',tier:2,lat:42.3614,lng:-71.0708,tag:'Modern Design · Beacon Hill',lists:0,label:'◆',price:'$$$$'},
+      {name:'XV Beacon',id:'h-xv-beacon',tier:1,lat:42.3585,lng:-71.0613,tag:'Grand Luxury · Beacon Hill',lists:0,label:'★',price:'$$$$'},
+      {name:'The Liberty Hotel',id:'h-liberty',tier:3,lat:42.3624,lng:-71.0708,tag:'Historic · Beacon Hill',lists:0,label:'◉',price:'$$$'},
+      {name:'Hotel AKA Boston Common',id:'h-aka-common',tier:2,lat:42.3577,lng:-71.0613,tag:'Modern Design · Boston Common',lists:0,label:'◆',price:'$$$'},
+      {name:'Four Seasons Boston',id:'h-four-seasons-boylston',tier:1,lat:42.3528,lng:-71.0697,tag:'Grand Luxury · Boston Common',lists:0,label:'★',price:'$$$$'},
+      {name:'The Revolution Hotel',id:'h-revolution',tier:2,lat:42.3454,lng:-71.0697,tag:'Modern Design · South End',lists:0,label:'◆',price:'$$'},
+      {name:'The Inn at St. Botolph',id:'h-st-botolph',tier:2,lat:42.3457,lng:-71.0828,tag:'Modern Design · South End',lists:0,label:'◆',price:'$$$'},
+      {name:'Hotel Commonwealth',id:'h-commonwealth',tier:2,lat:42.3491,lng:-71.0959,tag:'Modern Design · Fenway / Kenmore',lists:0,label:'◆',price:'$$$'},
+      {name:'Eurostars The Boxer',id:'h-boxer',tier:4,lat:42.3641,lng:-71.0608,tag:'Value · West End',lists:0,label:'$',price:'$$'},
+      {name:'The Envoy Hotel',id:'h-envoy',tier:2,lat:42.3518,lng:-71.049,tag:'Modern Design · Seaport',lists:0,label:'◆',price:'$$$'},
+      {name:'Kimpton Marlowe Hotel',id:'h-marlowe',tier:2,lat:42.3672,lng:-71.0769,tag:'Modern Design · East Cambridge',lists:0,label:'◆',price:'$$$'}
+    ];
+
+    restaurants.forEach(function(r){
+      var tierClass = 'tier' + r.tier;
+      var icon = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="custom-pin ' + tierClass + '">' + r.label + '</div>',
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+      var marker = L.marker([r.lat, r.lng], { icon: icon }).addTo(map);
+      marker.bindPopup(
+        '<div class="pop-name">' + r.name + '</div>' +
+        '<div class="pop-tag">' + r.tag + '</div>' +
+        '<div class="pop-meta">' + r.price + '</div>' +
+        (r.id ? '<a href="#' + r.id + '" class="pop-link" onclick="return window.fieldGuideJumpTo(\'' + r.id + '\')">View entry \u2192</a>' : '')
+      );
+    });
+
+    var commonIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Common</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([42.3551, -71.0657], { icon: commonIcon }).addTo(map);
+
+    var fenwayIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Fenway</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([42.3467, -71.0972], { icon: fenwayIcon }).addTo(map);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMap);
+  else initMap();
+})();
+</script>
+<script>
+(function(){
+  var LABEL_MAP = {
+    'back-bay':'Back Bay','beacon-hill':'Beacon Hill','common-downtown':'Common / Downtown',
+    'south-end':'South End','fenway':'Fenway / Kenmore','west-end':'West End',
+    'seaport':'Seaport','cambridge':'Cambridge',
+    'grand-luxury':'Grand Luxury','modern-design':'Modern Design',
+    'historic':'Historic','value':'Value'
+  };
+  function label(slug){
+    if (LABEL_MAP[slug]) return LABEL_MAP[slug];
+    return slug.split('-').map(function(w){ return w.charAt(0).toUpperCase() + w.slice(1); }).join(' ');
+  }
+  var filterContainer = document.getElementById('filters');
+  if (!filterContainer) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]'));
+  if (cards.length === 0) return;
+  var neighborhoods = {}, vibes = {};
+  cards.forEach(function(c){
+    var n = c.dataset.neighborhood, v = c.dataset.cuisine;
+    neighborhoods[n] = (neighborhoods[n]||0)+1;
+    vibes[v] = (vibes[v]||0)+1;
+  });
+  function buildRow(filterKey, rowLabel, counts){
+    var row = document.createElement('details');
+    row.className = 'filter-row';
+    var storeKey = 'fg-filter-' + filterKey + '-open';
+    var stored = null;
+    try { stored = window.localStorage.getItem(storeKey); } catch(e){}
+    row.open = (stored === null) ? true : (stored === 'true');
+    row.addEventListener('toggle', function(){
+      try { window.localStorage.setItem(storeKey, row.open ? 'true' : 'false'); } catch(e){}
+    });
+    var lbl = document.createElement('summary');
+    lbl.className = 'filter-label';
+    lbl.textContent = rowLabel;
+    row.appendChild(lbl);
+    var all = document.createElement('button');
+    all.type='button'; all.className='filter-chip filter-chip-active';
+    all.setAttribute('data-filter',filterKey); all.setAttribute('data-value','all');
+    all.innerHTML='<span>All</span><span class="filter-chip-count">'+cards.length+'</span>';
+    row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){
+      var b=document.createElement('button');
+      b.type='button'; b.className='filter-chip';
+      b.setAttribute('data-filter',filterKey); b.setAttribute('data-value',v);
+      b.innerHTML='<span>'+label(v)+'</span><span class="filter-chip-count">'+counts[v]+'</span>';
+      row.appendChild(b);
+    });
+    return row;
+  }
+  filterContainer.innerHTML='';
+  filterContainer.appendChild(buildRow('neighborhood','Neighborhood',neighborhoods));
+  filterContainer.appendChild(buildRow('cuisine','Vibe',vibes));
+  var status=document.createElement('div');
+  status.className='filter-status';
+  status.innerHTML='<span class="filter-count" id="filter-count"><strong>'+cards.length+'</strong> of '+cards.length+' hotels</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>';
+  filterContainer.appendChild(status);
+  var state={neighborhood:'all',cuisine:'all'};
+  function applyFilters(){
+    var visible=0;
+    cards.forEach(function(c){
+      var mN=state.neighborhood==='all'||c.dataset.neighborhood===state.neighborhood;
+      var mC=state.cuisine==='all'||c.dataset.cuisine===state.cuisine;
+      if(mN&&mC){c.style.display='';visible++;}else{c.style.display='none';}
+    });
+    document.querySelectorAll('section.chapter[id^="tier-"]').forEach(function(s){
+      var any=Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature')).some(function(c){return c.style.display!=='none';});
+      s.classList.toggle('tier-empty',!any);
+    });
+    var countEl=document.getElementById('filter-count');
+    if(countEl)countEl.innerHTML='<strong>'+visible+'</strong> of '+cards.length+' hotels';
+  }
+  function setFilter(filterKey,value){
+    if(state[filterKey]===value&&value!=='all')value='all';
+    state[filterKey]=value;
+    filterContainer.querySelectorAll('[data-filter="'+filterKey+'"]').forEach(function(b){
+      b.classList.toggle('filter-chip-active',b.getAttribute('data-value')===value);
+    });
+    applyFilters();
+  }
+  filterContainer.addEventListener('click',function(e){
+    var chip=e.target.closest&&e.target.closest('.filter-chip');
+    if(chip){e.preventDefault();setFilter(chip.getAttribute('data-filter'),chip.getAttribute('data-value'));return;}
+    var reset=e.target.closest&&e.target.closest('#filter-reset');
+    if(reset){e.preventDefault();setFilter('neighborhood','all');setFilter('cuisine','all');}
+  });
+  window.fieldGuideJumpTo=function(id){
+    var el=document.getElementById(id);
+    if(!el)return false;
+    if(el.style.display==='none'){setFilter('neighborhood','all');setFilter('cuisine','all');}
+    if(window._fgMap&&window._fgMap.closePopup)window._fgMap.closePopup();
+    setTimeout(function(){
+      var top=el.getBoundingClientRect().top+window.pageYOffset-90;
+      window.scrollTo({top:top,behavior:'smooth'});
+      el.classList.remove('highlight');
+      void el.offsetWidth;
+      el.classList.add('highlight');
+      setTimeout(function(){el.classList.remove('highlight');},1600);
+    },50);
+    return false;
+  };
+  if(window.location.hash&&window.location.hash.indexOf('#h-')===0){
+    setTimeout(function(){window.fieldGuideJumpTo(window.location.hash.slice(1));},200);
+  }
+})();
+</script>
 <script src="../../shared/site.js" defer></script>
 </body>
 </html>
