@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Where to Drink in Toronto — Field Guide</title>
-<meta name="description" content="Toronto bars by type and neighborhood. Coming soon.">
+<meta name="description" content="Twenty-two Toronto bars ranked by critical consensus. Sources: Canada's 100 Best, North America's 50 Best Bars, World's 50 Best Bars, Toronto Life, blogTO, Foodism, NYT 36 Hours, Michelin Guide Toronto.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 <body data-city="toronto">
-
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
 <div class="city-switcher" data-open="false">
@@ -30,33 +31,690 @@
 <div class="section-nav">
 <div class="city-name"><a href="../">Toronto</a></div>
 <div class="sections">
-<a href="../eat/">Eat</a>
 <a href="../stay/">Stay</a>
+<a href="../eat/">Eat</a>
 <a href="../drink/" class="current">Drink</a>
 <a href="../do/">Do</a>
 </div>
 </div>
-
-<section class="hero" style="padding-bottom:6rem">
+<section class="hero">
 <div class="hero-kicker"><span class="hero-pill">Part 3</span> Where to drink</div>
-<h1 class="hero-title">Bars, <em>by Kind of Night</em>.</h1>
-<p class="hero-dek">Coming soon. Cocktail rooms, wine bars, and the kind of place where you order one drink and stay for three.</p>
-<div class="pullquote">
-Held back from the eat list and waiting for this section: <strong>Bar Pompette</strong> (Canada's #1 bar of 2025, College &amp; Bathurst – cocktails first, food worth a full meal), and <strong>Bowie</strong> (Dundas West wine bar the NYT 36 Hours singled out – natural-wine list, rotating small plates).
+<h1 class="hero-title">Where to Drink in Toronto, by <em>Kind of Night</em>.</h1>
+<p class="hero-dek">A mapped, tiered, and category-filtered guide to twenty-two Toronto bars – calibrated for two travelers arriving by train at Union Station, with one downtown anchor and three neighborhood crawls west.</p>
+<p class="hero-byline">Sources: <strong>Canada's 100 Best Bars</strong> · <strong>North America's 50 Best Bars</strong> · <strong>World's 50 Best Bars</strong> · <strong>Toronto Life</strong> · <strong>blogTO</strong> · <strong>Foodism CA</strong> · <strong>NYT 36 Hours</strong> · <strong>Michelin Guide Toronto</strong></p>
+</section>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">Executive Summary</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#planning">Trip-Planning Notes</a></li>
+<li><a href="#tier1"><strong>Tier 1</strong> · The Consensus</a></li>
+<li><a href="#tier2"><strong>Tier 2</strong> · Strong Picks</a></li>
+<li><a href="#tier3"><strong>Tier 3</strong> · Historic</a></li>
+<li><a href="#closed">In Memoriam</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">Executive Summary</div>
+<h2 class="chapter-title">By the Numbers: a <em>Cocktail-Heavy</em> City.</h2>
+<p class="chapter-dek">Nine publications, dozens of bars. Toronto's bar scene is deeper than its restaurant scene at the top end — and overwhelmingly west of Spadina.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">22</div><div class="stat-label">bars on the final list</div></div>
+<div class="stat"><div class="stat-num">12</div><div class="stat-label">consensus picks across 3+ lists</div></div>
+<div class="stat"><div class="stat-num">2</div><div class="stat-label">bars on World's 50 Best Bars 2025</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">downtown anchor (Library Bar at Royal York)</div></div>
 </div>
-<p class="chapter-body" style="margin-top:2rem">A few other names worth searching while this section gets researched: <strong>Civil Liberties</strong> (Bloorcourt, no-menu cocktails), <strong>Bar Raval</strong> (Little Italy, Gaudí-inspired tapas bar), <strong>The Cloak Bar</strong> (King West, speakeasy), <strong>Pretty Ugly</strong> (West Queen West, dive-y), <strong>Track &amp; Field Bar</strong> (Junction, neighborhood), <strong>Mother Cocktail Bar</strong> (Ossington, well-stirred).</p>
+<div class="chapter-body">
+<p>The methodology mirrors the Toronto eat section: pull every bar on a 2024–2025 critics' list, count overlaps, weight by frequency. Toronto's top tier is unusually strong — <strong>Bar Pompette</strong> was named Canada's #1 bar two years running and made the World's 50 Best Bars list globally; <strong>Bar Raval</strong> sits at #84 on the same list. <strong>Civil Works</strong> won North America's Best Cocktail Menu Award in 2025.</p>
+<p>Twelve bars made <strong>Tier 1</strong> — almost all of them cocktail rooms, with one hotel bar (Library Bar) and three late-night-anchor picks (Bowie, Bar Mordecai, Simpl Things). <strong>Tier 2</strong> opens up to wine bars (Paradise Grapevine, Grey Gardens), the Ossington dive (Sweaty Betty's), a Japanese listening room (915 Dupont), and post-midnight standbys (416 Snack Bar). <strong>Wheat Sheaf Tavern</strong> — Toronto's oldest bar, open since 1849 and granted heritage protection in March 2025 — anchors the historic acknowledgment at the bottom.</p>
+</div>
+<div class="pullquote">Toronto's bar scene is <em>overwhelmingly west of Spadina</em>. Five top-15 picks sit on one block of College Street alone. Another four cluster on Dundas West. The Financial District has Library Bar — and that's it. Plan one downtown drink, three TTC-or-Uber expeditions west.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>Bar Pompette is the must-do. Walk-in only, no reservations.</h3><p>Canada's #1 bar, NA50Best #7, World's 50 Best globally. There's no reservation system by design — they want it to feel like a neighborhood bar. Arrive before 7pm or after 11pm to dodge the queue, or take the bar seats when they open.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>The College Street block is the densest in the city.</h3><p>Bar Pompette, Bar Raval, Slice of Life, Suite 115, and Lonely Diner are all within 400 feet of each other on College between Bathurst and Grace. Plan a single evening around the block — start with Suite 115 if Pompette's queue is unworkable, finish with Bar Raval's vermouth on tap.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>Dundas West runs a parallel crawl.</h3><p>Cry Baby Gallery, Bar Mordecai, and Mahjong Bar are three of the best cocktail rooms in the city and they're on the same six-block stretch. Add Bowie one block south on Ossington and you have a four-bar Saturday-night crawl.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>Library Bar is the arrival drink.</h3><p>Inside the Fairmont Royal York, across the street from Union Station. Named Canada's Best Hotel Bar in 2025. If you're getting off the train on Friday afternoon and want to start the trip with a cocktail, this is the one. Reserve a lunch table or walk in after 3pm.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Twenty-two bars, <em>four</em> clusters.</h2>
+<p class="chapter-dek">Pinned and color-coded by tier. Click any marker for details. Union Station and Kensington Market are marked for orientation.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Tier 1</strong> · 3+ lists</span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Tier 2</strong> · 2 lists</span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Tier 3</strong> · Historic</span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Landmark</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="planning">
+<div class="chapter-label">Trip-Planning Notes</div>
+<h2 class="chapter-title">Four <em>Practical</em> Things to Know.</h2>
+<p class="chapter-dek">What changes when you're two travelers arriving by train Friday, no car, three nights in town.</p>
+<div class="insights">
+<div class="insight"><div class="insight-num">A</div><div class="insight-content"><h3>Friday afternoon: walk to Library Bar from Union.</h3><p>It's literally across the street from the train station — 100 Front Street West, Fairmont Royal York. James Grant's literary-themed cocktail program won Canada's Best Hotel Bar in 2025. Dress slightly up. The arrival drink writes itself.</p></div></div>
+<div class="insight"><div class="insight-num">B</div><div class="insight-content"><h3>Friday night: Ossington crawl ending at Bowie.</h3><p>Start at <strong>Sweaty Betty's</strong> (the southern end of Ossington) for the dive warm-up, walk north to <strong>No Vacancy</strong> for the moody motel-inspired room, finish at <strong>Bowie</strong> — the NYT 36 Hours pick, hidden under a laundromat. Bowie takes walk-ins all night, so no anxiety about reservations.</p></div></div>
+<div class="insight"><div class="insight-num">C</div><div class="insight-content"><h3>Saturday: the College Street block, then dinner.</h3><p>Late afternoon at <strong>Bar Raval</strong> for vermouth on tap (Saturday vermut hour is real), short walk to <strong>Bar Pompette</strong> if the queue is reasonable, fallback to <strong>Suite 115</strong> or <strong>Slice of Life</strong> on the same block if not. Plan dinner in Little Italy (DaNico, Quetzal) so the bar crawl doesn't require Uber.</p></div></div>
+<div class="insight"><div class="insight-num">D</div><div class="insight-content"><h3>Sunday: Kensington wine and Grey Gardens.</h3><p>If the trip needs a slower Sunday afternoon, walk through Kensington Market to <strong>Grey Gardens</strong> — Jen Agg's pastel wine bar, oyster menu, low-intervention list. Pair with one of the Tier 5 lunch picks (Nu Bügel is closed but Moonbean Coffee is the right warmup).</p></div></div>
+</div>
 </section>
 
+<section class="chapter" id="tier1">
+<div class="tier-intro">
+<div class="tier-pill">Tier 1</div>
+<h2 class="tier-name">Where Everyone <em>Agrees</em>.</h2>
+<p class="tier-dek">Twelve bars, three or more critics' lists each. Cocktail-heavy, with one hotel bar and three late-night anchors. The consensus is unusually strong at the top — Toronto's bar scene has earned international recognition that Boston's hasn't quite matched.</p>
+</div>
+
+<article class="restaurant-feature" id="b-bar-pompette" data-neighborhood="little-italy" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best #2 · NA50Best #7 · World's 50 Best Bars · Toronto Life · blogTO · Foodism">Five lists</span>
+</div>
+<h3 class="r-name">Bar Pompette</h3>
+<p class="r-tag">Canada's #1 bar, two years running.</p>
+<div class="r-pills">
+  <span class="r-pill">Little Italy</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">C100 #2 · World's 50 Best</span>
+</div>
+<p class="r-blurb">A whitewashed Parisian café on College Street where the cocktails arrive on a marble bartop. NA50Best's Michter's Art of Hospitality Award winner. Walk-in only — get there early or after the second seating clears.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Tap Old Fashioned · French aperitivos · house bottled-in-bond rye</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in only · arrive before 7pm or after 11pm</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-dinner or late-night anchor · couples</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.pompette.ca/barpompette" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Bar+Pompette+607+College+St+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-civil-liberties" data-neighborhood="bloorcourt" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best #4 · NA50Best #21 · Toronto Life · blogTO · Foodism">Four lists</span>
+</div>
+<h3 class="r-name">Civil Liberties</h3>
+<p class="r-tag">No menu, ever. Give them three adjectives and a base spirit.</p>
+<div class="r-pills">
+  <span class="r-pill">Bloorcourt</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">C100 #4</span>
+</div>
+<p class="r-blurb">The model that put Toronto's cocktail scene on the international map. Tell the bartenders mezcal + savory + smoky or gin + bright + bitter and trust the result. Worth the TTC ride west.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Bartender's choice · always · no menu</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in only · before 8pm on weekends</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Cocktail-nerd night · destination room</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.civillibertiesbar.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Civil+Liberties+878+Bloor+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-library-bar" data-neighborhood="financial-district" data-cuisine="hotel">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best #5 + Best Hotel Bar Canada · NA50Best #51 · Toronto Life · Foodism · OpenTable Diners' Choice">Four lists</span>
+</div>
+<h3 class="r-name">Library Bar</h3>
+<p class="r-tag">Canada's best hotel bar. Across the street from Union Station.</p>
+<div class="r-pills">
+  <span class="r-pill">Financial District</span>
+  <span class="r-pill">Hotel</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">Best Hotel Bar Canada</span>
+</div>
+<p class="r-blurb">Inside the Fairmont Royal York. Art Deco walnut paneling, cocktails inspired by literary and film classics. Beverage director James Grant's program earned Canada's Best Hotel Bar in 2025. Made for the first drink of the trip.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Literary-themed signatures · James Grant's specials</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>OpenTable for lunch · walk-in after 3pm</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Friday arrival drink · post-dinner nightcap</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.librarybartoronto.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/library-bar-fairmont-royal-york-toronto" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Library+Bar+Fairmont+Royal+York+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-bar-raval" data-neighborhood="little-italy" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="World's 50 Best Bars #84 · Michelin Toronto Exceptional Cocktails 2025 · Canada's 100 Best · Toronto Life · blogTO">Four lists</span>
+</div>
+<h3 class="r-name">Bar Raval</h3>
+<p class="r-tag">Grant van Gameren's Gaudí-inspired tapas bar. No chairs.</p>
+<div class="r-pills">
+  <span class="r-pill">Little Italy</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">World's 50 Best</span>
+</div>
+<p class="r-blurb">Carved mahogany counters, jamón at toothpick-distance, vermouth on tap. Michelin's 2025 Exceptional Cocktails Award went to bar manager Bex Figueiredo. One of the most-photographed bars in the world per 50 Best.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Vermouth on tap · the Figueiredo rotating cocktail · sherry</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in (limited weekend brunch reservations)</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Mid-afternoon vermut · standing-counter date</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thisisbarraval.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Bar+Raval+505+College+St+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-cry-baby-gallery" data-neighborhood="dundas-west" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best top 10 · Toronto Life · blogTO · Foodism · Streets of Toronto">Four lists</span>
+</div>
+<h3 class="r-name">Cry Baby Gallery</h3>
+<p class="r-tag">Hidden behind a working art gallery on Dundas West.</p>
+<div class="r-pills">
+  <span class="r-pill">Dundas West</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">C100 Top 10</span>
+</div>
+<p class="r-blurb">Windowless, gritty, 30 seats, DIY-speakeasy energy — the antidote to anything that calls itself elevated. Seven-drink seasonal menu. Find the door at the back of the gallery.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Whatever's on the seasonal seven-drink list</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in only · 9pm gets thin</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-9 couples · cocktail-curious</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.crybabygallery.ca/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Cry+Baby+Gallery+1468+Dundas+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-civil-works" data-neighborhood="king-west" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="NA50Best #55 + Best Cocktail Menu Award 2025 · Canada's 100 Best · Toronto Life · Foodism · blogTO">Four lists</span>
+</div>
+<h3 class="r-name">Civil Works</h3>
+<p class="r-tag">Won North America's best cocktail menu in 2025.</p>
+<div class="r-pills">
+  <span class="r-pill">King West</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">NA50Best Cocktail Menu</span>
+</div>
+<p class="r-blurb">Civil Liberties' grown-up sibling, inside the Waterworks Food Hall. Art deco, velvet, 120 seats, and a cocktail program so fanatical they demineralize Toronto tap water and rebuild it to match the regions in your glass.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Garment District menu · water-titrated highballs</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>OpenTable recommended</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>King West post-dinner · dressed-up night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.waterworksfoodhall.com/restaurants/civil-works" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.ca/r/civil-works-toronto" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Civil+Works+50+Brant+St+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-mother" data-neighborhood="trinity-bellwoods" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="NA50Best #44 · Canada's 100 Best · Toronto Life · Foodism">Four lists</span>
+</div>
+<h3 class="r-name">Mother</h3>
+<p class="r-tag">Cocktails built around fermentation. Every drink has a backstory.</p>
+<div class="r-pills">
+  <span class="r-pill">Trinity-Bellwoods</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">NA50Best #44</span>
+</div>
+<p class="r-blurb">Massimo Zitti's room on the corner of Queen and Crawford. He barrel-ages classics, ferments humble ingredients into clarified syrups, and gives every cocktail a story you remember the next morning.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Anything barrel-aged · fermented-fruit signatures</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>OpenTable · walk-ins held</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Date night · couples · closed Mondays</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://motherdrinks.co/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.ca/r/mother-cocktail-bar-toronto" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Mother+Cocktail+Bar+874+Queen+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-bowie" data-neighborhood="ossington" data-cuisine="late-night">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="NYT 36 Hours Toronto 2024 · blogTO Best New · Toronto Life · Streets of Toronto">Four lists</span>
+</div>
+<h3 class="r-name">Bowie</h3>
+<p class="r-tag">Hidden under a laundromat. The NYT 36 Hours bar pick.</p>
+<div class="r-pills">
+  <span class="r-pill">Ossington</span>
+  <span class="r-pill">Late-Night</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">NYT 36 Hours</span>
+</div>
+<p class="r-blurb">Adrian Joaquin's mid-century mirrored ceiling room, accessed through a back alley off Ossington. Martini-focused program. Sicilian meatballs and sea bream crudo to pair. The post-dinner anchor for Ossington.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Martinis · negronis · classics done right</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy · walk-ins all night</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>10pm-and-after · the Ossington crawl pivot</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.instagram.com/barbowie/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/toronto-on/venues/bowie" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Bowie+Bar+180R+Ossington+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-bar-mordecai" data-neighborhood="dundas-west" data-cuisine="late-night">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best #14 · NA50Best 51-100 · Toronto Life · Bartender Atlas">Three lists</span>
+</div>
+<h3 class="r-name">Bar Mordecai</h3>
+<p class="r-tag">Wes Anderson hotel lobby. Karaoke rooms downstairs.</p>
+<div class="r-pills">
+  <span class="r-pill">Dundas West</span>
+  <span class="r-pill">Late-Night</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">C100 #14</span>
+</div>
+<p class="r-blurb">Velvet, brass, and four private karaoke rooms beneath the main room. Iberian small plates and a sherry-driven cocktail program. The Saturday-night Dundas West pick if the couple wants the karaoke option.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Sherry-driven specials · bartender's choice</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy · karaoke rooms book separately</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Saturday late · group of four with karaoke</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.barmordecai.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/toronto-on/venues/bar-mordecai" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Bar+Mordecai+1272+Dundas+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-slice-of-life" data-neighborhood="little-italy" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="NA50Best new entry 2025 · Canada's 100 Best · Toronto Life · blogTO">Three lists</span>
+</div>
+<h3 class="r-name">Slice of Life</h3>
+<p class="r-tag">Produce-forward cocktails. National list in its first year.</p>
+<div class="r-pills">
+  <span class="r-pill">Little Italy</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">NA50Best 2025</span>
+</div>
+<p class="r-blurb">Opened early 2024, earned a 50 Best seat almost overnight. Herb-of-the-week cocktails, top-shelf base spirits, 45 seats. Closed Tuesdays. Reserve.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Whatever incorporates this week's herb</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>OpenTable · closed Tuesdays</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Couples · pre-Pompette on the same block</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.sliceoflifebar.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/slice-of-life-toronto" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Slice+of+Life+409+College+St+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-simpl-things" data-neighborhood="parkdale" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="NA50Best 51-100 · Campari One To Watch 2024 · Canada's 100 Best · Toronto Life">Three lists</span>
+</div>
+<h3 class="r-name">Simpl Things</h3>
+<p class="r-tag">Italian comfort by day, Neo-Chinese after dark.</p>
+<div class="r-pills">
+  <span class="r-pill">Parkdale</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Campari One To Watch</span>
+</div>
+<p class="r-blurb">Parkdale's day-to-night kitchen and bar — Campari's One To Watch in North America 2024. Happy hour (3-5pm) is the move; the late-night Taiwanese cocktail menu has a cult following.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Happy hour 3-5pm · off-menu Asian-leaning after 9pm</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>OpenTable</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Weekend rebound brunch-bar · late-night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://simplthings.ca/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/simpl-things-toronto" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Simpl+Things+269+Dunn+Ave+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-barchef" data-neighborhood="queen-west" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="NA50Best 51-100 multi-year · Canada's 100 Best · Toronto Life · Foodism">Three lists</span>
+</div>
+<h3 class="r-name">BarChef</h3>
+<p class="r-tag">Toronto's molecular-cocktail OG. Tableside cloud chambers.</p>
+<div class="r-pills">
+  <span class="r-pill">Queen West</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$$</span>
+</div>
+<p class="r-blurb">Multi-sensory cocktails with tasting flights and theatrical service. The $30 drinks are the whole point. Reserve well ahead — this is special-occasion territory.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Tasting flight · smoked-rosemary signature</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>OpenTable strongly recommended</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Anniversary · two people · whole evening</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.barchef.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/barchef-toronto" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=BarChef+472+Queen+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier2">
+<div class="tier-intro">
+<div class="tier-pill">Tier 2</div>
+<h2 class="tier-name">The <em>Strong</em> Picks.</h2>
+<p class="tier-dek">Nine bars, two lists each. Where the wine bars, the dive, the listening room, and the post-midnight rooms live. Where you go on night three when the consensus picks are booked or you want a different mood.</p>
+</div>
+
+<article class="restaurant-feature" id="b-mahjong-bar" data-neighborhood="dundas-west" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best · Toronto Life · NOW Toronto · Foodism">Two lists</span>
+</div>
+<h3 class="r-name">Mahjong Bar</h3>
+<p class="r-tag">Hidden behind a pink bodega façade.</p>
+<div class="r-pills">
+  <span class="r-pill">Dundas West</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+</div>
+<p class="r-blurb">Old-school Hong Kong cocktail-and-snack joint with a small-plates menu running Wednesday through Sunday. Pair with Bar Mordecai four doors down for a one-block Dundas West crawl.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Back-menu cocktails · pandan-leaf signatures</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in (occasional Resy availability)</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-Bar Mordecai · the Dundas West block</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.mahjongbar.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in friendly</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Mahjong+Bar+1276+Dundas+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-no-vacancy" data-neighborhood="ossington" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best 2025 Best New Bar · Toronto Life · Streets of Toronto">Two lists</span>
+</div>
+<h3 class="r-name">No Vacancy</h3>
+<p class="r-tag">Canada's Best New Bar 2025. Motel-inspired neon.</p>
+<div class="r-pills">
+  <span class="r-pill">Ossington</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">C100 Best New 2025</span>
+</div>
+<p class="r-blurb">From the Ghost Chicken team — moody cocktails and French-Japanese-Italian snacks. One-year-old, still in its hype curve. Reserve.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Whatever anchors this month's menu · pâté en croûte</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Tock</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Reserved Ossington night · couples</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.novacancybar.ca/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.exploretock.com/no-vacancy-toronto" target="_blank" rel="noopener">Book on Tock</a>
+  <a class="r-btn" href="https://maps.google.com/?q=No+Vacancy+74+Ossington+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-suite-115" data-neighborhood="little-italy" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best 2025 first-time entry · Foodism · TasteToronto">Two lists</span>
+</div>
+<h3 class="r-name">Suite 115</h3>
+<p class="r-tag">Downstairs from College Street. Asian-inflected.</p>
+<div class="r-pills">
+  <span class="r-pill">Little Italy</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">C100 First-Time 2025</span>
+</div>
+<p class="r-blurb">A College Street downstairs cocktail bar with pandan- and yuzu-forward signatures. First-time Canada's 100 Best entry in 2025, still flying under the international radar. Pair with Bar Pompette next door if Pompette's queue is unworkable.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Pandan- and yuzu-forward signatures</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in (limited reservations by email)</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pompette overflow · College Street pivot</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.suite115.ca/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in friendly</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Suite+115+532+College+St+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-915-dupont" data-neighborhood="dovercourt-park" data-cuisine="listening">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best 2025/26 first-time · Toronto Life feature">Two lists</span>
+</div>
+<h3 class="r-name">915 Dupont</h3>
+<p class="r-tag">Japanese-inspired listening lounge. DJs after dusk.</p>
+<div class="r-pills">
+  <span class="r-pill">Dovercourt Park</span>
+  <span class="r-pill">Listening</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">C100 First-Time 2025</span>
+</div>
+<p class="r-blurb">Café by day (operates as Rooms Coffee), listening bar at night. Vinyl-forward sound system, Japanese whisky bar, daily-changing martini. Geographic outlier — easy Uber from downtown.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Japanese whisky highballs · daily-changing martini</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in · events ticketed on RA.co</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Music-first couples · destination night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.instagram.com/915dupont/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in friendly</span>
+  <a class="r-btn" href="https://maps.google.com/?q=915+Dupont+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-short-turn" data-neighborhood="queen-west" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Toronto Life feature · bestcocktailsguide.com 9.2 rating · Designlines Magazine">Two lists</span>
+</div>
+<h3 class="r-name">Short Turn</h3>
+<p class="r-tag">The streetcar-inspired room with the $10 Garibaldi.</p>
+<div class="r-pills">
+  <span class="r-pill">Queen West</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+</div>
+<p class="r-blurb">From the 416 Snack Bar team. Curved wood-paneled walls, a whipped-OJ Garibaldi that holds up at any price point. Now an all-day operation — an early stop before Bovine or Bar Raval.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Whipped-OJ Garibaldi · diner-menu cocktails</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>OpenTable</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Early evening · Queen West warm-up</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.416snackbar.com/shortturn" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/short-turn-toronto" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Short+Turn+576+Queen+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-paradise-grapevine" data-neighborhood="bloorcourt" data-cuisine="wine">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Star Wine List · Toronto Life feature · blogTO">Two lists</span>
+</div>
+<h3 class="r-name">Paradise Grapevine</h3>
+<p class="r-tag">Urban winery on Bloor. They make it, then pour it.</p>
+<div class="r-pills">
+  <span class="r-pill">Bloorcourt</span>
+  <span class="r-pill">Wine</span>
+  <span class="r-pill">$$</span>
+</div>
+<p class="r-blurb">The Bloor location is the everyday spot; the Geary Avenue location is where they actually press grapes and roast chickens to drink alongside the wine. Both work for a wine-couple afternoon.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Flights of their estate wines · house pet-nat</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in (Geary takes some bookings)</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Wine-curious afternoon · couples</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://paradisegrapevine.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in friendly</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Paradise+Grapevine+841+Bloor+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-grey-gardens" data-neighborhood="kensington" data-cuisine="wine">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Star Wine List · Toronto Life (Jen Agg feature) · Notable Life">Two lists</span>
+</div>
+<h3 class="r-name">Grey Gardens</h3>
+<p class="r-tag">Jen Agg's pastel Kensington wine bar.</p>
+<div class="r-pills">
+  <span class="r-pill">Kensington</span>
+  <span class="r-pill">Wine</span>
+  <span class="r-pill">$$$</span>
+</div>
+<p class="r-blurb">Low-intervention list with private-order rarities from Piemonte, Rioja, Rhône. Oyster and crudo menu makes it dinner-and-drinks energy. Saturday afternoon move.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Whatever's open by the glass · rotating oysters</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy · direct via website</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Saturday afternoon · couples · wine-led</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://greygardens.ca/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/toronto-on/venues/grey-gardens" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Grey+Gardens+199+Augusta+Ave+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-416-snack-bar" data-neighborhood="queen-west" data-cuisine="late-night">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best 2025 first-time · Frommer's · Toronto Life-adjacent">Two lists</span>
+</div>
+<h3 class="r-name">416 Snack Bar</h3>
+<p class="r-tag">Industry-folks late-night standby.</p>
+<div class="r-pills">
+  <span class="r-pill">Queen West</span>
+  <span class="r-pill">Late-Night</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">C100 First-Time 2025</span>
+</div>
+<p class="r-blurb">Opened to feed the people who feed Toronto. Tapas-format snack bar with a cocktail program that punches well above the room size. Post-midnight rebound territory — open late, no pretense.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Korean-style fried chicken · whisky neat · the dumpling</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>After midnight · post-show rebound</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.416snackbar.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=416+Snack+Bar+181+Bathurst+St+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-sweaty-bettys" data-neighborhood="ossington" data-cuisine="dive">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Canada's 100 Best 2025 · Toronto Life dive feature · Scoundrel's Field Guide">Two lists</span>
+</div>
+<h3 class="r-name">Sweaty Betty's</h3>
+<p class="r-tag">The dive bar that somehow made Canada's 100 Best.</p>
+<div class="r-pills">
+  <span class="r-pill">Ossington</span>
+  <span class="r-pill">Dive</span>
+  <span class="r-pill">$</span>
+  <span class="r-pill r-pill-accent">C100 First-Time 2025</span>
+</div>
+<p class="r-blurb">A narrow Ossington room that has stayed exactly itself for two decades. First-time Canada's 100 Best entry in 2025 — anomalously, for a dive. First stop on an Ossington crawl before Bowie or No Vacancy.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Beer-and-shot · whisky neat</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in only</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Ossington crawl warm-up · cash friendly</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://sweatybettysbar.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Sweaty+Bettys+13+Ossington+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier3">
+<div class="tier-intro">
+<div class="tier-pill">Tier 3</div>
+<h2 class="tier-name">The <em>Historic</em> Acknowledgment.</h2>
+<p class="tier-dek">Toronto's oldest bar, granted heritage protection in March 2025. Not a craft-cocktail destination. The city's bar story includes it.</p>
+</div>
+
+<article class="restaurant-feature" id="b-wheat-sheaf" data-neighborhood="king-west" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Toronto Life history feature · blogTO oldest-bar coverage · Heritage protection March 2025">One list</span>
+</div>
+<h3 class="r-name">Wheat Sheaf Tavern</h3>
+<p class="r-tag">Toronto's oldest bar — open since 1849.</p>
+<div class="r-pills">
+  <span class="r-pill">King West</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Est. 1849</span>
+</div>
+<p class="r-blurb">King West at Bathurst. Heritage protection granted March 2025. Not a craft-cocktail destination; an actual 176-year-old room where you can drink a pint and watch a hockey game. Worth a stop for the history.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>A pint · a burger · a hockey game on TV</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Day-drink stop · post-Civil Works pint · history</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://wheatsheaftavern.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Wheat+Sheaf+Tavern+667+King+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="closed">
+<div class="chapter-label">In Memoriam</div>
+<h2 class="chapter-title">Three bars that <em>didn't</em> make the list.</h2>
+<p class="chapter-dek">Worth noting for completeness — three Toronto bars that historically would have been on a guide like this, and aren't anymore.</p>
+<div class="chapter-body">
+<p><strong>Black Bull Tavern</strong> closed April 3, 2024 after 191 years on Queen Street West. Older than Confederation. The Queen West sidewalk's center of gravity for two centuries. Its closure was the kind of cultural loss that doesn't show up in restaurant journalism.</p>
+<p><strong>Pretty Ugly</strong> on Parkdale's Queen West stretch — a critics' darling for years — never reopened after COVID. <strong>The Cloak Bar</strong> in the King West speakeasy slot closed quietly in 2024. Both still appear on stale "best of Toronto" lists; both are gone.</p>
+</div>
+</section>
+</main>
+</div>
 <section class="next-up">
 <div class="next-up-inner">
 <div>
-<div class="next-up-label">— Continue the guide</div>
-<h3>Back to: <em>Where to eat</em></h3>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Back to: <em>Where to Eat</em></h3>
 </div>
 <a href="../eat/" class="next-up-cta">Read the eat section →</a>
 </div>
 </section>
-
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
@@ -64,12 +722,193 @@ Held back from the eat list and waiting for this section: <strong>Bar Pompette</
 <div class="footer-tagline">Issue 02 — Toronto · Part 3, Where to drink.</div>
 </div>
 <div class="footer-bottom">
-<div>© 2026 Field Guide. Bars section coming soon.</div>
+<div>© 2026 Field Guide. Researched against Canada's 100 Best, NA50Best, World's 50 Best, Toronto Life, blogTO, Foodism, NYT, Michelin Toronto.</div>
 <div>No affiliate links · No paid placements</div>
 </div>
 </div>
 </footer>
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([43.652, -79.405], 13);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
 
+    var restaurants = [
+      {name:'Bar Pompette',id:'b-bar-pompette',tier:1,lat:43.6549,lng:-79.4144,tag:'Cocktail · Little Italy',lists:5,label:'★'},
+      {name:'Civil Liberties',id:'b-civil-liberties',tier:1,lat:43.6622,lng:-79.4252,tag:'Cocktail · Bloorcourt',lists:4,label:'★'},
+      {name:'Library Bar',id:'b-library-bar',tier:1,lat:43.6457,lng:-79.3805,tag:'Hotel · Financial District',lists:4,label:'★'},
+      {name:'Bar Raval',id:'b-bar-raval',tier:1,lat:43.6555,lng:-79.4115,tag:'Cocktail · Little Italy',lists:4,label:'★'},
+      {name:'Cry Baby Gallery',id:'b-cry-baby-gallery',tier:1,lat:43.6499,lng:-79.4296,tag:'Cocktail · Dundas West',lists:4,label:'★'},
+      {name:'Civil Works',id:'b-civil-works',tier:1,lat:43.6473,lng:-79.399,tag:'Cocktail · King West',lists:4,label:'★'},
+      {name:'Mother',id:'b-mother',tier:1,lat:43.6437,lng:-79.417,tag:'Cocktail · Trinity-Bellwoods',lists:4,label:'★'},
+      {name:'Bowie',id:'b-bowie',tier:1,lat:43.6479,lng:-79.4202,tag:'Late Night · Ossington',lists:4,label:'★'},
+      {name:'Bar Mordecai',id:'b-bar-mordecai',tier:1,lat:43.6494,lng:-79.4243,tag:'Late Night · Dundas West',lists:3,label:'★'},
+      {name:'Slice of Life',id:'b-slice-of-life',tier:1,lat:43.6553,lng:-79.4112,tag:'Cocktail · Little Italy',lists:3,label:'★'},
+      {name:'Simpl Things',id:'b-simpl-things',tier:1,lat:43.6396,lng:-79.4337,tag:'Cocktail · Parkdale',lists:3,label:'★'},
+      {name:'BarChef',id:'b-barchef',tier:1,lat:43.6481,lng:-79.4019,tag:'Cocktail · Queen West',lists:3,label:'★'},
+      {name:'Mahjong Bar',id:'b-mahjong-bar',tier:2,lat:43.6496,lng:-79.4252,tag:'Cocktail · Dundas West',lists:2,label:'2'},
+      {name:'No Vacancy',id:'b-no-vacancy',tier:2,lat:43.6457,lng:-79.4205,tag:'Cocktail · Ossington',lists:2,label:'2'},
+      {name:'Suite 115',id:'b-suite-115',tier:2,lat:43.6553,lng:-79.4128,tag:'Cocktail · Little Italy',lists:2,label:'2'},
+      {name:'915 Dupont',id:'b-915-dupont',tier:2,lat:43.6701,lng:-79.4298,tag:'Listening · Dovercourt Park',lists:2,label:'2'},
+      {name:'Short Turn',id:'b-short-turn',tier:2,lat:43.6478,lng:-79.404,tag:'Cocktail · Queen West',lists:2,label:'2'},
+      {name:'Paradise Grapevine',id:'b-paradise-grapevine',tier:2,lat:43.662,lng:-79.4243,tag:'Wine · Bloorcourt',lists:2,label:'2'},
+      {name:'Grey Gardens',id:'b-grey-gardens',tier:2,lat:43.6541,lng:-79.4022,tag:'Wine · Kensington',lists:2,label:'2'},
+      {name:'416 Snack Bar',id:'b-416-snack-bar',tier:2,lat:43.6475,lng:-79.404,tag:'Late Night · Queen West',lists:2,label:'2'},
+      {name:'Sweaty Betty\'s',id:'b-sweaty-bettys',tier:2,lat:43.6438,lng:-79.4202,tag:'Dive · Ossington',lists:2,label:'2'},
+      {name:'Wheat Sheaf Tavern',id:'b-wheat-sheaf',tier:3,lat:43.6443,lng:-79.4034,tag:'Historic · King West',lists:1,label:'1'}
+    ];
+
+    restaurants.forEach(function(r){
+      var tierClass = 'tier' + r.tier;
+      var icon = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="custom-pin ' + tierClass + '">' + r.label + '</div>',
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+      var marker = L.marker([r.lat, r.lng], { icon: icon }).addTo(map);
+      marker.bindPopup(
+        '<div class="pop-name">' + r.name + '</div>' +
+        '<div class="pop-tag">' + r.tag + '</div>' +
+        '<div class="pop-meta">' + r.lists + (r.lists === 1 ? ' list' : ' lists') + '</div>' +
+        (r.id ? '<a href="#' + r.id + '" class="pop-link" onclick="return window.fieldGuideJumpTo(\'' + r.id + '\')">View entry \u2192</a>' : '')
+      );
+    });
+
+    var unionIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Union</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([43.6453, -79.3806], { icon: unionIcon }).addTo(map);
+
+    var kensingtonIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Kensington</div>',
+      iconSize: [86, 22],
+      iconAnchor: [43, 11]
+    });
+    L.marker([43.6541, -79.4018], { icon: kensingtonIcon }).addTo(map);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMap);
+  else initMap();
+})();
+</script>
+
+<script>
+(function(){
+  var LABEL_MAP = {
+    'little-italy':'Little Italy','bloorcourt':'Bloorcourt','financial-district':'Financial District',
+    'dundas-west':'Dundas West','king-west':'King West','trinity-bellwoods':'Trinity-Bellwoods',
+    'ossington':'Ossington','parkdale':'Parkdale','queen-west':'Queen West','dovercourt-park':'Dovercourt Park',
+    'kensington':'Kensington Market',
+    'cocktail':'Cocktail','wine':'Wine','dive':'Dive','hotel':'Hotel','late-night':'Late-Night',
+    'listening':'Listening','historic':'Historic'
+  };
+  function label(slug){
+    if (LABEL_MAP[slug]) return LABEL_MAP[slug];
+    return slug.split('-').map(function(w){ return w.charAt(0).toUpperCase() + w.slice(1); }).join(' ');
+  }
+  var filterContainer = document.getElementById('filters');
+  if (!filterContainer) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]'));
+  if (cards.length === 0) return;
+  var neighborhoods = {}, cuisines = {};
+  cards.forEach(function(c){
+    var n = c.dataset.neighborhood, k = c.dataset.cuisine;
+    neighborhoods[n] = (neighborhoods[n]||0)+1;
+    cuisines[k] = (cuisines[k]||0)+1;
+  });
+  function buildRow(filterKey, rowLabel, counts){
+    var row = document.createElement('details');
+    row.className = 'filter-row';
+    var storeKey = 'fg-filter-' + filterKey + '-open';
+    var stored = null;
+    try { stored = window.localStorage.getItem(storeKey); } catch(e){}
+    row.open = (stored === null) ? true : (stored === 'true');
+    row.addEventListener('toggle', function(){
+      try { window.localStorage.setItem(storeKey, row.open ? 'true' : 'false'); } catch(e){}
+    });
+    var lbl = document.createElement('summary');
+    lbl.className = 'filter-label';
+    lbl.textContent = rowLabel;
+    row.appendChild(lbl);
+    var all = document.createElement('button');
+    all.type='button'; all.className='filter-chip filter-chip-active';
+    all.setAttribute('data-filter',filterKey); all.setAttribute('data-value','all');
+    all.innerHTML='<span>All</span><span class="filter-chip-count">'+cards.length+'</span>';
+    row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){
+      var b=document.createElement('button');
+      b.type='button'; b.className='filter-chip';
+      b.setAttribute('data-filter',filterKey); b.setAttribute('data-value',v);
+      b.innerHTML='<span>'+label(v)+'</span><span class="filter-chip-count">'+counts[v]+'</span>';
+      row.appendChild(b);
+    });
+    return row;
+  }
+  filterContainer.innerHTML='';
+  filterContainer.appendChild(buildRow('neighborhood','Neighborhood',neighborhoods));
+  filterContainer.appendChild(buildRow('cuisine','Category',cuisines));
+  var status=document.createElement('div');
+  status.className='filter-status';
+  status.innerHTML='<span class="filter-count" id="filter-count"><strong>'+cards.length+'</strong> of '+cards.length+' bars</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>';
+  filterContainer.appendChild(status);
+  var state={neighborhood:'all',cuisine:'all'};
+  function applyFilters(){
+    var visible=0;
+    cards.forEach(function(c){
+      var mN=state.neighborhood==='all'||c.dataset.neighborhood===state.neighborhood;
+      var mC=state.cuisine==='all'||c.dataset.cuisine===state.cuisine;
+      if(mN&&mC){c.style.display='';visible++;}else{c.style.display='none';}
+    });
+    document.querySelectorAll('section.chapter[id^="tier"]').forEach(function(s){
+      var any=Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature')).some(function(c){return c.style.display!=='none';});
+      s.classList.toggle('tier-empty',!any);
+    });
+    var countEl=document.getElementById('filter-count');
+    if(countEl)countEl.innerHTML='<strong>'+visible+'</strong> of '+cards.length+' bars';
+  }
+  function setFilter(filterKey,value){
+    if(state[filterKey]===value&&value!=='all')value='all';
+    state[filterKey]=value;
+    filterContainer.querySelectorAll('[data-filter="'+filterKey+'"]').forEach(function(b){
+      b.classList.toggle('filter-chip-active',b.getAttribute('data-value')===value);
+    });
+    applyFilters();
+  }
+  filterContainer.addEventListener('click',function(e){
+    var chip=e.target.closest&&e.target.closest('.filter-chip');
+    if(chip){e.preventDefault();setFilter(chip.getAttribute('data-filter'),chip.getAttribute('data-value'));return;}
+    var reset=e.target.closest&&e.target.closest('#filter-reset');
+    if(reset){e.preventDefault();setFilter('neighborhood','all');setFilter('cuisine','all');}
+  });
+  window.fieldGuideJumpTo=function(id){
+    var el=document.getElementById(id);
+    if(!el)return false;
+    if(el.style.display==='none'){setFilter('neighborhood','all');setFilter('cuisine','all');}
+    if(window._fgMap&&window._fgMap.closePopup)window._fgMap.closePopup();
+    setTimeout(function(){
+      var top=el.getBoundingClientRect().top+window.pageYOffset-90;
+      window.scrollTo({top:top,behavior:'smooth'});
+      el.classList.remove('highlight');
+      void el.offsetWidth;
+      el.classList.add('highlight');
+      setTimeout(function(){el.classList.remove('highlight');},1600);
+    },50);
+    return false;
+  };
+  if(window.location.hash&&window.location.hash.indexOf('#b-')===0){
+    setTimeout(function(){window.fieldGuideJumpTo(window.location.hash.slice(1));},200);
+  }
+})();
+</script>
 <script src="../../shared/site.js" defer></script>
 </body>
 </html>
