@@ -39,6 +39,12 @@ body[data-city="toronto"]{
   --accent-soft:#e1ecf2;
   --accent-deep:#1f5070;
 }
+/* Pittsburgh: industrial copper on iron grey (the steel-city palette without Steelers cliche) */
+body[data-city="pittsburgh"]{
+  --accent:#b86932;
+  --accent-soft:#f1e4d6;
+  --accent-deep:#8e4d22;
+}
 
 /* ---------- EXTERNAL-LINK ICON (inline SVG via CSS) ---------- */
 /* Applied to any .r-btn that links to an http(s) URL.
@@ -357,6 +363,7 @@ h2.tier-name em{font-style:normal;color:var(--accent);font-weight:800}
 /* Per-city accent scoping on landing-page cards */
 .city-feature[data-city="boston"]{--accent:#c8463a;--accent-soft:#f4e8e6;--accent-deep:#a8362c}
 .city-feature[data-city="toronto"]{--accent:#2c6e8f;--accent-soft:#e1ecf2;--accent-deep:#1f5070}
+.city-feature[data-city="pittsburgh"]{--accent:#b86932;--accent-soft:#f1e4d6;--accent-deep:#8e4d22}
 
 @media (max-width:600px){
   .city-feature .feature-sections{grid-template-columns:repeat(2,1fr);gap:.4rem}

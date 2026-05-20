@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Where to Stay in Toronto — Field Guide</title>
-<meta name="description" content="Toronto hotels by neighborhood and vibe. In progress.">
+<meta name="description" content="Eighteen Toronto hotels organized by neighborhood and vibe. MICHELIN Keys Toronto, Forbes 5-Star, T+L IT List, Hotels Above Par — editorial signals only, no reader-vote rankings.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 <body data-city="toronto">
-
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
 <div class="city-switcher" data-open="false">
@@ -24,39 +25,632 @@
 <div class="city-switcher-divider"></div>
 <a href="../../boston/" class="city-switcher-item">Boston<span class="city-switcher-item-meta">Issue 01 · Massachusetts</span></a>
 <a href="../../toronto/" class="city-switcher-item current">Toronto<span class="city-switcher-item-meta">Issue 02 · Ontario</span></a>
+<a href="../../pittsburgh/" class="city-switcher-item">Pittsburgh<span class="city-switcher-item-meta">Issue 03 · Pennsylvania</span></a>
 </div>
 </div>
 </div>
 <div class="section-nav">
 <div class="city-name"><a href="../">Toronto</a></div>
 <div class="sections">
-<a href="../eat/">Eat</a>
 <a href="../stay/" class="current">Stay</a>
+<a href="../eat/">Eat</a>
 <a href="../drink/">Drink</a>
 <a href="../do/">Do</a>
 </div>
 </div>
-
-<section class="hero" style="padding-bottom:6rem">
+<section class="hero">
 <div class="hero-kicker"><span class="hero-pill">Part 1</span> Where to stay</div>
-<h1 class="hero-title">Hotels, <em>by Neighborhood and Vibe</em>.</h1>
-<p class="hero-dek">In progress. Hotels don't lend themselves to the same cross-publication consensus that restaurants do – there's no equivalent of Toronto Life's 100 Best for hotels. Working on a different framework for this section.</p>
-<div class="pullquote">
-For now, the short version: <em>stay downtown south of Bloor</em>. Financial District for the train-easy walk, King West for dinner energy, Yorkville for the quieter version. From any of those, Chinatown and the Distillery District are short walks, and Little Italy and Ossington are sub-$10 Ubers.
+<h1 class="hero-title">Where to Stay in Toronto, by <em>Neighborhood and Vibe</em>.</h1>
+<p class="hero-dek">A neighborhood-organized hotel guide for two travelers arriving by train. Eighteen properties across six neighborhoods, tagged by vibe and price band, filtered against the editorial signals that don't get corrupted by loyalty-points voting.</p>
+<p class="hero-byline">Signals weighted: <strong>MICHELIN Keys Toronto</strong> (2024 inaugural) · <strong>Forbes 5-Star</strong> · <strong>Forbes 4-Star</strong> · <strong>T+L IT List</strong> · <strong>T+L World's Best</strong> · <strong>Hotels Above Par</strong> · <strong>Air Canada enRoute</strong> · <strong>Toronto Life</strong> · <strong>blogTO</strong> editorial</p>
+</section>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">Why Neighborhood-First</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#planning">Trip-Planning Notes</a></li>
+<li><a href="#tier-financial-district"><strong>Financial District</strong> · 5 hotels</a></li>
+<li><a href="#tier-king-west"><strong>King West</strong> · 5 hotels</a></li>
+<li><a href="#tier-yorkville"><strong>Yorkville</strong> · 4 hotels</a></li>
+<li><a href="#tier-yonge-bloor"><strong>Yonge &amp; Bloor</strong> · 1 hotel</a></li>
+<li><a href="#tier-queen-west"><strong>West Queen West</strong> · 2 hotels</a></li>
+<li><a href="#tier-riverside"><strong>Riverside</strong> · 1 hotel</a></li>
+<li><a href="#cuts">Hotels That Didn&rsquo;t Make It</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">Why Neighborhood-First</div>
+<h2 class="chapter-title">Hotels don't have <em>a Toronto Life 100 Best</em>.</h2>
+<p class="chapter-dek">The eat and drink sections tier by critical consensus because Toronto Life, Canada's 100 Best, Michelin, and the alt-weeklies all rank restaurants and bars. For hotels, the equivalent doesn't exist — and the rankings that do exist get corrupted.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">18</div><div class="stat-label">hotels across 6 neighborhoods</div></div>
+<div class="stat"><div class="stat-num">2</div><div class="stat-label">MICHELIN 2-Key properties (Four Seasons, Hazelton)</div></div>
+<div class="stat"><div class="stat-num">4</div><div class="stat-label">vibes: Grand Luxury, Modern Design, Historic, Value</div></div>
+<div class="stat"><div class="stat-num">8</div><div class="stat-label">hotels cut despite high reader-vote rankings</div></div>
 </div>
-<p class="chapter-body" style="margin-top:2rem">A few names worth searching while this section gets researched: <strong>The St. Regis Toronto</strong> (Financial District, the train-arrival splurge), <strong>The Hazelton</strong> (Yorkville, classic), <strong>1 Hotel Toronto</strong> (Yorkville, new), <strong>The Drake Hotel</strong> (Queen West, scene), <strong>Ace Hotel Toronto</strong> (Garment District, design-forward), <strong>The Anndore House</strong> (Yorkville, boutique). The Eat section is fully built out; start there.</p>
+<div class="chapter-body">
+<p>CN Traveler Readers' Choice — the most-cited hotel ranking — gets driven by which loyalty program is recruiting voters. That's how the InterContinental shows up high every year over the Four Seasons. It's a vote, not a verdict. TripAdvisor has the same problem in a different direction — its top Toronto rankings get pushed by family-vacation reviewers wowed by waterslides and athletic centers.</p>
+<p>This section weights the signals that don't have a voting mechanic: <strong>MICHELIN Keys Toronto</strong> (the 2024 inaugural Canada selection — Four Seasons and Hazelton at 2 Keys; Bisha, Park Hyatt, Shangri-La, 1 Hotel, and Ace at 1 Key each), <strong>Forbes Five-Star and Four-Star</strong>, <strong>Travel + Leisure IT List</strong> (the new-hotel list reviewed by editors, not readers), <strong>Hotels Above Par</strong> (independent, no advertising), <strong>Air Canada enRoute</strong>'s editorial hotel coverage, and the local editorial — <strong>Toronto Life</strong>, <strong>blogTO</strong>, the <strong>Globe and Mail</strong>'s recent reviews.</p>
+</div>
+<div class="pullquote">The structure: <em>pick the neighborhood first</em>. For a Friday-Monday train-arrival trip, default to <strong>Financial District or King West</strong> — both walk to dinner. Yorkville is the quieter alternative; Queen West is itinerary-driven; Riverside only if your trip leans east.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>The Financial District wins for train-arrival trips.</h3><p>Five hotels within twelve minutes of Union, including the St. Regis (Forbes Double-Five, double-tower) and the historic Royal York directly across Front Street. The Library Bar in Royal York is Canada's #1 hotel bar (2025). If you want the shortest walk from the train to a cocktail, this is it.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>King West is the dinner-energy stay.</h3><p>Five hotels in the Entertainment District / King West cluster, three of them MICHELIN Key (1 Hotel, Bisha, Ace). The eat section's King West, Little Italy, and Trinity-Bellwoods picks are all within fifteen minutes on foot. This is the answer when the trip is about dinners.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>Yorkville is the slow-trip stay.</h3><p>Four hotels, two of them MICHELIN 2-Key (Four Seasons and Hazelton — the city's top tier). Yorkville is quieter, more residential, more shopping-and-museum than dinner-and-bar. The trip is forty minutes' worth of subway/Uber farther from the eat/drink core — but mornings and afternoons are better here than downtown.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>The cuts matter — eight hotels with high reader-vote rankings didn't make the list.</h3><p>InterContinental (IHG loyalty stack), Hotel X (Exhibition Place isolation), Chelsea Hotel (1,590 rooms; waterslide), Pantages, Sheraton Centre, Le Germain Mercer (redundant with Maple Leaf Square sibling), Hilton (no editorial signal), Omni King Edward (uneven post-takeover). The full case for each is at the bottom.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Eighteen hotels, <em>color-coded by vibe</em>.</h2>
+<p class="chapter-dek">Pinned by vibe — gold stars for grand luxury, diamonds for modern design, dots for historic, dollar signs for value. Union Station is marked for orientation. Click any marker for details.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Grand Luxury</strong> · MICHELIN 2 Keys / Forbes 5-Star</span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Modern Design</strong> · MICHELIN 1 Key / new boutique</span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Historic</strong> · 1890s–1936 buildings</span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Value</strong> · boutique sub-$300</span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Landmark</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="planning">
+<div class="chapter-label">Trip-Planning Notes</div>
+<h2 class="chapter-title">Four <em>Practical</em> Things to Know.</h2>
+<p class="chapter-dek">How to choose your neighborhood before you pick your hotel — calibrated for a Friday-Monday train-arrival trip.</p>
+<div class="insights">
+<div class="insight"><div class="insight-num">A</div><div class="insight-content"><h3>For a first Toronto trip: Financial District.</h3><p>Five hotels within twelve minutes of Union Station, walking distance to King West dinner, with Library Bar at Royal York as the literal arrival-drink answer. The St. Regis is the splurge; Royal York is the historic anchor; Union Hotel is the brand-new value play. Your weekend starts the moment you step off the train.</p></div></div>
+<div class="insight"><div class="insight-num">B</div><div class="insight-content"><h3>For a dinner-anchored trip: King West.</h3><p>Five hotels right in the dinner-energy corridor, three of them MICHELIN Key. 1 Hotel for the design-forward play, Bisha for the rock-and-roll night, Le Germain Maple Leaf Square for value-luxury, Ace for the architecture pilgrimage. Little Italy and Trinity-Bellwoods (where most of the eat/drink content lives) are fifteen minutes on foot or a $10 streetcar ride.</p></div></div>
+<div class="insight"><div class="insight-num">C</div><div class="insight-content"><h3>For a quieter stay: Yorkville.</h3><p>Four hotels in residential luxury territory. Four Seasons or Hazelton if budget supports MICHELIN 2-Key (the only properties in the city at that level). Park Hyatt for the 1936 building. W Toronto for the newer Yorkville-adjacent option. Mornings and afternoons here are slower; nights require a fifteen-minute Uber.</p></div></div>
+<div class="insight"><div class="insight-num">D</div><div class="insight-content"><h3>Skip: anywhere on Exhibition Place, anywhere north of Bloor, the waterfront.</h3><p>Hotel X (Exhibition Place) and Chelsea (waterslide-and-tourist scale) are walking-weekend killers. Anywhere north of Bloor (the Yonge corridor past Bloor, the airport-hotel zone, North York) pulls you out of dinner walkability. The waterfront cluster (Westin Harbour Castle, Radisson) faces away from the eat-and-drink corridor. Stay between Front Street and Bloor.</p></div></div>
+</div>
 </section>
 
+<section class="chapter" id="tier-financial-district">
+<div class="tier-intro">
+<div class="tier-pill">Financial District / Union</div>
+<h2 class="tier-name">Financial District / Union · <em>5 hotels</em>.</h2>
+<p class="tier-dek">Five hotels within a five-to-twelve-minute walk of the train. The default for a train-arrival weekend — three Forbes 5-Stars (St. Regis, Shangri-La) and 4-Stars (Ritz-Carlton), the historic Royal York directly across Front Street, and the brand-new Union Hotel for the value play.</p>
+</div>
+
+<article class="restaurant-feature" id="h-st-regis" data-neighborhood="financial-district" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="Forbes 5-Star Hotel + Forbes 5-Star Spa (Iridium) 2025 · T+L World's Best top 5 Canada · blogTO best-in-the-world coverage · 261 rooms · 65 floors">Signals</span>
+</div>
+<h3 class="r-name">The St. Regis Toronto</h3>
+<p class="r-tag">The city's tallest hotel address. Forbes 5-Star three years running.</p>
+<div class="r-pills">
+  <span class="r-pill">Financial District</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">Forbes Double-Five</span>
+</div>
+<p class="r-blurb">Born as the Trump Toronto, reborn as St. Regis in 2018, and now the only Forbes Double-Five-Star property in the city (hotel + Iridium Spa). 261 rooms with 14-foot ceilings. Astor Lounge is a credible aperitivo hour; Louix Louis on 31 is the high-altitude martini. Five-minute walk from Union — the headline arrival-night stay.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>261 rooms · grand luxury · 65-floor tower</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>5 min to Union · 12 min King West</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Friday-night arrival splurge · double-Forbes anniversary stay</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.marriott.com/en-us/hotels/yyzxr-the-st-regis-toronto/overview/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.marriott.com/en-us/hotels/yyzxr-the-st-regis-toronto/overview/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+St+Regis+Toronto+325+Bay+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-ritz-carlton" data-neighborhood="financial-district" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="Forbes 4-Star Hotel · Forbes 4-Star Spa (myBlend) · Forbes 4-Star Restaurant (TOCA) · AAA 5-Diamond · Toronto Life 15 ranked · 263 rooms">Signals</span>
+</div>
+<h3 class="r-name">The Ritz-Carlton, Toronto</h3>
+<p class="r-tag">Twenty floors of expected Ritz, next door to Roy Thomson Hall.</p>
+<div class="r-pills">
+  <span class="r-pill">Financial District</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">Forbes 4-Star Trifecta</span>
+</div>
+<p class="r-blurb">Opened 2011. Twenty floors of hotel inside a 53-story tower, one block from the CN Tower and Roy Thomson Hall. The spa is Forbes 4-Star, TOCA (the ground-floor Italian) is Forbes 4-Star, and the rooms are generously square. Less personality than St. Regis, more consistency — the most reliable luxury booking in the city.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>263 rooms · grand luxury · 2011 opening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>7 min to Union · adjacent Roy Thomson Hall</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Returning Ritz loyalists · pre-symphony night · CN Tower view</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.ritzcarlton.com/en/hotels/yyzrz-the-ritz-carlton-toronto/overview/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.ritzcarlton.com/en/hotels/yyzrz-the-ritz-carlton-toronto/overview/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Ritz+Carlton+Toronto+181+Wellington+St+W" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-shangri-la" data-neighborhood="financial-district" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="Forbes 5-Star Hotel 2025 · 202 rooms · 65-floor Westbank tower (2012) · CN Traveler editorial">Signals</span>
+</div>
+<h3 class="r-name">Shangri-La Hotel, Toronto</h3>
+<p class="r-tag">The Hong Kong brand on University Avenue. Zhang Huan ash-Buddha in the lobby.</p>
+<div class="r-pills">
+  <span class="r-pill">Financial District</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">Forbes Five-Star</span>
+</div>
+<p class="r-blurb">Toronto outpost of the Hong Kong group, in a Westbank-designed tower on University. 202 rooms; the lobby has a Zhang Huan ash-Buddha sculpture and a glass-walled rear that looks out toward Queen West. The Lobby Lounge's afternoon tea is a Toronto institution. The least-corporate of the downtown Forbes 5-Stars.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>202 rooms · contemporary luxury · 2012 opening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>12 min to Union · 8 min Queen West</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Asian-luxury-brand loyalists · afternoon tea · quiet floors</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.shangri-la.com/toronto/shangrila/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.shangri-la.com/toronto/shangrila/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Shangri-La+Toronto+188+University+Ave" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-royal-york" data-neighborhood="financial-district" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Toronto Life 15 ranked · 2023 largest heritage retrofit in North America · Zero Carbon certified · CN Traveler editorial · 1,363 rooms · opened 1929">Signals</span>
+</div>
+<h3 class="r-name">Fairmont Royal York</h3>
+<p class="r-tag">The 1929 château-roofed grande dame, directly across from the train.</p>
+<div class="r-pills">
+  <span class="r-pill">Financial District</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Across From Union</span>
+</div>
+<p class="r-blurb">Opened 1929 as the tallest building in the British Empire. The 2020–2023 retrofit (Rockwell Group lobby; Reign restaurant) was the largest heritage hotel restoration in North America and earned Zero Carbon certification. 1,363 rooms means it scales — ask for a renovated room on the Front Street side. Library Bar downstairs is Canada's best hotel bar (2025).</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>1,363 rooms · historic landmark · 1929 building</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Across from Union · 10 min King West</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Train-arrival convenience · Library Bar Friday night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.fairmont.com/royal-york-toronto/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.fairmont.com/royal-york-toronto/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Fairmont+Royal+York+100+Front+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-union-hotel" data-neighborhood="financial-district" data-cuisine="value">
+<div class="r-header-row">
+  <span class="r-tier-tag">Value</span>
+  <span class="r-list-count" tabindex="0" data-lists="Globe and Mail coverage · Silver Hotel Group · 189 rooms · opened April 2025 · partnerships with Sam James Coffee + Breadhead">Signals</span>
+</div>
+<h3 class="r-name">Union Hotel</h3>
+<p class="r-tag">The 1949 Strathcona, reborn — locally-anchored, walking distance to the train.</p>
+<div class="r-pills">
+  <span class="r-pill">Financial District</span>
+  <span class="r-pill">Value</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">New April 2025</span>
+</div>
+<p class="r-blurb">A 14-story 1949 building (the former Strathcona Hotel) renovated 2023–25 and reopened April 2025 as Union — Silver Hotel Group's bet that a 'local-first' downtown hotel can compete on character rather than chain points. Sam James Coffee in the lobby, Breadhead bakery, Humble Donkey lounge. 189 modest-by-design rooms, three minutes from the train. The best new value answer in the city.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>189 rooms · local-first boutique · 2025 reopening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>3 min to Union · 10 min King West</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Friday-arrival on a budget · coffee-forward morning · train-easy weekend</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://unionhoteltoronto.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://unionhoteltoronto.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Union+Hotel+60+York+St+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-king-west">
+<div class="tier-intro">
+<div class="tier-pill">King West / Entertainment District</div>
+<h2 class="tier-name">King West / Entertainment District · <em>5 hotels</em>.</h2>
+<p class="tier-dek">Five hotels in the dinner-energy zone. Three MICHELIN Keys (1 Hotel, Bisha, Ace), Le Germain's Maple Leaf Square sibling, and the newly-opened Nobu (with a caveat — Globe and Mail flagged service growing pains at this price point).</p>
+</div>
+
+<article class="restaurant-feature" id="h-1-hotel" data-neighborhood="king-west" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN 1 Key 2024 · Air Canada enRoute · Hotels Above Par · CN Traveler editorial · 112 rooms · opened 2021 (rebrand of Thompson Toronto)">Signals</span>
+</div>
+<h3 class="r-name">1 Hotel Toronto</h3>
+<p class="r-tag">The sustainability-luxury hybrid where Thompson used to be.</p>
+<div class="r-pills">
+  <span class="r-pill">King West</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">MICHELIN Key</span>
+</div>
+<p class="r-blurb">Mohari Hospitality took the Thompson Toronto and let SH Hotels rebuild it as 1 Hotels' first Canadian property in 2021. Rockwell Group interiors, reclaimed wood and living-moss walls, rooftop pool, Harriet's lounge, Flora restaurant. MICHELIN Key in the 2024 inaugural Canada list. The most design-forward King West option.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>112 rooms · sustainable luxury · 2021 rebrand</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>King West eat corridor at the door · 15 min to Union</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Design-conscious couple · rooftop pool weekend · Flora dinner</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.1hotels.com/toronto" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.1hotels.com/toronto" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=1+Hotel+Toronto+550+Wellington+St+W" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-bisha" data-neighborhood="king-west" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN 1 Key 2024 · Hotels Above Par · Studio Munge + Lenny Kravitz design · Marriott Luxury Collection · 96 rooms · opened 2017">Signals</span>
+</div>
+<h3 class="r-name">Bisha Hotel Toronto</h3>
+<p class="r-tag">Lenny-Kravitz-designed seventh floor. Rooftop infinity pool.</p>
+<div class="r-pills">
+  <span class="r-pill">King West</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">MICHELIN Key</span>
+</div>
+<p class="r-blurb">Black-velvet, snakeskin-wallpaper rock-and-roll boutique in the Entertainment District. 96 rooms across 44 floors; Lenny Kravitz designed the 7th-floor suites; rooftop infinity pool with skyline views. KÔST (the rooftop Mexican restaurant) is the after-show move. Marriott Luxury Collection. Made for a pre-show stay.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>96 rooms · design boutique · 2017 opening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>8 min to Union · steps to King West dining</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-show stay · rooftop pool · the rock-and-roll night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.bishahoteltoronto.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.bishahoteltoronto.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Bisha+Hotel+Toronto+80+Blue+Jays+Way" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-le-germain" data-neighborhood="king-west" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN Guide hotel (inspector-selected) · Toronto Life 15 ranked · Canadian-owned (Groupe Germain) · 167 rooms · opened 2010">Signals</span>
+</div>
+<h3 class="r-name">Le Germain Hotel Maple Leaf Square</h3>
+<p class="r-tag">Canadian boutique brand, anchored to Scotiabank Arena and the train.</p>
+<div class="r-pills">
+  <span class="r-pill">King West</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Steps to Union</span>
+</div>
+<p class="r-blurb">Quebec-based Groupe Germain's second Toronto property (the Mercer Street original is also fine; this one's closer to Union). 167 rooms behind Scotiabank Arena with black-and-white sports portraiture above the beds — sports decor without being a sports bar. Bamboo-cotton linens, down duvets, the strongest mid-range design booking in the cluster.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>167 rooms · Canadian boutique · 2010 opening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>5 min Union · adjacent Scotiabank Arena</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Game-night stay · value-luxury King West base · couples</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.germainhotels.com/en/le-germain-hotel/toronto-maple-leaf-square" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.germainhotels.com/en/le-germain-hotel/toronto-maple-leaf-square" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Le+Germain+Maple+Leaf+Square+75+Bremner+Blvd+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-ace" data-neighborhood="king-west" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN 1 Key 2024 · Hotels Above Par · Toronto Life feature on Canada's first Ace · 123 rooms · opened 2022 · Shim-Sutcliffe architecture">Signals</span>
+</div>
+<h3 class="r-name">Ace Hotel Toronto</h3>
+<p class="r-tag">Canada's first Ace — a Shim-Sutcliffe new-build with Alder downstairs.</p>
+<div class="r-pills">
+  <span class="r-pill">King West</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">MICHELIN Key</span>
+</div>
+<p class="r-blurb">Opened 2022, in the Garment District. Canada's first Ace Hotel, designed by Shim-Sutcliffe Architects as a new-build (rare for Ace, which usually adapts existing buildings) with a precast-brick exterior that echoes Toronto's warehouse vernacular. 123 cabin-like rooms, vintage-and-custom furnishings, and Patrick Kriss's Alder (Mediterranean wood-fire) in the lower level. The MICHELIN Key sealed it.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>123 rooms · design boutique · 2022 opening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>12 min King West · 18 min Union</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Design-pilgrimage stay · Alder dinner · downtempo lobby morning</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://acehotel.com/toronto/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://acehotel.com/toronto/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Ace+Hotel+Toronto+51+Camden+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-nobu" data-neighborhood="king-west" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="Air Canada enRoute · Globe and Mail review (mixed — growing pains) · 36 rooms · opened June 2025">Signals</span>
+</div>
+<h3 class="r-name">Nobu Hotel Toronto</h3>
+<p class="r-tag">36 suites on floors 41-45 — the highest hotel in Toronto, opened mid-2025.</p>
+<div class="r-pills">
+  <span class="r-pill">King West</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">New June 2025</span>
+</div>
+<p class="r-blurb">Canada's first Nobu Hotel, opened June 2025 atop the West Tower of Nobu Residences. Just 36 rooms across five floors, all suites, with Lake Ontario and skyline views. The Globe and Mail flagged early service inconsistency at this price point — typical first-year wrinkles. The Nobu restaurant itself is the draw. Worth tracking; reconsider once service settles.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>36 suites · ultra-luxury · 2025 opening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>8 min to Union · King West dining at the door</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Omakase-night stay · sky-room obsessives · 2026+ once service settles</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.nobuhotels.com/toronto/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.nobuhotels.com/toronto/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Nobu+Hotel+Toronto+25+Mercer+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-yorkville">
+<div class="tier-intro">
+<div class="tier-pill">Yorkville</div>
+<h2 class="tier-name">Yorkville · <em>4 hotels</em>.</h2>
+<p class="tier-dek">Four hotels for the quieter version of the trip. Two MICHELIN 2-Key properties (Four Seasons and Hazelton — Toronto's tied top tier), Park Hyatt's restored 1936 tower, and the brand-new W on Bloor East.</p>
+</div>
+
+<article class="restaurant-feature" id="h-four-seasons-toronto" data-neighborhood="yorkville" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN 2 Keys 2024 (top tier in Toronto) · Forbes 5-Star Hotel + Forbes 5-Star Spa (the city's only) · T+L World's Best top 5 Canada · U.S. News #1 in Canada · 259 rooms">Signals</span>
+</div>
+<h3 class="r-name">Four Seasons Hotel Toronto</h3>
+<p class="r-tag">The Yorkville flagship — two MICHELIN Keys, Daniel Boulud on the ground floor.</p>
+<div class="r-pills">
+  <span class="r-pill">Yorkville</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">MICHELIN 2 Keys</span>
+</div>
+<p class="r-blurb">The brand's home city, and one of two hotels in Toronto with two MICHELIN Keys. 259 rooms over 30 floors. Café Boulud and d|bar on the ground floor; the only Forbes 5-Star spa in the city. The default Yorkville luxury answer — quieter than St. Regis, more residential, with the best room-service operation in town.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>259 rooms · grand luxury · 2012 building</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>20 min Union (Uber 10 min) · Bloor shopping outside</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Anniversary stay · Café Boulud · spa-day weekend</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.fourseasons.com/toronto/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.fourseasons.com/toronto/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Four+Seasons+Toronto+60+Yorkville+Ave" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-hazelton" data-neighborhood="yorkville" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN 2 Keys 2024 · Forbes 5-Star Hotel 2025 · Forbes 4-Star Spa (Valmont) · Leading Hotels of the World · 77 rooms · independent">Signals</span>
+</div>
+<h3 class="r-name">The Hazelton Hotel</h3>
+<p class="r-tag">The independent grande dame of Yorkville. 77 rooms, no chain.</p>
+<div class="r-pills">
+  <span class="r-pill">Yorkville</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">MICHELIN 2 Keys</span>
+</div>
+<p class="r-blurb">The only Toronto hotel with both MICHELIN 2 Keys and Forbes 5-Star that isn't a global brand. 62 rooms plus 15 suites, designed with 1940s Hollywood-glamour flourishes. Spa by Valmont (Forbes 4-Star) and ONE restaurant in the lobby. The independence shows — service is personal in a way the chain Forbes-5s can't quite manage.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>77 rooms · independent luxury · opened 2007</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>25 min Union (Uber 10 min) · Bloor and Avenue Road outside</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Anniversary · independent-luxury seekers · Yorkville-walking weekend</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thehazeltonhotel.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.thehazeltonhotel.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Hazelton+Hotel+118+Yorkville+Ave+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-park-hyatt" data-neighborhood="yorkville" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN 1 Key 2024 · Forbes 4-Star Hotel 2025 · Hotels Above Par · Studio Munge–designed reopening · 219 rooms · 1936 heritage building">Signals</span>
+</div>
+<h3 class="r-name">Park Hyatt Toronto</h3>
+<p class="r-tag">1936 heritage tower at Avenue Road, redrawn by Studio Munge in 2021.</p>
+<div class="r-pills">
+  <span class="r-pill">Yorkville</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">MICHELIN Key</span>
+</div>
+<p class="r-blurb">Closed 2018, reopened September 2021 after one of Canada's largest heritage restorations (Oxford Properties; Studio Munge). 219 rooms artfully balancing Yorkville's pre-war bones with contemporary detailing. Joni restaurant (Forbes 4-Star) on the ground floor; the Writers Room rooftop is the play. Less expensive than Four Seasons or Hazelton, and a more interesting building than either.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>219 rooms · historic landmark · 1936 / 2021 reopening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>25 min Union (Uber 10 min) · ROM and Bloor outside</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Design-history stay · Writers Room rooftop · Joni dinner</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.hyatt.com/park-hyatt/en-US/torph-park-hyatt-toronto" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.hyatt.com/park-hyatt/en-US/torph-park-hyatt-toronto" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Park+Hyatt+Toronto+4+Avenue+Rd" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-w-toronto" data-neighborhood="yorkville" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="Opened July 2024 — Toronto's first W · 222 rooms · TONO by Akira Back · The Points Guy review · Curio coverage">Signals</span>
+</div>
+<h3 class="r-name">W Toronto</h3>
+<p class="r-tag">Toronto's first W. Yonge-Bloor subway at the door, Akira Back on the roof.</p>
+<div class="r-pills">
+  <span class="r-pill">Yorkville</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">New July 2024</span>
+</div>
+<p class="r-blurb">Toronto's first W, opened July 2024. 222 rooms in Yorkville-adjacent territory (technically Bloor East), with the Living Room lobby-bar-coffee-bar and TONO by Michelin-starred Akira Back on the roof. Canada's first Sound Suite recording studio is here — quirky brand-program flourish. Newer and louder than the Hazelton-Four-Seasons-Park-Hyatt triumvirate. No pool.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>222 rooms · modern design · 2024 opening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>20 min Union (subway 8 min) · Bloor corridor</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Yorkville stay at half the Four Seasons rate · subway-arrival travelers</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.marriott.com/en-us/hotels/yyzwh-w-toronto/overview/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.marriott.com/en-us/hotels/yyzwh-w-toronto/overview/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=W+Toronto+90+Bloor+St+E" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-yonge-bloor">
+<div class="tier-intro">
+<div class="tier-pill">Yonge & Bloor</div>
+<h2 class="tier-name">Yonge & Bloor · <em>1 hotel</em>.</h2>
+<p class="tier-dek">One pick: The Anndore House — Toronto's most-quoted boutique value stay. In-room turntables, Constantine downstairs, subway at the corner. The Yorkville-access answer that doesn't pay Yorkville prices.</p>
+</div>
+
+<article class="restaurant-feature" id="h-anndore" data-neighborhood="yonge-bloor" data-cuisine="value">
+<div class="r-header-row">
+  <span class="r-tier-tag">Value</span>
+  <span class="r-list-count" tabindex="0" data-lists="Hotels Above Par · Toronto Life feature ('inside the Anndore House') · JDV by Hyatt · 113 rooms · 1955 building, 2018 reopening">Signals</span>
+</div>
+<h3 class="r-name">The Anndore House</h3>
+<p class="r-tag">Yonge-Bloor boutique with turntables, a barber shop, and Constantine downstairs.</p>
+<div class="r-pills">
+  <span class="r-pill">Yonge & Bloor</span>
+  <span class="r-pill">Value</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Yorkville Value</span>
+</div>
+<p class="r-blurb">A 1955 residence hotel rebuilt in 2018 into Toronto's most-quoted boutique value stay. 113 lofty rooms, in-room turntables with a front-desk vinyl library, Constantine (Greek-Italian; full restaurant) on the main floor, and a barber shop called Crows Nest. Yonge-Bloor subway at the corner. The 'you can stay in Yorkville without paying Yorkville' answer.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>113 rooms · boutique value · 2018 opening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>25 min Union (subway 10 min) · steps to Yonge-Bloor</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Budget-conscious couple wanting Yorkville access · Constantine dinner</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.hyatt.com/jdv-by-hyatt/en-US/torjd-the-anndore-house" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.hyatt.com/jdv-by-hyatt/en-US/torjd-the-anndore-house" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Anndore+House+15+Charles+St+E+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-queen-west">
+<div class="tier-intro">
+<div class="tier-pill">West Queen West</div>
+<h2 class="tier-name">West Queen West · <em>2 hotels</em>.</h2>
+<p class="tier-dek">Two historic boutiques on the gallery-and-music corridor. The Drake (1890, the property that started Toronto's boutique scene) and Gladstone House (1889, Toronto's oldest continuously-operating hotel, 55 artist-designed rooms). Trip-shape-dependent — fifteen-plus minutes from downtown dinner.</p>
+</div>
+
+<article class="restaurant-feature" id="h-drake" data-neighborhood="queen-west" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Toronto Life 15 ranked · Hotels Above Par · 51 rooms expanded with The Annex (2020) · 1890 building · opened as boutique 2004">Signals</span>
+</div>
+<h3 class="r-name">The Drake Hotel</h3>
+<p class="r-tag">The 1890 Queen West landmark that started the Toronto boutique scene.</p>
+<div class="r-pills">
+  <span class="r-pill">West Queen West</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Queen West Anchor</span>
+</div>
+<p class="r-blurb">1890 Romanesque corner building, reopened as a boutique in 2004 after a $6M Stober renovation. The Annex (2020 expansion by Diamond Schmitt + +tongtong + DesignAgency) doubled the rooms and gave it a proper dining floor. Drake Underground's live music is a feature, not a bug. The artwork program is real. West Queen West gallery district outside the door.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>51 rooms (plus Annex) · historic boutique · 1890 / 2004 / 2020</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>35 min Union (streetcar 18 min) · Ossington 12 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Gallery-walking Saturday · live-music night · West Queen West-leaning trip</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thedrake.ca/thedrakehotel/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.thedrake.ca/thedrakehotel/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Drake+Hotel+1150+Queen+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-gladstone" data-neighborhood="queen-west" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Toronto's oldest continuously operating hotel (1889) · DNA Hotels collection · 55 artist-designed rooms · City of Toronto Part IV heritage designation">Signals</span>
+</div>
+<h3 class="r-name">Gladstone House</h3>
+<p class="r-tag">1889 Queen West landmark, 55 artist-designed rooms, none of them the same.</p>
+<div class="r-pills">
+  <span class="r-pill">West Queen West</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Oldest Operating Hotel</span>
+</div>
+<p class="r-blurb">Toronto's oldest continuously operating hotel, two blocks west of the Drake. Reopened post-pandemic as Gladstone House (formerly Gladstone Hotel) under DNA. 55 rooms, each one designed by a different local artist — the editorial pitch is 'you stay in an installation.' Less scene-heavy than the Drake; more architecturally curious.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>55 rooms · historic art-hotel · 1889 building</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>35 min Union (streetcar 20 min) · 5 min west of the Drake</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Art-and-architecture couple · the quieter Queen West alternative</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.gladstonehouse.ca/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.gladstonehouse.ca/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Gladstone+House+1214+Queen+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-riverside">
+<div class="tier-intro">
+<div class="tier-pill">Riverside / East End</div>
+<h2 class="tier-name">Riverside / East End · <em>1 hotel</em>.</h2>
+<p class="tier-dek">One pick: The Broadview. 1893 corner-tower restoration on the east side. The geographic outlier — only book if your itinerary specifically leans Leslieville or Riverside.</p>
+</div>
+
+<article class="restaurant-feature" id="h-broadview" data-neighborhood="riverside" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Hotels Above Par · Toronto Life coverage · Mr & Mrs Smith Hotels · 58 rooms · 1893 Richardsonian Romanesque · 2017 restoration">Signals</span>
+</div>
+<h3 class="r-name">The Broadview Hotel</h3>
+<p class="r-tag">1893 corner building restored into a 58-room boutique with the city's best east-side rooftop.</p>
+<div class="r-pills">
+  <span class="r-pill">Riverside</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">East End Boutique</span>
+</div>
+<p class="r-blurb">Built 1893 as Dingman's Hall, lived a hundred years as a single-room-occupancy with a strip club called Jilly's on the ground floor, then transformed in 2017 into an east-end boutique with a Victorian-meets-art-deco interior. The rooftop bar has 360° downtown views; Civic (the restaurant) is a credible dinner. Not central — but if your itinerary leans Leslieville or Riverside, this is the right answer.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>58 rooms · historic boutique · 1893 / 2017 reopening</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>25 min Union (streetcar) · Leslieville-Riverside walk</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>East-side itinerary · architecture-curious couple · rooftop drink</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thebroadviewhotel.ca/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.thebroadviewhotel.ca/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Broadview+Hotel+106+Broadview+Ave+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="cuts">
+<div class="chapter-label">Hotels That Didn&rsquo;t Make It</div>
+<h2 class="chapter-title">Eight Cuts, <em>and Why</em>.</h2>
+<p class="chapter-dek">Hotels with reader-vote prominence that didn't make the editorial list. Worth knowing about — and worth knowing why each was cut.</p>
+<div class="chapter-body">
+<p><strong>InterContinental Toronto Centre</strong> (225 Front Street West) shows up on CN Traveler Readers' Choice year after year on the strength of IHG One Rewards loyalty-voter recruitment. Solid 4-star corporate hotel, but Shangri-La and Ritz-Carlton sit five blocks away and lead it on every editorial signal. Same "across from the convention center" geography Ritz already covers — without the Forbes pickup.</p>
+<p><strong>Hotel X Toronto</strong> (111 Princes' Boulevard) consistently ranks top 5 on TripAdvisor for its 90,000-square-foot athletic center and 28th-floor rooftop pool — features that wow vacation reviewers. Geographically isolated on Exhibition Place grounds, 25 minutes from Union, in a part of town that's a sports-and-concert venue, not a dinner neighborhood. The walking-weekend killer.</p>
+<p><strong>Chelsea Hotel Toronto</strong> (33 Gerrard Street West) is the largest hotel in Canada — 1,590 rooms. TripAdvisor ranks it on the strength of its waterslide and family programming. No editorial signal anywhere. The opposite of a couples-weekend pick.</p>
+<p><strong>Pantages Hotel Toronto</strong> (200 Victoria Street) is a reader-rating darling for its proximity to Massey Hall, but draws no Forbes, MICHELIN, T+L, or Toronto Life editorial pickup. Walking distance to Le Germain and Bisha at higher quality.</p>
+<p><strong>Sheraton Centre Toronto</strong> (123 Queen Street West) is the city's Marriott-loyalty-vote vehicle. 1,372 rooms of corporate convention hotel. The geography (across from City Hall) is fine but every other Financial District hotel on this list outranks it editorially.</p>
+<p><strong>Le Germain Hotel Toronto Mercer</strong> (30 Mercer Street) is the <em>first</em> Le Germain Toronto, from 2003 — and a solid hotel. Its sibling at Bremner Boulevard (above) outranks it for train-arrival proximity and was the one Toronto Life included in their ranked 15. Picking both would create neighborhood redundancy; we kept Maple Leaf Square.</p>
+<p><strong>Hilton Toronto</strong> (145 Richmond Street West) is Hilton loyalty-stack territory. Functional but invisible on every editorial list — no Forbes, no MICHELIN, no Toronto Life, no Hotels Above Par mention. The "I'm here on points" hotel.</p>
+<p><strong>The Omni King Edward Hotel</strong> (37 King Street East) is borderline — 1903 building, real history, occasionally turns up in editorial roundups. But the 2024–25 reviews are mixed (uneven service post-Omni takeover), the building feels darker and more chain-managed than its history deserves, and the Crystal Ballroom event focus has pushed guest experience to second priority. Reconsider once Omni stabilizes the property; for now, Fairmont Royal York is the obvious historic-tower default.</p>
+</div>
+</section>
+</main>
+</div>
 <section class="next-up">
 <div class="next-up-inner">
 <div>
-<div class="next-up-label">— Continue the guide</div>
-<h3>Back to: <em>Where to eat</em></h3>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Next: <em>Where to Eat</em></h3>
 </div>
 <a href="../eat/" class="next-up-cta">Read the eat section →</a>
 </div>
 </section>
-
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
@@ -64,12 +658,187 @@ For now, the short version: <em>stay downtown south of Bloor</em>. Financial Dis
 <div class="footer-tagline">Issue 02 — Toronto · Part 1, Where to stay.</div>
 </div>
 <div class="footer-bottom">
-<div>© 2026 Field Guide. Hotels section in progress.</div>
+<div>© 2026 Field Guide. Signals weighted: MICHELIN Keys Toronto, Forbes 5-Star, T+L IT List, Hotels Above Par, Toronto Life, Air Canada enRoute.</div>
 <div>No affiliate links · No paid placements</div>
 </div>
 </div>
 </footer>
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([43.652, -79.395], 13);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
 
+    var restaurants = [
+      {name:'The St. Regis Toronto',id:'h-st-regis',tier:1,lat:43.6498,lng:-79.3805,tag:'Grand Luxury · Financial District',lists:0,label:'★',price:'$$$$'},
+      {name:'The Ritz-Carlton, Toronto',id:'h-ritz-carlton',tier:1,lat:43.6452,lng:-79.3873,tag:'Grand Luxury · Financial District',lists:0,label:'★',price:'$$$$'},
+      {name:'Shangri-La Hotel, Toronto',id:'h-shangri-la',tier:1,lat:43.6492,lng:-79.3863,tag:'Grand Luxury · Financial District',lists:0,label:'★',price:'$$$$'},
+      {name:'Fairmont Royal York',id:'h-royal-york',tier:3,lat:43.6457,lng:-79.3812,tag:'Historic · Financial District',lists:0,label:'◉',price:'$$$'},
+      {name:'Union Hotel',id:'h-union-hotel',tier:4,lat:43.6453,lng:-79.3812,tag:'Value · Financial District',lists:0,label:'$',price:'$$'},
+      {name:'1 Hotel Toronto',id:'h-1-hotel',tier:2,lat:43.6428,lng:-79.4012,tag:'Modern Design · King West',lists:0,label:'◆',price:'$$$$'},
+      {name:'Bisha Hotel Toronto',id:'h-bisha',tier:2,lat:43.645,lng:-79.3914,tag:'Modern Design · King West',lists:0,label:'◆',price:'$$$'},
+      {name:'Le Germain Hotel Maple Leaf Square',id:'h-le-germain',tier:2,lat:43.642,lng:-79.3804,tag:'Modern Design · King West',lists:0,label:'◆',price:'$$$'},
+      {name:'Ace Hotel Toronto',id:'h-ace',tier:2,lat:43.6473,lng:-79.3963,tag:'Modern Design · King West',lists:0,label:'◆',price:'$$$'},
+      {name:'Nobu Hotel Toronto',id:'h-nobu',tier:2,lat:43.645,lng:-79.3915,tag:'Modern Design · King West',lists:0,label:'◆',price:'$$$$'},
+      {name:'Four Seasons Hotel Toronto',id:'h-four-seasons-toronto',tier:1,lat:43.6712,lng:-79.3897,tag:'Grand Luxury · Yorkville',lists:0,label:'★',price:'$$$$'},
+      {name:'The Hazelton Hotel',id:'h-hazelton',tier:1,lat:43.6709,lng:-79.394,tag:'Grand Luxury · Yorkville',lists:0,label:'★',price:'$$$$'},
+      {name:'Park Hyatt Toronto',id:'h-park-hyatt',tier:3,lat:43.6711,lng:-79.3935,tag:'Historic · Yorkville',lists:0,label:'◉',price:'$$$$'},
+      {name:'W Toronto',id:'h-w-toronto',tier:2,lat:43.6701,lng:-79.387,tag:'Modern Design · Yorkville',lists:0,label:'◆',price:'$$$'},
+      {name:'The Anndore House',id:'h-anndore',tier:4,lat:43.6685,lng:-79.3854,tag:'Value · Yonge & Bloor',lists:0,label:'$',price:'$$'},
+      {name:'The Drake Hotel',id:'h-drake',tier:3,lat:43.6432,lng:-79.4239,tag:'Historic · West Queen West',lists:0,label:'◉',price:'$$'},
+      {name:'Gladstone House',id:'h-gladstone',tier:3,lat:43.6427,lng:-79.4256,tag:'Historic · West Queen West',lists:0,label:'◉',price:'$$'},
+      {name:'The Broadview Hotel',id:'h-broadview',tier:3,lat:43.6589,lng:-79.352,tag:'Historic · Riverside',lists:0,label:'◉',price:'$$$'}
+    ];
+
+    restaurants.forEach(function(r){
+      var tierClass = 'tier' + r.tier;
+      var icon = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="custom-pin ' + tierClass + '">' + r.label + '</div>',
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+      var marker = L.marker([r.lat, r.lng], { icon: icon }).addTo(map);
+      marker.bindPopup(
+        '<div class="pop-name">' + r.name + '</div>' +
+        '<div class="pop-tag">' + r.tag + '</div>' +
+        '<div class="pop-meta">' + r.price + '</div>' +
+        (r.id ? '<a href="#' + r.id + '" class="pop-link" onclick="return window.fieldGuideJumpTo(\'' + r.id + '\')">View entry \u2192</a>' : '')
+      );
+    });
+
+    var unionIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Union</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([43.6453, -79.3806], { icon: unionIcon }).addTo(map);
+
+    var bloorIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Bloor</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([43.6700, -79.3900], { icon: bloorIcon }).addTo(map);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMap);
+  else initMap();
+})();
+</script>
+<script>
+(function(){
+  var LABEL_MAP = {
+    'financial-district':'Financial District','king-west':'King West',
+    'yorkville':'Yorkville','yonge-bloor':'Yonge & Bloor',
+    'queen-west':'West Queen West','riverside':'Riverside',
+    'grand-luxury':'Grand Luxury','modern-design':'Modern Design',
+    'historic':'Historic','value':'Value'
+  };
+  function label(slug){
+    if (LABEL_MAP[slug]) return LABEL_MAP[slug];
+    return slug.split('-').map(function(w){ return w.charAt(0).toUpperCase() + w.slice(1); }).join(' ');
+  }
+  var filterContainer = document.getElementById('filters');
+  if (!filterContainer) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]'));
+  if (cards.length === 0) return;
+  var neighborhoods = {}, vibes = {};
+  cards.forEach(function(c){
+    var n = c.dataset.neighborhood, v = c.dataset.cuisine;
+    neighborhoods[n] = (neighborhoods[n]||0)+1;
+    vibes[v] = (vibes[v]||0)+1;
+  });
+  function buildRow(filterKey, rowLabel, counts){
+    var row = document.createElement('details');
+    row.className = 'filter-row';
+    var storeKey = 'fg-filter-' + filterKey + '-open';
+    var stored = null;
+    try { stored = window.localStorage.getItem(storeKey); } catch(e){}
+    row.open = (stored === null) ? true : (stored === 'true');
+    row.addEventListener('toggle', function(){
+      try { window.localStorage.setItem(storeKey, row.open ? 'true' : 'false'); } catch(e){}
+    });
+    var lbl = document.createElement('summary');
+    lbl.className = 'filter-label';
+    lbl.textContent = rowLabel;
+    row.appendChild(lbl);
+    var all = document.createElement('button');
+    all.type='button'; all.className='filter-chip filter-chip-active';
+    all.setAttribute('data-filter',filterKey); all.setAttribute('data-value','all');
+    all.innerHTML='<span>All</span><span class="filter-chip-count">'+cards.length+'</span>';
+    row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){
+      var b=document.createElement('button');
+      b.type='button'; b.className='filter-chip';
+      b.setAttribute('data-filter',filterKey); b.setAttribute('data-value',v);
+      b.innerHTML='<span>'+label(v)+'</span><span class="filter-chip-count">'+counts[v]+'</span>';
+      row.appendChild(b);
+    });
+    return row;
+  }
+  filterContainer.innerHTML='';
+  filterContainer.appendChild(buildRow('neighborhood','Neighborhood',neighborhoods));
+  filterContainer.appendChild(buildRow('cuisine','Vibe',vibes));
+  var status=document.createElement('div');
+  status.className='filter-status';
+  status.innerHTML='<span class="filter-count" id="filter-count"><strong>'+cards.length+'</strong> of '+cards.length+' hotels</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>';
+  filterContainer.appendChild(status);
+  var state={neighborhood:'all',cuisine:'all'};
+  function applyFilters(){
+    var visible=0;
+    cards.forEach(function(c){
+      var mN=state.neighborhood==='all'||c.dataset.neighborhood===state.neighborhood;
+      var mC=state.cuisine==='all'||c.dataset.cuisine===state.cuisine;
+      if(mN&&mC){c.style.display='';visible++;}else{c.style.display='none';}
+    });
+    document.querySelectorAll('section.chapter[id^="tier-"]').forEach(function(s){
+      var any=Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature')).some(function(c){return c.style.display!=='none';});
+      s.classList.toggle('tier-empty',!any);
+    });
+    var countEl=document.getElementById('filter-count');
+    if(countEl)countEl.innerHTML='<strong>'+visible+'</strong> of '+cards.length+' hotels';
+  }
+  function setFilter(filterKey,value){
+    if(state[filterKey]===value&&value!=='all')value='all';
+    state[filterKey]=value;
+    filterContainer.querySelectorAll('[data-filter="'+filterKey+'"]').forEach(function(b){
+      b.classList.toggle('filter-chip-active',b.getAttribute('data-value')===value);
+    });
+    applyFilters();
+  }
+  filterContainer.addEventListener('click',function(e){
+    var chip=e.target.closest&&e.target.closest('.filter-chip');
+    if(chip){e.preventDefault();setFilter(chip.getAttribute('data-filter'),chip.getAttribute('data-value'));return;}
+    var reset=e.target.closest&&e.target.closest('#filter-reset');
+    if(reset){e.preventDefault();setFilter('neighborhood','all');setFilter('cuisine','all');}
+  });
+  window.fieldGuideJumpTo=function(id){
+    var el=document.getElementById(id);
+    if(!el)return false;
+    if(el.style.display==='none'){setFilter('neighborhood','all');setFilter('cuisine','all');}
+    if(window._fgMap&&window._fgMap.closePopup)window._fgMap.closePopup();
+    setTimeout(function(){
+      var top=el.getBoundingClientRect().top+window.pageYOffset-90;
+      window.scrollTo({top:top,behavior:'smooth'});
+      el.classList.remove('highlight');
+      void el.offsetWidth;
+      el.classList.add('highlight');
+      setTimeout(function(){el.classList.remove('highlight');},1600);
+    },50);
+    return false;
+  };
+  if(window.location.hash&&window.location.hash.indexOf('#h-')===0){
+    setTimeout(function(){window.fieldGuideJumpTo(window.location.hash.slice(1));},200);
+  }
+})();
+</script>
 <script src="../../shared/site.js" defer></script>
 </body>
 </html>
