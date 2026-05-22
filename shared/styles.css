@@ -45,6 +45,12 @@ body[data-city="pittsburgh"]{
   --accent-soft:#f1e4d6;
   --accent-deep:#8e4d22;
 }
+/* Palm Springs: bougainvillea coral (desert sunset + Pride, the pink-door city) */
+body[data-city="palm-springs"]{
+  --accent:#d4607a;
+  --accent-soft:#f8e4e9;
+  --accent-deep:#b04860;
+}
 
 /* ---------- EXTERNAL-LINK ICON (inline SVG via CSS) ---------- */
 /* Applied to any .r-btn that links to an http(s) URL.
@@ -364,6 +370,7 @@ h2.tier-name em{font-style:normal;color:var(--accent);font-weight:800}
 .city-feature[data-city="boston"]{--accent:#c8463a;--accent-soft:#f4e8e6;--accent-deep:#a8362c}
 .city-feature[data-city="toronto"]{--accent:#2c6e8f;--accent-soft:#e1ecf2;--accent-deep:#1f5070}
 .city-feature[data-city="pittsburgh"]{--accent:#b86932;--accent-soft:#f1e4d6;--accent-deep:#8e4d22}
+.city-feature[data-city="palm-springs"]{--accent:#d4607a;--accent-soft:#f8e4e9;--accent-deep:#b04860}
 
 @media (max-width:600px){
   .city-feature .feature-sections{grid-template-columns:repeat(2,1fr);gap:.4rem}
@@ -450,6 +457,8 @@ footer a:hover{color:var(--paper)}
 .legend-dot.tier2{background:#1a1a1a}
 .legend-dot.tier3{background:#6b6b6b}
 .legend-dot.tier4{background:#a89e8e}
+.legend-dot.tier5{background:#b0a48f}
+.legend-dot.tier6{background:#9c7fa3}
 .legend-dot.fenway{background:#2c6e8f}
 .legend-dot.landmark{background:#d4a437}
 
@@ -460,6 +469,8 @@ footer a:hover{color:var(--paper)}
 .custom-pin.tier2{background:#1a1a1a}
 .custom-pin.tier3{background:#6b6b6b}
 .custom-pin.tier4{background:#7a7468}
+.custom-pin.tier5{background:#b0a48f}
+.custom-pin.tier6{background:#9c7fa3}
 .custom-pin.tierfenway{background:#2c6e8f}
 .landmark-marker{background:transparent;border:none}
 .landmark-pin{background:#d4a437;color:#1a1a1a;font-family:'Inter',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.04em;padding:3px 8px;border-radius:var(--radius-pill);text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.3);white-space:nowrap;line-height:1;text-transform:uppercase}

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where to Drink in Palm Springs &mdash; Field Guide</title>
+<meta name="description" content="Twenty-two Palm Springs + high-desert bars: the cocktail tiers, the Arenas Road gay-bar district, and the Pioneertown music night. Built for Pride weekend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+</head>
+<body data-city="palm-springs">
+<div class="topbar">
+<div class="brand"><a href="../../">Field <em>Guide</em></a></div>
+<div class="city-switcher" data-open="false">
+<button class="city-switcher-trigger" type="button" aria-haspopup="true">
+  <span>Issue 04 &middot; <span class="city-switcher-current">Palm Springs</span></span>
+  <span class="city-switcher-arrow">&#9662;</span>
+</button>
+<div class="city-switcher-menu" role="menu">
+<a href="../../" class="city-switcher-item">All Issues<span class="city-switcher-item-meta">Series landing page</span></a>
+<div class="city-switcher-divider"></div>
+<a href="../../boston/" class="city-switcher-item">Boston<span class="city-switcher-item-meta">Issue 01 &middot; Massachusetts</span></a>
+<a href="../../toronto/" class="city-switcher-item">Toronto<span class="city-switcher-item-meta">Issue 02 &middot; Ontario</span></a>
+<a href="../../pittsburgh/" class="city-switcher-item">Pittsburgh<span class="city-switcher-item-meta">Issue 03 &middot; Pennsylvania</span></a>
+<a href="../../palm-springs/" class="city-switcher-item current">Palm Springs<span class="city-switcher-item-meta">Issue 04 &middot; California</span></a>
+</div>
+</div>
+</div>
+<div class="section-nav">
+<div class="city-name"><a href="../">Palm Springs</a></div>
+<div class="sections">
+<a href="../stay/">Stay</a>
+<a href="../eat/">Eat</a>
+<a href="../drink/" class="current">Drink</a>
+<a href="../do/">Do</a>
+</div>
+</div>
+<section class="hero">
+<div class="hero-kicker"><span class="hero-pill">Part 3</span> Where to drink</div>
+<h1 class="hero-title">Where to Drink in Palm Springs, by <em>Kind of Night</em>.</h1>
+<p class="hero-dek">A mapped, tiered, category-filtered guide to twenty-two bars across Palm Springs and the high desert &mdash; the cocktail tiers, the Arenas Road gay-bar district at the heart of Pride, and the Pioneertown music night up north.</p>
+<p class="hero-byline">Sources: <strong>Palm Springs Life</strong> &middot; <strong>The Infatuation</strong> &middot; <strong>Thrillist</strong> &middot; <strong>Tales of the Cocktail</strong> &middot; <strong>PUNCH</strong> &middot; <strong>MICHELIN Guide</strong> &middot; the gay-travel press (Visit Gay Palm Springs, The Palm Springs Guys, Travel Gay)</p>
+</section>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">Executive Summary</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#planning">Trip-Planning Notes</a></li>
+<li><a href="#tier1"><strong>Tier 1</strong> · The Consensus</a></li>
+<li><a href="#tier2"><strong>Tier 2</strong> · Strong Picks</a></li>
+<li><a href="#tier3"><strong>Tier 3</strong> · Specialists</a></li>
+<li><a href="#tier4"><strong>The Arenas Strip</strong> · gay bars</a></li>
+<li><a href="#tier6"><strong>High Desert</strong> · Joshua Tree &amp; Pioneertown</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">Executive Summary</div>
+<h2 class="chapter-title">A <em>Cocktail Town</em> with a Gay-Bar Heart.</h2>
+<p class="chapter-dek">Palm Springs has thinner standalone bar journalism than a major metro, so the cocktail tiers lean on Palm Springs Life, the Infatuation, Thrillist, and national signals where they exist (Tales of the Cocktail for Bootlegger, MICHELIN for Bar Cecil, PUNCH for Tiny Pony). The Arenas gay-bar district &mdash; documented through the gay-travel press &mdash; gets its own cluster, because for this trip it's the center, not the edge.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">22</div><div class="stat-label">bars across PS + the high desert</div></div>
+<div class="stat"><div class="stat-num">8</div><div class="stat-label">bars on the walkable Arenas gay strip</div></div>
+<div class="stat"><div class="stat-num">2</div><div class="stat-label">tiki bars (Bootlegger + Tonga Hut)</div></div>
+<div class="stat"><div class="stat-num">4</div><div class="stat-label">Tier 1 consensus / nationally-recognized picks</div></div>
+</div>
+<div class="chapter-body">
+<p>Two organizing ideas. First, the <strong>cocktail tiers</strong> — Bootlegger Tiki is the headline (nationally-known tiki, framed honestly as specialist recognition rather than a 50 Best placement), with Truss & Twine the serious program, Seymour's the speakeasy, and Bar Cecil the martini room. Several Tier 3 picks (the Tropicale, Sandfish, Birba) double as dinner in the Eat section — in Palm Springs the best bars are often attached to the best restaurants, so they earn a drink-first visit too.</p>
+<p>Second, the <strong>Arenas Road gay-bar district</strong> gets its own section. It's a tight, walkable strip and the heart of gay Palm Springs — the Pride block parties and street closures spill straight into these bars. And because the trip ends up north, a small <strong>high-desert cluster</strong> closes it out, led by Pappy & Harriet's and Tiny Pony, the queer Yucca Valley tavern that's the trip's natural Pride tie-in.</p>
+</div>
+<div class="pullquote">The map has <em>three moves</em>: the Uptown cocktail cluster (Bootlegger, Truss & Twine, Birba, Tonga Hut), the walkable Arenas gay strip (park once, crawl on foot), and the one Pioneertown music night up north. Bar Cecil and Seymour's are the dressed-up date-night detours.</p></div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>Bootlegger Tiki is the headline — but know what it is.</h3><p>The best tiki bar between the coasts and a genuine national name in that category, 600-rum-deep, behind Ernest Coffee. It is not a World's 50 Best bar — Palm Springs doesn't have one. Treat it as the destination cocktail hour it is: 27 seats, walk-in only, go early.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>The Arenas strip is a one-park-job crawl.</h3><p>Park once near Arenas between Palm Canyon and Calle Encilia and hit them on foot: Streetbar (open) &rarr; Quadz (show tunes) &rarr; Blackbook (the real cocktail) &rarr; Chill Bar (dance) &rarr; Hunters (late-night). Oscar's drag brunch is a block north. During Pride (Nov 6-8) the block parties spill straight in — expect a packed strip Saturday night.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>The Uptown cocktail cluster is the date-night circuit.</h3><p>Truss & Twine, Bootlegger Tiki, Birba's patio, and Tonga Hut are within a few blocks of each other on N Palm Canyon — the strongest single drinking cluster in town. Add High Bar (the Rowan rooftop) for golden hour. Bar Cecil, Seymour's, and Sandfish are the dressed-up South Palm Canyon row, a short drive south.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>The high-desert night ties back to Pride at Tiny Pony.</h3><p>On the one night up north, anchor at Pappy & Harriet's (book ahead). On the way back, a nightcap at Tiny Pony in Yucca Valley — PUNCH's 'gayest bar in Yucca Valley,' the queer-friendly counterpart to the Arenas strip an hour north. The Joshua Tree Saloon is the village beer-and-burger stop; Giant Rock the cocktail-and-sunset alternative.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Twenty-two bars, <em>three</em> moves.</h2>
+<p class="chapter-dek">Pinned and color-coded. Gay-bar markers are tan ('G'), the high-desert cluster (purple) sits ~50 minutes north. Click any marker for details.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Tier 1</strong> · 3+ lists</span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Tier 2</strong> · 2 lists</span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Tier 3</strong> · Specialists</span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Gay Bars</strong> · the Arenas strip</span></div>
+<div class="legend-item"><span class="legend-dot tier6"></span><span><strong>High Desert</strong> · JT &amp; Pioneertown</span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Landmark</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="planning">
+<div class="chapter-label">Trip-Planning Notes</div>
+<h2 class="chapter-title">Four <em>Practical</em> Things to Know.</h2>
+<p class="chapter-dek">For a Pride-weekend couple with a rental car and one high-desert night.</p>
+<div class="insights">
+<div class="insight"><div class="insight-num">A</div><div class="insight-content"><h3>Pride weekend, the Arenas strip is the whole night.</h3><p>Nov 6-8 the block parties and street closures turn Arenas into one big party that spills bar-to-bar. Don't over-plan it — park once (or rideshare in, since you'll drink), start at Streetbar, and let the strip carry you. Saturday is the peak; the parade is Sunday morning down Palm Canyon.</p></div></div>
+<div class="insight"><div class="insight-num">B</div><div class="insight-content"><h3>Golden hour belongs to High Bar.</h3><p>Early November sunsets over San Jacinto from the only rooftop in town — it's the natural first-evening opener, walkable to Arenas for after. Reserve a sunset table. Then the Uptown cocktail cluster (Bootlegger, Truss & Twine) for the serious drinks.</p></div></div>
+<div class="insight"><div class="insight-num">C</div><div class="insight-content"><h3>Rideshare the drinking nights — you have the car, but don't drive it tipsy.</h3><p>This is a drive-everything town, but the Arenas crawl, the Uptown cluster, and the high-desert night all involve real drinking. Rideshare is easy in the Coachella Valley; save the rental car for daytime (the pool, the architecture, the Joshua Tree drive).</p></div></div>
+<div class="insight"><div class="insight-num">D</div><div class="insight-content"><h3>One bar that's closed, one that moved: know before you go.</h3><p>The Barracks (the longtime leather bar in Cathedral City) closed in 2024 — the Tool Shed is now the leather anchor. Counter Reformation is at the Parker, not L'Horizon (a common mix-up). And Reservoir at the Arrive is listed closed — we left it off pending verification.</p></div></div>
+</div>
+</section>
+
+<section class="chapter" id="tier1">
+<div class="tier-intro">
+<div class="tier-pill">Tier 1</div>
+<h2 class="tier-name">Where Everyone <em>Agrees</em>.</h2>
+<p class="tier-dek">Four on three-plus lists. Bootlegger Tiki headlines (the desert's nationally-known tiki room — tiki-specialist recognition, not 50 Best), with the serious cocktail program (Truss & Twine), the speakeasy (Seymour's), and the martini room (Bar Cecil).</p>
+</div>
+
+<article class="restaurant-feature" id="b-bootlegger" data-neighborhood="uptown" data-cuisine="tiki">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Tales of the Cocktail Foundation · Thrillist · The Infatuation LA · Palm Springs Life · tiki-press">Four lists</span>
+</div>
+<h3 class="r-name">Bootlegger Tiki</h3>
+<p class="r-tag">The desert's nationally-known tiki room, 27 seats, behind the coffee.</p>
+<div class="r-pills">
+  <span class="r-pill">Uptown</span>
+  <span class="r-pill">Tiki</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">The National Headliner</span>
+</div>
+<p class="r-blurb">The headline of the whole section — a tiny 27-seat jewel box on the site of the original Don the Beachcomber, the 1953 tiki torches still burning out front. Order the pineapple-and-chartreuse pi&ntilde;a colada or anything rum-forward; the cocktails are real, not kitsch-for-kitsch's-sake. It's behind Ernest Coffee, fills fast, and is the bar to build a night around. Be clear-eyed: it's tiki-specialist national recognition, not a World's 50 Best placement — Palm Springs doesn't have one.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Rum tiki classics · house orgeat</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in (tiny, go early)</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The destination cocktail hour</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.bootleggertiki.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Bootlegger+Tiki+1101+N+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-truss-twine" data-neighborhood="uptown" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="The Infatuation LA · Palm Springs Life · Thrillist · Coachella Magazine">Three lists</span>
+</div>
+<h3 class="r-name">Truss & Twine</h3>
+<p class="r-tag">The town's most ambitious cocktail menu, organized by era.</p>
+<div class="r-pills">
+  <span class="r-pill">Uptown</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">The Serious Program</span>
+</div>
+<p class="r-blurb">The most serious cocktail program in the valley, in an industrial-chic room near the Arrive end of Uptown. The menu is built as a timeline — Golden Age, Prohibition, the tiki boom, and original modern drinks — and the bartenders treat each with care. Dark, low-lit, date-night-coded; this is where you go when you want the drink to be the event. Sister venue to Birba and Cheeky's.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Era-spanning craft cocktails</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in, small</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The cocktail-circuit anchor</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.trussandtwine.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Truss+and+Twine+800+N+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-seymours" data-neighborhood="downtown" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="The Infatuation LA · Palm Springs Life · goop · Thrillist">Three lists</span>
+</div>
+<h3 class="r-name">Seymour's</h3>
+<p class="r-tag">The hidden 1920s room behind the steakhouse — the date-night pick.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">The Speakeasy</span>
+</div>
+<p class="r-blurb">A genuine speakeasy tucked behind Mr. Lyons steakhouse, with a hidden side door, a brass-railed bar, and dark-wood library hush. Same ownership team as Birba and Cheeky's, and the cocktails are precise and classic-leaning, with a deep whiskey list. The quiet, grown-up nightcap room — pair it with a steak next door or come late. Among the most romantic seats in town for two.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Classics · a deep whiskey list</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in (enter via Mr. Lyons)</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The date-night nightcap</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.seymoursf10.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in via Mr. Lyons</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Seymours+233+E+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-bar-cecil-bar" data-neighborhood="south-ps" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="MICHELIN Guide · The Infatuation LA · Palm Springs Life · CN Traveler / T+L desert coverage">Three lists</span>
+</div>
+<h3 class="r-name">Bar Cecil</h3>
+<p class="r-tag">The maximalist room everyone's talking about — come for the martini at the bar.</p>
+<div class="r-pills">
+  <span class="r-pill">South Palm Canyon</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">The Martini Room</span>
+</div>
+<p class="r-blurb">A love letter to Cecil Beaton — gallery-wall maximalism, a stylish-without-trying crowd, and a bar program among the most respected in the Coachella Valley. It reads like a private club and books up, but the bar is walk-in and the martinis are the draw as much as the food. On the MICHELIN Guide, a real signal in a town with thin national bar press. Gay-popular and dressed-up. (Also a Tier 1 dinner in the Eat section — here it's the martini stop.)</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Martinis · dining-room cocktails</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in for the bar · Resy for dinner</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The dressed-up martini</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://barcecil.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/bar-cecil-palm-springs" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Bar+Cecil+1555+S+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier2">
+<div class="tier-intro">
+<div class="tier-pill">Tier 2</div>
+<h2 class="tier-name">The <em>Strong</em> Picks.</h2>
+<p class="tier-dek">Three on two lists. The only rooftop in town (High Bar), the 20-seat wine room hidden in the Parker (Counter Reformation), and the easy second tiki (Tonga Hut).</p>
+</div>
+
+<article class="restaurant-feature" id="b-high-bar" data-neighborhood="downtown" data-cuisine="hotel">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Palm Springs Life · The Infatuation roundup · CN Traveler desert coverage">Two lists</span>
+</div>
+<h3 class="r-name">High Bar</h3>
+<p class="r-tag">The only true rooftop in town — 360&deg; mountain views.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Hotel</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">The Sunset Rooftop</span>
+</div>
+<p class="r-blurb">Palm Springs' signature rooftop, seven floors up at the Kimpton Rowan, with 360-degree San Jacinto views and the best sunset seat downtown. Retro-leaning cocktails and Coachella Valley craft beer; come for golden hour, not a deep cocktail program. In early-November patio weather it's a no-brainer first-evening move — and it's walkable to Arenas.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Retro cocktails · local beer · the view</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Reserve for sunset</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The golden-hour opener</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.rowanpalmsprings.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in / reserve</span>
+  <a class="r-btn" href="https://maps.google.com/?q=High+Bar+Kimpton+Rowan+100+W+Tahquitz+Canyon+Way+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-counter-reformation" data-neighborhood="south-ps" data-cuisine="wine">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="The Infatuation LA · AFAR · Palm Springs Life">Two lists</span>
+</div>
+<h3 class="r-name">Counter Reformation</h3>
+<p class="r-tag">A 20-seat zinc bar inside the Parker — Paris-tabac energy.</p>
+<div class="r-pills">
+  <span class="r-pill">South Palm Springs</span>
+  <span class="r-pill">Wine</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">The Wine Room</span>
+</div>
+<p class="r-blurb">A tiny, speakeasy-style wine bar hidden in the Parker hotel: roughly 20 seats at a zinc bar, a low ceiling, a '70s playlist, and an actual Italian confessional in the back. All wines at a single set price, with a sharp tapas menu — standing-and-ledge-leaning is the move. The most distinctive wine experience in the desert. (It's at the Parker, not L'Horizon — a common mix-up.)</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Wine flights · tapas</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in (tiny)</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The wine-bar detour</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.parkerpalmsprings.com/counter-reformation" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Counter+Reformation+Parker+Palm+Springs+4200+E+Palm+Canyon+Dr" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-tonga-hut" data-neighborhood="downtown" data-cuisine="tiki">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Thrillist (Ultimate Mai Tai) · Visit Palm Springs tiki guide · The Infatuation">Two lists</span>
+</div>
+<h3 class="r-name">Tonga Hut</h3>
+<p class="r-tag">SHAG-designed second-floor tiki with a balcony, right downtown.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Tiki</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">The Second Tiki</span>
+</div>
+<p class="r-blurb">The easier, roomier tiki option (sibling of LA's oldest tiki bar) — a SHAG-designed throwback with pu pu platters, rum drinks, and a second-floor balcony over Palm Canyon. Where Bootlegger is a tiny pilgrimage, Tonga Hut is the walk-in you can actually get into on a busy Pride weekend, smack downtown and steps from the Arenas turn. Good people-watching from the balcony.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Mai tais · rum bowls</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The easy downtown tiki</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.tongahut.com/palm-springs.html" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Tonga+Hut+254+N+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier3">
+<div class="tier-intro">
+<div class="tier-pill">Tier 3</div>
+<h2 class="tier-name">The <em>Specialists</em>.</h2>
+<p class="tier-dek">Three rooms that double as dinner — the gay-popular supper club (the Tropicale's Coral Seas Lounge), the 100-whiskey bar (Sandfish), and the hedge-walled patio (Birba). In Palm Springs the best bars are often attached to the best restaurants; these earn a drink-first visit.</p>
+</div>
+
+<article class="restaurant-feature" id="b-coral-seas" data-neighborhood="downtown" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Visit Palm Springs · The Infatuation (gay-popular supper club)">One list</span>
+</div>
+<h3 class="r-name">The Tropicale &middot; Coral Seas Lounge</h3>
+<p class="r-tag">Midcentury supper-club glamour, a perennial gay favorite.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Supper-Club · Gay-Popular</span>
+</div>
+<p class="r-blurb">A pitch-perfect midcentury supper club — black-leather stools, retro lounge energy, and a patio that earns its keep in November. The Coral Seas Lounge is the cocktail bar within, and the room has long been a gay-popular spot for a dressed-up drink before or after dinner. A short walk from Arenas, so it slots neatly into a Pride evening. (The restaurant is also in the Eat section.)</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>The coconut martini · lounge classics</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Reserve</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The retro-glam pre-dinner drink</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thetropicale.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/the-tropicale-palm-springs" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Tropicale+330+E+Amado+Rd+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-sandfish-bar" data-neighborhood="south-ps" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="The Infatuation LA (100+ whiskies)">One list</span>
+</div>
+<h3 class="r-name">Sandfish</h3>
+<p class="r-tag">100+ whiskies and a minimalist bar to drink at.</p>
+<div class="r-pills">
+  <span class="r-pill">South Palm Canyon</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Whiskey-and-Sushi Bar</span>
+</div>
+<p class="r-blurb">Chef Engin Onural's sushi room doubles as a sharp drinking spot, with a whiskey list north of 100 bottles and a clean, brown-leather-banquette space to sit at the bar. Not a destination cocktail program, but a strong category pick if your night wants nigiri-and-a-pour rather than a full cocktail experience. Near Bar Cecil, so the two pair on a South Palm Canyon evening. (Also a Tier 2 dinner in the Eat section.)</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Whiskey · sake · sushi at the bar</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Resy</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The bar-seat dinner</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.sandfishsushiwhiskey.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://resy.com/cities/palm-springs-ca/venues/sandfish" target="_blank" rel="noopener">Book on Resy</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Sandfish+1556+N+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-birba-bar" data-neighborhood="uptown" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="The Infatuation LA · Palm Springs Life (the hedge-walled patio)">One list</span>
+</div>
+<h3 class="r-name">Birba</h3>
+<p class="r-tag">Hedge-walled Italian patio with craft cocktails — peak patio season.</p>
+<div class="r-pills">
+  <span class="r-pill">Uptown</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">The Patio Aperitivo</span>
+</div>
+<p class="r-blurb">The see-and-be-seen Italian spot from the Seymour's/Cheeky's team, built around a hedge-walled patio with a fire and a bocce court. Craft cocktails paired to a wood-fired menu; the patio is the entire point and early November is its best month. Walk-in for a drink at the bar if you're not eating. A lively, social pre-dinner option in Uptown. (Also a Tier 2 dinner in the Eat section.)</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Aperitivo cocktails · Italian wine</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in to the bar</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The patio aperitivo</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.birbaf10.com/palm-springs" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in to bar</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Birba+622+N+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier4">
+<div class="tier-intro">
+<div class="tier-pill">The Arenas Strip</div>
+<h2 class="tier-name">The <em>Gay-Bar District</em>.</h2>
+<p class="tier-dek">Eight bars on (or just off) Arenas Road — the heart of gay Palm Springs and the Pride core. A tight, walkable strip: park once and hit them all on foot. Streetbar to open, Quadz for show tunes, Blackbook for the real cocktail, Chill Bar and Hunters to dance, Oscar's for drag brunch. Toucans (drag, up N Palm Canyon) and the Tool Shed (leather, Warm Sands) are short rideshares.</p>
+</div>
+
+<article class="restaurant-feature" id="b-streetbar" data-neighborhood="arenas" data-cuisine="gay-bar">
+<div class="r-header-row">
+  <span class="r-tier-tag">Gay Bar</span>
+  <span class="r-list-count" tabindex="0" data-lists="Palm Springs Life · Visit Gay Palm Springs · the city's first gay bar (1991)">Gay district</span>
+</div>
+<h3 class="r-name">Streetbar</h3>
+<p class="r-tag">The patio/people-watching staple — Palm Springs' first gay bar.</p>
+<div class="r-pills">
+  <span class="r-pill">Arenas District</span>
+  <span class="r-pill">Gay Bar</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">The Crawl Opener</span>
+</div>
+<p class="r-blurb">The open-front, sidewalk-facing people-watching anchor of the strip, and the city's first gay bar (opened 1991). Stiff drinks, an easy crowd, and the reliable first stop on an Arenas crawl. Park once and start here.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Well drinks · beer</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>People-watching · the crawl opener</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.facebook.com/StreetbarPS" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Streetbar+224+E+Arenas+Rd+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-chill-bar" data-neighborhood="arenas" data-cuisine="gay-bar">
+<div class="r-header-row">
+  <span class="r-tier-tag">Gay Bar</span>
+  <span class="r-list-count" tabindex="0" data-lists="Visit Gay Palm Springs · Out x Out · Travel Gay (the popular newer one)">Gay district</span>
+</div>
+<h3 class="r-name">Chill Bar Palm Springs</h3>
+<p class="r-tag">Front patio bar, steamy backroom dance club — the high-energy one.</p>
+<div class="r-pills">
+  <span class="r-pill">Arenas District</span>
+  <span class="r-pill">Gay Bar</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">The Dance Bar</span>
+</div>
+<p class="r-blurb">The popular newer one on Arenas — a front patio bar with a steamy backroom dance club that amps up at night, plus big Pride-weekend programming (Haus of Chill). Younger and high-energy. The Arenas stop when you want to dance without committing to Hunters.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Cocktails · shots</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Dancing · Pride parties</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.chillbarpalmsprings.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Chill+Bar+217+E+Arenas+Rd+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-hunters" data-neighborhood="arenas" data-cuisine="gay-bar">
+<div class="r-header-row">
+  <span class="r-tier-tag">Gay Bar</span>
+  <span class="r-list-count" tabindex="0" data-lists="Visit Gay Palm Springs · Travel Gay · the strip's dance club">Gay district</span>
+</div>
+<h3 class="r-name">Hunters Nightclub</h3>
+<p class="r-tag">The dance club — go-go dancers, nightly DJs, the late-night anchor.</p>
+<div class="r-pills">
+  <span class="r-pill">Arenas District</span>
+  <span class="r-pill">Gay Bar</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">The Dance Club</span>
+</div>
+<p class="r-blurb">The dance club of the strip — go-go dancers, nightly DJs, drag and live singers, and a packed floor. The late-night anchor when the crawl turns into a night out. Free to get in, busy by midnight, busier over Pride.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Vodka sodas · dance-floor drinks</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Late-night dancing</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://hunterspalmsprings.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Hunters+Nightclub+302+E+Arenas+Rd+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-quadz" data-neighborhood="arenas" data-cuisine="gay-bar">
+<div class="r-header-row">
+  <span class="r-tier-tag">Gay Bar</span>
+  <span class="r-list-count" tabindex="0" data-lists="Visit Gay Palm Springs · the video/piano sing-along bar">Gay district</span>
+</div>
+<h3 class="r-name">Quadz</h3>
+<p class="r-tag">The musical-theater video and piano bar — show tunes and sing-alongs.</p>
+<div class="r-pills">
+  <span class="r-pill">Arenas District</span>
+  <span class="r-pill">Gay Bar</span>
+  <span class="r-pill">$</span>
+  <span class="r-pill r-pill-accent">Show Tunes</span>
+</div>
+<p class="r-blurb">The campy counterweight to the dance clubs — a video and piano bar where the show tunes play and the locals belt along. Cheap pours, frozen drinks, and the most fun you'll have without a dance floor. The Arenas stop for a sing-along.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Cheap pours · frozen drinks</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Show-tune sing-alongs</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="http://www.quadz.bar/palmsprings/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Quadz+200+S+Indian+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-blackbook" data-neighborhood="arenas" data-cuisine="gay-bar">
+<div class="r-header-row">
+  <span class="r-tier-tag">Gay Bar</span>
+  <span class="r-list-count" tabindex="0" data-lists="Visit Gay Palm Springs · The Palm Springs Guys (cocktail-leaning gay bar)">Gay district</span>
+</div>
+<h3 class="r-name">Blackbook Bar</h3>
+<p class="r-tag">The cocktail-leaning gay bar on the strip, with a talked-about kitchen.</p>
+<div class="r-pills">
+  <span class="r-pill">Arenas District</span>
+  <span class="r-pill">Gay Bar</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">The Grown-Up Drink</span>
+</div>
+<p class="r-blurb">The cocktail-leaning, more design-forward gay bar on Arenas, with a small kitchen people actually rave about (street tacos, a fried-chicken sandwich). Same owner as the Evening Citizen. The grown-up drink on the strip when you want a real cocktail between the dance bars.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Craft-ish cocktails · bar bites</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The grown-up Arenas drink</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.blackbookbar.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Blackbook+Bar+315+E+Arenas+Rd+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-oscars" data-neighborhood="arenas" data-cuisine="gay-bar">
+<div class="r-header-row">
+  <span class="r-tier-tag">Gay Bar</span>
+  <span class="r-list-count" tabindex="0" data-lists="Visit Gay Palm Springs · the drag-brunch-and-patio cabaret">Gay district</span>
+</div>
+<h3 class="r-name">Oscar's</h3>
+<p class="r-tag">The brunch-and-patio cabaret — 'the bitchiest brunch,' a big patio, a nightclub after dark.</p>
+<div class="r-pills">
+  <span class="r-pill">Arenas District</span>
+  <span class="r-pill">Gay Bar</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Drag Brunch</span>
+</div>
+<p class="r-blurb">One block north of Arenas on Tahquitz, Oscar's is the daytime-into-evening move — famous for its drag brunch ('the bitchiest brunch'), bold performers, and a big patio that turns into a nightclub after dark. The Pride-weekend daytime anchor; book the brunch ahead.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Bottomless brunch cocktails</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Reserve for brunch</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Drag brunch · the daytime patio</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://oscarspalmsprings.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://oscarspalmsprings.com/" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Oscars+125+E+Tahquitz+Canyon+Way+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-toucans" data-neighborhood="arenas" data-cuisine="gay-bar">
+<div class="r-header-row">
+  <span class="r-tier-tag">Gay Bar</span>
+  <span class="r-list-count" tabindex="0" data-lists="Visit Gay Palm Springs · Travel Gay (20+ years of nightly drag)">Gay district</span>
+</div>
+<h3 class="r-name">Toucans Tiki Lounge</h3>
+<p class="r-tag">Tiki-themed gay bar with 20+ years of nightly drag — the drag-show destination.</p>
+<div class="r-pills">
+  <span class="r-pill">Uptown (N Palm Canyon)</span>
+  <span class="r-pill">Gay Bar</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Drag Destination</span>
+</div>
+<p class="r-blurb">Core gay nightlife but not on Arenas — it's up N Palm Canyon (a short rideshare). Tiki-themed, with 20+ years of nightly drag (the '5-Day Weekend' lineup) and a dance floor. The drag-show destination of the scene; worth the hop from the strip for the show.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Tiki drinks · frozen cocktails</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Drag shows · dancing</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://toucanstikilounge.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Toucans+Tiki+Lounge+2100+N+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-tool-shed" data-neighborhood="arenas" data-cuisine="gay-bar">
+<div class="r-header-row">
+  <span class="r-tier-tag">Gay Bar</span>
+  <span class="r-list-count" tabindex="0" data-lists="Visit Gay Palm Springs · The Palm Springs Guys (the bear/leather bar)">Gay district</span>
+</div>
+<h3 class="r-name">The Tool Shed</h3>
+<p class="r-tag">The bear/leather bar — unpretentious, cruisy, the locals' night.</p>
+<div class="r-pills">
+  <span class="r-pill">Warm Sands</span>
+  <span class="r-pill">Gay Bar</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Bear / Leather</span>
+</div>
+<p class="r-blurb">The bear/leather bar, in the Warm Sands area (a short rideshare from Arenas). Unpretentious, cruisy, neighborhood-local. With the Barracks gone, this is the surviving leather-scene anchor in town. The change-of-pace from the Arenas strip.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Beer · well drinks</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The bear/leather crowd · locals' night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.pstoolshed.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Tool+Shed+600+E+Sunny+Dunes+Rd+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier6">
+<div class="tier-intro">
+<div class="tier-pill">High Desert</div>
+<h2 class="tier-name">Joshua Tree &amp; <em>Pioneertown</em>.</h2>
+<p class="tier-dek">Four for the one night up north. Pappy & Harriet's is the destination music-and-drinks night (book ahead); Tiny Pony is PUNCH's 'gayest bar in Yucca Valley' and the trip's natural Pride tie-in up north; the Joshua Tree Saloon is the village staple; Giant Rock is the cocktail-and-sunset alternative.</p>
+</div>
+
+<article class="restaurant-feature" id="b-pappy-bar" data-neighborhood="pioneertown" data-cuisine="live-music">
+<div class="r-header-row">
+  <span class="r-tier-tag">High Desert</span>
+  <span class="r-list-count" tabindex="0" data-lists="The Infatuation · Visit Joshua Tree · national music press · ranked among America's great venues">Four lists</span>
+</div>
+<h3 class="r-name">Pappy & Harriet's</h3>
+<p class="r-tag">The legendary roadhouse — THE reason to drive up.</p>
+<div class="r-pills">
+  <span class="r-pill">Pioneertown</span>
+  <span class="r-pill">Live Music</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">The High-Desert Night</span>
+</div>
+<p class="r-blurb">The legendary Pioneertown roadhouse, music venue, and bar — built on an 1870s movie-set frontier town and ranked among America's great music venues. The entire point of the one-night-out: stiff drinks, BBQ, an outdoor stage, and a calendar from local bands to major touring acts. Book a show or a table early — Pride-adjacent November fills up. (Also the Eat section's high-desert headliner.)</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Margaritas · beer · whiskey</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Reserve / tickets</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The destination music night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://pappyandharriets.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://pappyandharriets.com/calendar/" target="_blank" rel="noopener">Reserve / Tickets</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Pappy+and+Harriets+53688+Pioneertown+Rd+Pioneertown" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-tiny-pony-bar" data-neighborhood="yucca-valley" data-cuisine="dive">
+<div class="r-header-row">
+  <span class="r-tier-tag">High Desert</span>
+  <span class="r-list-count" tabindex="0" data-lists="PUNCH (the gayest bar in Yucca Valley) · The Infatuation · queer-desert coverage">Two lists</span>
+</div>
+<h3 class="r-name">Tiny Pony Tavern</h3>
+<p class="r-tag">'The gayest bar in Yucca Valley' — and the high desert's best drinks.</p>
+<div class="r-pills">
+  <span class="r-pill">Yucca Valley</span>
+  <span class="r-pill">Dive</span>
+  <span class="r-pill">$</span>
+  <span class="r-pill r-pill-accent">PUNCH-Recognized · Queer</span>
+</div>
+<p class="r-blurb">PUNCH profiled it as the gayest bar in Yucca Valley — an art-filled, open-late tavern with genuinely creative cocktails, cheap beer, drag nights, karaoke, and weekend brunch. The high-desert spot that connects most directly to this couple's trip: a queer-friendly counterpart to the Arenas strip, an hour north. The drinks are better than a dive's have any right to be.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Creative cocktails · cheap beer · the Pickletini</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The queer high-desert hang</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thetinypony.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Tiny+Pony+Tavern+57205+Twentynine+Palms+Hwy+Yucca+Valley" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-jt-saloon" data-neighborhood="joshua-tree" data-cuisine="dive">
+<div class="r-header-row">
+  <span class="r-tier-tag">High Desert</span>
+  <span class="r-list-count" tabindex="0" data-lists="The Infatuation · JT village guides (the village staple since 1929)">Two lists</span>
+</div>
+<h3 class="r-name">The Joshua Tree Saloon</h3>
+<p class="r-tag">The kitschy Old-West village staple since 1929.</p>
+<div class="r-pills">
+  <span class="r-pill">Joshua Tree</span>
+  <span class="r-pill">Dive</span>
+  <span class="r-pill">$</span>
+  <span class="r-pill r-pill-accent">The Village Bar</span>
+</div>
+<p class="r-blurb">The Joshua Tree village's main-street bar — Old-West kitsch, burgers, big plates of meat, and a been-here-forever feel. Not a cocktail destination; the reliable, walkable post-park beer-and-burger spot in the village proper. A good lunch-or-early-drink stop on a daytime run to the national park.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Beer · well drinks</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The post-hike beer</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.joshuatreesaloon.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Joshua+Tree+Saloon+61835+Twentynine+Palms+Hwy+Joshua+Tree" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-giant-rock" data-neighborhood="yucca-valley" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">High Desert</span>
+  <span class="r-list-count" tabindex="0" data-lists="SoCal Desert Life · NEXTpittsburgh-style desert coverage (cocktail-and-pizza, live music)">One list</span>
+</div>
+<h3 class="r-name">Giant Rock Meeting Room</h3>
+<p class="r-tag">Sunset-facing patio, real cocktails, local bands.</p>
+<div class="r-pills">
+  <span class="r-pill">Yucca Valley</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Cocktails + Pizza</span>
+</div>
+<p class="r-blurb">The JT-area spot for an actual cocktail in a high desert that mostly runs on beer and well drinks — a tchotchke-filled bar and divey pizzeria with a big west-facing patio for sunset and a stage for local bands. The cocktail-forward alternative to Pappy's on the high-desert night, or a pre-show stop. Wood-fired pizza is the food.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Craft cocktails · pizza</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The high-desert cocktail-and-sunset</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.giantrockmeetingroom.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Giant+Rock+Meeting+Room+Yucca+Valley" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+</main>
+</div>
+<section class="next-up">
+<div class="next-up-inner">
+<div>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Next: <em>What to Do</em></h3>
+</div>
+<a href="../do/" class="next-up-cta">The parade, the tramway, the park &rarr;</a>
+</div>
+</section>
+<footer>
+<div class="footer-inner">
+<div class="footer-top">
+<div class="footer-brand"><a href="../../">Field <em>Guide</em></a></div>
+<div class="footer-tagline">Issue 04 &mdash; Palm Springs &middot; Part 3, Where to drink.</div>
+</div>
+<div class="footer-bottom">
+<div>&copy; 2026 Field Guide. Researched against Palm Springs Life, the Infatuation, Thrillist, Tales of the Cocktail, PUNCH, the gay-travel press.</div>
+<div>No affiliate links &middot; No paid placements</div>
+</div>
+</div>
+</footer>
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([33.9100, -116.4700], 10);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+    var restaurants = [
+      {name:'Bootlegger Tiki',id:'b-bootlegger',tier:1,lat:33.8331,lng:-116.5466,tag:'Tiki · Uptown',lists:4,label:'★'},
+      {name:'Truss & Twine',id:'b-truss-twine',tier:1,lat:33.8292,lng:-116.5464,tag:'Cocktail · Uptown',lists:3,label:'★'},
+      {name:'Seymour\'s',id:'b-seymours',tier:1,lat:33.8127,lng:-116.544,tag:'Cocktail · Downtown',lists:3,label:'★'},
+      {name:'Bar Cecil',id:'b-bar-cecil-bar',tier:1,lat:33.8024,lng:-116.5455,tag:'Cocktail · South Palm Canyon',lists:3,label:'★'},
+      {name:'High Bar',id:'b-high-bar',tier:2,lat:33.823,lng:-116.546,tag:'Hotel · Downtown',lists:2,label:'2'},
+      {name:'Counter Reformation',id:'b-counter-reformation',tier:2,lat:33.779,lng:-116.501,tag:'Wine · South Palm Springs',lists:2,label:'2'},
+      {name:'Tonga Hut',id:'b-tonga-hut',tier:2,lat:33.8258,lng:-116.5465,tag:'Tiki · Downtown',lists:2,label:'2'},
+      {name:'The Tropicale - Coral Seas Lounge',id:'b-coral-seas',tier:3,lat:33.8252,lng:-116.541,tag:'Cocktail · Downtown',lists:1,label:'1'},
+      {name:'Sandfish',id:'b-sandfish-bar',tier:3,lat:33.839,lng:-116.546,tag:'Cocktail · South Palm Canyon',lists:1,label:'1'},
+      {name:'Birba',id:'b-birba-bar',tier:3,lat:33.8296,lng:-116.5456,tag:'Cocktail · Uptown',lists:1,label:'1'},
+      {name:'Streetbar',id:'b-streetbar',tier:4,lat:33.8204,lng:-116.543,tag:'Gay Bar · Arenas District',lists:1,label:'G'},
+      {name:'Chill Bar Palm Springs',id:'b-chill-bar',tier:4,lat:33.8203,lng:-116.5428,tag:'Gay Bar · Arenas District',lists:1,label:'G'},
+      {name:'Hunters Nightclub',id:'b-hunters',tier:4,lat:33.8204,lng:-116.5418,tag:'Gay Bar · Arenas District',lists:1,label:'G'},
+      {name:'Quadz',id:'b-quadz',tier:4,lat:33.8205,lng:-116.544,tag:'Gay Bar · Arenas District',lists:1,label:'G'},
+      {name:'Blackbook Bar',id:'b-blackbook',tier:4,lat:33.8204,lng:-116.5416,tag:'Gay Bar · Arenas District',lists:1,label:'G'},
+      {name:'Oscar\'s',id:'b-oscars',tier:4,lat:33.8228,lng:-116.543,tag:'Gay Bar · Arenas District',lists:1,label:'G'},
+      {name:'Toucans Tiki Lounge',id:'b-toucans',tier:4,lat:33.843,lng:-116.5466,tag:'Gay Bar · Uptown (N Palm Canyon)',lists:1,label:'G'},
+      {name:'The Tool Shed',id:'b-tool-shed',tier:4,lat:33.805,lng:-116.536,tag:'Gay Bar · Warm Sands',lists:1,label:'G'},
+      {name:'Pappy & Harriet\'s',id:'b-pappy-bar',tier:6,lat:34.162,lng:-116.494,tag:'Live Music · Pioneertown',lists:4,label:'★'},
+      {name:'Tiny Pony Tavern',id:'b-tiny-pony-bar',tier:6,lat:34.132,lng:-116.4035,tag:'Dive · Yucca Valley',lists:2,label:'2'},
+      {name:'The Joshua Tree Saloon',id:'b-jt-saloon',tier:6,lat:34.133,lng:-116.313,tag:'Dive · Joshua Tree',lists:2,label:'2'},
+      {name:'Giant Rock Meeting Room',id:'b-giant-rock',tier:6,lat:34.134,lng:-116.425,tag:'Cocktail · Yucca Valley',lists:1,label:'1'}
+    ];
+    restaurants.forEach(function(r){
+      var icon = L.divIcon({className:'custom-marker',html:'<div class="custom-pin tier'+r.tier+'">'+r.label+'</div>',iconSize:[28,28],iconAnchor:[14,14]});
+      L.marker([r.lat,r.lng],{icon:icon}).addTo(map).bindPopup(
+        '<div class="pop-name">'+r.name+'</div><div class="pop-tag">'+r.tag+'</div>'+
+        (r.id?'<a href="#'+r.id+'" class="pop-link" onclick="return window.fieldGuideJumpTo(\''+r.id+'\')">View entry \u2192</a>':''));
+    });
+    var ar=L.divIcon({className:'landmark-marker',html:'<div class="landmark-pin">Arenas</div>',iconSize:[70,22],iconAnchor:[35,11]});
+    L.marker([33.8203,-116.5428],{icon:ar}).addTo(map);
+    var pt=L.divIcon({className:'landmark-marker',html:'<div class="landmark-pin">Pioneertown</div>',iconSize:[92,22],iconAnchor:[46,11]});
+    L.marker([34.1620,-116.4940],{icon:pt}).addTo(map);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMap);else initMap();
+})();
+</script>
+<script>
+(function(){
+  var LABEL_MAP={'uptown':'Uptown','downtown':'Downtown','south-ps':'South Palm Springs','arenas':'Arenas District','pioneertown':'Pioneertown','joshua-tree':'Joshua Tree','yucca-valley':'Yucca Valley','cocktail':'Cocktail','tiki':'Tiki','gay-bar':'Gay Bar','wine':'Wine','dive':'Dive','hotel':'Hotel','brewery':'Brewery','live-music':'Live Music','jazz':'Jazz','late-night':'Late-Night'};
+  function label(s){return LABEL_MAP[s]||s.split('-').map(function(w){return w.charAt(0).toUpperCase()+w.slice(1);}).join(' ');}
+  var fc=document.getElementById('filters'); if(!fc)return;
+  var cards=Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]')); if(!cards.length)return;
+  var nb={},cu={};
+  cards.forEach(function(c){nb[c.dataset.neighborhood]=(nb[c.dataset.neighborhood]||0)+1;cu[c.dataset.cuisine]=(cu[c.dataset.cuisine]||0)+1;});
+  function buildRow(fk,rl,counts){
+    var row=document.createElement('details'); row.className='filter-row';
+    var sk='fg-filter-'+fk+'-open',st=null; try{st=window.localStorage.getItem(sk);}catch(e){}
+    row.open=(st===null)?true:(st==='true');
+    row.addEventListener('toggle',function(){try{window.localStorage.setItem(sk,row.open?'true':'false');}catch(e){}});
+    var lb=document.createElement('summary'); lb.className='filter-label'; lb.textContent=rl; row.appendChild(lb);
+    var all=document.createElement('button'); all.type='button'; all.className='filter-chip filter-chip-active'; all.setAttribute('data-filter',fk); all.setAttribute('data-value','all'); all.innerHTML='<span>All</span><span class="filter-chip-count">'+cards.length+'</span>'; row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){var b=document.createElement('button'); b.type='button'; b.className='filter-chip'; b.setAttribute('data-filter',fk); b.setAttribute('data-value',v); b.innerHTML='<span>'+label(v)+'</span><span class="filter-chip-count">'+counts[v]+'</span>'; row.appendChild(b);});
+    return row;
+  }
+  fc.innerHTML=''; fc.appendChild(buildRow('neighborhood','Area',nb)); fc.appendChild(buildRow('cuisine','Category',cu));
+  var status=document.createElement('div'); status.className='filter-status'; status.innerHTML='<span class="filter-count" id="filter-count"><strong>'+cards.length+'</strong> of '+cards.length+' bars</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>'; fc.appendChild(status);
+  var state={neighborhood:'all',cuisine:'all'};
+  function apply(){var vis=0; cards.forEach(function(c){var m=(state.neighborhood==='all'||c.dataset.neighborhood===state.neighborhood)&&(state.cuisine==='all'||c.dataset.cuisine===state.cuisine); if(m){c.style.display='';vis++;}else c.style.display='none';});
+    document.querySelectorAll('section.chapter[id^="tier"]').forEach(function(s){var any=Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature')).some(function(c){return c.style.display!=='none';}); s.classList.toggle('tier-empty',!any);});
+    var ce=document.getElementById('filter-count'); if(ce)ce.innerHTML='<strong>'+vis+'</strong> of '+cards.length+' bars';}
+  function setF(fk,v){if(state[fk]===v&&v!=='all')v='all'; state[fk]=v; fc.querySelectorAll('[data-filter="'+fk+'"]').forEach(function(b){b.classList.toggle('filter-chip-active',b.getAttribute('data-value')===v);}); apply();}
+  fc.addEventListener('click',function(e){var chip=e.target.closest&&e.target.closest('.filter-chip'); if(chip){e.preventDefault();setF(chip.getAttribute('data-filter'),chip.getAttribute('data-value'));return;} var r=e.target.closest&&e.target.closest('#filter-reset'); if(r){e.preventDefault();setF('neighborhood','all');setF('cuisine','all');}});
+  window.fieldGuideJumpTo=function(id){var el=document.getElementById(id); if(!el)return false; if(el.style.display==='none'){setF('neighborhood','all');setF('cuisine','all');} if(window._fgMap&&window._fgMap.closePopup)window._fgMap.closePopup(); setTimeout(function(){var top=el.getBoundingClientRect().top+window.pageYOffset-90; window.scrollTo({top:top,behavior:'smooth'}); el.classList.remove('highlight'); void el.offsetWidth; el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');},1600);},50); return false;};
+  if(window.location.hash&&window.location.hash.indexOf('#b-')===0){setTimeout(function(){window.fieldGuideJumpTo(window.location.hash.slice(1));},200);}
+})();
+</script>
+<script src="../../shared/site.js" defer></script>
+</body>
+</html>
