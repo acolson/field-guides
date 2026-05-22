@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Where to Stay — Field Guide</title>
-<meta name="description" content="Where to Stay in Pittsburgh. In progress. Pittsburgh hotels will mirror the methodology used for Boston and Toronto — neighborhood-first, vibe-tagged">
+<title>Where to Stay in Pittsburgh — Field Guide</title>
+<meta name="description" content="Twelve Pittsburgh hotels organized by neighborhood and vibe. AAA Four Diamond, Historic Hotels of America, Pittsburgh Magazine Best of the 'Burgh — editorial signals only, no reader-vote rankings.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 <body data-city="pittsburgh">
-
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
 <div class="city-switcher" data-open="false">
@@ -37,40 +38,633 @@
 <a href="../do/">Do</a>
 </div>
 </div>
-
-<section class="hero" style="padding-bottom:6rem">
+<section class="hero">
 <div class="hero-kicker"><span class="hero-pill">Part 1</span> Where to stay</div>
-<h1 class="hero-title">Hotels, <em>by Neighborhood and Vibe</em>.</h1>
-<p class="hero-dek">In progress. Pittsburgh hotels will mirror the methodology used for Boston and Toronto — neighborhood-first, vibe-tagged, signal-weighted (Forbes, Hotels Above Par, Travel + Leisure, Pittsburgh Magazine).</p>
-<div class="pullquote">
-For now, the short version: <em>stay Downtown, in the Cultural District, or in the East End</em>. Downtown gets you walkable arrival from the airport; the East End (Shadyside, East Liberty, Bloomfield) puts dinner on foot.
+<h1 class="hero-title">Where to Stay in Pittsburgh, by <em>Neighborhood and Vibe</em>.</h1>
+<p class="hero-dek">A neighborhood-organized hotel guide for two travelers, three days, no car. Twelve properties tagged by vibe and price band, filtered against the editorial signals that don't get corrupted by loyalty-points voting.</p>
+<p class="hero-byline">Signals weighted: <strong>AAA Four Diamond</strong> · <strong>Historic Hotels of America</strong> · <strong>Pittsburgh Magazine</strong> Best of the 'Burgh · <strong>Travel + Leisure</strong> · <strong>Hotels Above Par</strong> · <strong>CN Traveler</strong> editorial (Gold List, not Readers' Choice)</p>
+</section>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">Why Neighborhood-First</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#planning">Trip-Planning Notes</a></li>
+<li><a href="#tier-downtown"><strong>Downtown</strong> · 7 hotels</a></li>
+<li><a href="#tier-east-liberty"><strong>East Liberty</strong> · 2 hotels</a></li>
+<li><a href="#tier-oakland"><strong>Oakland</strong> · 1 hotel</a></li>
+<li><a href="#tier-shadyside"><strong>Shadyside</strong> · 1 hotel</a></li>
+<li><a href="#tier-north-side"><strong>North Side</strong> · 1 hotel</a></li>
+<li><a href="#cuts">Hotels That Didn&rsquo;t Make It</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">Why Neighborhood-First</div>
+<h2 class="chapter-title">No Forbes Stars — so <em>AAA Four Diamond</em> carries it.</h2>
+<p class="chapter-dek">The eat and drink sections tier by critical consensus because Pittsburgh Magazine, the Post-Gazette, and the Infatuation all rank restaurants and bars. For hotels, the equivalent doesn't exist — and the rankings that do exist get corrupted.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">12</div><div class="stat-label">hotels across 5 neighborhoods</div></div>
+<div class="stat"><div class="stat-num">4</div><div class="stat-label">AAA Four Diamond properties</div></div>
+<div class="stat"><div class="stat-num">4</div><div class="stat-label">vibes: Grand Luxury, Modern Design, Historic, Value</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Forbes-Star hotels in the city (it's a real gap)</div></div>
 </div>
-<p class="chapter-body" style="margin-top:2rem">A few names worth searching while this section gets researched: <strong>Fairmont Pittsburgh</strong> (Downtown, the polished anchor), <strong>The Joinery, Curio Collection</strong> (Downtown, design-forward, Christian James restaurant inside), <strong>Hotel Monaco Pittsburgh</strong> (Cultural District, Kimpton), <strong>The Industrialist Hotel</strong> (Downtown, Autograph Collection), <strong>AC Hotel Pittsburgh Downtown</strong> (Marriott), <strong>Ace Hotel Pittsburgh</strong> (East Liberty, the East End move). The Eat section is fully built out; start there.</p>
+<div class="chapter-body">
+<p>Two things are true about Pittsburgh hotels that change the methodology. First, <strong>no property in the city holds a Forbes Travel Guide Star</strong> — the Fairmont markets itself as 'five-star,' but that's Accor's brand language, not a Forbes rating. Second, CN Traveler Readers' Choice and TripAdvisor — the most-cited rankings — get driven by loyalty-program voters and free-breakfast-loving vacationers, which is how convention towers and airport hotels float to the top.</p>
+<p>So this section weights the signals that hold up: <strong>AAA Four Diamond</strong> (the city's one objective ranking — Fairmont, Kimpton Monaco, Omni William Penn, Renaissance), <strong>Historic Hotels of America</strong> (the Omni), <strong>Pittsburgh Magazine's Best of the 'Burgh</strong> reader-and-editor awards (The Priory's back-to-back Best Boutique, Mansions on Fifth's Best B&B), and the boutique editorial in NEXTpittsburgh and Hotels Above Par. Where a property has the Autograph Collection or Curio badge but no Four Diamond (the Industrialist, the Joinery, the Oaklander), the building's history carries the pick instead.</p>
+</div>
+<div class="pullquote">The structure: <em>pick the neighborhood first</em>. For a no-car three-day trip with a Thursday concert anchor, default to <strong>Downtown / Cultural District</strong> — walkable, and the shortest Uber to the East End dinner row. The Strip is the runner-up; Mt Washington is a dinner excursion, not a base.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>Downtown is the answer for a no-car couple.</h3><p>Seven hotels in the Golden Triangle / Cultural District, four of them AAA Four Diamond. From here you walk to Market Square and the theaters, and the East End dinner row (Bloomfield, Lawrenceville, East Liberty) is a 12-15 minute Uber. The concert's a 35-minute drive west regardless of where you stay, so concert proximity shouldn't drive the base.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>The Fairmont is the splurge; the Omni is the history.</h3><p>If you want one polished luxury night, the Fairmont (AAA Four Diamond, Andy's jazz bar) is the pick. If you want to stay inside a 1916 landmark, the Omni William Penn — Frick's showpiece, Historic Hotels of America — is the building-as-experience play. The Kimpton Monaco splits the difference with the most personality and a rooftop Biergarten for late August.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>The boutique conversions are the interesting middle.</h3><p>The Industrialist (1902 skyscraper) and the Joinery (1924 Gothic Revival, Christian James restaurant inside) are the design-history picks — Autograph and Curio respectively, smaller and more characterful than the Four Diamond towers, and priced below the Fairmont. Either is the right call for a couple who cares more about the room than the room service.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>Stay East End only if dinner-on-foot matters more than Downtown.</h3><p>Hotel Indigo and The Maverick put you in the middle of the restaurant-and-bar density — but you give up Downtown walkability and the theaters. The Maverick is the architectural curiosity (the former Ace Hotel, now app-managed by Kasa, Hey Babe lounge downstairs); know it's contactless, not full-service, before you book.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Twelve hotels, <em>color-coded by vibe</em>.</h2>
+<p class="chapter-dek">Pinned by vibe — gold star for grand luxury, diamonds for modern design, dots for historic, dollar signs for value. Downtown is marked for orientation. Click any marker for details.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Grand Luxury</strong> · AAA Four Diamond anchor</span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Modern Design</strong> · boutique conversions</span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Historic</strong> · 1888-1924 buildings</span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Value</strong> · sub-$300 with character</span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Landmark</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="planning">
+<div class="chapter-label">Trip-Planning Notes</div>
+<h2 class="chapter-title">Four <em>Practical</em> Things to Know.</h2>
+<p class="chapter-dek">How to choose your neighborhood for a no-car, three-day trip with a Thursday concert at Star Lake.</p>
+<div class="insights">
+<div class="insight"><div class="insight-num">A</div><div class="insight-content"><h3>Base Downtown. The concert doesn't change that.</h3><p>Star Lake (Burgettstown) is a 35-minute drive west — you're Ubering or driving there from anywhere, so concert proximity isn't a reason to base outside the city. Downtown keeps the rideshare clean, walks to the Cultural District and Market Square, and is the shortest hop to the East End dinner row. The Strip District is the runner-up if a Saturday-morning market walk is the trip's centerpiece.</p></div></div>
+<div class="insight"><div class="insight-num">B</div><div class="insight-content"><h3>For the splurge: Fairmont or Kimpton Monaco.</h3><p>The Fairmont is the cleanest luxury night (Four Diamond, jazz bar, Golden Triangle views). The Kimpton Monaco is more fun — 1903 Beaux-Arts, rooftop Biergarten, the most personality of the Downtown picks, and the rooftop is the late-August patio move. Both Four Diamond.</p></div></div>
+<div class="insight"><div class="insight-num">C</div><div class="insight-content"><h3>For character on a budget: The Priory or the AC.</h3><p>The Priory (North Side, 1888 monastery, Best Boutique two years running) is the value-with-history answer, a 5-minute Uber from Downtown. The AC Hotel (Downtown-Strip edge, rooftop bar) is the value-design answer with a better walking location. Both run $$ where the Four Diamond towers run $$$-$$$$.</p></div></div>
+<div class="insight"><div class="insight-num">D</div><div class="insight-content"><h3>Skip: Mt Washington as a base, the airport cluster, the convention towers.</h3><p>Mt Washington's Grandview properties are mostly B&Bs reached by the incline — spectacular for a dinner-and-overlook excursion, miserable as a no-car base. The airport hotels (Robinson/Moon, 30 minutes out) and the Downtown convention towers (Westin, Wyndham Grand, the DoubleTree on the Point) inflate on loyalty and free-breakfast votes but face away from the walkable city.</p></div></div>
+</div>
 </section>
 
+<section class="chapter" id="tier-downtown">
+<div class="tier-intro">
+<div class="tier-pill">Downtown / Cultural District</div>
+<h2 class="tier-name">Downtown / Cultural District · <em>7 hotels</em>.</h2>
+<p class="tier-dek">Seven hotels, the city's hotel core. The default for a no-car couple — walkable to Market Square, the Cultural District, and the riverfront, plus the shortest Uber to the East End dinner row. Four AAA Four Diamond properties (Fairmont, Omni, Monaco, Renaissance), the two best historic-boutique conversions (Industrialist, Joinery), and the value-rooftop AC.</p>
+</div>
+
+<article class="restaurant-feature" id="h-fairmont" data-neighborhood="downtown" data-cuisine="grand-luxury">
+<div class="r-header-row">
+  <span class="r-tier-tag">Grand Luxury</span>
+  <span class="r-list-count" tabindex="0" data-lists="AAA Four Diamond since 2010 · city's first LEED Gold hotel · Pittsburgh's de facto luxury anchor · Andy's jazz bar · 185 rooms">Signals</span>
+</div>
+<h3 class="r-name">Fairmont Pittsburgh</h3>
+<p class="r-tag">Pittsburgh's polished Downtown luxury anchor, with Andy's jazz bar in the lobby.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Grand Luxury</span>
+  <span class="r-pill">$$$$</span>
+  <span class="r-pill r-pill-accent">AAA Four Diamond</span>
+</div>
+<p class="r-blurb">The closest thing Pittsburgh has to a five-star, even without the Forbes label (no hotel in the city holds one). 185 contemporary rooms with floor-to-ceiling windows over the Golden Triangle, AAA Four Diamond since it opened in 2010, the city's first LEED Gold certification. Andy's — the lobby bar named for Warhol — does live jazz Thursday through Saturday and is a genuine local gathering spot. The reliable arrival-night splurge.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>185 rooms · grand luxury · 2010 build</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Market Square 3 min · Cultural District 8 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Arrival-night splurge · special occasion · jazz nightcap</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.fairmont.com/en/hotels/pittsburgh/fairmont-pittsburgh.html" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.fairmont.com/en/hotels/pittsburgh/fairmont-pittsburgh.html" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Fairmont+Pittsburgh+510+Market+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-omni-william-penn" data-neighborhood="downtown" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Historic Hotels of America (since 2014) · AAA Four Diamond since 2012 · opened 1916, Henry Clay Frick's showpiece · 597 rooms">Signals</span>
+</div>
+<h3 class="r-name">Omni William Penn Hotel</h3>
+<p class="r-tag">The 1916 grande dame — Frick's showpiece, the grandest hotel between Pittsburgh and Chicago.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Historic Hotels of America</span>
+</div>
+<p class="r-blurb">Opened March 1916 as Henry Clay Frick's bid to rival Europe's great hotels, once the largest hotel between Pittsburgh and Chicago. A Historic Hotels of America member since 2014 and AAA Four Diamond. It scales big — 597 rooms, the Grand Ballroom, the legendary Urban Room — so it's an event house at heart; request a renovated room and treat it as a building-as-experience stay. The Speakeasy beneath the lobby is a restored Prohibition-era room. The historic-tower default Downtown.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>597 rooms · historic landmark · 1916 building</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Cultural District 6 min · Market Square 7 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>History-and-architecture stay · grand-lobby cocktail · the Speakeasy</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.omnihotels.com/hotels/pittsburgh-william-penn" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.omnihotels.com/hotels/pittsburgh-william-penn" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Omni+William+Penn+530+William+Penn+Pl+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-monaco" data-neighborhood="downtown" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="AAA Four Diamond since 2017 · 1903 Beaux-Arts building · The Commoner + rooftop Biergarten · Pittsburgh Magazine boutique coverage · 248 rooms">Signals</span>
+</div>
+<h3 class="r-name">Kimpton Hotel Monaco Pittsburgh</h3>
+<p class="r-tag">Kimpton whimsy inside a 1903 Beaux-Arts building, with a rooftop Biergarten for patio weather.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">AAA Four Diamond</span>
+</div>
+<p class="r-blurb">Kimpton's Pittsburgh outpost fills a striking 1903 Beaux-Arts building across from Mellon Square — signature birdcages and bold color and all. AAA Four Diamond since 2017. The Commoner downstairs runs a wood-fired American menu (and won Pittsburgh Magazine's Best Craft Cocktails reader poll in 2025), and the seasonal 9th-floor rooftop Biergarten is exactly the late-August patio play this trip wants. The most personality-forward of the Downtown picks.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>248 rooms · modern design · 1903 building</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Cultural District 5 min · Market Square 6 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Patio-weather rooftop · design-forward couple · pre-theater</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.monaco-pittsburgh.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.monaco-pittsburgh.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Kimpton+Hotel+Monaco+620+William+Penn+Pl+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-industrialist" data-neighborhood="downtown" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Marriott Autograph Collection · 1902 Beaux-Arts skyscraper (the Arrott Building) · Pittsburgh Magazine best-boutique coverage · The Rebel Room · 124 rooms">Signals</span>
+</div>
+<h3 class="r-name">The Industrialist Hotel</h3>
+<p class="r-tag">A 1902 turn-of-century skyscraper — Italian marble and mosaic tile, reborn as a 124-room boutique.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">1902 Beaux-Arts</span>
+</div>
+<p class="r-blurb">The 1902 Arrott Building — once one of Pittsburgh's most impressive skyscrapers, built by the city's 'Bathtub King' — converted into a 124-room Autograph Collection boutique that keeps the Italian marble, mosaic tile, and crown molding. The Rebel Room is a bar-centric American room; the Maker Menu (DIY leather-stamping, candle-making) is a genuine quirk. Smaller and more characterful than the Fairmont.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>124 rooms · historic boutique · 1902 building</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Market Square 4 min · Cultural District 7 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Design-history couple · quieter Downtown stay · The Rebel Room nightcap</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.marriott.com/en-us/hotels/pitad-the-industrialist-hotel-pittsburgh-autograph-collection/overview/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.marriott.com/en-us/hotels/pitad-the-industrialist-hotel-pittsburgh-autograph-collection/overview/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Industrialist+Hotel+405+Wood+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-joinery" data-neighborhood="downtown" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="Hilton Curio Collection · rebrand of the former Distrikt Hotel (2022) · 1924 Gothic Revival building · Christian James experiential restaurant · 185 rooms">Signals</span>
+</div>
+<h3 class="r-name">Joinery Hotel Pittsburgh</h3>
+<p class="r-tag">The former Distrikt, reborn under Curio in a 1924 Gothic Revival building — with Christian James inside.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">New Curio 2022</span>
+</div>
+<p class="r-blurb">The 185-room boutique that took over the former Distrikt Hotel in 2022 (same 1924 Gothic Revival building that once housed the Salvation Army of Western PA — OTAs still list the old name). Christian James, the in-house experiential restaurant with its rotating travel-themed menu, is the property's signature draw. A design-forward Downtown play that leans newer and warmer than the chain stack.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>185 rooms · modern design · 1924 building / 2022 rebrand</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Market Square 6 min · Cultural District 10 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Design-forward couple · in-house dinner · newer-build seekers</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.joineryhotel.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.hilton.com/en/hotels/pitktqq-joinery-hotel-pittsburgh/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Joinery+Hotel+Pittsburgh+453+Boulevard+of+the+Allies" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-renaissance" data-neighborhood="downtown" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="AAA Four Diamond since 2002 · 1906 Beaux-Arts Fulton Building · Marriott · at the Cultural District's edge · 300 rooms">Signals</span>
+</div>
+<h3 class="r-name">Renaissance Pittsburgh Hotel</h3>
+<p class="r-tag">A 1906 Beaux-Arts landmark on the Allegheny, at the edge of the Cultural District.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">AAA Four Diamond</span>
+</div>
+<p class="r-blurb">The 1906 Fulton Building — one of the river's Beaux-Arts 'Roundhouse' landmarks — converted to a 300-room Marriott Renaissance, AAA Four Diamond since 2002. The location is the pitch: literally at the Cultural District's edge, steps from the theaters and a short walk to the Andy Warhol Museum across the Sixth Street bridge. Less boutique-distinctive than the Industrialist or Joinery, but the rare Downtown Four Diamond with a real river-and-theater address.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>300 rooms · historic · 1906 building</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Cultural District at the door · Warhol Museum 8 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Theater night · riverfront orientation · Four Diamond on a budget</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.marriott.com/en-us/hotels/pitbr-renaissance-pittsburgh-hotel/overview/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.marriott.com/en-us/hotels/pitbr-renaissance-pittsburgh-hotel/overview/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Renaissance+Pittsburgh+107+Sixth+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-ac-hotel" data-neighborhood="downtown" data-cuisine="value">
+<div class="r-header-row">
+  <span class="r-tier-tag">Value</span>
+  <span class="r-list-count" tabindex="0" data-lists="Marriott AC brand · LE7EL rooftop bar (7th floor) · between Downtown and the Strip District · NEXTpittsburgh hotel-boom coverage">Signals</span>
+</div>
+<h3 class="r-name">AC Hotel Pittsburgh Downtown</h3>
+<p class="r-tag">Euro-minimalist AC between Downtown and the Strip, with the LE7EL rooftop for skyline drinks.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Value</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Rooftop Bar</span>
+</div>
+<p class="r-blurb">The AC brand's clean Euro-minimalist template, dropped on Penn Avenue right where Downtown meets the Strip District — the best of both for a no-car couple. The LE7EL rooftop bar on the 7th floor (gin-and-tonic forward, small plates, partial skyline view) is the late-August patio draw. No full restaurant, but you're a five-minute walk from the Strip's breakfast row. The strongest value-leaning design pick Downtown.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>~123 rooms · modern design · new-build</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Strip District 5 min · Cultural District 8 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Value-design couple · Strip-morning walk · rooftop drink</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.marriott.com/en-us/hotels/pitar-ac-hotel-pittsburgh-downtown/overview/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.marriott.com/en-us/hotels/pitar-ac-hotel-pittsburgh-downtown/overview/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=AC+Hotel+Pittsburgh+Downtown+1158+Penn+Ave" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-east-liberty">
+<div class="tier-intro">
+<div class="tier-pill">East Liberty</div>
+<h2 class="tier-name">East Liberty · <em>2 hotels</em>.</h2>
+<p class="tier-dek">Two East-End picks for travelers who'd rather walk to dinner than to the theaters. Hotel Indigo sits in the middle of the restaurant-and-bar density; The Maverick is the architectural curiosity — the former Ace Hotel, now app-managed, with Hey Babe downstairs. Both trade Downtown walkability for dinner-on-foot.</p>
+</div>
+
+<article class="restaurant-feature" id="h-indigo" data-neighborhood="east-liberty" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="IHG Indigo boutique brand · in the heart of the East End dinner-and-bar corridor · ~152 rooms · near CMU/Frick">Signals</span>
+</div>
+<h3 class="r-name">Hotel Indigo East Liberty</h3>
+<p class="r-tag">The neighborhood-boutique play in the middle of the East End dinner row.</p>
+<div class="r-pills">
+  <span class="r-pill">East Liberty</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">East End Base</span>
+</div>
+<p class="r-blurb">IHG's boutique brand in the thick of East Liberty — which means the East End's restaurant-and-bar density (the eat section's Lawrenceville/Bloomfield/East Liberty picks) is on foot, not on an Uber. 152 rooms with the brand's neighborhood-mural design language. The trade is distance from Downtown and the Cultural District. Right answer only if the trip leans East End dinners over Downtown walkability.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>~152 rooms · modern design</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>East Liberty dining at the door · 12 min Uber Downtown</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>East-End-leaning trip · dinner-on-foot couple · younger-energy stay</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.ihg.com/hotelindigo/hotels/us/en/pittsburgh/pithb/hoteldetail" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.ihg.com/hotelindigo/hotels/us/en/pittsburgh/pithb/hoteldetail" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Hotel+Indigo+East+Liberty+123+N+Highland+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="h-maverick" data-neighborhood="east-liberty" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="The former Ace Hotel Pittsburgh (1909 East Liberty YMCA) · now app-managed by Kasa · Hey Babe cocktail lounge inside">Signals</span>
+</div>
+<h3 class="r-name">The Maverick</h3>
+<p class="r-tag">The old East Liberty YMCA — Pittsburgh's Ace, now reborn as The Maverick.</p>
+<div class="r-pills">
+  <span class="r-pill">East Liberty</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Former Ace Hotel</span>
+</div>
+<p class="r-blurb">Here's the closure answer: Ace Hotel Pittsburgh is closed. The century-old East Liberty YMCA that Ace opened in 2015 shut in 2020, sat through an ownership-vs-Ace legal fight, and reopened under local ownership as The Maverick, run by the tech-forward operator Kasa. The architecture and rooms survive; service is now contactless/app-based rather than full-service. The new Hey Babe cocktail lounge (also a Tier 4 eat pick) occupies the former Whitfield restaurant space. A design-pilgrimage curiosity more than a service stay — book it knowing the app-managed model.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>Historic YMCA conversion · app-managed (Kasa)</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>East Liberty dining at the door · 12 min Uber Downtown</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Ace-building pilgrims · Hey Babe nightcap · self-sufficient travelers</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.maverickpittsburgh.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://kasa.com/properties/kasa-the-maverick-pittsburgh" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Maverick+120+S+Whitfield+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-oakland">
+<div class="tier-intro">
+<div class="tier-pill">Oakland</div>
+<h2 class="tier-name">Oakland · <em>1 hotel</em>.</h2>
+<p class="tier-dek">One pick: The Oaklander. The university district's design hotel, in the Pitt / CMU / Carnegie Museums cluster, with the 10th-floor Spirits & Tales rooftop. The base for a museum-and-campus-leaning trip; a 10-minute Uber from Downtown otherwise.</p>
+</div>
+
+<article class="restaurant-feature" id="h-oaklander" data-neighborhood="oakland" data-cuisine="modern-design">
+<div class="r-header-row">
+  <span class="r-tier-tag">Modern Design</span>
+  <span class="r-list-count" tabindex="0" data-lists="Marriott Autograph Collection · Spirits & Tales rooftop restaurant (10th floor) · 167 rooms · in the Pitt/CMU/museum cluster">Signals</span>
+</div>
+<h3 class="r-name">The Oaklander Hotel</h3>
+<p class="r-tag">Oakland's design hotel, with the 10th-floor Spirits & Tales for the view.</p>
+<div class="r-pills">
+  <span class="r-pill">Oakland</span>
+  <span class="r-pill">Modern Design</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Rooftop Dining</span>
+</div>
+<p class="r-blurb">The university district's one true design hotel — 167 Autograph Collection rooms in the middle of the Pitt / CMU / Cathedral of Learning / Carnegie Museums cluster. Spirits & Tales, the 10th-floor restaurant, trades on French-leaning plates and one of Oakland's best rooftop views. Right for a museum-and-campus-leaning trip; a 10-minute Uber from Downtown otherwise. Quieter and more academic than the Downtown core.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>167 rooms · modern design</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Carnegie Museums 6 min · Cathedral of Learning 5 min</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Museum-and-campus trip · rooftop dinner · quieter base</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://theoaklanderhotel.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://theoaklanderhotel.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Oaklander+Hotel+5130+Bigelow+Blvd+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-shadyside">
+<div class="tier-intro">
+<div class="tier-pill">Shadyside</div>
+<h2 class="tier-name">Shadyside · <em>1 hotel</em>.</h2>
+<p class="tier-dek">One pick: Mansions on Fifth. Two preserved 1905 Tudor mansions on the old Millionaire's Row, Pittsburgh Magazine's Best B&B 2025. The romantic-occasion stay — book a mansion room, not an annex one.</p>
+</div>
+
+<article class="restaurant-feature" id="h-mansions" data-neighborhood="shadyside" data-cuisine="historic">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best of the 'Burgh — Best Bed & Breakfast 2025 · 1905-06 Tudor mansions on Millionaire's Row · Priory Hospitality Group · ~22 rooms">Signals</span>
+</div>
+<h3 class="r-name">Mansions on Fifth</h3>
+<p class="r-tag">Gilded-Age Shadyside — two preserved Tudor mansions on the old Millionaire's Row.</p>
+<div class="r-pills">
+  <span class="r-pill">Shadyside</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Best B&B 2025</span>
+</div>
+<p class="r-blurb">Two meticulously preserved 1905-06 mansions (Elizabethan Revival and Tudor) on the stretch of Fifth Avenue the Carnegies and Mellons once called Millionaire's Row. Pittsburgh Magazine readers named it Best Bed & Breakfast in 2025. Stained glass, oak paneling, a cigar-and-whisky bar — the romantic-occasion stay in the East End, run by the same Priory Hospitality Group as The Priory. Book a mansion room, not an annex one.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>~22 rooms · historic mansion B&B · 1905 buildings</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Shadyside Walnut St 12 min · 10 min Uber Downtown</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Anniversary · Gilded-Age romance · quiet East-End stay</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://mansionsonfifth.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://mansionsonfifth.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Mansions+on+Fifth+5105+Fifth+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier-north-side">
+<div class="tier-intro">
+<div class="tier-pill">North Side / Deutschtown</div>
+<h2 class="tier-name">North Side / Deutschtown · <em>1 hotel</em>.</h2>
+<p class="tier-dek">One pick: The Priory. An 1888 Benedictine monastery turned 42-room boutique, Pittsburgh Magazine's Best Boutique two years running. Character on a budget, a short bridge-hop from Downtown and the North Shore stadiums.</p>
+</div>
+
+<article class="restaurant-feature" id="h-priory" data-neighborhood="north-side" data-cuisine="value">
+<div class="r-header-row">
+  <span class="r-tier-tag">Value</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best of the 'Burgh — Best Boutique Hotel 2024 AND 2025 · 1888 former Benedictine priory · family-owned (Graf family) · 42 rooms">Signals</span>
+</div>
+<h3 class="r-name">The Priory Hotel</h3>
+<p class="r-tag">An 1888 Benedictine monastery on the North Side — Pittsburgh's most-awarded boutique.</p>
+<div class="r-pills">
+  <span class="r-pill">Deutschtown</span>
+  <span class="r-pill">Value</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Best Boutique '24 + '25</span>
+</div>
+<p class="r-blurb">Pittsburgh's most-decorated independent: Pittsburgh Magazine readers' Best Boutique Hotel two years running (2024 and 2025). The 42-room property was an 1888 Benedictine priory, lovingly restored by the family-owned Graf operation, with the adjoining former St. Mary's Church now serving as the Grand Hall event space. European-style, personal, and a short bridge-hop from Downtown and the North Shore stadiums. The value-with-character answer.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Type</dt><dd>42 rooms · historic boutique · 1888 building</dd></div>
+  <div class="r-detail"><dt>Walk</dt><dd>Deutschtown at the door · 5 min Uber Downtown</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Character-on-a-budget · North-Shore-leaning trip · quiet stay</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://thepriory.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://thepriory.com/" target="_blank" rel="noopener">Book</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Priory+Hotel+614+Pressley+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="cuts">
+<div class="chapter-label">Hotels That Didn&rsquo;t Make It</div>
+<h2 class="chapter-title">The Cuts, <em>and Why</em>.</h2>
+<p class="chapter-dek">Hotels with reader-vote prominence that didn't make the editorial list. Worth knowing about — and worth knowing why each was cut.</p>
+<div class="chapter-body">
+<p><strong>The Westin Pittsburgh</strong> (attached to the David L. Lawrence Convention Center) is a 1,200-key convention behemoth. Reader-vote prominence comes from event attendees; there's no editorial signal and no patio-weekend reason to be there.</p>
+<p><strong>Wyndham Grand Pittsburgh Downtown</strong> and <strong>DoubleTree by Hilton Pittsburgh Downtown</strong>, both on Gateway Center at the Point, are large corporate towers that ride Hilton and Wyndham loyalty-voter rankings. The riverfront-on-the-Point geography faces away from the Cultural District and the Strip — convention stacks, not walkable-city stays.</p>
+<p><strong>Drury Plaza Hotel</strong> and <strong>Embassy Suites by Hilton Pittsburgh Downtown</strong> both score well in free-breakfast and reader-vote rankings; both are points-loyalty corporate stays with zero independent editorial pickup. Functional, invisible.</p>
+<p><strong>Pittsburgh Marriott City Center</strong> (near PPG Paints Arena) is a Marriott-loyalty vote vehicle at event-hotel scale — no Four Diamond, no boutique signal. The 'I'm here on points' hotel.</p>
+<p><strong>The Pittsburgh International Airport cluster</strong> (Hilton Garden Inn, Hampton Inn, SpringHill Suites in Robinson/Moon, ~30 minutes out) inflates on TripAdvisor and Booking.com guest awards from layover travelers. Geographic isolation for a no-car city weekend — cut on principle.</p>
+<p><em>One closure / rebrand to note:</em> <strong>Ace Hotel Pittsburgh</strong> appears on plenty of stale 'best of' lists. It closed in 2020 and the building now operates as The Maverick (above). And <strong>Distrikt Hotel</strong> is the same 1924 building as the Joinery Hotel — if you see both names, they're one property.</p>
+</div>
+</section>
+</main>
+</div>
 <section class="next-up">
 <div class="next-up-inner">
 <div>
-<div class="next-up-label">— Continue the guide</div>
-<h3>To: Where to eat: <em>Read the eat section</em></h3>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Next: <em>Where to Eat</em></h3>
 </div>
 <a href="../eat/" class="next-up-cta">Read the eat section →</a>
 </div>
 </section>
-
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
 <div class="footer-brand"><a href="../../">Field <em>Guide</em></a></div>
-<div class="footer-tagline">Issue 03 — Pittsburgh · Part 1, Where to Stay.</div>
+<div class="footer-tagline">Issue 03 — Pittsburgh · Part 1, Where to stay.</div>
 </div>
 <div class="footer-bottom">
-<div>© 2026 Field Guide. Section in progress.</div>
+<div>© 2026 Field Guide. Signals weighted: AAA Four Diamond, Historic Hotels of America, Pittsburgh Magazine Best of the 'Burgh.</div>
 <div>No affiliate links · No paid placements</div>
 </div>
 </div>
 </footer>
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([40.4480, -79.9820], 13);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
 
+    var restaurants = [
+      {name:'Fairmont Pittsburgh',id:'h-fairmont',tier:1,lat:40.4423,lng:-80.0021,tag:'Grand Luxury · Downtown',lists:0,label:'★',price:'$$$$'},
+      {name:'Omni William Penn Hotel',id:'h-omni-william-penn',tier:3,lat:40.4413,lng:-79.9968,tag:'Historic · Downtown',lists:0,label:'◉',price:'$$$'},
+      {name:'Kimpton Hotel Monaco Pittsburgh',id:'h-monaco',tier:2,lat:40.4419,lng:-79.9974,tag:'Modern Design · Downtown',lists:0,label:'◆',price:'$$$'},
+      {name:'The Industrialist Hotel',id:'h-industrialist',tier:3,lat:40.4404,lng:-80.0014,tag:'Historic · Downtown',lists:0,label:'◉',price:'$$$'},
+      {name:'Joinery Hotel Pittsburgh',id:'h-joinery',tier:2,lat:40.4378,lng:-79.9974,tag:'Modern Design · Downtown',lists:0,label:'◆',price:'$$$'},
+      {name:'Renaissance Pittsburgh Hotel',id:'h-renaissance',tier:3,lat:40.4438,lng:-80.0008,tag:'Historic · Downtown',lists:0,label:'◉',price:'$$$'},
+      {name:'AC Hotel Pittsburgh Downtown',id:'h-ac-hotel',tier:4,lat:40.4456,lng:-79.9941,tag:'Value · Downtown',lists:0,label:'$',price:'$$'},
+      {name:'Hotel Indigo East Liberty',id:'h-indigo',tier:2,lat:40.4607,lng:-79.9255,tag:'Modern Design · East Liberty',lists:0,label:'◆',price:'$$'},
+      {name:'The Maverick',id:'h-maverick',tier:2,lat:40.4595,lng:-79.9242,tag:'Modern Design · East Liberty',lists:0,label:'◆',price:'$$'},
+      {name:'The Oaklander Hotel',id:'h-oaklander',tier:2,lat:40.4513,lng:-79.954,tag:'Modern Design · Oakland',lists:0,label:'◆',price:'$$$'},
+      {name:'Mansions on Fifth',id:'h-mansions',tier:3,lat:40.4524,lng:-79.9398,tag:'Historic · Shadyside',lists:0,label:'◉',price:'$$$'},
+      {name:'The Priory Hotel',id:'h-priory',tier:4,lat:40.4543,lng:-79.9979,tag:'Value · Deutschtown',lists:0,label:'$',price:'$$'}
+    ];
+
+    restaurants.forEach(function(r){
+      var tierClass = 'tier' + r.tier;
+      var icon = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="custom-pin ' + tierClass + '">' + r.label + '</div>',
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+      var marker = L.marker([r.lat, r.lng], { icon: icon }).addTo(map);
+      marker.bindPopup(
+        '<div class="pop-name">' + r.name + '</div>' +
+        '<div class="pop-tag">' + r.tag + '</div>' +
+        '<div class="pop-meta">' + r.price + '</div>' +
+        (r.id ? '<a href="#' + r.id + '" class="pop-link" onclick="return window.fieldGuideJumpTo(\'' + r.id + '\')">View entry \u2192</a>' : '')
+      );
+    });
+
+    var downtownIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Downtown</div>',
+      iconSize: [80, 22],
+      iconAnchor: [40, 11]
+    });
+    L.marker([40.4406, -79.9970], { icon: downtownIcon }).addTo(map);
+
+    var stripIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Strip</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([40.4519, -79.9846], { icon: stripIcon }).addTo(map);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMap);
+  else initMap();
+})();
+</script>
+<script>
+(function(){
+  var LABEL_MAP = {
+    'downtown':'Downtown / Cultural District','east-liberty':'East Liberty',
+    'oakland':'Oakland','shadyside':'Shadyside','north-side':'North Side',
+    'grand-luxury':'Grand Luxury','modern-design':'Modern Design',
+    'historic':'Historic','value':'Value'
+  };
+  function label(slug){
+    if (LABEL_MAP[slug]) return LABEL_MAP[slug];
+    return slug.split('-').map(function(w){ return w.charAt(0).toUpperCase() + w.slice(1); }).join(' ');
+  }
+  var filterContainer = document.getElementById('filters');
+  if (!filterContainer) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]'));
+  if (cards.length === 0) return;
+  var neighborhoods = {}, vibes = {};
+  cards.forEach(function(c){
+    var n = c.dataset.neighborhood, v = c.dataset.cuisine;
+    neighborhoods[n] = (neighborhoods[n]||0)+1;
+    vibes[v] = (vibes[v]||0)+1;
+  });
+  function buildRow(filterKey, rowLabel, counts){
+    var row = document.createElement('details');
+    row.className = 'filter-row';
+    var storeKey = 'fg-filter-' + filterKey + '-open';
+    var stored = null;
+    try { stored = window.localStorage.getItem(storeKey); } catch(e){}
+    row.open = (stored === null) ? true : (stored === 'true');
+    row.addEventListener('toggle', function(){
+      try { window.localStorage.setItem(storeKey, row.open ? 'true' : 'false'); } catch(e){}
+    });
+    var lbl = document.createElement('summary');
+    lbl.className = 'filter-label';
+    lbl.textContent = rowLabel;
+    row.appendChild(lbl);
+    var all = document.createElement('button');
+    all.type='button'; all.className='filter-chip filter-chip-active';
+    all.setAttribute('data-filter',filterKey); all.setAttribute('data-value','all');
+    all.innerHTML='<span>All</span><span class="filter-chip-count">'+cards.length+'</span>';
+    row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){
+      var b=document.createElement('button');
+      b.type='button'; b.className='filter-chip';
+      b.setAttribute('data-filter',filterKey); b.setAttribute('data-value',v);
+      b.innerHTML='<span>'+label(v)+'</span><span class="filter-chip-count">'+counts[v]+'</span>';
+      row.appendChild(b);
+    });
+    return row;
+  }
+  filterContainer.innerHTML='';
+  filterContainer.appendChild(buildRow('neighborhood','Neighborhood',neighborhoods));
+  filterContainer.appendChild(buildRow('cuisine','Vibe',vibes));
+  var status=document.createElement('div');
+  status.className='filter-status';
+  status.innerHTML='<span class="filter-count" id="filter-count"><strong>'+cards.length+'</strong> of '+cards.length+' hotels</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>';
+  filterContainer.appendChild(status);
+  var state={neighborhood:'all',cuisine:'all'};
+  function applyFilters(){
+    var visible=0;
+    cards.forEach(function(c){
+      var mN=state.neighborhood==='all'||c.dataset.neighborhood===state.neighborhood;
+      var mC=state.cuisine==='all'||c.dataset.cuisine===state.cuisine;
+      if(mN&&mC){c.style.display='';visible++;}else{c.style.display='none';}
+    });
+    document.querySelectorAll('section.chapter[id^="tier-"]').forEach(function(s){
+      var any=Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature')).some(function(c){return c.style.display!=='none';});
+      s.classList.toggle('tier-empty',!any);
+    });
+    var countEl=document.getElementById('filter-count');
+    if(countEl)countEl.innerHTML='<strong>'+visible+'</strong> of '+cards.length+' hotels';
+  }
+  function setFilter(filterKey,value){
+    if(state[filterKey]===value&&value!=='all')value='all';
+    state[filterKey]=value;
+    filterContainer.querySelectorAll('[data-filter="'+filterKey+'"]').forEach(function(b){
+      b.classList.toggle('filter-chip-active',b.getAttribute('data-value')===value);
+    });
+    applyFilters();
+  }
+  filterContainer.addEventListener('click',function(e){
+    var chip=e.target.closest&&e.target.closest('.filter-chip');
+    if(chip){e.preventDefault();setFilter(chip.getAttribute('data-filter'),chip.getAttribute('data-value'));return;}
+    var reset=e.target.closest&&e.target.closest('#filter-reset');
+    if(reset){e.preventDefault();setFilter('neighborhood','all');setFilter('cuisine','all');}
+  });
+  window.fieldGuideJumpTo=function(id){
+    var el=document.getElementById(id);
+    if(!el)return false;
+    if(el.style.display==='none'){setFilter('neighborhood','all');setFilter('cuisine','all');}
+    if(window._fgMap&&window._fgMap.closePopup)window._fgMap.closePopup();
+    setTimeout(function(){
+      var top=el.getBoundingClientRect().top+window.pageYOffset-90;
+      window.scrollTo({top:top,behavior:'smooth'});
+      el.classList.remove('highlight');
+      void el.offsetWidth;
+      el.classList.add('highlight');
+      setTimeout(function(){el.classList.remove('highlight');},1600);
+    },50);
+    return false;
+  };
+  if(window.location.hash&&window.location.hash.indexOf('#h-')===0){
+    setTimeout(function(){window.fieldGuideJumpTo(window.location.hash.slice(1));},200);
+  }
+})();
+</script>
 <script src="../../shared/site.js" defer></script>
 </body>
 </html>

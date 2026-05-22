@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Where to Drink — Field Guide</title>
-<meta name="description" content="Where to Drink in Pittsburgh. In progress. Pittsburgh's bar scene runs deeper than its national reputation suggests — there's a real cocktail-room lay">
+<title>Where to Drink in Pittsburgh — Field Guide</title>
+<meta name="description" content="Twenty Pittsburgh bars across three tiers plus the city's oldest brewery. Sources: Pittsburgh Magazine, City Paper, Table Magazine, Thrillist, Imbibe.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 <body data-city="pittsburgh">
-
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
 <div class="city-switcher" data-open="false">
@@ -37,40 +38,855 @@
 <a href="../do/">Do</a>
 </div>
 </div>
-
-<section class="hero" style="padding-bottom:6rem">
+<section class="hero">
 <div class="hero-kicker"><span class="hero-pill">Part 3</span> Where to drink</div>
-<h1 class="hero-title">Bars, <em>by Kind of Night</em>.</h1>
-<p class="hero-dek">In progress. Pittsburgh's bar scene runs deeper than its national reputation suggests — there's a real cocktail-room layer in the Strip and Lawrenceville, dive culture in the South Side, and a few wine rooms that punch above their weight.</p>
-<div class="pullquote">
-For now, the short version: <em>Lawrenceville for cocktail rooms, Strip District for the natural-wine bars, South Side for the dives, and Downtown for the hotel bars</em>.
+<h1 class="hero-title">Where to Drink in Pittsburgh, by <em>Kind of Night</em>.</h1>
+<p class="hero-dek">A mapped, tiered, category-filtered guide to twenty Pittsburgh bars plus the city's oldest brewery — calibrated for a no-car couple with a Downtown base, a Lawrenceville crawl, and a Strip distillery walk.</p>
+<p class="hero-byline">Sources: <strong>Pittsburgh Magazine</strong> · <strong>Pittsburgh City Paper</strong> · <strong>Table Magazine</strong> · <strong>The Infatuation</strong> · <strong>Thrillist</strong> · <strong>Imbibe</strong> · <strong>GABF</strong> · <strong>National Trust</strong></p>
+</section>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">Executive Summary</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#planning">Trip-Planning Notes</a></li>
+<li><a href="#tier1"><strong>Tier 1</strong> · The Consensus</a></li>
+<li><a href="#tier2"><strong>Tier 2</strong> · Strong Picks</a></li>
+<li><a href="#tier3"><strong>Tier 3</strong> · Specialists</a></li>
+<li><a href="#tier4"><strong>Historic</strong> · The Oldest Brewery</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">Executive Summary</div>
+<h2 class="chapter-title">By the Numbers: a <em>Deeper-Than-Its-Reputation</em> Bar Town.</h2>
+<p class="chapter-dek">Six-plus publications, dozens of bars. Pittsburgh's bar-specific national journalism is thinner than its restaurant journalism — but the local critical authority (Pittsburgh Magazine, City Paper) is strong, and one bar carries genuine national weight.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">20</div><div class="stat-label">bars on the final list, plus 1 historic</div></div>
+<div class="stat"><div class="stat-num">4</div><div class="stat-label">consensus picks across 3+ lists</div></div>
+<div class="stat"><div class="stat-num">9</div><div class="stat-label">categories: cocktail, tiki, wine, jazz, dive, hotel, brewery, distillery, late-night</div></div>
+<div class="stat"><div class="stat-num">2</div><div class="stat-label">distilleries on the walkable Strip row</div></div>
 </div>
-<p class="chapter-body" style="margin-top:2rem">A few names worth searching while this section gets researched: <strong>Hidden Harbor</strong> (Squirrel Hill, the tiki room), <strong>Bar Marco</strong> (Strip, the cocktail-and-natural-wine flagship — also a Tier 1 dinner pick), <strong>The Vandal</strong> (Lawrenceville, late-night cocktail), <strong>Acacia</strong> (South Side, the speakeasy), <strong>Allegheny Wine Mixer</strong> (Lawrenceville, natural wine), <strong>Bridges &amp; Bourbon</strong> (Downtown, whiskey program). The Eat section is fully built out; start there.</p>
+<div class="chapter-body">
+<p>The methodology mirrors the eat section: pull every bar on a 2024-2026 critics' list, count overlaps, weight by frequency. Be honest about the limits — the Infatuation has a Pittsburgh restaurant guide but no standalone bars guide, Esquire's Best Bars has no current Pittsburgh entry, and no Pittsburgh bar appears on North America's or World's 50 Best. So the consensus engine leans on local critical authority with national signals layered where they exist.</p>
+<p>Four bars made <strong>Tier 1</strong> — led by <strong>Hidden Harbor</strong>, whose national standing is real but specific: it's tiki-specialist recognition (Thrillist's Best Tiki Bars in America, multi-year City Paper Best Cocktail List), not a 50 Best placement. <strong>Bridges & Bourbon</strong> (whiskey), <strong>Con Alma</strong> (jazz seven nights), and <strong>Allegheny Wine Mixer</strong> (natural wine) round out the consensus. <strong>Tier 2</strong> opens to the hotel bar Pittsburgh voted its best (The Commoner), the East End patio (Lorelei), and the Lawrenceville cocktail room (Bar Botanico). <strong>Tier 3</strong> is the specialists — the Strip distillery pair, the iconic church-brewery, the dive, the view bar, the non-alcoholic room. <strong>Penn Brewery</strong>, the city's oldest, gets the historic acknowledgment.</p>
+</div>
+<div class="pullquote">Pittsburgh's bar map has <em>three walkable clusters and one destination</em>. Downtown is the hotel-base quad (Bridges & Bourbon, The Warren, Con Alma, The Commoner). Lawrenceville's Butler Street is the cocktail-and-wine crawl. The Strip is the distillery row. And Hidden Harbor (Squirrel Hill) is the destination night — go for the whole evening, not as a crawl stop.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>Hidden Harbor is the headline — but be clear what it is.</h3><p>It's the best tiki bar between the coasts and a genuine national name in that category, with 600+ rums and a fever-dream room. It is not a World's 50 Best bar, and Pittsburgh doesn't have one. Treat it as the destination evening it is — walk-in only, in Squirrel Hill, worth the whole night.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>Downtown is the walkable hotel-base quad.</h3><p>If you're based Downtown (the Stay section's default), four of the best bars are on foot: Bridges & Bourbon and The Warren for cocktails, Con Alma for jazz, The Commoner in the Kimpton Monaco. Plus the Omni's restored Prohibition-era Speakeasy if you want a historic hotel bar. Your first or last night writes itself here.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>Lawrenceville and the Strip are the two day-into-night moves.</h3><p>Lawrenceville's Butler Street is the cocktail-and-wine crawl — Allegheny Wine Mixer and Bar Botanico anchor it, Church Brew Works at the Liberty Avenue end. The Strip District is the daytime distillery row: Maggie's Farm and Wigle are both on Smallman within a short walk, perfect before or after the Saturday market.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>Late-August patio season favors a specific shortlist.</h3><p>The good outdoor rooms: Lorelei (East End patio), Grist House (big beer garden), Penn Brewery (cobblestone biergarten), Spirits & Tales (Oakland rooftop), The Summit (Mt Washington terrace), The Commoner (Mellon Square seating). Hidden Harbor is indoor-only — the room is the entire point.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Twenty bars, <em>four</em> clusters.</h2>
+<p class="chapter-dek">Pinned and color-coded by tier. Click any marker for details. Downtown and the Strip are marked for orientation.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Tier 1</strong> · 3+ lists</span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Tier 2</strong> · 2 lists</span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Tier 3</strong> · Specialists</span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Historic</strong> · Oldest brewery</span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Landmark</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="planning">
+<div class="chapter-label">Trip-Planning Notes</div>
+<h2 class="chapter-title">Four <em>Practical</em> Things to Know.</h2>
+<p class="chapter-dek">What changes for a no-car couple, three days, late August, with a Thursday concert anchoring the trip at Star Lake (35 minutes west).</p>
+<div class="insights">
+<div class="insight"><div class="insight-num">A</div><div class="insight-content"><h3>Thursday: a Downtown or Strip pre-show drink, then drive out.</h3><p>Burgettstown has no walkable bar scene — there's no pre-show cluster out at Star Lake. The play is a drink in the city before driving or riding the 35 minutes west: Bridges & Bourbon if you're Downtown, the Strip distillery row (Maggie's Farm, Wigle) if you're staying there. The city bars are a Friday-Sunday story regardless.</p></div></div>
+<div class="insight"><div class="insight-num">B</div><div class="insight-content"><h3>Friday: the Downtown quad on foot.</h3><p>Bridges & Bourbon for the whiskey, The Warren for the relaxed cocktail, Con Alma for the jazz set (book it), The Commoner for the rooftop-adjacent nightcap. All within a few blocks of the Downtown hotels. If you want a historic room, the Omni's Speakeasy is steps away.</p></div></div>
+<div class="insight"><div class="insight-num">C</div><div class="insight-content"><h3>Saturday: the Hidden Harbor destination night.</h3><p>This is the one bar to build an evening around. Walk-in only, in Squirrel Hill, no reservations — go early or accept a wait. 600 rums, the full tiki room, the best cocktail experience in the city. Pair it with a Squirrel Hill dinner (Chengdu Gourmet) so the Uber does double duty.</p></div></div>
+<div class="insight"><div class="insight-num">D</div><div class="insight-content"><h3>Sunday: the Lawrenceville crawl or the Strip distillery row.</h3><p>If the trip wants a slower last evening: Allegheny Wine Mixer and Bar Botanico on Butler Street, with Church Brew Works for the room. If you'd rather drink in daylight before flying Monday, the Strip distillery pair (Maggie's, Wigle) is a walkable afternoon. Both pair with the neighborhood's dinner picks.</p></div></div>
+</div>
 </section>
 
+<section class="chapter" id="tier1">
+<div class="tier-intro">
+<div class="tier-pill">Tier 1</div>
+<h2 class="tier-name">Where Everyone <em>Agrees</em>.</h2>
+<p class="tier-dek">Four bars, three or more lists each. Led by Hidden Harbor — the city's one bar with genuine national standing (tiki-specialist, not 50 Best) — plus the whiskey room, the jazz room, and the natural-wine room. The consensus is small but real.</p>
+</div>
+
+<article class="restaurant-feature" id="b-hidden-harbor" data-neighborhood="squirrel-hill" data-cuisine="tiki">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Bars · City Paper Best Cocktail List 2024 + 2025 · Thrillist Best Tiki Bars in America · Mashed 14 Best Tiki Bars in US · Table Magazine">Four lists</span>
+</div>
+<h3 class="r-name">Hidden Harbor</h3>
+<p class="r-tag">Pittsburgh's nationally-ranked tiki bar, 600 rums deep.</p>
+<div class="r-pills">
+  <span class="r-pill">Squirrel Hill</span>
+  <span class="r-pill">Tiki</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Best Tiki in America</span>
+</div>
+<p class="r-blurb">The one bar in this guide with a genuine national reputation — Thrillist has named it among America's best tiki bars, and City Paper readers vote it Best Cocktail List nearly every year. The room is the full tiki fever-dream (carved tikis, blowfish lamps, escalating bric-a-brac), and the bar pulls from 600+ rums for both faithful classics and house tropicals. A destination, not a crawl stop — go for the whole evening. Same crew as next-door Independent Brewing Co.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Mai Tai · Jungle Bird · the rotating reserve-rum list</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in only · no reservations · go early or wait</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The destination night · couples · rum nerds</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.hiddenharborpgh.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in only</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Hidden+Harbor+1708+Shady+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-bridges-bourbon" data-neighborhood="downtown" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Table Magazine · Discover the Burgh · Visit Pittsburgh · whiskey-program signal">Three lists</span>
+</div>
+<h3 class="r-name">Bridges & Bourbon</h3>
+<p class="r-tag">Downtown's serious whiskey-and-cocktail room.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Whiskey Program</span>
+</div>
+<p class="r-blurb">The deepest brown-spirits list Downtown, paired with a tight, well-built cocktail menu in a moody dark-wood room. The bourbon-and-whiskey wall is the draw, but the cocktails hold their own. The walkable Downtown anchor for the couple's first or last night — close to the hotels and to Con Alma.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Rare bourbon flights · barrel-aged Manhattans · house cocktails</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Reservations via website / OpenTable</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-dinner Downtown · whiskey night · date night</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.bridgesandbourbonpgh.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.bridgesandbourbonpgh.com/reservations" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Bridges+and+Bourbon+930+Penn+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-con-alma" data-neighborhood="downtown" data-cuisine="jazz">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Bars · Pittsburgh Magazine jazz feature · Table Magazine">Three lists</span>
+</div>
+<h3 class="r-name">Con Alma</h3>
+<p class="r-tag">Live jazz seven nights, across from Heinz Hall.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Jazz</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Live Jazz 7 Nights</span>
+</div>
+<p class="r-blurb">Pittsburgh's best jazz-and-cocktails room, with live music seven nights a week and a real cocktail and small-plates program behind it. The Downtown Cultural District location is the room you want — 3,000 square feet, the city's main jazz stage; the original Shadyside spot now runs special-events only. Pairs perfectly with a Cultural District night.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Cocktails · Spanish-leaning small plates</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Reservations strongly recommended for jazz nights</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Jazz night · couples · post-theater</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.conalmapgh.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.exploretock.com/con-alma-pittsburgh" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Con+Alma+613+Penn+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-allegheny-wine-mixer" data-neighborhood="lawrenceville" data-cuisine="wine">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 1</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Bars · The Infatuation · Thrillist">Three lists</span>
+</div>
+<h3 class="r-name">Allegheny Wine Mixer</h3>
+<p class="r-tag">Lawrenceville's neighborhood natural-wine room.</p>
+<div class="r-pills">
+  <span class="r-pill">Lawrenceville</span>
+  <span class="r-pill">Wine</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Infatuation Pick</span>
+</div>
+<p class="r-blurb">The Infatuation calls it one of the best places to drink wine in the whole city — an unfussy, low-lit Butler Street wine bar with a smart by-the-glass list (natural-leaning) and a small snack menu built for lingering. The anchor of the Lawrenceville wine-and-cocktail crawl. Walk-in friendly, neighborhood-quiet on a weeknight.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Natural wine by the glass · sherry · snacks</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in friendly</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-dinner · couples · the Lawrenceville crawl</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.alleghenywinemixer.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Allegheny+Wine+Mixer+5326+Butler+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier2">
+<div class="tier-intro">
+<div class="tier-pill">Tier 2</div>
+<h2 class="tier-name">The <em>Strong</em> Picks.</h2>
+<p class="tier-dek">Five bars, two lists each. The hotel bar Pittsburgh voted its best craft cocktails, the East End patio, the relaxed Downtown cocktail den, the Lawrenceville bartenders' favorite, and the reopened South Side speakeasy.</p>
+</div>
+
+<article class="restaurant-feature" id="b-commoner" data-neighborhood="downtown" data-cuisine="hotel">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Place for Craft Cocktails 2025 (reader-poll winner) · Table Magazine">Two lists</span>
+</div>
+<h3 class="r-name">The Commoner</h3>
+<p class="r-tag">The hotel bar Pittsburgh voted its best cocktails.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Hotel</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Best Craft Cocktails 2025</span>
+</div>
+<p class="r-blurb">Pittsburgh Magazine readers named The Commoner the city's Best Place for Craft Cocktails in 2025. The Kimpton Hotel Monaco's gastropub-and-cocktail room is more polished than its 'commoner' name suggests, and its Downtown location makes it the easy default for a hotel-based couple. Good patio-season seating off Mellon Square.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Seasonal craft cocktails · local-spirit list</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>OpenTable</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Pre-dinner Downtown · convenient hotel-base round</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thecommonerpgh.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/the-commoner-pittsburgh" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Commoner+620+William+Penn+Pl+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-lorelei" data-neighborhood="east-liberty" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Bars · Table Magazine · Best Bar Group (Kurzweg group)">Two lists</span>
+</div>
+<h3 class="r-name">Lorelei</h3>
+<p class="r-tag">The euro-leaning beer-and-cocktail sibling to Hidden Harbor.</p>
+<div class="r-pills">
+  <span class="r-pill">East Liberty</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Best Bar Group</span>
+</div>
+<p class="r-blurb">Part of the Kurzweg group (Hidden Harbor, Independent Brewing) that Pittsburgh Magazine named the city's Best Bar Group. Lorelei is the European-bar concept — a deep, well-curated draft and cocktail list in a bright, airy East Liberty room, with one of the better patios in the East End for late-August evenings.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Euro draft list · cocktails · the patio</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in friendly</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Patio night · groups · East End</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://loreleipgh.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Lorelei+124+S+Highland+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-the-warren" data-neighborhood="downtown" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Bars · Thrillist">Two lists</span>
+</div>
+<h3 class="r-name">The Warren</h3>
+<p class="r-tag">Spencer Warren's creative-cocktails-at-fair-prices den.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Cocktails + Wine Shop</span>
+</div>
+<p class="r-blurb">A below-street Downtown bar known for inventive cocktails at notably reasonable prices, a strong beer program, and an in-house wine shop. The unpretentious Downtown counterpoint to Bridges & Bourbon — same neighborhood, more relaxed. A reliable second Downtown stop on a hotel-based night.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Rotating creative cocktails · beer · wine retail</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Casual Downtown round · groups</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thewarrenpgh.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Warren+245+7th+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-bar-botanico" data-neighborhood="lawrenceville" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Table Magazine (bartenders' pick) · Discover the Burgh / NEXTpittsburgh">Two lists</span>
+</div>
+<h3 class="r-name">Bar Botanico</h3>
+<p class="r-tag">The higher-end cocktail room Lawrenceville was missing.</p>
+<div class="r-pills">
+  <span class="r-pill">Lawrenceville</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Bartenders' Pick</span>
+</div>
+<p class="r-blurb">Pittsburgh bartenders cite Bar Botanico as a favorite — a botanical-forward, house-syrups program in a small, elegant former-barbershop space on Butler Street. Drinks are built to your preference; the room is intimate (limited seating). The cocktail end of the Lawrenceville crawl, a few blocks from Allegheny Wine Mixer.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Botanical cocktails · house syrups · bartender's choice</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in · small room, go early</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Couples · cocktail nerds · the Lawrenceville crawl</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://barbotanico.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Bar+Botanico+4325+Butler+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-acacia" data-neighborhood="south-side" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 2</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Bars · legacy cocktail recognition">Two lists</span>
+</div>
+<h3 class="r-name">Acacia</h3>
+<p class="r-tag">The classic South Side speakeasy.</p>
+<div class="r-pills">
+  <span class="r-pill">South Side</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">South Side Speakeasy</span>
+</div>
+<p class="r-blurb">One of the originators of Pittsburgh's modern cocktail era, a small speakeasy-style room on Carson Street — the cocktail-serious counterpoint to the South Side's party-strip dives. It's had on-and-off stretches over the years, so confirm current hours before you go, but it's open and worth the stop for a proper drink away from the Carson Street crowds.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Classic + bespoke cocktails</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Reservations recommended · confirm current hours</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Date night · South Side · the quieter Carson St stop</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.acaciacocktails.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.acaciacocktails.com/" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Acacia+2108+E+Carson+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier3">
+<div class="tier-intro">
+<div class="tier-pill">Tier 3</div>
+<h2 class="tier-name">The <em>Specialists</em>.</h2>
+<p class="tier-dek">Twelve picks, one list plus a clear category reason each. The Strip distillery trio, the iconic church-brewery, the best dive in America, the rooftop view, the mocktail room, the late-night dance bars. Each owns its lane.</p>
+</div>
+
+<article class="restaurant-feature" id="b-mixtape" data-neighborhood="garfield" data-cuisine="late-night">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Bars · cocktail-and-DJ category">One list</span>
+</div>
+<h3 class="r-name">Mixtape</h3>
+<p class="r-tag">Cocktails-and-DJ nights — the night-that-isn't-dinner room.</p>
+<div class="r-pills">
+  <span class="r-pill">Garfield</span>
+  <span class="r-pill">Late-Night</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">DJ Nights</span>
+</div>
+<p class="r-blurb">Reopened under new owners post-2020. Cocktails and DJ nights Thursday through Saturday in a Penn Avenue room that's the closest thing the East End has to a late-night dance bar. When the night runs past midnight and you want music, this is the move.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Cocktails · the DJ-night list</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Late night · the dance-floor pivot</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.mixtapepgh.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Mixtape+4907+Penn+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-tinas" data-neighborhood="bloomfield" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Bars · intimate-cocktail category">One list</span>
+</div>
+<h3 class="r-name">tina's</h3>
+<p class="r-tag">Tiny, charming neighborhood cocktail bar in Bloomfield.</p>
+<div class="r-pills">
+  <span class="r-pill">Bloomfield</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Intimate Cocktail</span>
+</div>
+<p class="r-blurb">A small, charming neighborhood cocktail bar on Main Street — the kind of room built for two people and a quiet conversation. Bloomfield's date-night cocktail answer, a short walk from the Apteka / Fet-Fisk dinner row.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Tight cocktail list · neighborhood-bar prices</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Couples · quiet conversation · post-dinner</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://tinaspgh.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=tinas+4114+Main+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-spirits-tales" data-neighborhood="oakland" data-cuisine="hotel">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Bars · hotel-rooftop category">One list</span>
+</div>
+<h3 class="r-name">Spirits & Tales</h3>
+<p class="r-tag">The Oaklander Hotel's rooftop — the university district's skyline cocktail.</p>
+<div class="r-pills">
+  <span class="r-pill">Oakland</span>
+  <span class="r-pill">Hotel</span>
+  <span class="r-pill">$$$</span>
+  <span class="r-pill r-pill-accent">Rooftop View</span>
+</div>
+<p class="r-blurb">The Oaklander Hotel's 10th-floor rooftop, the closest thing to a skyline-view cocktail patio in the university district. French-leaning plates, a solid cocktail list, and one of Oakland's best views. Pair it with a Carnegie Museums afternoon.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Cocktails · the view · French-leaning bites</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>OpenTable</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Rooftop drink · museum-day pairing · the view</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.spiritsandtales.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/spirits-and-tales-pittsburgh" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Spirits+and+Tales+5130+Bigelow+Blvd+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-maggies-farm" data-neighborhood="strip-district" data-cuisine="distillery">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine / Table coverage · distillery-bar category">One list</span>
+</div>
+<h3 class="r-name">Maggie's Farm Rum</h3>
+<p class="r-tag">Pennsylvania's first craft rum — the Strip cocktail bar + tasting room.</p>
+<div class="r-pills">
+  <span class="r-pill">Strip District</span>
+  <span class="r-pill">Distillery</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">PA's First Craft Rum</span>
+</div>
+<p class="r-blurb">Pennsylvania's first craft rum distillery; the Strip District cocktail bar and tasting room is open and unchanged (the South Hills location dropped restaurant service in 2025 — the Strip bar is unaffected). One half of the walkable Strip distillery pairing with Wigle.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Rum flights · rum cocktails · the tasting room</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The Strip distillery crawl · daytime · rum nerds</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://maggiesfarmrum.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Maggies+Farm+Rum+3212A+Smallman+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-wigle" data-neighborhood="strip-district" data-cuisine="distillery">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Local Distillery 2025 · distillery category">One list</span>
+</div>
+<h3 class="r-name">Wigle Whiskey</h3>
+<p class="r-tag">Pittsburgh's flagship craft whiskey distillery and Strip tasting room.</p>
+<div class="r-pills">
+  <span class="r-pill">Strip District</span>
+  <span class="r-pill">Distillery</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Best Distillery 2025</span>
+</div>
+<p class="r-blurb">Pittsburgh Magazine's Best Local Distillery 2025. The city's flagship craft whiskey operation, with a Strip District tasting room pouring its own rye, bourbon, and seasonal spirits. The other half of the Strip distillery pairing, a few blocks from Maggie's Farm.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Rye · bourbon · whiskey flights · cocktails</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in · tastings</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The Strip distillery crawl · daytime · whiskey</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://wiglewhiskey.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Wigle+Whiskey+2401+Smallman+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-gooskis" data-neighborhood="polish-hill" data-cuisine="dive">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Thrillist Best Dive Bars in America · Imbibe · dive category">One list</span>
+</div>
+<h3 class="r-name">Gooski's</h3>
+<p class="r-tag">The Pittsburgh dive — jukebox, pierogies, live punk on weekends.</p>
+<div class="r-pills">
+  <span class="r-pill">Polish Hill</span>
+  <span class="r-pill">Dive</span>
+  <span class="r-pill">$</span>
+  <span class="r-pill r-pill-accent">Best Dive in America</span>
+</div>
+<p class="r-blurb">Thrillist named it one of America's best dive bars. The Pittsburgh dive, full stop: jukebox, pierogies, live punk on weekends, cash-friendly, zero pretense. In Polish Hill, a short Uber from the East End. The authentic-dive pick when the cocktail rooms feel too precious.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Cheap beer · a shot · the jukebox</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in · cash</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The dive night · live punk · zero pretense</dd></div>
+</div>
+<div class="r-actions">
+  <span class="r-btn r-btn-disabled">Walk-in · cash</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Gooskis+3117+Brereton+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-church-brew" data-neighborhood="lawrenceville" data-cuisine="brewery">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="GABF Best Large Brewpub in America · National Trust · iconic-brewery category">One list</span>
+</div>
+<h3 class="r-name">Church Brew Works</h3>
+<p class="r-tag">A GABF-winning brewery inside a restored 1902 Catholic church.</p>
+<div class="r-pills">
+  <span class="r-pill">Lawrenceville</span>
+  <span class="r-pill">Brewery</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Brewery in a Church</span>
+</div>
+<p class="r-blurb">A brewery inside a restored 1902 Catholic church — copper brewhouse in the apse, pews for benches, a genuine Pittsburgh icon and a visual must-see. GABF 'Best Large Brewpub in America' winner. Go for the room as much as the beer; the pierogi pizza is the kitsch you came for.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>House lagers and ales · the Pious Monk dunkel</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>OpenTable · or walk in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The room · a visual must-see · casual dinner-drink</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://churchbrew.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn r-btn-primary" href="https://www.opentable.com/r/church-brew-works-pittsburgh" target="_blank" rel="noopener">Reserve</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Church+Brew+Works+3525+Liberty+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-grist-house" data-neighborhood="millvale" data-cuisine="brewery">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Local Brewery 2025 · brewery category">One list</span>
+</div>
+<h3 class="r-name">Grist House</h3>
+<p class="r-tag">Reader-poll best brewery, with a big outdoor beer garden.</p>
+<div class="r-pills">
+  <span class="r-pill">Millvale</span>
+  <span class="r-pill">Brewery</span>
+  <span class="r-pill">$</span>
+  <span class="r-pill r-pill-accent">Best Brewery 2025</span>
+</div>
+<p class="r-blurb">Pittsburgh Magazine readers' Best Local Brewery 2025, with a big outdoor beer-garden space that makes it a strong patio-season pick. It's across the river in Millvale, so it needs a rideshare — but the rotating taplist and the garden are worth the 12-minute trip on a warm afternoon.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Rotating taplist · the beer garden</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Patio afternoon · beer garden · groups</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://gristhouse.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Grist+House+10+E+Sherman+St+Millvale" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-the-summit" data-neighborhood="mount-washington" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Table Magazine · view-bar category">One list</span>
+</div>
+<h3 class="r-name">The Summit</h3>
+<p class="r-tag">The Mt Washington skyline-view bar with $8 happy-hour cocktails.</p>
+<div class="r-pills">
+  <span class="r-pill">Mount Washington</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Skyline View</span>
+</div>
+<p class="r-blurb">Mt Washington's skyline-view bar, with $8 happy-hour cocktails and the best 'see the whole city' round in Pittsburgh. The view is the reason — pair it with the Duquesne Incline ride up. Not a destination for the drinks; a destination for the panorama.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Happy-hour cocktails · the view</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The skyline view · sunset · pairing with the Incline</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thesummitpgh.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Summit+Grandview+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-bottlerocket" data-neighborhood="allentown" data-cuisine="late-night">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="City Paper Best Bartender 2025 (Dana Hiyajneh) · late-night / neighborhood category">One list</span>
+</div>
+<h3 class="r-name">Bottlerocket Social Hall</h3>
+<p class="r-tag">Games, DJ nights, and City Paper's Best Bartender 2025.</p>
+<div class="r-pills">
+  <span class="r-pill">Allentown</span>
+  <span class="r-pill">Late-Night</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Best Bartender 2025</span>
+</div>
+<p class="r-blurb">Games, DJ nights, and strong cocktails in the emerging Allentown neighborhood of the South Hills. City Paper named Dana Hiyajneh its Best Bartender in 2025. The off-the-beaten-path pick — it needs a rideshare, but it's the room locals are excited about.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Cocktails · the games · DJ nights</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>Off-the-beaten-path night · games · groups</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.bottlerocketpgh.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Bottlerocket+Social+Hall+826+E+Warrington+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+
+<article class="restaurant-feature" id="b-open-road" data-neighborhood="bloomfield" data-cuisine="cocktail">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 3</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh Magazine Best Mocktails 2025 · zero-proof category">One list</span>
+</div>
+<h3 class="r-name">The Open Road</h3>
+<p class="r-tag">The city's fully non-alcoholic bar — Pittsburgh Magazine's Best Mocktails 2025.</p>
+<div class="r-pills">
+  <span class="r-pill">Bloomfield</span>
+  <span class="r-pill">Cocktail</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Best Mocktails 2025</span>
+</div>
+<p class="r-blurb">Pittsburgh Magazine's Best Mocktails 2025, and a genuine rarity: a fully non-alcoholic bar with a serious zero-proof cocktail program. The answer for a sober night, a low-key last evening before flying, or anyone in the party who isn't drinking — in Bloomfield, a short walk from the dinner picks.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Zero-proof cocktails · the full NA program</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The sober night · mixed groups · Bloomfield</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.openroadbarpgh.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Open+Road+4653+Liberty+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+<section class="chapter" id="tier4">
+<div class="tier-intro">
+<div class="tier-pill">Historic</div>
+<h2 class="tier-name">The <em>Oldest Brewery</em> in Pittsburgh.</h2>
+<p class="tier-dek">Penn Brewery — on the site of the 1840s Eberhardt & Ober Brewery, in the historic E&O building with a German bierhalle and cobblestone biergarten. Not a craft-cocktail destination; the city's brewing history, and a great biergarten in late-August weather.</p>
+</div>
+
+<article class="restaurant-feature" id="b-penn-brewery" data-neighborhood="troy-hill" data-cuisine="brewery">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tier 4</span>
+  <span class="r-list-count" tabindex="0" data-lists="Pittsburgh's oldest brewery (1840s E&O site) · 21 GABF/World Beer Cup medals · historic-brewery acknowledgment">One list</span>
+</div>
+<h3 class="r-name">Penn Brewery</h3>
+<p class="r-tag">Pittsburgh's oldest brewery — a German bierhalle with a cobblestone biergarten.</p>
+<div class="r-pills">
+  <span class="r-pill">Troy Hill</span>
+  <span class="r-pill">Brewery</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">Est. 1840s Site</span>
+</div>
+<p class="r-blurb">Pittsburgh's oldest brewery, founded 1986 on the site of the 1840s Eberhardt & Ober Brewery, housed in the historic 19th-century E&O building with a German bierhalle, cobblestone biergarten, and original lagering caves. The Penn Pilsner is brewed to the 1516 Reinheitsgebot; 21 GABF and World Beer Cup medals. The historic-tavern callout — and a genuinely great biergarten in late-August weather.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Drinks</dt><dd>Penn Pilsner · the lagers · the biergarten</dd></div>
+  <div class="r-detail"><dt>Book</dt><dd>Walk-in</dd></div>
+  <div class="r-detail"><dt>Best for</dt><dd>The biergarten · history · a warm afternoon</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.pennbrew.com/" target="_blank" rel="noopener">Website</a>
+  <span class="r-btn r-btn-disabled">Walk-in</span>
+  <a class="r-btn" href="https://maps.google.com/?q=Penn+Brewery+800+Vinial+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+
+</main>
+</div>
 <section class="next-up">
 <div class="next-up-inner">
 <div>
-<div class="next-up-label">— Continue the guide</div>
-<h3>To: Where to eat: <em>Read the eat section</em></h3>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Next: <em>What to Do</em></h3>
 </div>
-<a href="../eat/" class="next-up-cta">Read the eat section →</a>
+<a href="../do/" class="next-up-cta">Day ideas and itineraries →</a>
 </div>
 </section>
-
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
 <div class="footer-brand"><a href="../../">Field <em>Guide</em></a></div>
-<div class="footer-tagline">Issue 03 — Pittsburgh · Part 3, Where to Drink.</div>
+<div class="footer-tagline">Issue 03 — Pittsburgh · Part 3, Where to drink.</div>
 </div>
 <div class="footer-bottom">
-<div>© 2026 Field Guide. Section in progress.</div>
+<div>© 2026 Field Guide. Researched against Pittsburgh Magazine, City Paper, Table, Thrillist, Imbibe, GABF.</div>
 <div>No affiliate links · No paid placements</div>
 </div>
 </div>
 </footer>
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([40.4520, -79.9700], 12);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
 
+    var restaurants = [
+      {name:'Hidden Harbor',id:'b-hidden-harbor',tier:1,lat:40.4357,lng:-79.9229,tag:'Tiki · Squirrel Hill',lists:4,label:'★'},
+      {name:'Bridges & Bourbon',id:'b-bridges-bourbon',tier:1,lat:40.4426,lng:-79.9963,tag:'Cocktail · Downtown',lists:3,label:'★'},
+      {name:'Con Alma',id:'b-con-alma',tier:1,lat:40.4438,lng:-79.9989,tag:'Jazz · Downtown',lists:3,label:'★'},
+      {name:'Allegheny Wine Mixer',id:'b-allegheny-wine-mixer',tier:1,lat:40.4779,lng:-79.9576,tag:'Wine · Lawrenceville',lists:3,label:'★'},
+      {name:'The Commoner',id:'b-commoner',tier:2,lat:40.4419,lng:-79.9974,tag:'Hotel · Downtown',lists:2,label:'2'},
+      {name:'Lorelei',id:'b-lorelei',tier:2,lat:40.4607,lng:-79.9255,tag:'Cocktail · East Liberty',lists:2,label:'2'},
+      {name:'The Warren',id:'b-the-warren',tier:2,lat:40.4438,lng:-79.9985,tag:'Cocktail · Downtown',lists:2,label:'2'},
+      {name:'Bar Botanico',id:'b-bar-botanico',tier:2,lat:40.4708,lng:-79.9656,tag:'Cocktail · Lawrenceville',lists:2,label:'2'},
+      {name:'Acacia',id:'b-acacia',tier:2,lat:40.4286,lng:-79.9772,tag:'Cocktail · South Side',lists:2,label:'2'},
+      {name:'Mixtape',id:'b-mixtape',tier:3,lat:40.4659,lng:-79.9476,tag:'Late-Night · Garfield',lists:1,label:'1'},
+      {name:'tina\'s',id:'b-tinas',tier:3,lat:40.464,lng:-79.949,tag:'Cocktail · Bloomfield',lists:1,label:'1'},
+      {name:'Spirits & Tales',id:'b-spirits-tales',tier:3,lat:40.4513,lng:-79.954,tag:'Hotel · Oakland',lists:1,label:'1'},
+      {name:'Maggie\'s Farm Rum',id:'b-maggies-farm',tier:3,lat:40.4519,lng:-79.9819,tag:'Distillery · Strip District',lists:1,label:'1'},
+      {name:'Wigle Whiskey',id:'b-wigle',tier:3,lat:40.4525,lng:-79.9777,tag:'Distillery · Strip District',lists:1,label:'1'},
+      {name:'Gooski\'s',id:'b-gooskis',tier:3,lat:40.4565,lng:-79.9617,tag:'Dive · Polish Hill',lists:1,label:'1'},
+      {name:'Church Brew Works',id:'b-church-brew',tier:3,lat:40.4644,lng:-79.9621,tag:'Brewery · Lawrenceville',lists:1,label:'1'},
+      {name:'Grist House',id:'b-grist-house',tier:3,lat:40.481,lng:-79.976,tag:'Brewery · Millvale',lists:1,label:'1'},
+      {name:'The Summit',id:'b-the-summit',tier:3,lat:40.431,lng:-80.009,tag:'Cocktail · Mount Washington',lists:1,label:'1'},
+      {name:'Bottlerocket Social Hall',id:'b-bottlerocket',tier:3,lat:40.417,lng:-79.993,tag:'Late-Night · Allentown',lists:1,label:'1'},
+      {name:'The Open Road',id:'b-open-road',tier:3,lat:40.462,lng:-79.947,tag:'Cocktail · Bloomfield',lists:1,label:'1'},
+      {name:'Penn Brewery',id:'b-penn-brewery',tier:4,lat:40.453,lng:-80.001,tag:'Brewery · Troy Hill',lists:1,label:'1'}
+    ];
+
+    restaurants.forEach(function(r){
+      var tierClass = 'tier' + r.tier;
+      var icon = L.divIcon({
+        className: 'custom-marker',
+        html: '<div class="custom-pin ' + tierClass + '">' + r.label + '</div>',
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+      var marker = L.marker([r.lat, r.lng], { icon: icon }).addTo(map);
+      marker.bindPopup(
+        '<div class="pop-name">' + r.name + '</div>' +
+        '<div class="pop-tag">' + r.tag + '</div>' +
+        '<div class="pop-meta">' + r.lists + (r.lists === 1 ? ' list' : ' lists') + '</div>' +
+        (r.id ? '<a href="#' + r.id + '" class="pop-link" onclick="return window.fieldGuideJumpTo(\'' + r.id + '\')">View entry \u2192</a>' : '')
+      );
+    });
+
+    var downtownIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Downtown</div>',
+      iconSize: [80, 22],
+      iconAnchor: [40, 11]
+    });
+    L.marker([40.4406, -79.9970], { icon: downtownIcon }).addTo(map);
+
+    var stripIcon = L.divIcon({
+      className: 'landmark-marker',
+      html: '<div class="landmark-pin">Strip</div>',
+      iconSize: [70, 22],
+      iconAnchor: [35, 11]
+    });
+    L.marker([40.4519, -79.9846], { icon: stripIcon }).addTo(map);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMap);
+  else initMap();
+})();
+</script>
+<script>
+(function(){
+  var LABEL_MAP = {
+    'squirrel-hill':'Squirrel Hill','downtown':'Downtown','lawrenceville':'Lawrenceville',
+    'east-liberty':'East Liberty','south-side':'South Side','garfield':'Garfield',
+    'bloomfield':'Bloomfield','oakland':'Oakland','strip-district':'Strip District',
+    'polish-hill':'Polish Hill','millvale':'Millvale','mount-washington':'Mount Washington',
+    'allentown':'Allentown','troy-hill':'Troy Hill',
+    'cocktail':'Cocktail','wine':'Wine','dive':'Dive','hotel':'Hotel','brewery':'Brewery',
+    'tiki':'Tiki','jazz':'Jazz','distillery':'Distillery','late-night':'Late-Night'
+  };
+  function label(slug){
+    if (LABEL_MAP[slug]) return LABEL_MAP[slug];
+    return slug.split('-').map(function(w){ return w.charAt(0).toUpperCase() + w.slice(1); }).join(' ');
+  }
+  var filterContainer = document.getElementById('filters');
+  if (!filterContainer) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]'));
+  if (cards.length === 0) return;
+  var neighborhoods = {}, cuisines = {};
+  cards.forEach(function(c){
+    var n = c.dataset.neighborhood, k = c.dataset.cuisine;
+    neighborhoods[n] = (neighborhoods[n]||0)+1;
+    cuisines[k] = (cuisines[k]||0)+1;
+  });
+  function buildRow(filterKey, rowLabel, counts){
+    var row = document.createElement('details');
+    row.className = 'filter-row';
+    var storeKey = 'fg-filter-' + filterKey + '-open';
+    var stored = null;
+    try { stored = window.localStorage.getItem(storeKey); } catch(e){}
+    row.open = (stored === null) ? true : (stored === 'true');
+    row.addEventListener('toggle', function(){
+      try { window.localStorage.setItem(storeKey, row.open ? 'true' : 'false'); } catch(e){}
+    });
+    var lbl = document.createElement('summary');
+    lbl.className = 'filter-label';
+    lbl.textContent = rowLabel;
+    row.appendChild(lbl);
+    var all = document.createElement('button');
+    all.type='button'; all.className='filter-chip filter-chip-active';
+    all.setAttribute('data-filter',filterKey); all.setAttribute('data-value','all');
+    all.innerHTML='<span>All</span><span class="filter-chip-count">'+cards.length+'</span>';
+    row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){
+      var b=document.createElement('button');
+      b.type='button'; b.className='filter-chip';
+      b.setAttribute('data-filter',filterKey); b.setAttribute('data-value',v);
+      b.innerHTML='<span>'+label(v)+'</span><span class="filter-chip-count">'+counts[v]+'</span>';
+      row.appendChild(b);
+    });
+    return row;
+  }
+  filterContainer.innerHTML='';
+  filterContainer.appendChild(buildRow('neighborhood','Neighborhood',neighborhoods));
+  filterContainer.appendChild(buildRow('cuisine','Category',cuisines));
+  var status=document.createElement('div');
+  status.className='filter-status';
+  status.innerHTML='<span class="filter-count" id="filter-count"><strong>'+cards.length+'</strong> of '+cards.length+' bars</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>';
+  filterContainer.appendChild(status);
+  var state={neighborhood:'all',cuisine:'all'};
+  function applyFilters(){
+    var visible=0;
+    cards.forEach(function(c){
+      var mN=state.neighborhood==='all'||c.dataset.neighborhood===state.neighborhood;
+      var mC=state.cuisine==='all'||c.dataset.cuisine===state.cuisine;
+      if(mN&&mC){c.style.display='';visible++;}else{c.style.display='none';}
+    });
+    document.querySelectorAll('section.chapter[id^="tier"]').forEach(function(s){
+      var any=Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature')).some(function(c){return c.style.display!=='none';});
+      s.classList.toggle('tier-empty',!any);
+    });
+    var countEl=document.getElementById('filter-count');
+    if(countEl)countEl.innerHTML='<strong>'+visible+'</strong> of '+cards.length+' bars';
+  }
+  function setFilter(filterKey,value){
+    if(state[filterKey]===value&&value!=='all')value='all';
+    state[filterKey]=value;
+    filterContainer.querySelectorAll('[data-filter="'+filterKey+'"]').forEach(function(b){
+      b.classList.toggle('filter-chip-active',b.getAttribute('data-value')===value);
+    });
+    applyFilters();
+  }
+  filterContainer.addEventListener('click',function(e){
+    var chip=e.target.closest&&e.target.closest('.filter-chip');
+    if(chip){e.preventDefault();setFilter(chip.getAttribute('data-filter'),chip.getAttribute('data-value'));return;}
+    var reset=e.target.closest&&e.target.closest('#filter-reset');
+    if(reset){e.preventDefault();setFilter('neighborhood','all');setFilter('cuisine','all');}
+  });
+  window.fieldGuideJumpTo=function(id){
+    var el=document.getElementById(id);
+    if(!el)return false;
+    if(el.style.display==='none'){setFilter('neighborhood','all');setFilter('cuisine','all');}
+    if(window._fgMap&&window._fgMap.closePopup)window._fgMap.closePopup();
+    setTimeout(function(){
+      var top=el.getBoundingClientRect().top+window.pageYOffset-90;
+      window.scrollTo({top:top,behavior:'smooth'});
+      el.classList.remove('highlight');
+      void el.offsetWidth;
+      el.classList.add('highlight');
+      setTimeout(function(){el.classList.remove('highlight');},1600);
+    },50);
+    return false;
+  };
+  if(window.location.hash&&window.location.hash.indexOf('#b-')===0){
+    setTimeout(function(){window.fieldGuideJumpTo(window.location.hash.slice(1));},200);
+  }
+})();
+</script>
 <script src="../../shared/site.js" defer></script>
 </body>
 </html>
