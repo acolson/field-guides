@@ -86,7 +86,7 @@ button{font-family:inherit;cursor:pointer}
 .topbar .brand em{font-style:normal;color:var(--accent);font-weight:700}
 .topbar .meta{color:#888;font-size:.75rem;letter-spacing:.04em;font-weight:500}
 .topbar a{color:inherit}
-.topbar a:hover .brand,.topbar a:hover{color:#fff}
+.topbar .brand:hover,.topbar .brand a:hover{color:#fff}
 
 /* ---------- CITY SWITCHER (topbar dropdown) ---------- */
 .city-switcher{position:relative}
@@ -117,7 +117,8 @@ button{font-family:inherit;cursor:pointer}
   text-decoration:none;border:none;
   transition:background .12s,color .12s;
 }
-.city-switcher-item:hover{background:var(--canvas);color:var(--ink)}
+.city-switcher-item:hover{background:var(--canvas-2);color:var(--ink)}
+.city-switcher-item:hover .city-switcher-item-meta{color:var(--ink-muted)}
 .city-switcher-item.current{background:var(--accent-soft);color:var(--accent-deep);font-weight:700}
 .city-switcher-item-meta{display:block;font-size:.7rem;color:var(--ink-muted);margin-top:.15rem;font-weight:500;letter-spacing:0}
 .city-switcher-item.current .city-switcher-item-meta{color:var(--accent-deep);opacity:.7}
