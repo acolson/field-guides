@@ -3,29 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What to Do in Toronto — Field Guide</title>
-<meta name="description" content="Toronto activities, museums, walks, and itineraries. Coming soon.">
+<title>What to Do in Toronto &mdash; Field Guide</title>
+<meta name="description" content="Twenty-one things to do in Toronto, by area — museums, the Distillery, Casa Loma, and architecture. Researched against official sources.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 <body data-city="toronto">
-
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
 <div class="city-switcher" data-open="false">
 <button class="city-switcher-trigger" type="button" aria-haspopup="true">
-  <span>Issue 02 · <span class="city-switcher-current">Toronto</span></span>
-  <span class="city-switcher-arrow">▾</span>
+  <span>Issue 02 &middot; <span class="city-switcher-current">Toronto</span></span>
+  <span class="city-switcher-arrow">&#9662;</span>
 </button>
 <div class="city-switcher-menu" role="menu">
 <a href="../../" class="city-switcher-item">All Issues<span class="city-switcher-item-meta">Series landing page</span></a>
 <div class="city-switcher-divider"></div>
-<a href="../../boston/" class="city-switcher-item">Boston<span class="city-switcher-item-meta">Issue 01 · Massachusetts</span></a>
-<a href="../../toronto/" class="city-switcher-item current">Toronto<span class="city-switcher-item-meta">Issue 02 · Ontario</span></a>
-<a href="../../pittsburgh/" class="city-switcher-item">Pittsburgh<span class="city-switcher-item-meta">Issue 03 · Pennsylvania</span></a>
-<a href="../../palm-springs/" class="city-switcher-item">Palm Springs<span class="city-switcher-item-meta">Issue 04 · California</span></a>
+<a href="../../boston/" class="city-switcher-item">Boston<span class="city-switcher-item-meta">Issue 01 &middot; Massachusetts</span></a>
+<a href="../../toronto/" class="city-switcher-item current">Toronto<span class="city-switcher-item-meta">Issue 02 &middot; Ontario</span></a>
+<a href="../../pittsburgh/" class="city-switcher-item">Pittsburgh<span class="city-switcher-item-meta">Issue 03 &middot; Pennsylvania</span></a>
+<a href="../../palm-springs/" class="city-switcher-item">Palm Springs<span class="city-switcher-item-meta">Issue 04 &middot; California</span></a>
 </div>
 </div>
 </div>
@@ -38,40 +39,721 @@
 <a href="../do/" class="current">Do</a>
 </div>
 </div>
-
-<section class="hero" style="padding-bottom:6rem">
+<section class="hero">
 <div class="hero-kicker"><span class="hero-pill">Part 4</span> What to do</div>
-<h1 class="hero-title">Day Ideas, <em>Not a Checklist</em>.</h1>
-<p class="hero-dek">Coming soon. The museums worth the line, the neighborhoods worth walking, the ferry to the Toronto Islands when the weather agrees.</p>
-<div class="pullquote">
-For a three-night couple's trip, the short version: <em>one museum afternoon (AGO or ROM), one long walk (Kensington into Chinatown, or the Distillery loop), one Toronto Islands ferry day when the weather agrees, and one show night at Massey Hall or Roy Thomson</em>. Everything else is flex.
-</div>
-<p class="chapter-body" style="margin-top:2rem">A few directions while this section gets researched: <strong>Art Gallery of Ontario</strong> (the Frank Gehry building, the Canadian collection, the Thomson masterpieces), <strong>Royal Ontario Museum</strong> (the Daniel Libeskind Crystal entrance, the dinosaurs, the bat cave), <strong>Distillery District</strong> (cobbled Victorian industrial blocks, galleries, Cluny Bistro), <strong>Toronto Islands</strong> (15-minute ferry from Jack Layton Terminal – bike rentals at Centre Island, beach at Hanlan's Point), <strong>Kensington Market</strong> (the Saturday walk that connects most of this guide), <strong>CN Tower</strong> (yes really, but only for the EdgeWalk if you're into that).</p>
+<h1 class="hero-title">What to Do in Toronto, by <em>Area and Era</em>.</h1>
+<p class="hero-dek">A mapped, area-organized guide to twenty-one things to do — leaning museums, history, and architecture, grouped so you can pair a couple of stops in one outing. No car needed; the TTC and a short Uber cover it.</p>
+<p class="hero-byline">Sources: <strong>the museums &amp; sites themselves</strong> · <strong>City of Toronto</strong> · <strong>Atlas Obscura</strong> &mdash; hours and (dynamic) ticketing verified, but confirm before you go.</p>
 </section>
-
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">How to Use This</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#tier-bloor"><strong>Bloor / Yorkville (Museum Row)</strong> &middot; 3</a></li>
+<li><a href="#tier-downtown"><strong>Downtown / Old Town</strong> &middot; 9</a></li>
+<li><a href="#tier-queen-west"><strong>Queen West / Chinatown / Kensington</strong> &middot; 3</a></li>
+<li><a href="#tier-casa-loma"><strong>Casa Loma Hill</strong> &middot; 2</a></li>
+<li><a href="#tier-harbourfront"><strong>Harbourfront / Waterfront</strong> &middot; 2</a></li>
+<li><a href="#tier-garden"><strong>Garden District</strong> &middot; 1</a></li>
+<li><a href="#tier-north-york"><strong>North York (a Trek)</strong> &middot; 1</a></li>
+<li><a href="#pairings">Day Ideas &amp; Skips</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">How to Use This</div>
+<h2 class="chapter-title">Pick the <em>Area</em>, Then the Day.</h2>
+<p class="chapter-dek">Toronto rewards doing a couple of nearby things in one outing rather than criss-crossing on the TTC. This section is organized by area for exactly that — and skews to museums, history, and architecture over the outdoors.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">21</div><div class="stat-label">things to do across 7 areas</div></div>
+<div class="stat"><div class="stat-num">8</div><div class="stat-label">free — incl. the Distillery and Allan Gardens</div></div>
+<div class="stat"><div class="stat-num">3</div><div class="stat-label">one-area days that need zero Uber</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">flagged trek (the Aga Khan Museum)</div></div>
+</div>
+<div class="chapter-body">
+<p>The marquee museums cluster on Bloor (the ROM and the Gardiner are across the street from each other) and on the west side (the AGO anchors Chinatown/Kensington). The historic core near Union — St. Lawrence Market, the Distillery District, the civic architecture — is mostly free and entirely walkable, with the underground PATH as a weather-proof connector.</p><p>A few honest notes: the CN Tower is worth one clear-day visit and skippable otherwise; the Aga Khan Museum is spectacular but a real haul north; and the Toronto Islands ferry is here as a scenic skyline ride, not an athletic outing. Pick an area per outing and let the TTC do the rest.</p>
+</div>
+<div class="pullquote">The shape of it: <em>one Bloor museum afternoon, one west-side AGO-and-Kensington day, one Old Town market-and-Distillery walk</em> &mdash; with Casa Loma as the half-day castle. Skip the CN Tower restaurant and Ripley's.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>One Bloor afternoon does Museum Row.</h3><p>The ROM &rarr; the Gardiner (across Queen's Park) &rarr; the Bata Shoe Museum toward the Annex, capped with a Yorkville stroll. All Line 1/2 accessible; zero Uber.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>One west-side day is the AGO and the markets.</h3><p>The AGO (Gehry façade, the Thomson collection) &rarr; a Chinatown lunch &rarr; Kensington Market &rarr; Graffiti Alley. Entirely walkable, ends near Osgoode station.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>The Old Town day is mostly free.</h3><p>St. Lawrence Market (skip Mondays) &rarr; the Distillery District &rarr; the civic-architecture loop at Nathan Phillips Square and Osgoode Hall, with the Hockey Hall of Fame on the walk from Union.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>Casa Loma is the half-day castle.</h3><p>Casa Loma + Spadina House next door — one Uber up the hill covers both. The most on-brand history-and-architecture stop in the guide.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Twenty-one stops, <em>seven</em> clusters.</h2>
+<p class="chapter-dek">Pinned and color-coded by category. Click any marker for details.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Museum / Gallery</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Historic Site</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Architecture</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Landmark / Attraction</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier5"></span><span><strong>Walk / District</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier6"></span><span><strong>Quirky / Pride</strong></span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Orientation</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="tier-bloor">
+<div class="tier-intro">
+<div class="tier-pill">Bloor / Yorkville (Museum Row)</div>
+<h2 class="tier-name">Bloor / Yorkville (Museum Row) &middot; <em>3 stops</em>.</h2>
+<p class="tier-dek">The densest museum cluster in the city, walkable along Bloor between St. George and Museum stations. The ROM, the Gardiner across the street, and the Bata Shoe Museum toward the Annex — one full afternoon.</p>
+</div>
+<article class="restaurant-feature" id="d-rom" data-neighborhood="bloor" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 10-5:30 · dynamic pricing, buy ahead · free third Tuesday evenings">$26-30</span>
+</div>
+<h3 class="r-name">Royal Ontario Museum (ROM)</h3>
+<p class="r-tag">Canada's largest museum, fronted by Daniel Libeskind's shattered-glass Crystal jutting over Bloor Street.</p>
+<div class="r-pills">
+  <span class="r-pill">Bloor / Yorkville</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$26-30</span>
+  <span class="r-pill r-pill-accent">The Crystal</span>
+</div>
+<p class="r-blurb">The 2007 Libeskind addition — aluminum-and-glass prisms crashing into the 1914 Beaux-Arts building — is the most argued-about architecture in the city. Inside, go straight for the dinosaurs, the Bat Cave, and the Chinese and Egyptian galleries. Budget two to three hours.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 10-5:30</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$26-30 (dynamic) · free 3rd Tue eve</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Gardiner, across Queen&#39;s Park, + Yorkville</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.rom.on.ca" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Royal+Ontario+Museum+100+Queens+Park+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-gardiner" data-neighborhood="bloor" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Tue-Sun 10-5, closed Mon · free Wed after 4pm · half-price Fri evenings">$15</span>
+</div>
+<h3 class="r-name">Gardiner Museum</h3>
+<p class="r-tag">The only museum in Canada devoted entirely to ceramic art — small, calm, the perfect ROM counterweight.</p>
+<div class="r-pills">
+  <span class="r-pill">Bloor / Yorkville</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$15</span>
+  <span class="r-pill r-pill-accent">Across from the ROM</span>
+</div>
+<p class="r-blurb">A 2,900-piece collection from ancient American ceramics to Italian Renaissance maiolica to contemporary clay, directly across Queen's Park from the ROM. Intimate where the ROM is overwhelming — an hour is plenty.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Sun 10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$15 · free Wed after 4</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The ROM (across the street)</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.gardinermuseum.on.ca" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Gardiner+Museum+111+Queens+Park+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-bata" data-neighborhood="bloor" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Mon-Sat 10-5, Sun 12-5">$14</span>
+</div>
+<h3 class="r-name">Bata Shoe Museum</h3>
+<p class="r-tag">A whole museum about footwear — far better and stranger than that sounds.</p>
+<div class="r-pills">
+  <span class="r-pill">Bloor / Yorkville</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$14</span>
+  <span class="r-pill r-pill-accent">In a Moriyama Box</span>
+</div>
+<p class="r-blurb">Housed in a Raymond Moriyama building shaped like a shoebox with its lid askew, the collection runs from 4,500-year-old sandals to Elton John's platform boots. A genuinely good cultural-history museum that happens to use shoes as its lens. One hour.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Mon-Sat 10-5 · Sun 12-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$14 adult</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A ROM/Gardiner morning; an Annex walk</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://batashoemuseum.ca" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Bata+Shoe+Museum+327+Bloor+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-downtown">
+<div class="tier-intro">
+<div class="tier-pill">Downtown / Old Town</div>
+<h2 class="tier-name">Downtown / Old Town &middot; <em>9 stops</em>.</h2>
+<p class="tier-dek">The historic commercial core near Union Station, exactly where you arrive. Mostly free, weather-proof, and walkable: the market, the Distillery, the civic architecture, and the underground PATH. One to two outings.</p>
+</div>
+<article class="restaurant-feature" id="d-stlawrence" data-neighborhood="downtown" data-cuisine="market">
+<div class="r-header-row">
+  <span class="r-tier-tag">Market</span>
+  <span class="r-list-count" tabindex="0" data-lists="South Market Tue-Fri 9-7, Sat 7-5, Sun 10-5, closed Mon · Sat farmers market across the street">Free</span>
+</div>
+<h3 class="r-name">St. Lawrence Market</h3>
+<p class="r-tag">A 200-year-old market hall National Geographic once named the world's best.</p>
+<div class="r-pills">
+  <span class="r-pill">Old Town</span>
+  <span class="r-pill">Market</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">200-Year-Old Market</span>
+</div>
+<p class="r-blurb">The South Market sits in a building incorporating Toronto's 1845 second City Hall. Get a peameal bacon sandwich at Carousel Bakery, browse the cheese and seafood stalls, and time a Saturday for the North Market farmers' market. Ten minutes from Union.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Fri 9-7 · Sat 7-5 · closed Mon</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Distillery District + Old Town walk</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.stlawrencemarket.com" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=St+Lawrence+Market+93+Front+St+E+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-distillery" data-neighborhood="downtown" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Open-air, always · shops ~10-7 (Fri-Sat to 8)">Free</span>
+</div>
+<h3 class="r-name">Distillery District</h3>
+<p class="r-tag">Forty-plus red-brick Victorian distillery buildings, cobblestoned and pedestrian-only — now galleries, studios, and cafes.</p>
+<div class="r-pills">
+  <span class="r-pill">Old Town</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">N. America's Best Victorian Industrial</span>
+</div>
+<p class="r-blurb">The former Gooderham & Worts complex, once the largest distillery in the British Empire, is the best-preserved Victorian industrial architecture on the continent and entirely car-free. Wander the cobbled lanes and the galleries; spectacular at Christmas.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Open-air, always</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>St. Lawrence Market + Old Town = one east-downtown day</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thedistillerydistrict.com" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Distillery+District+55+Mill+St+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-hhof" data-neighborhood="downtown" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily ~10-5 · in Brookfield Place, 2 min from Union">$25</span>
+</div>
+<h3 class="r-name">Hockey Hall of Fame</h3>
+<p class="r-tag">Canada's hockey shrine, set in a gorgeous 1885 Bank of Montreal that survived the 1904 fire.</p>
+<div class="r-pills">
+  <span class="r-pill">Financial District</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$25</span>
+  <span class="r-pill r-pill-accent">Inside an 1885 Bank</span>
+</div>
+<p class="r-blurb">Even non-fans should poke into the Great Hall — the former bank's domed, stained-glass banking room now holds the original Stanley Cup. The building itself, a Beaux-Arts bank at Yonge and Front, is the real architecture pick.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily ~10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$25 (tax incl.)</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>St. Lawrence Market + the PATH</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.hhof.com" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Hockey+Hall+of+Fame+30+Yonge+St+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-cityhall" data-neighborhood="downtown" data-cuisine="architecture">
+<div class="r-header-row">
+  <span class="r-tier-tag">Architecture</span>
+  <span class="r-list-count" tabindex="0" data-lists="Square open 24/7 · sign lit at night">Free</span>
+</div>
+<h3 class="r-name">Nathan Phillips Square / City Hall</h3>
+<p class="r-tag">Viljo Revell's 1965 modernist masterpiece — two curved towers cradling a UFO-like council chamber.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Architecture</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">The 3D TORONTO Sign</span>
+</div>
+<p class="r-blurb">The Finnish architect's design beat 500 entries and remains one of the boldest civic buildings of its era. The square has the illuminated 3D TORONTO sign (great at night) and a reflecting pool; across the street, the Romanesque Old City Hall (1899) gives you two eras in one stop.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>24/7</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Osgoode Hall (one block west) + Graffiti Alley</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.toronto.ca/explore-enjoy/recreation/places-spaces/nathan-phillips-square/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Nathan+Phillips+Square+100+Queen+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-osgoode" data-neighborhood="downtown" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Public areas weekday business hours · free guided tours daily 1:15pm July-August only">Free</span>
+</div>
+<h3 class="r-name">Osgoode Hall</h3>
+<p class="r-tag">A palatial 1830s legal building with a jaw-dropping Great Library — and famously absurd cow gates out front.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">The Cow-Gates</span>
+</div>
+<p class="r-blurb">Home of the Law Society of Ontario, this Neoclassical pile hides one of the most beautiful interiors in Toronto: the Great Library, 40-foot ceilings, a spiral staircase. The wrought-iron gates were reportedly designed to keep cattle off the grounds.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Weekday business hours · summer-only guided tours</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Nathan Phillips Square (one block east)</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://lso.ca/about-lso/osgoode-hall-and-ontarios-legal-heritage/visit-us" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Osgoode+Hall+130+Queen+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-little-canada" data-neighborhood="downtown" data-cuisine="attraction">
+<div class="r-header-row">
+  <span class="r-tier-tag">Attraction</span>
+  <span class="r-list-count" tabindex="0" data-lists="Mon-Fri 10-6, Sat-Sun 10-7:30 · enter at 10 Dundas St E (Yonge entrance closed)">$36</span>
+</div>
+<h3 class="r-name">Little Canada</h3>
+<p class="r-tag">Canada in miniature — astonishingly detailed model landscapes with a day-night cycle, below Yonge-Dundas.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Attraction</span>
+  <span class="r-pill">$36</span>
+  <span class="r-pill r-pill-accent">Quirky · Indoor</span>
+</div>
+<p class="r-blurb">A 45,000-sq-ft world of HO-scale model towns — Toronto, Niagara, Quebec, the Rockies — with moving cars, trains, and a recurring sunrise-to-night light cycle. Genuinely impressive craft and a great rainy-afternoon move. Allow about two hours.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Mon-Fri 10-6 · Sat-Sun 10-7:30</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$36 · save online</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Eaton Centre / Graffiti Alley on a wet day</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://little-canada.ca" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Little+Canada+10+Dundas+St+E+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-path" data-neighborhood="downtown" data-cuisine="neighborhood-walk">
+<div class="r-header-row">
+  <span class="r-tier-tag">Walk</span>
+  <span class="r-list-count" tabindex="0" data-lists="Follows business hours · busiest weekdays · download the Pathmap app">Free</span>
+</div>
+<h3 class="r-name">The PATH</h3>
+<p class="r-tag">A 30-kilometre underground city of tunnels linking 70+ downtown buildings — a curiosity and a bad-weather lifesaver.</p>
+<div class="r-pills">
+  <span class="r-pill">Financial District</span>
+  <span class="r-pill">Walk</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Weather-Proof, Quirky</span>
+</div>
+<p class="r-blurb">The world's largest underground shopping complex connects Union Station to Eaton Centre and the financial towers entirely indoors. Not a 'sight' so much as a way to move through downtown coatless when it's -15. Signage is famously confusing.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Business hours · weekday best</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Connecting Union, the Hockey Hall of Fame, the towers</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.toronto.ca/explore-enjoy/visitor-toronto/path-torontos-downtown-pedestrian-walkway/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=PATH+Union+Station+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-cntower" data-neighborhood="downtown" data-cuisine="landmark">
+<div class="r-header-row">
+  <span class="r-tier-tag">Landmark</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily ~9-9:30 · LookOut + Glass Floor · EdgeWalk seasonal/reservation">$45</span>
+</div>
+<h3 class="r-name">CN Tower</h3>
+<p class="r-tag">The 553-metre icon — worth one clear-day visit for the view, skippable for the gimmicks.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Landmark</span>
+  <span class="r-pill">$45</span>
+  <span class="r-pill r-pill-accent">The View (Clear Days)</span>
+</div>
+<p class="r-blurb">The honest take: the LookOut and Glass Floor deliver a genuinely great view of the city and lake, and the tower is the unavoidable skyline landmark. Go on a clear day or skip it. EdgeWalk is a real thrill for the right person; the 360 restaurant is overpriced.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily ~9-9:30</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$45 · EdgeWalk ~$199 seasonal</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A clear day; near the waterfront and ferry</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.cntower.ca" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=CN+Tower+290+Bremner+Blvd+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-the-well" data-neighborhood="downtown" data-cuisine="architecture">
+<div class="r-header-row">
+  <span class="r-tier-tag">Architecture</span>
+  <span class="r-list-count" tabindex="0" data-lists="Food hall + retail typical mall hours · public passageways open daily">Free</span>
+</div>
+<h3 class="r-name">The Well</h3>
+<p class="r-tag">Toronto's splashiest new mixed-use district, topped by an undulating latticed glass canopy.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Architecture</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">2024 Opening</span>
+</div>
+<p class="r-blurb">A seven-building complex at Front and Spadina worth a walk for the architecture alone — colonnaded passageways under a wavy glass roof by Hariri Pontarini. The draw is the Wellington Market food hall (50+ vendors); a good modern counterpoint to all the Victoriana.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily (food hall mall hours)</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A lunch stop toward the waterfront / ferry</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://thewelltoronto.com" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Well+486+Front+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-queen-west">
+<div class="tier-intro">
+<div class="tier-pill">Queen West / Chinatown / Kensington</div>
+<h2 class="tier-name">Queen West / Chinatown / Kensington &middot; <em>3 stops</em>.</h2>
+<p class="tier-dek">The bohemian, walkable west side. The AGO anchors it; Chinatown, Kensington Market, and Graffiti Alley are all a stroll. One Dundas/Queen West outing.</p>
+</div>
+<article class="restaurant-feature" id="d-ago" data-neighborhood="queen-west" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Tue-Sun (Wed/Fri to 9), closed Mon · free under 25 · free first Wed eve">$30</span>
+</div>
+<h3 class="r-name">Art Gallery of Ontario (AGO)</h3>
+<p class="r-tag">A great encyclopedic art museum wrapped in Frank Gehry's swooping Douglas-fir-and-glass façade — in the neighbourhood he grew up in.</p>
+<div class="r-pills">
+  <span class="r-pill">Chinatown / Dundas W</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$30</span>
+  <span class="r-pill r-pill-accent">The Gehry Façade</span>
+</div>
+<p class="r-blurb">Gehry's 2008 transformation gave the AGO a 600-foot curving gallery along Dundas and a spiralling staircase that pierces the roof. Inside: the Thomson Collection, the Group of Seven landscapes, and a strong contemporary wing. Two to three hours.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Sun · closed Mon</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$30 · free under 25 · free 1st Wed eve</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Chinatown + Kensington + Graffiti Alley</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://ago.ca" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Art+Gallery+of+Ontario+317+Dundas+St+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-kensington" data-neighborhood="queen-west" data-cuisine="neighborhood-walk">
+<div class="r-header-row">
+  <span class="r-tier-tag">Walk</span>
+  <span class="r-list-count" tabindex="0" data-lists="Always open · shops liveliest midday-evening · Pedestrian Sundays in summer">Free</span>
+</div>
+<h3 class="r-name">Kensington Market</h3>
+<p class="r-tag">Toronto's most characterful district — vintage shops, painted Victorian houses, global food, no chains.</p>
+<div class="r-pills">
+  <span class="r-pill">Kensington</span>
+  <span class="r-pill">Walk</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">The Bohemian Walk</span>
+</div>
+<p class="r-blurb">A National Historic Site and the antidote to the polished downtown: narrow streets of fruit stalls, taco joints, cheese shops, and graffiti alleys. Just wander Augusta and Kensington Avenues; it flows straight into Chinatown for dumplings and produce.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Always; midday-evening best</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>AGO + Chinatown + Graffiti Alley</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.kensingtonmarketbia.ca" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Kensington+Market+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-graffiti" data-neighborhood="queen-west" data-cuisine="gallery">
+<div class="r-header-row">
+  <span class="r-tier-tag">Gallery</span>
+  <span class="r-list-count" tabindex="0" data-lists="Open-air, always · daylight best for photos">Free</span>
+</div>
+<h3 class="r-name">Graffiti Alley (Rush Lane)</h3>
+<p class="r-tag">Three legalized, ever-changing blocks of murals behind Queen West — the best free art in the city.</p>
+<div class="r-pills">
+  <span class="r-pill">Queen West</span>
+  <span class="r-pill">Gallery</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Free Street-Art Mile</span>
+</div>
+<p class="r-blurb">Rush Lane runs just south of Queen West between Spadina and Portland, every surface covered in sanctioned murals that turn over constantly, so it's never the same twice. A 15-minute self-guided walk; pair it with the Queen West boutiques.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Always · daylight best</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Queen West shopping + AGO/Kensington</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.atlasobscura.com/places/graffiti-alley-rush-lane" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Graffiti+Alley+Rush+Lane+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-casa-loma">
+<div class="tier-intro">
+<div class="tier-pill">Casa Loma Hill</div>
+<h2 class="tier-name">Casa Loma Hill &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">Two historic estates on the same hill, a short Uber up from St. Clair West or Dupont. Casa Loma the spectacle, Spadina House the intimacy — one outing.</p>
+</div>
+<article class="restaurant-feature" id="d-casa-loma" data-neighborhood="casa-loma" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 9:30-5, last entry 4:30 · audio guide included · steep hill, take an Uber">$30</span>
+</div>
+<h3 class="r-name">Casa Loma</h3>
+<p class="r-tag">A full-blown 1914 Gothic Revival castle — 98 rooms, secret passages, towers, and stables — perched above the city.</p>
+<div class="r-pills">
+  <span class="r-pill">Casa Loma</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$30</span>
+  <span class="r-pill r-pill-accent">Toronto's Castle</span>
+</div>
+<p class="r-blurb">Financier Sir Henry Pellatt's folly is the most on-brand stop in this guide: turrets, an oak Great Hall, an 800-foot tunnel to the stables, and a skyline view. The included audio guide tells the rags-to-riches-to-ruin story. Two to three hours.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 9:30-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$30 · audio guide included</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Spadina Museum next door</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://casaloma.ca" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Casa+Loma+1+Austin+Terrace+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-spadina" data-neighborhood="casa-loma" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Wed-Sun 11-5, closed Mon-Tue · house by guided tour only">Free</span>
+</div>
+<h3 class="r-name">Spadina Museum</h3>
+<p class="r-tag">A meticulously restored 1920s gentleman's estate right beside Casa Loma — the quieter, human-scaled counterpart.</p>
+<div class="r-pills">
+  <span class="r-pill">Casa Loma</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Next to the Castle</span>
+</div>
+<p class="r-blurb">Where Casa Loma is spectacle, Spadina House is intimacy: the Austin family's mansion frozen in the 1920s-30s with original furnishings, set in restored Edwardian gardens. Visiting the house is by guided tour, which is part of the charm.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Wed-Sun 11-5 · closed Mon-Tue</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free general admission</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Casa Loma (literally adjacent)</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.toronto.ca/explore-enjoy/history-art-culture/museums/spadina-museum/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Spadina+Museum+285+Spadina+Rd+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-harbourfront">
+<div class="tier-intro">
+<div class="tier-pill">Harbourfront / Waterfront</div>
+<h2 class="tier-name">Harbourfront / Waterfront &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">Where Union Station meets the lake. The Islands ferry is the marquee skyline outing (light, optional outdoors); Fort York is the War-of-1812 history nearby.</p>
+</div>
+<article class="restaurant-feature" id="d-islands" data-neighborhood="harbourfront" data-cuisine="landmark">
+<div class="r-header-row">
+  <span class="r-tier-tag">Landmark</span>
+  <span class="r-list-count" tabindex="0" data-lists="Frequent mid-April to mid-Oct · reduced winter (Ward&#39;s only) · buy online">$9.57</span>
+</div>
+<h3 class="r-name">Toronto Islands Ferry</h3>
+<p class="r-tag">A 15-minute ferry to a string of car-free islands — framed as a scenic skyline outing, not a workout.</p>
+<div class="r-pills">
+  <span class="r-pill">Harbourfront</span>
+  <span class="r-pill">Landmark</span>
+  <span class="r-pill">$9.57</span>
+  <span class="r-pill r-pill-accent">The Skyline Shot</span>
+</div>
+<p class="r-blurb">Even if you never leave the dock, the ferry back gives the single best view of the skyline. On the islands, a flat stroll on Ward's Island (cottage lanes, a boardwalk, a cafe) needs no athletics. Easy walk from Union to the Jack Layton Terminal.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Frequent Apr-Oct · reduced winter</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$9.57 round-trip · buy online</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A clear afternoon; CN Tower and The Well nearby</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.toronto.ca/explore-enjoy/toronto-island-ferries/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Jack+Layton+Ferry+Terminal+9+Queens+Quay+W+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-fort-york" data-neighborhood="harbourfront" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Wed-Sun 11-5 · 45-min tours on the hour">Free</span>
+</div>
+<h3 class="r-name">Fort York</h3>
+<p class="r-tag">The birthplace of Toronto — original 1813-era buildings on the site of the battle that razed the town.</p>
+<div class="r-pills">
+  <span class="r-pill">Harbourfront</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">War of 1812</span>
+</div>
+<p class="r-blurb">Canada's largest collection of original War of 1812 buildings sits, surreally, beneath the Gardiner Expressway. This is where American forces sacked York in 1813 (the act Canadians later avenged by burning Washington). Costumed guides and a sharp visitor centre.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Wed-Sun 11-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Well; a waterfront afternoon</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.toronto.ca/explore-enjoy/history-art-culture/museums/fort-york-national-historic-site/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Fort+York+250+Fort+York+Blvd+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-garden">
+<div class="tier-intro">
+<div class="tier-pill">Garden District</div>
+<h2 class="tier-name">Garden District &middot; <em>1 stop</em>.</h2>
+<p class="tier-dek">A historic Victorian glasshouse near downtown's east edge — Allan Gardens, free and warm, the cold-day refuge.</p>
+</div>
+<article class="restaurant-feature" id="d-allan-gardens" data-neighborhood="garden" data-cuisine="garden">
+<div class="r-header-row">
+  <span class="r-tier-tag">Garden</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 10-5">Free</span>
+</div>
+<h3 class="r-name">Allan Gardens Conservatory</h3>
+<p class="r-tag">A 1910 Edwardian palm house — six greenhouses of tropical greenery under a glass dome, free and warm year-round.</p>
+<div class="r-pills">
+  <span class="r-pill">Garden District</span>
+  <span class="r-pill">Garden</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Victorian Glasshouse, Free</span>
+</div>
+<p class="r-blurb">The centerpiece Palm House (1910) is a 16-sided glass-and-aluminum dome stuffed with towering palms; five connected greenhouses run from cacti to orchids. A small, free, deeply pleasant 30-45 minutes — and a refuge on a grey or freezing day.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A cold-weather morning; Cabbagetown / Old Town</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.toronto.ca/explore-enjoy/parks-recreation/places-spaces/beaches-gardens-attractions/gardens-and-horticulture/conservatories/allan-gardens-conservatory/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Allan+Gardens+Conservatory+19+Horticultural+Ave+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-north-york">
+<div class="tier-intro">
+<div class="tier-pill">North York (a Trek)</div>
+<h2 class="tier-name">North York (a Trek) &middot; <em>1 stop</em>.</h2>
+<p class="tier-dek">One pick, geographically flagged: the Aga Khan Museum, a 25-35 minute Uber north — arguably the most on-brand building in the city, but a dedicated half-day, not a downtown add-on.</p>
+</div>
+<article class="restaurant-feature" id="d-aga-khan" data-neighborhood="north-york" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Tue-Sun 10-5:30 (Wed to 8), closed Mon · free Wed 4-8 · 25-35 min Uber from downtown">$20</span>
+</div>
+<h3 class="r-name">Aga Khan Museum</h3>
+<p class="r-tag">A serene Fumihiko Maki-designed museum of Islamic art — the best building in Toronto almost no tourist sees, because it's a haul.</p>
+<div class="r-pills">
+  <span class="r-pill">North York</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$20</span>
+  <span class="r-pill r-pill-accent">Worth the Trek</span>
+</div>
+<p class="r-blurb">Geography flag: it's up at Don Mills and Eglinton, a 25-35 minute Uber from downtown — not a casual add-on. But Maki's luminous white-granite building in formal reflecting-pool gardens holds a world-class collection of Islamic manuscripts and ceramics. Make it a dedicated half-day or skip it.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Sun · closed Mon · free Wed 4-8</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$20</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A standalone half-day — no good downtown pairing</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://agakhanmuseum.org" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Aga+Khan+Museum+77+Wynford+Dr+Toronto" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="pairings">
+<div class="chapter-label">Day Ideas &amp; Skips</div>
+<h2 class="chapter-title">Day Ideas, and What to <em>Skip</em>.</h2>
+<p class="chapter-dek">A few ready-made one-area outings, and the things you can skip.</p>
+<div class="chapter-body">
+<p><strong>The Bloor museum afternoon.</strong> ROM + Gardiner (across the street) + Bata Shoe Museum + a Yorkville stroll.</p><p><strong>The west-side day.</strong> AGO + a Chinatown lunch + Kensington Market + Graffiti Alley.</p><p><strong>The Old Town day.</strong> St. Lawrence Market + the Distillery District + the civic-architecture loop (Nathan Phillips Square, Osgoode Hall), with the Hockey Hall of Fame near Union.</p><p><strong>The Casa Loma hill.</strong> Casa Loma + Spadina House next door — one Uber up.</p><p><strong>Skip:</strong> the CN Tower 360 restaurant and the combo upsells (do the basic LookOut, eat at ground level), Ripley's Aquarium (a crowded pricey detour for a no-kids couple), and the Eaton Centre as a destination (it's a useful PATH waypoint, not a stop). The Aga Khan Museum is a dedicated half-day, not a downtown add-on.</p>
+</div>
+</section>
+</main>
+</div>
 <section class="next-up">
 <div class="next-up-inner">
 <div>
-<div class="next-up-label">— Continue the guide</div>
-<h3>Back to: <em>Where to eat</em></h3>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Back to: <em>Where to Eat</em></h3>
 </div>
-<a href="../eat/" class="next-up-cta">Read the eat section →</a>
+<a href="../eat/" class="next-up-cta">Read the eat section &rarr;</a>
 </div>
 </section>
-
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
 <div class="footer-brand"><a href="../../">Field <em>Guide</em></a></div>
-<div class="footer-tagline">Issue 02 — Toronto · Part 4, What to do.</div>
+<div class="footer-tagline">Issue 02 &mdash; Toronto &middot; Part 4, What to do.</div>
 </div>
 <div class="footer-bottom">
-<div>© 2026 Field Guide. Activities section coming soon.</div>
-<div>No affiliate links · No paid placements</div>
+<div>&copy; 2026 Field Guide. Hours and ticketing verified against official sources; ROM uses dynamic pricing — confirm before you go.</div>
+<div>No affiliate links &middot; No paid placements</div>
 </div>
 </div>
 </footer>
-
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([43.66, -79.39], 12);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+    var spots = [
+      {name:'Royal Ontario Museum (ROM)',id:'d-rom',tier:1,lat:43.6677,lng:-79.3948,tag:'Museum · Bloor / Yorkville',lists:0,label:'M'},
+      {name:'Gardiner Museum',id:'d-gardiner',tier:1,lat:43.6675,lng:-79.3936,tag:'Museum · Bloor / Yorkville',lists:0,label:'M'},
+      {name:'Bata Shoe Museum',id:'d-bata',tier:1,lat:43.6671,lng:-79.4003,tag:'Museum · Bloor / Yorkville',lists:0,label:'M'},
+      {name:'St. Lawrence Market',id:'d-stlawrence',tier:4,lat:43.6487,lng:-79.3716,tag:'Market · Old Town',lists:0,label:'★'},
+      {name:'Distillery District',id:'d-distillery',tier:2,lat:43.6503,lng:-79.3597,tag:'Historic · Old Town',lists:0,label:'H'},
+      {name:'Hockey Hall of Fame',id:'d-hhof',tier:1,lat:43.647,lng:-79.3777,tag:'Museum · Financial District',lists:0,label:'M'},
+      {name:'Nathan Phillips Square / City Hall',id:'d-cityhall',tier:3,lat:43.6525,lng:-79.3839,tag:'Architecture · Downtown',lists:0,label:'A'},
+      {name:'Osgoode Hall',id:'d-osgoode',tier:2,lat:43.6519,lng:-79.3856,tag:'Historic · Downtown',lists:0,label:'H'},
+      {name:'Little Canada',id:'d-little-canada',tier:4,lat:43.6561,lng:-79.3802,tag:'Attraction · Downtown',lists:0,label:'★'},
+      {name:'The PATH',id:'d-path',tier:5,lat:43.6453,lng:-79.3806,tag:'Walk · Financial District',lists:0,label:'W'},
+      {name:'CN Tower',id:'d-cntower',tier:4,lat:43.6426,lng:-79.3871,tag:'Landmark · Downtown',lists:0,label:'★'},
+      {name:'The Well',id:'d-the-well',tier:3,lat:43.6435,lng:-79.4006,tag:'Architecture · Downtown',lists:0,label:'A'},
+      {name:'Art Gallery of Ontario (AGO)',id:'d-ago',tier:1,lat:43.6536,lng:-79.3925,tag:'Museum · Chinatown / Dundas W',lists:0,label:'M'},
+      {name:'Kensington Market',id:'d-kensington',tier:5,lat:43.6547,lng:-79.4005,tag:'Walk · Kensington',lists:0,label:'W'},
+      {name:'Graffiti Alley (Rush Lane)',id:'d-graffiti',tier:1,lat:43.6479,lng:-79.3985,tag:'Gallery · Queen West',lists:0,label:'M'},
+      {name:'Casa Loma',id:'d-casa-loma',tier:2,lat:43.678,lng:-79.4094,tag:'Historic · Casa Loma',lists:0,label:'H'},
+      {name:'Spadina Museum',id:'d-spadina',tier:2,lat:43.679,lng:-79.4086,tag:'Historic · Casa Loma',lists:0,label:'H'},
+      {name:'Toronto Islands Ferry',id:'d-islands',tier:4,lat:43.6406,lng:-79.3776,tag:'Landmark · Harbourfront',lists:0,label:'★'},
+      {name:'Fort York',id:'d-fort-york',tier:2,lat:43.6386,lng:-79.4067,tag:'Historic · Harbourfront',lists:0,label:'H'},
+      {name:'Allan Gardens Conservatory',id:'d-allan-gardens',tier:4,lat:43.6618,lng:-79.3737,tag:'Garden · Garden District',lists:0,label:'★'},
+      {name:'Aga Khan Museum',id:'d-aga-khan',tier:1,lat:43.7255,lng:-79.332,tag:'Museum · North York',lists:0,label:'M'}
+    ];
+    spots.forEach(function(r){
+      var icon = L.divIcon({className:'custom-marker',html:'<div class="custom-pin tier'+r.tier+'">'+r.label+'</div>',iconSize:[28,28],iconAnchor:[14,14]});
+      L.marker([r.lat,r.lng],{icon:icon}).addTo(map).bindPopup(
+        '<div class="pop-name">'+r.name+'</div><div class="pop-tag">'+r.tag+'</div>'+
+        (r.id?'<a href="#'+r.id+'" class="pop-link" onclick="return window.fieldGuideJumpTo(\''+r.id+'\')">View entry \u2192</a>':''));
+    });
+    L.marker([43.6453,-79.3806],{icon:L.divIcon({className:'landmark-marker',html:'<div class=\'landmark-pin\'>Union</div>',iconSize:[64,22],iconAnchor:[32,11]})}).addTo(map);
+    L.marker([43.67,-79.395],{icon:L.divIcon({className:'landmark-marker',html:'<div class=\'landmark-pin\'>Bloor</div>',iconSize:[60,22],iconAnchor:[30,11]})}).addTo(map);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMap);else initMap();
+})();
+</script>
+<script>
+(function(){
+  var LABEL_MAP={'bloor':'Bloor / Yorkville','downtown':'Downtown / Old Town','queen-west':'Queen West / Kensington','casa-loma':'Casa Loma','harbourfront':'Harbourfront','garden':'Garden District','north-york':'North York','museum':'Museum','historic-site':'Historic','architecture':'Architecture','landmark':'Landmark','gallery':'Gallery','market':'Market','garden':'Garden','neighborhood-walk':'Walk','attraction':'Attraction'};
+  function label(s){return LABEL_MAP[s]||s.split('-').map(function(w){return w.charAt(0).toUpperCase()+w.slice(1);}).join(' ');}
+  var fc=document.getElementById('filters'); if(!fc)return;
+  var cards=Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]')); if(!cards.length)return;
+  var nb={},cu={};
+  cards.forEach(function(c){nb[c.dataset.neighborhood]=(nb[c.dataset.neighborhood]||0)+1;cu[c.dataset.cuisine]=(cu[c.dataset.cuisine]||0)+1;});
+  function buildRow(fk,rl,counts){
+    var row=document.createElement('details'); row.className='filter-row';
+    var sk='fg-filter-'+fk+'-open',st=null; try{st=window.localStorage.getItem(sk);}catch(e){}
+    row.open=(st===null)?true:(st==='true');
+    row.addEventListener('toggle',function(){try{window.localStorage.setItem(sk,row.open?'true':'false');}catch(e){}});
+    var lb=document.createElement('summary'); lb.className='filter-label'; lb.textContent=rl; row.appendChild(lb);
+    var all=document.createElement('button'); all.type='button'; all.className='filter-chip filter-chip-active'; all.setAttribute('data-filter',fk); all.setAttribute('data-value','all'); all.innerHTML='<span>All</span><span class="filter-chip-count">'+cards.length+'</span>'; row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){var b=document.createElement('button'); b.type='button'; b.className='filter-chip'; b.setAttribute('data-filter',fk); b.setAttribute('data-value',v); b.innerHTML='<span>'+label(v)+'</span><span class="filter-chip-count">'+counts[v]+'</span>'; row.appendChild(b);});
+    return row;
+  }
+  fc.innerHTML=''; fc.appendChild(buildRow('neighborhood','Area',nb)); fc.appendChild(buildRow('cuisine','Category',cu));
+  var status=document.createElement('div'); status.className='filter-status'; status.innerHTML='<span class="filter-count" id="filter-count"><strong>'+cards.length+'</strong> of '+cards.length+' stops</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>'; fc.appendChild(status);
+  var state={neighborhood:'all',cuisine:'all'};
+  function apply(){var vis=0; cards.forEach(function(c){var m=(state.neighborhood==='all'||c.dataset.neighborhood===state.neighborhood)&&(state.cuisine==='all'||c.dataset.cuisine===state.cuisine); if(m){c.style.display='';vis++;}else c.style.display='none';});
+    document.querySelectorAll('section.chapter[id^="tier-"]').forEach(function(s){var any=Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature')).some(function(c){return c.style.display!=='none';}); s.classList.toggle('tier-empty',!any);});
+    var ce=document.getElementById('filter-count'); if(ce)ce.innerHTML='<strong>'+vis+'</strong> of '+cards.length+' stops';}
+  function setF(fk,v){if(state[fk]===v&&v!=='all')v='all'; state[fk]=v; fc.querySelectorAll('[data-filter="'+fk+'"]').forEach(function(b){b.classList.toggle('filter-chip-active',b.getAttribute('data-value')===v);}); apply();}
+  fc.addEventListener('click',function(e){var chip=e.target.closest&&e.target.closest('.filter-chip'); if(chip){e.preventDefault();setF(chip.getAttribute('data-filter'),chip.getAttribute('data-value'));return;} var r=e.target.closest&&e.target.closest('#filter-reset'); if(r){e.preventDefault();setF('neighborhood','all');setF('cuisine','all');}});
+  window.fieldGuideJumpTo=function(id){var el=document.getElementById(id); if(!el)return false; if(el.style.display==='none'){setF('neighborhood','all');setF('cuisine','all');} if(window._fgMap&&window._fgMap.closePopup)window._fgMap.closePopup(); setTimeout(function(){var top=el.getBoundingClientRect().top+window.pageYOffset-90; window.scrollTo({top:top,behavior:'smooth'}); el.classList.remove('highlight'); void el.offsetWidth; el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');},1600);},50); return false;};
+  if(window.location.hash&&window.location.hash.indexOf('#d-')===0){setTimeout(function(){window.fieldGuideJumpTo(window.location.hash.slice(1));},200);}
+})();
+</script>
 <script src="../../shared/site.js" defer></script>
 </body>
 </html>

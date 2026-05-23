@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What to Do in Palm Springs &mdash; Field Guide</title>
-<meta name="description" content="Palm Springs + Joshua Tree day ideas. Coming soon.">
+<meta name="description" content="Twenty-two things to do across Palm Springs and the high desert — Pride, mid-century architecture, the tramway, Sunnylands, and Joshua Tree. Built for Pride weekend.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 <body data-city="palm-springs">
-
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
 <div class="city-switcher" data-open="false">
@@ -38,27 +39,633 @@
 <a href="../do/" class="current">Do</a>
 </div>
 </div>
-
-<section class="hero" style="padding-bottom:6rem">
+<section class="hero">
 <div class="hero-kicker"><span class="hero-pill">Part 4</span> What to do</div>
-<h1 class="hero-title">Day Ideas, <em>Not a Checklist</em>.</h1>
-<p class="hero-dek">Coming soon. The Pride parade, the Palm Springs Aerial Tramway, the mid-century architecture circuit, and a day in Joshua Tree National Park.</p>
-<div class="pullquote">
-For a Pride-weekend couple's trip, the short version: <em>the parade down Palm Canyon Sunday morning, one pool afternoon, one architecture fix (the Kaufmann House drive-by, the Sunnylands tour, or a Modernism Week-style self-tour), the Aerial Tramway up Mount San Jacinto for the view, and a full day in Joshua Tree National Park on the high-desert leg</em>.
-</div>
-<p class="chapter-body" style="margin-top:2rem">A few directions while this section gets researched: <strong>Palm Springs Pride</strong> (Nov 6&ndash;8, 2026 &mdash; parade Sunday down Palm Canyon, festival between Amado and Baristo), <strong>Palm Springs Aerial Tramway</strong> (the rotating car up to 8,500 ft and a 30-degree temperature drop), <strong>the architecture</strong> (the Kaufmann House, Frey House II, the Frank Sinatra Twin Palms estate, the Visitor Center in Albert Frey's old gas station), <strong>Sunnylands</strong> (the Annenberg estate and gardens in Rancho Mirage), <strong>the Palm Springs Art Museum</strong>, and on the high-desert leg, <strong>Joshua Tree National Park</strong> (the west entrance from the village, Hidden Valley, Keys View, Cholla Cactus Garden). The Eat, Stay, and Drink sections are fully built; start there.</p>
+<h1 class="hero-title">What to Do in Palm Springs, by <em>Area and the Calendar</em>.</h1>
+<p class="hero-dek">A mapped, area-organized guide to twenty-two things to do — Pride first, then mid-century architecture, museums, the tramway, and one day up in the high desert. Framed as scenic drives, historic sites, and quirky desert oddities, not a hiking roundup.</p>
+<p class="hero-byline">Sources: <strong>Palm Springs Pride</strong> · <strong>the sites themselves</strong> · <strong>Sunnylands</strong> · <strong>NPS Joshua Tree</strong> · <strong>Visit Palm Springs</strong> &mdash; hours, ticketing, and 2026 Pride logistics verified where posted; confirm the rest.</p>
 </section>
-
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">How to Use This</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#tier-pride"><strong>Pride Weekend</strong> &middot; 3</a></li>
+<li><a href="#tier-palm-springs"><strong>Palm Springs</strong> &middot; 10</a></li>
+<li><a href="#tier-valley"><strong>The Wider Valley</strong> &middot; 2</a></li>
+<li><a href="#tier-high-desert"><strong>The High Desert</strong> &middot; 7</a></li>
+<li><a href="#pairings">Day Ideas &amp; Skips</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">How to Use This</div>
+<h2 class="chapter-title">Pride First, Then <em>Pick an Area</em>.</h2>
+<p class="chapter-dek">Pride eats the front half of the trip, so the architecture, the valley, and the high-desert overnight land Monday-Tuesday, with Thursday's arrival good for VillageFest. This section is organized by area, and frames the desert as scenic-and-historic rather than athletic.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">22</div><div class="stat-label">things to do across 4 areas</div></div>
+<div class="stat"><div class="stat-num">2</div><div class="stat-label">reservation-critical: Sunnylands &amp; Keys Ranch</div></div>
+<div class="stat"><div class="stat-num">Free</div><div class="stat-label">the architecture drive-by + Noah Purifoy + Pride parade</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">night up in the high desert</div></div>
+</div>
+<div class="chapter-body">
+<p>The two booking traps to honor: the <strong>Sunnylands</strong> house tour releases tickets at 9am PT on the 15th of the prior month (so <strong>October 15</strong> for November), and the <strong>Keys Ranch</strong> tour is Recreation.gov-only and posts ~60 days out. Both sell out. Set the reminders when you lock the trip.</p><p>Everything else is flexible. The mid-century icons are private homes, so the architecture is a drive-by (or a small-group Mod Squad tour); the Art Museum and the A+D Center are the indoor anchors (closed Mon-Wed). Frame Joshua Tree as a scenic drive with the historic Keys Ranch tour, not a hike — Keys View and the Cholla garden are reachable by car.</p>
+</div>
+<div class="pullquote">The shape of it: <em>Pride Friday-Sunday, an architecture morning, a Sunnylands morning, and one high-desert day-into-night</em> &mdash; Joshua Tree's scenic drive, Pioneertown, and Pappy &amp; Harriet's. Set an October 15 alarm for the Sunnylands tour.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>Pride Sunday: parade in the morning, pool in the afternoon.</h3><p>The parade steps off at 10am down Palm Canyon (curb spot by 9:30, find shade), runs about two hours, then a pool afternoon to recover, then the Arenas block party after dark. Thursday's arrival folds neatly into VillageFest.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>The architecture morning is mostly free — and mostly from the curb.</h3><p>The self-guided Las Palmas drive-by circuit (or a Mod Squad small-group tour for context), the A+D Center / Art Museum, and the Elvis Honeymoon Hideaway for the one interior you can reliably get into. Cap with Moorten if it's not Wednesday.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>Sunnylands is the on-brand valley morning — book it October 15.</h3><p>The Annenberg estate's historic house tour is the most on-brand stop of the trip, but tickets release at 9am PT on the 15th of the prior month and sell out. The gardens are free and walk-up; pair with Cabot's Pueblo.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>The Joshua Tree day is a drive, not a hike.</h3><p>Up ~50 minutes: the scenic drive (Keys View + Cholla + Skull Rock), the Keys Ranch tour if you booked it, then Noah Purifoy and the Crochet Museum, then Pioneertown and dinner at Pappy & Harriet's. Sleep up north, detour to the Integratron or Cabot's on the way back.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Twenty-two stops, <em>four</em> areas.</h2>
+<p class="chapter-dek">Pinned and color-coded by category. Click any marker for details.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Museum / Gallery</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Historic Site</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Architecture</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Landmark / Attraction</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier5"></span><span><strong>Walk / District</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier6"></span><span><strong>Quirky / Pride</strong></span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Orientation</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="tier-pride">
+<div class="tier-intro">
+<div class="tier-pill">Pride Weekend</div>
+<h2 class="tier-name">Pride Weekend &middot; <em>3 stops</em>.</h2>
+<p class="tier-dek">The reason you're here, and the center of gravity for the trip. The festival runs Friday-Sunday on Palm Canyon and the Arenas District; the parade is Sunday morning; the Arenas block party is the free nightly heart of it. Realistically this fills the front half of the trip.</p>
+</div>
+<article class="restaurant-feature" id="d-pride-festival" data-neighborhood="pride" data-cuisine="pride-event">
+<div class="r-header-row">
+  <span class="r-tier-tag">Pride</span>
+  <span class="r-list-count" tabindex="0" data-lists="Fri-Sun Nov 6-8 · Palm Canyon (Amado-Baristo) + Arenas · festival grounds ticketed, Arenas free">Nov 6-8</span>
+</div>
+<h3 class="r-name">Greater Palm Springs Pride Festival</h3>
+<p class="r-tag">Three days of stages, marketplace, and nightly block parties down the spine of downtown.</p>
+<div class="r-pills">
+  <span class="r-pill">Pride Weekend</span>
+  <span class="r-pill">Pride</span>
+  <span class="r-pill r-pill-accent">The 40th Annual</span>
+</div>
+<p class="r-blurb">The festival footprint covers Palm Canyon Drive (Amado to Baristo), Museum Way, and the historic Arenas District. Multiple stages, a big exhibitor marketplace, and a different block party each night. The 40th edition in 2026, themed Be Included — the center of gravity the whole weekend orbits.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Timing</dt><dd>Fri-Sun, Nov 6-8</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Festival grounds ticketed · Arenas free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Any Arenas-district dinner; the parade Sunday</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.pspride.org/festival" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Palm+Springs+Pride+Palm+Canyon+Dr" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-pride-parade" data-neighborhood="pride" data-cuisine="pride-event">
+<div class="r-header-row">
+  <span class="r-tier-tag">Pride</span>
+  <span class="r-list-count" tabindex="0" data-lists="Sun Nov 8, steps off 10am Uptown, runs south down Palm Canyon to Amado · ~2 hours · free">Sun 10am</span>
+</div>
+<h3 class="r-name">Palm Springs Pride Parade</h3>
+<p class="r-tag">Sunday morning, the whole town lines Palm Canyon for two hours.</p>
+<div class="r-pills">
+  <span class="r-pill">Pride Weekend</span>
+  <span class="r-pill">Pride</span>
+  <span class="r-pill r-pill-accent">225+ Entries</span>
+</div>
+<p class="r-blurb">The parade steps off Sunday Nov 8 at 10am in the Uptown Design District and travels south down Palm Canyon to Amado Road. Over 225 entries, ~60,000 spectators. Get a curb spot in the shade well before 10 — a parade-morning, pool-afternoon split is the natural shape of the day.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Timing</dt><dd>Sun Nov 8 · 10am · ~2 hrs</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free to watch · grandstand sometimes sold</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A pool afternoon; the Arenas block party after dark</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.pspride.org/parade" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-arenas-party" data-neighborhood="pride" data-cuisine="pride-event">
+<div class="r-header-row">
+  <span class="r-tier-tag">Pride</span>
+  <span class="r-list-count" tabindex="0" data-lists="Nightly across the weekend · opening night Thursday · biggest Fri/Sat · free">Free</span>
+</div>
+<h3 class="r-name">Arenas District Block Party</h3>
+<p class="r-tag">The official after-dark heart of Pride — bars spilling into the street.</p>
+<div class="r-pills">
+  <span class="r-pill">Pride Weekend</span>
+  <span class="r-pill">Pride</span>
+  <span class="r-pill r-pill-accent">The Free Street Party</span>
+</div>
+<p class="r-blurb">The Arenas District Official Block Party is the free, central nightlife event of the weekend, with the gayborhood's bars taking over the street. The official party of Pride; no need to chase circuit promoters unless you want to. (The Drink section maps the Arenas bars themselves.)</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Timing</dt><dd>Nightly · opening Thu · biggest Fri/Sat</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free street party</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Arenas-district dinner and the Drink section</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.pspride.org/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Arenas+Rd+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-palm-springs">
+<div class="tier-intro">
+<div class="tier-pill">Palm Springs</div>
+<h2 class="tier-name">Palm Springs &middot; <em>10 stops</em>.</h2>
+<p class="tier-dek">The architecture, the tramway, the museums, and the village — most of it walkable or a short drive downtown. The mid-century houses are private (drive-by or a small-group tour); the Art Museum and A+D Center are the indoor anchors. Note: the Art Museum is closed Mon-Wed, Moorten closed Wed.</p>
+</div>
+<article class="restaurant-feature" id="d-tramway" data-neighborhood="palm-springs" data-cuisine="attraction">
+<div class="r-header-row">
+  <span class="r-tier-tag">Attraction</span>
+  <span class="r-list-count" tabindex="0" data-lists="Reopens before Nov after fall maintenance · buy ahead on busy weekends · bring a layer (30 degrees cooler up top)">$$</span>
+</div>
+<h3 class="r-name">Palm Springs Aerial Tramway</h3>
+<p class="r-tag">A slowly spinning glass car climbs 6,000 feet to pine forest and a 30-degree temperature drop.</p>
+<div class="r-pills">
+  <span class="r-pill">Palm Springs</span>
+  <span class="r-pill">Attraction</span>
+  <span class="r-pill r-pill-accent">World's Largest Rotating Car</span>
+</div>
+<p class="r-blurb">The world's largest rotating tram car turns through a full rotation on the ~10-minute ride up Chino Canyon, so both sides get the view. The Mountain Station sits at 8,516 feet with observation decks, restaurants, and a natural-history museum. No hiking required; the view is the thing.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily · verify Nov hours</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Round-trip online · buy ahead</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Tramway Gas Station at the foot of the road</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://pstramway.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Palm+Springs+Aerial+Tramway+1+Tram+Way" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-tramway-gas" data-neighborhood="palm-springs" data-cuisine="architecture">
+<div class="r-header-row">
+  <span class="r-tier-tag">Architecture</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 10-5 · free · at the foot of the Tramway access road">Free</span>
+</div>
+<h3 class="r-name">Tramway Gas Station (Visitor Center)</h3>
+<p class="r-tag">Frey's swooping wedge canopy is the city's most photographed front door.</p>
+<div class="r-pills">
+  <span class="r-pill">Palm Springs</span>
+  <span class="r-pill">Architecture</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Albert Frey, 1965</span>
+</div>
+<p class="r-blurb">Albert Frey and Robson Chambers designed this former Enco station in 1965 — that dramatic cantilevered, hyperbolic-paraboloid canopy is pure desert modernism. Now the official visitor center, on the National Register since 2015. Free, quick, the obvious first stop if you're driving up the mountain.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Aerial Tramway, just up the road</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://visitpalmsprings.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Tramway+Gas+Station+2901+N+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-psam" data-neighborhood="palm-springs" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Closed Mon-Wed · Thu 12-8 (free 5-8) · Fri-Sun 10-5 · one ticket covers both buildings">$25</span>
+</div>
+<h3 class="r-name">Palm Springs Art Museum + A&plus;D Center</h3>
+<p class="r-tag">A real art museum downtown, plus a design annex inside a 1961 modernist landmark.</p>
+<div class="r-pills">
+  <span class="r-pill">Palm Springs</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$25</span>
+  <span class="r-pill r-pill-accent">A+D Center in a Frey Bank</span>
+</div>
+<p class="r-blurb">Modern and contemporary art and glass downtown; admission also covers the Architecture and Design Center a few blocks south — a 1961 E. Stewart Williams building (the old Santa Fe Federal Savings) where the city's design-history shows live. Holds the Albert Frey archives. Free Thursday evenings.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Closed Mon-Wed · free Thu 5-8</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$25 · covers both buildings</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The A+D Center and the mid-century drive-by circuit</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.psmuseum.org/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Palm+Springs+Art+Museum+101+N+Museum+Dr" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-modern-circuit" data-neighborhood="palm-springs" data-cuisine="architecture">
+<div class="r-header-row">
+  <span class="r-tier-tag">Architecture</span>
+  <span class="r-list-count" tabindex="0" data-lists="Anytime, golden hour best · all private homes — no trespassing · interiors only during Modernism Week (Feb)">Free</span>
+</div>
+<h3 class="r-name">The Mid-Century Drive-By Circuit</h3>
+<p class="r-tag">The icons are private homes — so you see them the way locals do, from the street.</p>
+<div class="r-pills">
+  <span class="r-pill">Palm Springs</span>
+  <span class="r-pill">Architecture</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">The Famous Houses, from the Curb</span>
+</div>
+<p class="r-blurb">A drive-by loop through Las Palmas and Southridge: the Kaufmann Desert House (Neutra, 1946 — heavily screened), Frank Sinatra's Twin Palms, the Elrod House (Lautner, the Bond house, gated), and the Bob Hope House (Lautner's volcano dome). Manage expectations — several are fully screened. For interiors you'd need Modernism Week or a tour.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Anytime · golden hour</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free · respect private property</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The A+D Center and Moorten</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://visitpalmsprings.com/blog/post/palm-springs-architecture-tours/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Vista+Las+Palmas+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-mod-squad" data-neighborhood="palm-springs" data-cuisine="tour">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tour</span>
+  <span class="r-list-count" tabindex="0" data-lists="~90 min · max 5 guests · reservations required · confirm a Nov departure">$$</span>
+</div>
+<h3 class="r-name">Palm Springs Mod Squad (Architecture Tour)</h3>
+<p class="r-tag">If the drive-by isn't enough, this is the small-group fix.</p>
+<div class="r-pills">
+  <span class="r-pill">Palm Springs</span>
+  <span class="r-pill">Tour</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">5-Seat Van</span>
+</div>
+<p class="r-blurb">Designer-storyteller Kurt Cyr runs intimate tours — max five guests in an air-conditioned van — through the most photogenic neighborhoods, covering Frey, Cody, Krisel, Wexler, and Williams. Ninety minutes of exterior storytelling; some packages add interior access. This is how you turn a confusing drive-by into a narrative.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>~90 min · multiple departures</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Book online · reservations required</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Replaces or deepens the self-guided circuit</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.psmodsquad.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Palm+Springs+Mod+Squad" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-moorten" data-neighborhood="palm-springs" data-cuisine="garden">
+<div class="r-header-row">
+  <span class="r-tier-tag">Garden</span>
+  <span class="r-list-count" tabindex="0" data-lists="Oct-May, Thu-Tue 10-4, closed Wed · ~$5 · cash-friendly">$5</span>
+</div>
+<h3 class="r-name">Moorten Botanical Garden &amp; Cactarium</h3>
+<p class="r-tag">A one-acre, gloriously eccentric desert garden the same family has run since 1938.</p>
+<div class="r-pills">
+  <span class="r-pill">Palm Springs</span>
+  <span class="r-pill">Garden</span>
+  <span class="r-pill">$5</span>
+  <span class="r-pill r-pill-accent">The 1938 Cactus Garden</span>
+</div>
+<p class="r-blurb">Chester and Patricia Moorten opened this arboretum in 1938; it's still family-run. The Cactarium — a word they coined — is a greenhouse of rare specimens. Small, idiosyncratic, deeply Palm Springs: paths wind past thousands of cacti in under an hour. The most charming low-effort stop in town.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Thu-Tue 10-4 · closed Wed</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$5</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The architecture morning or a south-end lunch</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.moortenbotanicalgarden.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Moorten+Botanical+Garden+1701+S+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-air-museum" data-neighborhood="palm-springs" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 10-5 · Sat mornings a cockpit opens to sit in">$24</span>
+</div>
+<h3 class="r-name">Palm Springs Air Museum</h3>
+<p class="r-tag">Walk right up to combat aircraft — no ropes, no glass.</p>
+<div class="r-pills">
+  <span class="r-pill">Palm Springs</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$24</span>
+  <span class="r-pill r-pill-accent">Flyable WWII Fleet</span>
+</div>
+<p class="r-blurb">More than 50 vintage aircraft in climate-controlled hangars, including one of the world's largest collections of flyable WWII planes plus Korea- and Vietnam-era jets. The no-barriers display gets you nose-to-nose with the machines. Quirky, hands-on, genuinely historic.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$24</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A downtown afternoon</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://palmspringsairmuseum.org/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Palm+Springs+Air+Museum+745+N+Gene+Autry+Trail" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-marilyn" data-neighborhood="palm-springs" data-cuisine="landmark">
+<div class="r-header-row">
+  <span class="r-tier-tag">Landmark</span>
+  <span class="r-list-count" tabindex="0" data-lists="Anytime · free · may relocate a block to the new Downtown Park — confirm current spot">Free</span>
+</div>
+<h3 class="r-name">Forever Marilyn</h3>
+<p class="r-tag">The 26-foot statue everyone argues about, and everyone photographs.</p>
+<div class="r-pills">
+  <span class="r-pill">Palm Springs</span>
+  <span class="r-pill">Landmark</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">26 Feet of Marilyn</span>
+</div>
+<p class="r-blurb">Seward Johnson's 26-foot, 17-ton Marilyn in the Seven Year Itch pose, near Museum Way and Belardo, steps from the art museum. Divisive (a 2024 settlement set up an eventual move to a nearby park), which only adds to the camp appeal. A two-minute photo stop you'll pass anyway.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Anytime</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The art museum and VillageFest</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.ps-resorts.com/forever-marilyn" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Forever+Marilyn+Museum+Way+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-villagefest" data-neighborhood="palm-springs" data-cuisine="attraction">
+<div class="r-header-row">
+  <span class="r-tier-tag">Attraction</span>
+  <span class="r-list-count" tabindex="0" data-lists="Thursdays 6-10pm (Oct-May) · Palm Canyon closes to cars · free">Free</span>
+</div>
+<h3 class="r-name">VillageFest</h3>
+<p class="r-tag">Your arrival night, conveniently: Palm Canyon closes to cars and fills with stalls.</p>
+<div class="r-pills">
+  <span class="r-pill">Palm Springs</span>
+  <span class="r-pill">Attraction</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">The Thursday Street Fair</span>
+</div>
+<p class="r-blurb">Every Thursday, downtown Palm Canyon shuts to traffic for a street fair — arts, crafts, food vendors, entertainment. Since you land Thursday, this is the no-planning-required first evening: wander, eat, get oriented.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Thu 6-10pm</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A casual downtown dinner and Forever Marilyn</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://villagefest.org/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=VillageFest+S+Palm+Canyon+Dr+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-elvis" data-neighborhood="palm-springs" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Scheduled tours · ~30 min standard / ~1 hr twilight · book ahead · not ADA accessible">$$</span>
+</div>
+<h3 class="r-name">Elvis Honeymoon Hideaway</h3>
+<p class="r-tag">A 1960 House of Tomorrow where Elvis and Priscilla honeymooned — touchable, finally.</p>
+<div class="r-pills">
+  <span class="r-pill">Palm Springs</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">The House of Tomorrow</span>
+</div>
+<p class="r-blurb">The Alexander-built House of Tomorrow, all curved glass and stacked circles, is where Elvis and Priscilla honeymooned in 1967. Unlike the drive-by icons, this one you can actually go inside — short guided tours, with a longer twilight champagne option. A rare interior on this trip.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Scheduled tours</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$55 standard / ~$100 twilight · book ahead</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Las Palmas drive-by</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://elvisinpalmsprings.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Elvis+Honeymoon+Hideaway+1350+Ladera+Circle+Palm+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-valley">
+<div class="tier-intro">
+<div class="tier-pill">The Wider Valley</div>
+<h2 class="tier-name">The Wider Valley &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">Two on-brand half-day stops a short drive out: the Annenberg estate at Sunnylands (book the house tour the moment November releases, on October 15) and Cabot's hand-built pueblo in Desert Hot Springs.</p>
+</div>
+<article class="restaurant-feature" id="d-sunnylands" data-neighborhood="valley" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="House tour Sep-June · gardens free (closed Mon-Tue) · house tickets release 9am PT on the 15th of the prior month — book Oct 15 for Nov">$$</span>
+</div>
+<h3 class="r-name">Sunnylands Center &amp; Gardens</h3>
+<p class="r-tag">The Annenbergs' pink mid-century retreat, where presidents summited — the most on-brand stop of the trip.</p>
+<div class="r-pills">
+  <span class="r-pill">The Valley</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill r-pill-accent">The Annenberg Estate</span>
+</div>
+<p class="r-blurb">The 25,000-sq-ft Annenberg winter home is a mid-century landmark that hosted presidents and royalty; the 90-minute Historic House Tour walks the art and the rooms. The free Center & Gardens — nine acres of desert plantings — needs no ticket. The house tour sells out: set a reminder for October 15.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tour Sep-June · gardens closed Mon-Tue</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>House tour ~$58, advance only · gardens free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Cabot&#39;s Pueblo or a Rancho Mirage lunch</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://sunnylands.org/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Sunnylands+37977+Bob+Hope+Dr+Rancho+Mirage" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-cabots" data-neighborhood="valley" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Oct-May, Tue-Sun 9-4 (last tour 2:30), closed Mon">$16</span>
+</div>
+<h3 class="r-name">Cabot's Pueblo Museum</h3>
+<p class="r-tag">One man's four-story, hand-built pueblo of salvaged materials — gloriously strange.</p>
+<div class="r-pills">
+  <span class="r-pill">The Valley</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$16</span>
+  <span class="r-pill r-pill-accent">A Hand-Built Hopi-Style Pueblo</span>
+</div>
+<p class="r-blurb">Cabot Yerxa spent decades hand-building this Hopi-inspired pueblo from reclaimed materials: four stories, 35 rooms, 150 windows, almost nothing square. Guided and audio tours walk the warren of rooms and tell his adventurer-artist story. A genuine desert oddity with real history, ~20 minutes north.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Sun 9-4 · closed Mon</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$16 · grounds-only ~$5</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Sunnylands or the drive toward the high desert</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://cabotsmuseum.org/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Cabots+Pueblo+Museum+67616+E+Desert+View+Ave+Desert+Hot+Springs" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-high-desert">
+<div class="tier-intro">
+<div class="tier-pill">The High Desert</div>
+<h2 class="tier-name">The High Desert &middot; <em>7 stops</em>.</h2>
+<p class="tier-dek">The one night up north, ~50 minutes away. Frame Joshua Tree as a scenic drive (Keys View, Cholla, Skull Rock) plus the historic Keys Ranch tour, then Pioneertown's movie-set Mane Street and the desert oddities — Noah Purifoy, the Integratron, the Crochet Museum. Pappy & Harriet's is dinner.</p>
+</div>
+<article class="restaurant-feature" id="d-jtree-drive" data-neighborhood="high-desert" data-cuisine="scenic-drive">
+<div class="r-header-row">
+  <span class="r-tier-tag">Scenic Drive</span>
+  <span class="r-list-count" tabindex="0" data-lists="Open 24/7 · $30/vehicle, good 7 days · West Entrance from Joshua Tree town">$30/car</span>
+</div>
+<h3 class="r-name">Joshua Tree National Park — The Scenic Drive</h3>
+<p class="r-tag">A drive-through greatest-hits, no hiking required.</p>
+<div class="r-pills">
+  <span class="r-pill">High Desert</span>
+  <span class="r-pill">Scenic Drive</span>
+  <span class="r-pill">$30/car</span>
+  <span class="r-pill r-pill-accent">The Iconic Stops, No Hiking</span>
+</div>
+<p class="r-blurb">Frame it as a scenic drive with photo stops. Enter at the West Entrance and string together Hidden Valley (a flat 1-mile loop, optional), Keys View (the highest overlook, reachable entirely by car — Coachella Valley and the San Andreas Fault below), the Cholla Cactus Garden boardwalk, and Skull Rock, visible from the road.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Open 24/7</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$30/vehicle, 7 days</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Pioneertown and Pappy&#39;s for dinner</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.nps.gov/jotr/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Joshua+Tree+National+Park+West+Entrance" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-keys-ranch" data-neighborhood="high-desert" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Season ~Oct-May · Recreation.gov only, no walk-ups · Nov dates post ~60 days out — book the instant they appear">$20</span>
+</div>
+<h3 class="r-name">Keys Ranch Guided Tour</h3>
+<p class="r-tag">The park's hidden homestead — a preserved ranch you can only see with a ranger.</p>
+<div class="r-pills">
+  <span class="r-pill">High Desert</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$20</span>
+  <span class="r-pill r-pill-accent">Ranger-Led, Reservation-Only</span>
+</div>
+<p class="r-blurb">The Keys family homesteaded here for 60 years; the ranch survives with its house, schoolhouse, store, and rusting equipment frozen in place. The only way in is a 90-120 min ranger-led walk (about a half-mile, easy). The historic heart of the park and the most on-brand JT experience — but it sells out.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>~Oct-May · Recreation.gov only</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$20 · book the moment Nov dates post</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The scenic drive, same day</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.nps.gov/jotr/planyourvisit/ranchtour.htm" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Keys+Ranch+Joshua+Tree+National+Park" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-pioneertown" data-neighborhood="high-desert" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Mane Street open daily, daylight · free to wander · Pappy&#39;s books up — reserve ahead">Free</span>
+</div>
+<h3 class="r-name">Pioneertown</h3>
+<p class="r-tag">A 1946 live-in Western movie set that's still a town, with Pappy's at the end of the street.</p>
+<div class="r-pills">
+  <span class="r-pill">High Desert</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">A Working 1946 Western Set</span>
+</div>
+<p class="r-blurb">Actor Dick Curtis built Pioneertown in 1946 as a living movie set — Roy Rogers and Gene Autry were among the investors. Mane Street (on the National Register) is still pedestrian-only and unpaved by charter; wander the false-front facades and shops. At the end sits Pappy & Harriet's, the obvious dinner.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Mane Street daily, daylight</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free to wander</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The JT scenic drive earlier; Pappy&#39;s for dinner</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.visitcalifornia.com/experience/pappy-harriets-pioneertown-palace/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Pioneertown+Mane+St+Pioneertown" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-noah-purifoy" data-neighborhood="high-desert" data-cuisine="attraction">
+<div class="r-header-row">
+  <span class="r-tier-tag">Attraction</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily sunup to sundown · free · self-guided (sign in at the kiosk)">Free</span>
+</div>
+<h3 class="r-name">Noah Purifoy Outdoor Desert Art Museum</h3>
+<p class="r-tag">A 10-acre field of junk-art monuments out in the open desert.</p>
+<div class="r-pills">
+  <span class="r-pill">High Desert</span>
+  <span class="r-pill">Attraction</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">10 Acres of Assemblage</span>
+</div>
+<p class="r-blurb">Noah Purifoy spent his last 15 years building large-scale assemblage sculptures from salvaged material across 10 acres of Mojave — over 100 works, weathering in the open. Free, self-guided, unlike anything else: part outdoor museum, part haunted junkyard, wholly serious art. ~10 minutes from Joshua Tree town.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily, sunup-sundown</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free · self-guided</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Crochet Museum and Pioneertown</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.noahpurifoy.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Noah+Purifoy+Outdoor+Desert+Art+Museum+Joshua+Tree" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-integratron" data-neighborhood="high-desert" data-cuisine="quirky">
+<div class="r-header-row">
+  <span class="r-tier-tag">Quirky</span>
+  <span class="r-list-count" tabindex="0" data-lists="Thu-Sun (closed Mon-Wed) · public sound baths sell out — book early · ~45 min each way from the park">$63</span>
+</div>
+<h3 class="r-name">The Integratron</h3>
+<p class="r-tag">A 1950s all-wood dome an engineer built for rejuvenation, on instructions he said came from Venus.</p>
+<div class="r-pills">
+  <span class="r-pill">High Desert</span>
+  <span class="r-pill">Quirky</span>
+  <span class="r-pill">$63</span>
+  <span class="r-pill r-pill-accent">A 1950s Sound-Bath Dome</span>
+</div>
+<p class="r-blurb">George Van Tassel built this acoustically perfect all-wood dome in the 1950s, claiming it drew on Tesla and telepathic instructions from extraterrestrials. Today it hosts 60-minute sound baths — crystal bowls played live in the resonant chamber. Pure high-desert woo and a genuine 20th-century oddity, in Landers.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Thu-Sun · by reservation</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Public sound baths ~$63 · book ahead</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The JT/Landers loop</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.integratron.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Integratron+2477+Belfield+Blvd+Landers" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-crochet" data-neighborhood="high-desert" data-cuisine="quirky">
+<div class="r-header-row">
+  <span class="r-tier-tag">Quirky</span>
+  <span class="r-list-count" tabindex="0" data-lists="~10-5 (winter) · self-serve · free">Free</span>
+</div>
+<h3 class="r-name">World Famous Crochet Museum</h3>
+<p class="r-tag">A converted photo-booth hut crammed with crocheted creatures — two minutes, free, perfect.</p>
+<div class="r-pills">
+  <span class="r-pill">High Desert</span>
+  <span class="r-pill">Quirky</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">A Crochet Hut</span>
+</div>
+<p class="r-blurb">Artist Shari Elf packed a former Fotomat-style hut with hundreds of crocheted animals and oddments. Tiny, free, and exactly the kind of roadside absurdity that makes the high desert fun. Right on Highway 62 in Joshua Tree, next to the Joshua Tree Saloon.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>~10-5 (winter)</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Noah Purifoy and JT town lunch</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="http://www.sharielf.com/museum.html" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=World+Famous+Crochet+Museum+61855+Twentynine+Palms+Hwy+Joshua+Tree" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-cabazon" data-neighborhood="high-desert" data-cuisine="quirky">
+<div class="r-header-row">
+  <span class="r-tier-tag">Quirky</span>
+  <span class="r-list-count" tabindex="0" data-lists="Outdoor giants visible daily · free from the lot · the paid park behind is skippable">Free photo</span>
+</div>
+<h3 class="r-name">Cabazon Dinosaurs</h3>
+<p class="r-tag">Two colossal roadside dinosaurs off the I-10 — the Pee-wee photo op.</p>
+<div class="r-pills">
+  <span class="r-pill">High Desert</span>
+  <span class="r-pill">Quirky</span>
+  <span class="r-pill">Free photo</span>
+  <span class="r-pill r-pill-accent">Roadside Americana</span>
+</div>
+<p class="r-blurb">The giant Apatosaurus and T-Rex loom over the I-10 at Cabazon, instantly recognizable from Pee-wee's Big Adventure. Photograph the big two free from the parking lot; the paid attraction behind them is a creationist-leaning kids' park you can skip. Worth a five-minute pull-off on the drive in or out.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily (outdoor giants)</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free for the photo</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The arrival or departure drive on the I-10</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.cabazondinosaurs.com/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Cabazon+Dinosaurs+50770+Seminole+Dr+Cabazon" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="pairings">
+<div class="chapter-label">Day Ideas &amp; Skips</div>
+<h2 class="chapter-title">Day Ideas, and What to <em>Skip</em>.</h2>
+<p class="chapter-dek">A few ready-made one-area outings, and the things you can skip.</p>
+<div class="chapter-body">
+<p><strong>Thursday (arrival).</strong> VillageFest on Palm Canyon for dinner-by-stall, a quick Forever Marilyn photo, and the Arenas opening night if you have energy.</p><p><strong>Pride Sunday.</strong> The parade at 10am, a long pool afternoon, then back into the Arenas District after dark.</p><p><strong>The architecture morning.</strong> The Las Palmas drive-by (or a Mod Squad tour) + the A+D Center / Art Museum + the Elvis Honeymoon Hideaway, capped with Moorten (not Wednesday).</p><p><strong>The Joshua Tree overnight.</strong> The scenic drive + Keys Ranch + Noah Purifoy + the Crochet Museum + Pioneertown + dinner at Pappy & Harriet's. The Integratron sound bath (Thu-Sun) or Cabot's Pueblo on the way back.</p><p><strong>Skip:</strong> the paid Cabazon Dinosaurs museum (the giants are free from the lot), chasing wristband circuit parties (the free Arenas block party is the move), expecting to get inside the icon houses (private/screened outside Modernism Week), and the $1,300 private Integratron sessions (the ~$63 shared sound bath is the same dome).</p>
+</div>
+</section>
+</main>
+</div>
 <section class="next-up">
 <div class="next-up-inner">
 <div>
-<div class="next-up-label">&mdash; Continue the guide</div>
-<h3>Back to: <em>Where to eat</em></h3>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Back to: <em>Where to Eat</em></h3>
 </div>
 <a href="../eat/" class="next-up-cta">Read the eat section &rarr;</a>
 </div>
 </section>
-
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
@@ -66,12 +673,83 @@ For a Pride-weekend couple's trip, the short version: <em>the parade down Palm C
 <div class="footer-tagline">Issue 04 &mdash; Palm Springs &middot; Part 4, What to do.</div>
 </div>
 <div class="footer-bottom">
-<div>&copy; 2026 Field Guide. Things-to-do section coming soon.</div>
+<div>&copy; 2026 Field Guide. Verify 2026 Pride logistics, Keys Ranch Nov dates, and book Sunnylands on October 15.</div>
 <div>No affiliate links &middot; No paid placements</div>
 </div>
 </div>
 </footer>
-
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([33.95, -116.45], 9);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+    var spots = [
+      {name:'Greater Palm Springs Pride Festival',id:'d-pride-festival',tier:6,lat:33.8225,lng:-116.5453,tag:'Pride · Pride Weekend',lists:0,label:'◆'},
+      {name:'Palm Springs Pride Parade',id:'d-pride-parade',tier:6,lat:33.829,lng:-116.546,tag:'Pride · Pride Weekend',lists:0,label:'◆'},
+      {name:'Arenas District Block Party',id:'d-arenas-party',tier:6,lat:33.819,lng:-116.544,tag:'Pride · Pride Weekend',lists:0,label:'◆'},
+      {name:'Palm Springs Aerial Tramway',id:'d-tramway',tier:4,lat:33.8453,lng:-116.6122,tag:'Attraction · Palm Springs',lists:0,label:'★'},
+      {name:'Tramway Gas Station (Visitor Center)',id:'d-tramway-gas',tier:3,lat:33.8533,lng:-116.546,tag:'Architecture · Palm Springs',lists:0,label:'A'},
+      {name:'Palm Springs Art Museum + A&plus;D Center',id:'d-psam',tier:1,lat:33.8242,lng:-116.547,tag:'Museum · Palm Springs',lists:0,label:'M'},
+      {name:'The Mid-Century Drive-By Circuit',id:'d-modern-circuit',tier:3,lat:33.836,lng:-116.552,tag:'Architecture · Palm Springs',lists:0,label:'A'},
+      {name:'Palm Springs Mod Squad (Architecture Tour)',id:'d-mod-squad',tier:4,lat:33.823,lng:-116.546,tag:'Tour · Palm Springs',lists:0,label:'★'},
+      {name:'Moorten Botanical Garden &amp; Cactarium',id:'d-moorten',tier:4,lat:33.791,lng:-116.544,tag:'Garden · Palm Springs',lists:0,label:'★'},
+      {name:'Palm Springs Air Museum',id:'d-air-museum',tier:1,lat:33.827,lng:-116.506,tag:'Museum · Palm Springs',lists:0,label:'M'},
+      {name:'Forever Marilyn',id:'d-marilyn',tier:4,lat:33.8245,lng:-116.5455,tag:'Landmark · Palm Springs',lists:0,label:'★'},
+      {name:'VillageFest',id:'d-villagefest',tier:4,lat:33.8225,lng:-116.5453,tag:'Attraction · Palm Springs',lists:0,label:'★'},
+      {name:'Elvis Honeymoon Hideaway',id:'d-elvis',tier:2,lat:33.837,lng:-116.556,tag:'Historic · Palm Springs',lists:0,label:'H'},
+      {name:'Sunnylands Center &amp; Gardens',id:'d-sunnylands',tier:2,lat:33.756,lng:-116.418,tag:'Historic · The Valley',lists:0,label:'H'},
+      {name:'Cabot\'s Pueblo Museum',id:'d-cabots',tier:2,lat:33.962,lng:-116.501,tag:'Historic · The Valley',lists:0,label:'H'},
+      {name:'Joshua Tree National Park — The Scenic Drive',id:'d-jtree-drive',tier:4,lat:34.083,lng:-116.306,tag:'Scenic Drive · High Desert',lists:0,label:'★'},
+      {name:'Keys Ranch Guided Tour',id:'d-keys-ranch',tier:2,lat:34.047,lng:-116.166,tag:'Historic · High Desert',lists:0,label:'H'},
+      {name:'Pioneertown',id:'d-pioneertown',tier:2,lat:34.16,lng:-116.494,tag:'Historic · High Desert',lists:0,label:'H'},
+      {name:'Noah Purifoy Outdoor Desert Art Museum',id:'d-noah-purifoy',tier:4,lat:34.148,lng:-116.287,tag:'Attraction · High Desert',lists:0,label:'★'},
+      {name:'The Integratron',id:'d-integratron',tier:6,lat:34.294,lng:-116.403,tag:'Quirky · High Desert',lists:0,label:'◆'},
+      {name:'World Famous Crochet Museum',id:'d-crochet',tier:6,lat:34.133,lng:-116.312,tag:'Quirky · High Desert',lists:0,label:'◆'},
+      {name:'Cabazon Dinosaurs',id:'d-cabazon',tier:6,lat:33.923,lng:-116.777,tag:'Quirky · High Desert',lists:0,label:'◆'}
+    ];
+    spots.forEach(function(r){
+      var icon = L.divIcon({className:'custom-marker',html:'<div class="custom-pin tier'+r.tier+'">'+r.label+'</div>',iconSize:[28,28],iconAnchor:[14,14]});
+      L.marker([r.lat,r.lng],{icon:icon}).addTo(map).bindPopup(
+        '<div class="pop-name">'+r.name+'</div><div class="pop-tag">'+r.tag+'</div>'+
+        (r.id?'<a href="#'+r.id+'" class="pop-link" onclick="return window.fieldGuideJumpTo(\''+r.id+'\')">View entry \u2192</a>':''));
+    });
+    L.marker([33.8225,-116.5453],{icon:L.divIcon({className:'landmark-marker',html:'<div class=\'landmark-pin\'>Palm Springs</div>',iconSize:[90,22],iconAnchor:[45,11]})}).addTo(map);
+    L.marker([34.16,-116.494],{icon:L.divIcon({className:'landmark-marker',html:'<div class=\'landmark-pin\'>Pioneertown</div>',iconSize:[92,22],iconAnchor:[46,11]})}).addTo(map);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMap);else initMap();
+})();
+</script>
+<script>
+(function(){
+  var LABEL_MAP={'pride':'Pride Weekend','palm-springs':'Palm Springs','valley':'The Wider Valley','high-desert':'The High Desert','pride-event':'Pride','architecture':'Architecture','museum':'Museum','historic-site':'Historic','landmark':'Landmark','garden':'Garden','tour':'Tour','attraction':'Attraction','scenic-drive':'Scenic Drive','quirky':'Quirky'};
+  function label(s){return LABEL_MAP[s]||s.split('-').map(function(w){return w.charAt(0).toUpperCase()+w.slice(1);}).join(' ');}
+  var fc=document.getElementById('filters'); if(!fc)return;
+  var cards=Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]')); if(!cards.length)return;
+  var nb={},cu={};
+  cards.forEach(function(c){nb[c.dataset.neighborhood]=(nb[c.dataset.neighborhood]||0)+1;cu[c.dataset.cuisine]=(cu[c.dataset.cuisine]||0)+1;});
+  function buildRow(fk,rl,counts){
+    var row=document.createElement('details'); row.className='filter-row';
+    var sk='fg-filter-'+fk+'-open',st=null; try{st=window.localStorage.getItem(sk);}catch(e){}
+    row.open=(st===null)?true:(st==='true');
+    row.addEventListener('toggle',function(){try{window.localStorage.setItem(sk,row.open?'true':'false');}catch(e){}});
+    var lb=document.createElement('summary'); lb.className='filter-label'; lb.textContent=rl; row.appendChild(lb);
+    var all=document.createElement('button'); all.type='button'; all.className='filter-chip filter-chip-active'; all.setAttribute('data-filter',fk); all.setAttribute('data-value','all'); all.innerHTML='<span>All</span><span class="filter-chip-count">'+cards.length+'</span>'; row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){var b=document.createElement('button'); b.type='button'; b.className='filter-chip'; b.setAttribute('data-filter',fk); b.setAttribute('data-value',v); b.innerHTML='<span>'+label(v)+'</span><span class="filter-chip-count">'+counts[v]+'</span>'; row.appendChild(b);});
+    return row;
+  }
+  fc.innerHTML=''; fc.appendChild(buildRow('neighborhood','Area',nb)); fc.appendChild(buildRow('cuisine','Category',cu));
+  var status=document.createElement('div'); status.className='filter-status'; status.innerHTML='<span class="filter-count" id="filter-count"><strong>'+cards.length+'</strong> of '+cards.length+' stops</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>'; fc.appendChild(status);
+  var state={neighborhood:'all',cuisine:'all'};
+  function apply(){var vis=0; cards.forEach(function(c){var m=(state.neighborhood==='all'||c.dataset.neighborhood===state.neighborhood)&&(state.cuisine==='all'||c.dataset.cuisine===state.cuisine); if(m){c.style.display='';vis++;}else c.style.display='none';});
+    document.querySelectorAll('section.chapter[id^="tier-"]').forEach(function(s){var any=Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature')).some(function(c){return c.style.display!=='none';}); s.classList.toggle('tier-empty',!any);});
+    var ce=document.getElementById('filter-count'); if(ce)ce.innerHTML='<strong>'+vis+'</strong> of '+cards.length+' stops';}
+  function setF(fk,v){if(state[fk]===v&&v!=='all')v='all'; state[fk]=v; fc.querySelectorAll('[data-filter="'+fk+'"]').forEach(function(b){b.classList.toggle('filter-chip-active',b.getAttribute('data-value')===v);}); apply();}
+  fc.addEventListener('click',function(e){var chip=e.target.closest&&e.target.closest('.filter-chip'); if(chip){e.preventDefault();setF(chip.getAttribute('data-filter'),chip.getAttribute('data-value'));return;} var r=e.target.closest&&e.target.closest('#filter-reset'); if(r){e.preventDefault();setF('neighborhood','all');setF('cuisine','all');}});
+  window.fieldGuideJumpTo=function(id){var el=document.getElementById(id); if(!el)return false; if(el.style.display==='none'){setF('neighborhood','all');setF('cuisine','all');} if(window._fgMap&&window._fgMap.closePopup)window._fgMap.closePopup(); setTimeout(function(){var top=el.getBoundingClientRect().top+window.pageYOffset-90; window.scrollTo({top:top,behavior:'smooth'}); el.classList.remove('highlight'); void el.offsetWidth; el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');},1600);},50); return false;};
+  if(window.location.hash&&window.location.hash.indexOf('#d-')===0){setTimeout(function(){window.fieldGuideJumpTo(window.location.hash.slice(1));},200);}
+})();
+</script>
 <script src="../../shared/site.js" defer></script>
 </body>
 </html>

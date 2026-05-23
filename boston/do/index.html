@@ -3,29 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What to Do in Boston — Field Guide</title>
-<meta name="description" content="Boston activities, museums, walks, and itineraries. Coming soon.">
+<title>What to Do in Boston &mdash; Field Guide</title>
+<meta name="description" content="Twenty-four things to do in Boston, by area — museums, Revolutionary history, and architecture. Researched against official sources.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 <body data-city="boston">
-
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
 <div class="city-switcher" data-open="false">
 <button class="city-switcher-trigger" type="button" aria-haspopup="true">
-  <span>Issue 01 · <span class="city-switcher-current">Boston</span></span>
-  <span class="city-switcher-arrow">▾</span>
+  <span>Issue 01 &middot; <span class="city-switcher-current">Boston</span></span>
+  <span class="city-switcher-arrow">&#9662;</span>
 </button>
 <div class="city-switcher-menu" role="menu">
 <a href="../../" class="city-switcher-item">All Issues<span class="city-switcher-item-meta">Series landing page</span></a>
 <div class="city-switcher-divider"></div>
-<a href="../../boston/" class="city-switcher-item current">Boston<span class="city-switcher-item-meta">Issue 01 · Massachusetts</span></a>
-<a href="../../toronto/" class="city-switcher-item">Toronto<span class="city-switcher-item-meta">Issue 02 · Ontario</span></a>
-<a href="../../pittsburgh/" class="city-switcher-item">Pittsburgh<span class="city-switcher-item-meta">Issue 03 · Pennsylvania</span></a>
-<a href="../../palm-springs/" class="city-switcher-item">Palm Springs<span class="city-switcher-item-meta">Issue 04 · California</span></a>
+<a href="../../boston/" class="city-switcher-item current">Boston<span class="city-switcher-item-meta">Issue 01 &middot; Massachusetts</span></a>
+<a href="../../toronto/" class="city-switcher-item">Toronto<span class="city-switcher-item-meta">Issue 02 &middot; Ontario</span></a>
+<a href="../../pittsburgh/" class="city-switcher-item">Pittsburgh<span class="city-switcher-item-meta">Issue 03 &middot; Pennsylvania</span></a>
+<a href="../../palm-springs/" class="city-switcher-item">Palm Springs<span class="city-switcher-item-meta">Issue 04 &middot; California</span></a>
 </div>
 </div>
 </div>
@@ -38,40 +39,804 @@
 <a href="../do/" class="current">Do</a>
 </div>
 </div>
-
-<section class="hero" style="grid-template-columns:1fr;padding-bottom:6rem">
+<section class="hero">
 <div class="hero-kicker"><span class="hero-pill">Part 4</span> What to do</div>
-<h1 class="hero-title">Days, <em>not checklists</em>.</h1>
-<p class="hero-dek">Coming soon. The Freedom Trail without the kitsch, the museums worth the line, neighborhoods worth walking. Organized as day ideas — a morning, an afternoon, a fallback — rather than a ranked list of attractions.</p>
-<div class="pullquote">
-The non-negotiables, until this is built: <em>walk the North End</em>, see <em>one museum</em> (Gardner if you have to pick one), do <em>the Freedom Trail</em> from the Common as far as Paul Revere's house, take an afternoon for <em>the Harborwalk</em> from the ICA. Everything else is bonus.
-</div>
-<p class="chapter-body" style="margin-top:2rem">A few specifics worth searching: the <strong>Isabella Stewart Gardner</strong> on a Thursday evening for the music, <strong>Mapparium</strong> in the Christian Science Center (a 30-foot stained glass globe you walk inside), the <strong>Black Heritage Trail</strong> for the version of Boston history the Freedom Trail skips, and the <strong>Charles River Esplanade</strong> for a walk that doesn't feel like sightseeing.</p>
+<h1 class="hero-title">What to Do in Boston, by <em>Area and Era</em>.</h1>
+<p class="hero-dek">A mapped, area-organized guide to twenty-four things to do — leaning history, museums, and architecture, grouped so you can pair a couple of stops in one outing. Light on the outdoors, heavy on the walkable.</p>
+<p class="hero-byline">Sources: <strong>the museums &amp; sites themselves</strong> · <strong>NPS Boston</strong> · <strong>Revolutionary Spaces</strong> · <strong>Meet Boston</strong> &mdash; hours and ticketing verified, but confirm seasonally.</p>
 </section>
-
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">How to Use This</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#tier-fenway"><strong>Fenway / Museum District</strong> &middot; 4</a></li>
+<li><a href="#tier-back-bay"><strong>Back Bay / Copley</strong> &middot; 3</a></li>
+<li><a href="#tier-beacon-hill"><strong>Beacon Hill</strong> &middot; 2</a></li>
+<li><a href="#tier-downtown"><strong>Downtown / Freedom Trail</strong> &middot; 4</a></li>
+<li><a href="#tier-north-end"><strong>North End</strong> &middot; 3</a></li>
+<li><a href="#tier-charlestown"><strong>Charlestown</strong> &middot; 2</a></li>
+<li><a href="#tier-cambridge"><strong>Cambridge (Harvard & MIT)</strong> &middot; 4</a></li>
+<li><a href="#tier-seaport"><strong>Seaport & Columbia Point</strong> &middot; 2</a></li>
+<li><a href="#pairings">Day Ideas &amp; Skips</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">How to Use This</div>
+<h2 class="chapter-title">Pick the <em>Area</em>, Then the Day.</h2>
+<p class="chapter-dek">Boston is small enough that the smart move is to do a couple of nearby things in one outing rather than zig-zag the city. This section is organized by area for exactly that — and skews to history, museums, and architecture over the outdoors.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">24</div><div class="stat-label">things to do across 8 areas</div></div>
+<div class="stat"><div class="stat-num">9</div><div class="stat-label">free — incl. the BPL and Harvard Art Museums</div></div>
+<div class="stat"><div class="stat-num">3</div><div class="stat-label">Revolutionary clusters you can self-guide</div></div>
+<div class="stat"><div class="stat-num">2</div><div class="stat-label">I.M. Pei / Gehry architecture stops</div></div>
+</div>
+<div class="chapter-body">
+<p>The Freedom Trail is a painted line in the sidewalk designed to be walked solo &mdash; so this guide skips the paid costumed-guide tours and groups the Revolutionary sites by where they actually sit, so you can self-direct. Several of the best stops are free (the Boston Public Library, Faneuil Hall, the State House, and, newly, the Harvard Art Museums).</p><p>The museum heavyweights cluster too: the MFA and the Gardner share a Fenway block, the two Harvard museums share a Cambridge corner, and the modern-architecture pair (ICA, JFK Library) bookend the waterfront. Pick an area per outing and you'll never feel rushed.</p>
+</div>
+<div class="pullquote">The shape of it: <em>one Fenway museum day, one self-guided Revolution walk, one Harvard Square morning</em> &mdash; with Back Bay and Beacon Hill as the architecture in between. Skip the Duck Tours and the Cheers bar.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>The Fenway museum afternoon is the marquee.</h3><p>The MFA and the Isabella Stewart Gardner are directly across Evans Way. Do the MFA first (ration it to two wings), lunch, then the Gardner (smaller, you can finish it). Add the Mapparium on the walk back toward Back Bay.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>Self-guide the Revolution, Beacon Hill to the North End.</h3><p>State House &rarr; Granary Burying Ground &rarr; Old State House &rarr; Faneuil Hall &rarr; across the Greenway to the Paul Revere House &rarr; Old North Church, ending with a North End cannoli. A half-to-full day on foot, no tour required.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>Copley is an architecture hour, free.</h3><p>The Boston Public Library (Bates Hall + the Sargent murals) and Trinity Church (H.H. Richardson) face each other across the square, with the mirror-glass Hancock Tower reflecting both. Cap it with the Newbury Street / Comm Ave Mall walk.</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>Cambridge is a Red Line morning.</h3><p>Harvard Art Museums (now free) and the Harvard Museum of Natural History (the Glass Flowers) are a 5-minute walk apart, with a Harvard Yard loop between. Kendall's MIT Museum + Gehry's Stata Center are a separate, more modern outing.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Twenty-four stops, <em>eight</em> clusters.</h2>
+<p class="chapter-dek">Pinned and color-coded by category. Click any marker for details.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Museum / Gallery</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Historic Site</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Architecture</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Landmark / Attraction</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier5"></span><span><strong>Walk / District</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier6"></span><span><strong>Quirky / Pride</strong></span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Orientation</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="tier-fenway">
+<div class="tier-intro">
+<div class="tier-pill">Fenway / Museum District</div>
+<h2 class="tier-name">Fenway / Museum District &middot; <em>4 stops</em>.</h2>
+<p class="tier-dek">The best museum cluster in the city: the MFA and the Gardner are directly across the street from each other, the Mapparium a short walk toward Back Bay, and Fenway Park around the corner. A full day on its own.</p>
+</div>
+<article class="restaurant-feature" id="d-mfa" data-neighborhood="fenway" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Closed Tue · ~10-5 (Wed/Thu later) · $5 third Thursdays 5-10pm · timed tickets">$30</span>
+</div>
+<h3 class="r-name">Museum of Fine Arts</h3>
+<p class="r-tag">New England's encyclopedic museum — the kind you ration rather than finish.</p>
+<div class="r-pills">
+  <span class="r-pill">Fenway</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$30</span>
+  <span class="r-pill r-pill-accent">Sargent · Copley</span>
+</div>
+<p class="r-blurb">Half a million objects and the strongest Sargent and Copley holdings anywhere. Pick two wings and a courtyard coffee; the Art of the Americas wing is the priority if you only have two hours.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Closed Tue · ~10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$30 · $5 third Thursdays 5-10pm</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Gardner, across Evans Way</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.mfa.org/visit" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Museum+of+Fine+Arts+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-gardner" data-neighborhood="fenway" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Closed Tue · timed tickets · free first Thursday 3-9pm · anyone named Isabella free">$22</span>
+</div>
+<h3 class="r-name">Isabella Stewart Gardner Museum</h3>
+<p class="r-tag">A Venetian palazzo built around a flowering courtyard — with the empty frames from the unsolved 1990 heist still hanging.</p>
+<div class="r-pills">
+  <span class="r-pill">Fenway</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$22</span>
+  <span class="r-pill r-pill-accent">The Heist Frames</span>
+</div>
+<p class="r-blurb">Gardner's will froze the collection exactly as she arranged it, so it reads as one woman's vision. The glass-roofed courtyard is the heart; upstairs, the bare frames of the stolen Vermeer and Rembrandts are left as a deliberate absence.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Closed Tue · timed entry</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$22 · free first Thu 3-9pm</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The MFA, directly across the street</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.gardnermuseum.org/visit" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Isabella+Stewart+Gardner+Museum+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-mapparium" data-neighborhood="fenway" data-cuisine="landmark">
+<div class="r-header-row">
+  <span class="r-tier-tag">Landmark</span>
+  <span class="r-list-count" tabindex="0" data-lists="Mon-Sat 10-5, Sun 11-5 · last tour 4:40 · timed ticket for the globe">$6</span>
+</div>
+<h3 class="r-name">The Mapparium</h3>
+<p class="r-tag">A three-story stained-glass globe you walk through on a glass bridge — the world as mapped in 1935.</p>
+<div class="r-pills">
+  <span class="r-pill">Fenway</span>
+  <span class="r-pill">Landmark</span>
+  <span class="r-pill">$6</span>
+  <span class="r-pill r-pill-accent">Walk Inside a Globe</span>
+</div>
+<p class="r-blurb">Six hundred glass panels form a 30-foot inverted globe crossed by a glass footbridge, with the 1935 borders (Siam, French Indochina) all around you. The acoustics are the surprise: a perfect whisper-gallery sphere. Quick, quirky, unlike anything else in the city.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Mon-Sat 10-5 · Sun 11-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$6 · surrounding exhibits free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The walk into Back Bay / the BPL</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.marybakereddylibrary.org/visit/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Mary+Baker+Eddy+Library+Mapparium+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-fenway-park" data-neighborhood="fenway" data-cuisine="tour">
+<div class="r-header-row">
+  <span class="r-tier-tag">Tour</span>
+  <span class="r-list-count" tabindex="0" data-lists="Year-round, hourly · reduced on game days · book ahead in season">$25</span>
+</div>
+<h3 class="r-name">Fenway Park Tour</h3>
+<p class="r-tag">America's oldest active ballpark (1912) — the Green Monster, the lone red seat, the Living Museum.</p>
+<div class="r-pills">
+  <span class="r-pill">Fenway</span>
+  <span class="r-pill">Tour</span>
+  <span class="r-pill">$25</span>
+  <span class="r-pill r-pill-accent">1912 · Green Monster</span>
+</div>
+<p class="r-blurb">Even for non-sports couples the hour-long tour reads as living history: the hand-operated Monster scoreboard, the red seat marking the longest homer, and 170,000 artifacts. Book ahead — game days sell out and the last tour leaves hours before first pitch.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Hourly, year-round</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$25 · book online</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Fenway museum day</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.mlb.com/redsox/ballpark/tours" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Fenway+Park+4+Jersey+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-back-bay">
+<div class="tier-intro">
+<div class="tier-pill">Back Bay / Copley</div>
+<h2 class="tier-name">Back Bay / Copley &middot; <em>3 stops</em>.</h2>
+<p class="tier-dek">Architecture-rich and entirely walkable. Trinity Church and the Boston Public Library face each other across Copley Square; Newbury Street and the Commonwealth Avenue Mall are a block north. An easy half-day.</p>
+</div>
+<article class="restaurant-feature" id="d-bpl" data-neighborhood="back-bay" data-cuisine="architecture">
+<div class="r-header-row">
+  <span class="r-tier-tag">Architecture</span>
+  <span class="r-list-count" tabindex="0" data-lists="Mon-Thu 9-8, Fri-Sat 9-5, Sun 11-5 · free art-and-architecture tours daily">Free</span>
+</div>
+<h3 class="r-name">Boston Public Library — McKim Building</h3>
+<p class="r-tag">A free Renaissance-palace library with a 218-foot barrel-vaulted reading room and a Sargent mural cycle most tourists walk past.</p>
+<div class="r-pills">
+  <span class="r-pill">Copley</span>
+  <span class="r-pill">Architecture</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Free · Sargent Murals</span>
+</div>
+<p class="r-blurb">McKim's 1895 'palace for the people' is one of America's great public interiors, and entirely free. Bates Hall is the photograph everyone takes; upstairs, Sargent's unfinished Triumph of Religion murals get a fraction of the attention they deserve.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Mon-Thu 9-8 · Fri-Sat 9-5 · Sun 11-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free · free daily tours</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Trinity Church, across Copley Square</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.bpl.org/central-library-points-of-interest/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Boston+Public+Library+700+Boylston+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-trinity" data-neighborhood="back-bay" data-cuisine="architecture">
+<div class="r-header-row">
+  <span class="r-tier-tag">Architecture</span>
+  <span class="r-list-count" tabindex="0" data-lists="Tue-Sat 10-4:30, Sun 8-6 · flexes around services — confirm before going">$10</span>
+</div>
+<h3 class="r-name">Trinity Church Boston</h3>
+<p class="r-tag">The 1877 church that gave the country a whole architectural style — Richardsonian Romanesque.</p>
+<div class="r-pills">
+  <span class="r-pill">Copley</span>
+  <span class="r-pill">Architecture</span>
+  <span class="r-pill">$10</span>
+  <span class="r-pill r-pill-accent">H.H. Richardson</span>
+</div>
+<p class="r-blurb">H.H. Richardson's masterpiece, regularly ranked among the finest buildings in America, with a polychrome interior by John La Farge that's the reason to go inside. The mirror-glass Hancock Tower behind it reflects the church — an accidental architectural conversation.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Sat 10-4:30 · Sun 8-6 (confirm)</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$10 · under 14 free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The BPL, across the square</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://trinitychurchboston.org/tours/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Trinity+Church+206+Clarendon+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-newbury" data-neighborhood="back-bay" data-cuisine="neighborhood-walk">
+<div class="r-header-row">
+  <span class="r-tier-tag">Walk</span>
+  <span class="r-list-count" tabindex="0" data-lists="Anytime · daylight best for the architecture">Free</span>
+</div>
+<h3 class="r-name">Newbury St & Commonwealth Ave Mall</h3>
+<p class="r-tag">The most coherent Victorian streetscape in America — eight blocks of brownstone built on filled tidal flats in one generation.</p>
+<div class="r-pills">
+  <span class="r-pill">Back Bay</span>
+  <span class="r-pill">Walk</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Victorian Brownstones</span>
+</div>
+<p class="r-blurb">Back Bay was filled in from the 1850s, which is why it's a perfect grid of uniform brownstone. Newbury Street is the shopping spine; one block north, the Commonwealth Avenue Mall is a Parisian tree-lined promenade — the loveliest urban walk in the city.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Anytime</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Caps the Copley cluster; ends near the Public Garden</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.meetboston.com/things-to-do/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Newbury+Street+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-beacon-hill">
+<div class="tier-intro">
+<div class="tier-pill">Beacon Hill</div>
+<h2 class="tier-name">Beacon Hill &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">The most photogenic walk in Boston, between the Common and Charles Street. Pairs with the State House at its eastern edge and the Athenaeum just downhill.</p>
+</div>
+<article class="restaurant-feature" id="d-beacon-hill" data-neighborhood="beacon-hill" data-cuisine="neighborhood-walk">
+<div class="r-header-row">
+  <span class="r-tier-tag">Walk</span>
+  <span class="r-list-count" tabindex="0" data-lists="Anytime · morning light best for Acorn Street and thinnest crowds">Free</span>
+</div>
+<h3 class="r-name">Beacon Hill Walk</h3>
+<p class="r-tag">Cobblestones, gas lamps, and the most-photographed lane in America — a 19th-century neighborhood that never modernized.</p>
+<div class="r-pills">
+  <span class="r-pill">Beacon Hill</span>
+  <span class="r-pill">Walk</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Acorn Street</span>
+</div>
+<p class="r-blurb">Acorn Street is the postcard, but the whole hill rewards wandering: Louisburg Square (where Alcott lived), the purple windowpanes of a flawed 1820s glass batch turned status symbol, and Charles Street at the base for antiques and coffee. Wear flat shoes.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Anytime · morning best</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The State House (top) and the Athenaeum (below)</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.meetboston.com/things-to-do/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Acorn+Street+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-athenaeum" data-neighborhood="beacon-hill" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Mon-Thu 9-8, Fri-Sat 9-5, closed Sun · $40 day membership">$40 day</span>
+</div>
+<h3 class="r-name">Boston Athen&aelig;um</h3>
+<p class="r-tag">One of America's oldest independent libraries — usually members-only, but a day pass buys you the reading rooms.</p>
+<div class="r-pills">
+  <span class="r-pill">Beacon Hill</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$40 day</span>
+  <span class="r-pill r-pill-accent">1807 Members Library</span>
+</div>
+<p class="r-blurb">Founded 1807, a five-floor temple of books, busts, and art beside the Granary Burying Ground. The fifth-floor reading room with the long arched windows is the quiet showpiece — a civilized way to spend a rainy afternoon.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Mon-Thu 9-8 · Fri-Sat 9-5 · closed Sun</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$40 day membership</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Granary Burying Ground (next door)</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://bostonathenaeum.org/visit/day-passes/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Boston+Athenaeum+10+Beacon+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-downtown">
+<div class="tier-intro">
+<div class="tier-pill">Downtown / Freedom Trail</div>
+<h2 class="tier-name">Downtown / Freedom Trail &middot; <em>4 stops</em>.</h2>
+<p class="tier-dek">The dense Revolutionary cluster — these sites are within a 15-minute walk of one another and string together as a self-guided morning. No paid tour required.</p>
+</div>
+<article class="restaurant-feature" id="d-state-house" data-neighborhood="downtown" data-cuisine="architecture">
+<div class="r-header-row">
+  <span class="r-tier-tag">Architecture</span>
+  <span class="r-list-count" tabindex="0" data-lists="Weekdays ~9-5 · free 45-min docent tours 10-3:30 · photo ID">Free</span>
+</div>
+<h3 class="r-name">Massachusetts State House</h3>
+<p class="r-tag">Charles Bulfinch's 1798 capitol with the gold-leafed dome — and a free docent tour inside.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Architecture</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Free · Bulfinch Dome</span>
+</div>
+<p class="r-blurb">Bulfinch's red-brick capitol topped by a dome originally sheathed in copper by Paul Revere. The free tour gets you into Doric Hall and the Senate chamber; even from outside, the facade and the Shaw/54th Regiment Memorial earn the stop.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Weekdays ~9-5 · free tours 10-3:30</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Beacon Hill and the Granary, downhill</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://malegislature.gov/StateHouse/Tour" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Massachusetts+State+House+24+Beacon+St" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-granary" data-neighborhood="downtown" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily ~9-4 (seasonal) · free">Free</span>
+</div>
+<h3 class="r-name">Granary Burying Ground</h3>
+<p class="r-tag">The most consequential graveyard in America — Revere, Hancock, Sam Adams, and the Boston Massacre victims, on one block.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Revere · Hancock · Adams</span>
+</div>
+<p class="r-blurb">Established 1660: three signers of the Declaration, Paul Revere, and the five killed in the Massacre. Most slate stones were rearranged into tidy rows over the centuries, so the markers don't always sit over the graves — a small detail about how the city curated its memory.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily ~9-4</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>State House (uphill), Old State House (downhill)</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.boston.gov/cemeteries/granary-burying-ground" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Granary+Burying+Ground+Tremont+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-old-state-house" data-neighborhood="downtown" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 10-5 · joint ticket with Old South Meeting House">$15</span>
+</div>
+<h3 class="r-name">Old State House</h3>
+<p class="r-tag">The 1713 brick landmark marooned among skyscrapers, with the Boston Massacre marked in the cobbles below its balcony.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$15</span>
+  <span class="r-pill r-pill-accent">Boston Massacre Site</span>
+</div>
+<p class="r-blurb">Boston's oldest surviving public building, where the Declaration was first read to the city — above the cobblestone circle marking the Massacre. Run by Revolutionary Spaces; a single joint ticket also covers Old South.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$15 joint with Old South</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Faneuil Hall (next door)</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://revolutionaryspaces.org/visit/museum-admission/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Old+State+House+206+Washington+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-faneuil" data-neighborhood="downtown" data-cuisine="landmark">
+<div class="r-header-row">
+  <span class="r-tier-tag">Landmark</span>
+  <span class="r-list-count" tabindex="0" data-lists="Great Hall ~9-5 daily (NPS-staffed, can close for events)">Free</span>
+</div>
+<h3 class="r-name">Faneuil Hall</h3>
+<p class="r-tag">The 1742 market-and-meeting hall where the Revolution was argued — free to enter.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Landmark</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Free · Cradle of Liberty</span>
+</div>
+<p class="r-blurb">The 'Cradle of Liberty': the second-floor Great Hall hosted the town meetings where Otis and Adams made the case against the Crown. Step inside for the hall and the Healy painting; treat the surrounding Quincy Market as scenery, not a meal.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Great Hall ~9-5 daily</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Old State House; gateway to the North End</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.nps.gov/bost/learn/historyculture/fh.htm" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Faneuil+Hall+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-north-end">
+<div class="tier-intro">
+<div class="tier-pill">North End</div>
+<h2 class="tier-name">North End &middot; <em>3 stops</em>.</h2>
+<p class="tier-dek">Boston's oldest neighborhood and the Freedom Trail's most charming stretch: two Revolutionary sites plus Italian-Boston street life, all on foot from Faneuil Hall.</p>
+</div>
+<article class="restaurant-feature" id="d-revere-house" data-neighborhood="north-end" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Tue-Sun 10-4:15 · closed Mon · self-guided">$6</span>
+</div>
+<h3 class="r-name">Paul Revere House</h3>
+<p class="r-tag">The c.1680 home of Paul Revere — the oldest building in downtown Boston.</p>
+<div class="r-pills">
+  <span class="r-pill">North End</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$6</span>
+  <span class="r-pill r-pill-accent">Oldest House Downtown</span>
+</div>
+<p class="r-blurb">A genuine 17th-century wooden house in a quiet North End courtyard, furnished to evoke the Revere family. Small and self-guided — 20 minutes, not an hour — but it's the real thing, with the 900-pound Revere bell in the courtyard.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Sun 10-4:15</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$6 · on the Boston 250 Pass</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Old North Church, 4 min away</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.paulreverehouse.org/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Paul+Revere+House+19+North+Square+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-old-north" data-neighborhood="north-end" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Tue-Sat 10-5, Sun 12:30-5 · bends around services">$5</span>
+</div>
+<h3 class="r-name">Old North Church</h3>
+<p class="r-tag">'One if by land, two if by sea' — the 1723 steeple where the lanterns hung, and Boston's oldest church.</p>
+<div class="r-pills">
+  <span class="r-pill">North End</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$5</span>
+  <span class="r-pill r-pill-accent">One if by Land</span>
+</div>
+<p class="r-blurb">The signal-lantern church of the Longfellow poem, with a beautiful Georgian interior of white box pews. The Discovery Pass adds the crypt and an immersive exhibit; the surrounding Old North campus makes it a longer stop than you'd expect.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Sat 10-5 · Sun 12:30-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$5 · $10 Discovery Pass</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Paul Revere House; the North End food crawl</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://oldnorth.com/visit/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Old+North+Church+193+Salem+St+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-north-end" data-neighborhood="north-end" data-cuisine="neighborhood-walk">
+<div class="r-header-row">
+  <span class="r-tier-tag">Walk</span>
+  <span class="r-list-count" tabindex="0" data-lists="Anytime · liveliest late afternoon/evening">Free</span>
+</div>
+<h3 class="r-name">North End Walk</h3>
+<p class="r-tag">Narrow colonial streets, espresso bars, and the city's densest history-and-pastry per square foot.</p>
+<div class="r-pills">
+  <span class="r-pill">North End</span>
+  <span class="r-pill">Walk</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Italian Boston</span>
+</div>
+<p class="r-blurb">Beyond the marquee sites, the North End rewards a slow wander: Hanover Street's cafes, St. Stephen's (the only surviving Bulfinch church), and the Paul Revere Mall framing Old North's steeple. End with a cannoli and don't overthink the bakery.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Anytime</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The two North End historic sites; dinner here</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.meetboston.com/things-to-do/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Hanover+Street+North+End+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-charlestown">
+<div class="tier-intro">
+<div class="tier-pill">Charlestown</div>
+<h2 class="tier-name">Charlestown &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">Across the harbor, the end of the Trail. The Navy Yard and Bunker Hill are a 15-minute walk apart; take the Long Wharf ferry over for the harbor view.</p>
+</div>
+<article class="restaurant-feature" id="d-constitution" data-neighborhood="charlestown" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Ship Wed-Sun (active-duty staffed, photo ID) · museum daily, donation">Free</span>
+</div>
+<h3 class="r-name">USS Constitution & Museum</h3>
+<p class="r-tag">The world's oldest commissioned warship still afloat — and you can walk her decks, free.</p>
+<div class="r-pills">
+  <span class="r-pill">Charlestown</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Old Ironsides</span>
+</div>
+<p class="r-blurb">'Old Ironsides,' launched 1797, undefeated, still crewed by active-duty sailors who give the tours. Boarding is free (bring photo ID); the adjacent museum is donation-based and tells the fuller story. Together, the best hour in Charlestown.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Ship Wed-Sun · museum daily</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free / donation</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Bunker Hill, 15-min walk uphill</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://ussconstitutionmuseum.org/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=USS+Constitution+Charlestown+Navy+Yard+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-bunker-hill" data-neighborhood="charlestown" data-cuisine="landmark">
+<div class="r-header-row">
+  <span class="r-tier-tag">Landmark</span>
+  <span class="r-list-count" tabindex="0" data-lists="Generally Wed-Sun, seasonal · free timed climb pass from the Lodge (cap 25)">Free</span>
+</div>
+<h3 class="r-name">Bunker Hill Monument</h3>
+<p class="r-tag">A 221-foot granite obelisk over the first major battle of the Revolution — climb 294 steps for the view.</p>
+<div class="r-pills">
+  <span class="r-pill">Charlestown</span>
+  <span class="r-pill">Landmark</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">294 Steps</span>
+</div>
+<p class="r-blurb">The 1843 obelisk marks the June 1775 battle (actually on Breed's Hill). The climb is 294 steps with no elevator; the payoff is a harbor panorama. Free timed climb passes come from the Lodge at the base. Skippable if stairs aren't your thing.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Wed-Sun, seasonal</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free · timed climb pass</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>USS Constitution, downhill in the Navy Yard</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.nps.gov/bost/learn/historyculture/bhm.htm" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Bunker+Hill+Monument+Charlestown+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-cambridge">
+<div class="tier-intro">
+<div class="tier-pill">Cambridge (Harvard & MIT)</div>
+<h2 class="tier-name">Cambridge (Harvard & MIT) &middot; <em>4 stops</em>.</h2>
+<p class="tier-dek">A Red Line ride across the river. Harvard Square's museums plus the Yard are one outing; the MIT Museum and Gehry's Stata Center in Kendall are a separate, more modern one.</p>
+</div>
+<article class="restaurant-feature" id="d-harvard-art" data-neighborhood="cambridge" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Tue-Sun 10-5, closed Mon · now free to all, every day">Free</span>
+</div>
+<h3 class="r-name">Harvard Art Museums</h3>
+<p class="r-tag">Three museums under one Renzo Piano glass roof — and, as of recently, free to everyone, every day.</p>
+<div class="r-pills">
+  <span class="r-pill">Cambridge</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Free · Renzo Piano</span>
+</div>
+<p class="r-blurb">The Fogg, Busch-Reisinger, and Sackler collections unified under Piano's luminous 2014 glass-roofed atrium — the building is the first thing worth seeing. Strong Bauhaus and German Expressionism; admission is now free to all.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Sun 10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free (recent change)</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Harvard Museum of Natural History, 5 min</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://harvardartmuseums.org/visit" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Harvard+Art+Museums+32+Quincy+St+Cambridge" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-harvard-nat" data-neighborhood="cambridge" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 9-5 · free to MA residents Sun 9-noon and Wed 3-5">$15</span>
+</div>
+<h3 class="r-name">Harvard Museum of Natural History</h3>
+<p class="r-tag">Home of the Glass Flowers — 4,000+ botanical models in glass so precise they fooled botanists for a century.</p>
+<div class="r-pills">
+  <span class="r-pill">Cambridge</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$15</span>
+  <span class="r-pill r-pill-accent">The Glass Flowers</span>
+</div>
+<p class="r-blurb">The Blaschka Glass Flowers, hand-blown by a father-and-son team over 50 years and recently reinstalled, are one of the strangest beloved things in any American museum. The zoological halls and minerals round out a classic cabinet of wonders.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 9-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$15 · free hours for MA residents</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Harvard Art Museums and the Yard</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.hmnh.harvard.edu/plan-your-visit" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Harvard+Museum+of+Natural+History+Cambridge" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-harvard-yard" data-neighborhood="cambridge" data-cuisine="neighborhood-walk">
+<div class="r-header-row">
+  <span class="r-tier-tag">Walk</span>
+  <span class="r-list-count" tabindex="0" data-lists="Anytime · student-led tours from the Smith Campus Center">Free</span>
+</div>
+<h3 class="r-name">Harvard Yard</h3>
+<p class="r-tag">The oldest college quad in America — the John Harvard 'statue of three lies,' the Georgian halls, Widener's columns.</p>
+<div class="r-pills">
+  <span class="r-pill">Cambridge</span>
+  <span class="r-pill">Walk</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Free · The Statue</span>
+</div>
+<p class="r-blurb">A free walk through 380+ years of campus architecture: Massachusetts Hall (1720), columned Widener Library, Memorial Church. The John Harvard statue is the 'Statue of Three Lies' — wrong man, wrong date, not the founder.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Anytime</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Both Harvard museums; Harvard Square cafes</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.harvard.edu/visit/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Harvard+Yard+Cambridge" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-mit" data-neighborhood="cambridge" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="MIT Museum daily 10-5 · Stata Center exterior anytime (free)">$18</span>
+</div>
+<h3 class="r-name">MIT Museum & the Stata Center</h3>
+<p class="r-tag">MIT's reinvented museum in Kendall Square, minutes from Frank Gehry's gloriously chaotic Stata Center.</p>
+<div class="r-pills">
+  <span class="r-pill">Cambridge</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$18</span>
+  <span class="r-pill r-pill-accent">Gehry · Kendall</span>
+</div>
+<p class="r-blurb">The MIT Museum's new Kendall building leans into AI, robotics, and holography — a modern counterpoint to the Harvard cabinets. Five minutes away, Gehry's Stata Center is a tilting, crumpling assemblage worth walking around even from outside.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Museum daily 10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$18 · Stata exterior free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Each other; steps from Kendall/MIT</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://mitmuseum.mit.edu/visit/hours-admission-directions" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=MIT+Museum+314+Main+St+Cambridge" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-seaport">
+<div class="tier-intro">
+<div class="tier-pill">Seaport & Columbia Point</div>
+<h2 class="tier-name">Seaport & Columbia Point &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">The modern-architecture corner. The ICA's cantilevered glass box anchors the Seaport; the JFK Library's I.M. Pei tower is a short ride south — both about the building as much as the contents.</p>
+</div>
+<article class="restaurant-feature" id="d-ica" data-neighborhood="seaport" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Tue-Sun (Thu-Fri to 9) · closed Mon · free Thursdays 5-9pm">$20</span>
+</div>
+<h3 class="r-name">Institute of Contemporary Art</h3>
+<p class="r-tag">A cantilevered glass box hanging over Boston Harbor — the city's contemporary-art counterweight to the MFA.</p>
+<div class="r-pills">
+  <span class="r-pill">Seaport</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$20</span>
+  <span class="r-pill r-pill-accent">Free Thursday Nights</span>
+</div>
+<p class="r-blurb">Diller Scofidio + Renfro's 2006 building cantilevers a glass gallery over the water, with a glass-floored Mediatheque framing nothing but the harbor below. The collection is rotating contemporary; the building and setting earn the stop. Free Thursday evenings.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Sun · closed Mon</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$20 · free Thu 5-9 · under 18 free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A Seaport stroll; the Eat/Drink Seaport picks</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.icaboston.org/visit/" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Institute+of+Contemporary+Art+25+Harbor+Shore+Dr+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-jfk" data-neighborhood="seaport" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 10-5 · Red Line to JFK/UMass + free shuttle · plan a half-day">$20</span>
+</div>
+<h3 class="r-name">JFK Presidential Library & Museum</h3>
+<p class="r-tag">I.M. Pei's stark white tower on a windswept harbor point — the Kennedy story inside a piece of architecture.</p>
+<div class="r-pills">
+  <span class="r-pill">Columbia Point</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$20</span>
+  <span class="r-pill r-pill-accent">I.M. Pei</span>
+</div>
+<p class="r-blurb">Pei's 1979 building is the reason architecture people make the trip: a sharp white tower culminating in a vast glass pavilion with the harbor and a single flag. The exhibits walk 1960, the Cuban Missile Crisis, and the space race. Plan it as its own half-day.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$20 · timed reservations encouraged</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Its own outing; or a Seaport/ICA architecture theme</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.jfklibrary.org/visit-museum/visit/plan-your-trip/hours-and-admission" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=JFK+Presidential+Library+Columbia+Point+Boston" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="pairings">
+<div class="chapter-label">Day Ideas &amp; Skips</div>
+<h2 class="chapter-title">Day Ideas, and What to <em>Skip</em>.</h2>
+<p class="chapter-dek">A few ready-made one-area outings, and the things you can skip.</p>
+<div class="chapter-body">
+<p><strong>The Fenway museum day.</strong> MFA + Isabella Stewart Gardner (across the street) + the Mapparium on the way back toward Back Bay.</p><p><strong>The self-guided Revolution.</strong> Beacon Hill &rarr; State House &rarr; Granary &rarr; Old State House &rarr; Faneuil Hall &rarr; Paul Revere House &rarr; Old North &rarr; a North End cannoli.</p><p><strong>The Copley architecture hour.</strong> Boston Public Library + Trinity Church + a Newbury Street / Comm Ave Mall walk.</p><p><strong>The Harvard Square morning.</strong> Harvard Art Museums + Harvard Museum of Natural History + a Harvard Yard loop.</p><p><strong>Skip:</strong> the paid Freedom Trail walking tour (self-guide it &mdash; it's a line in the sidewalk), the Cheers bar (it's the exterior; the inside looks nothing like the show), the Quincy Market food court (look, don't eat &mdash; the North End is better), and the Duck Tours (fun but corny; you'd rather linger).</p>
+</div>
+</section>
+</main>
+</div>
 <section class="next-up">
 <div class="next-up-inner">
 <div>
-<div class="next-up-label">— Continue the guide</div>
-<h3>Back to: <em>Where to eat</em></h3>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Back to: <em>Where to Eat</em></h3>
 </div>
-<a href="../eat/" class="next-up-cta">Read the eat section →</a>
+<a href="../eat/" class="next-up-cta">Read the eat section &rarr;</a>
 </div>
 </section>
-
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
 <div class="footer-brand"><a href="../../">Field <em>Guide</em></a></div>
-<div class="footer-tagline">Issue 01 — Boston · Part 4, What to do.</div>
+<div class="footer-tagline">Issue 01 &mdash; Boston &middot; Part 4, What to do.</div>
 </div>
 <div class="footer-bottom">
-<div>© 2026 Field Guide. Things-to-do section coming soon.</div>
-<div>No affiliate links · No paid placements</div>
+<div>&copy; 2026 Field Guide. Hours and ticketing verified against official sources; confirm seasonally.</div>
+<div>No affiliate links &middot; No paid placements</div>
 </div>
 </div>
 </footer>
-
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([42.351, -71.075], 12);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+    var spots = [
+      {name:'Museum of Fine Arts',id:'d-mfa',tier:1,lat:42.3394,lng:-71.0942,tag:'Museum · Fenway',lists:0,label:'M'},
+      {name:'Isabella Stewart Gardner Museum',id:'d-gardner',tier:1,lat:42.3381,lng:-71.0991,tag:'Museum · Fenway',lists:0,label:'M'},
+      {name:'The Mapparium',id:'d-mapparium',tier:4,lat:42.3445,lng:-71.0857,tag:'Landmark · Fenway',lists:0,label:'★'},
+      {name:'Fenway Park Tour',id:'d-fenway-park',tier:4,lat:42.3467,lng:-71.0972,tag:'Tour · Fenway',lists:0,label:'★'},
+      {name:'Boston Public Library — McKim Building',id:'d-bpl',tier:3,lat:42.3494,lng:-71.0779,tag:'Architecture · Copley',lists:0,label:'A'},
+      {name:'Trinity Church Boston',id:'d-trinity',tier:3,lat:42.3551,lng:-71.0745,tag:'Architecture · Copley',lists:0,label:'A'},
+      {name:'Newbury St & Commonwealth Ave Mall',id:'d-newbury',tier:5,lat:42.3505,lng:-71.081,tag:'Walk · Back Bay',lists:0,label:'W'},
+      {name:'Beacon Hill Walk',id:'d-beacon-hill',tier:5,lat:42.3582,lng:-71.07,tag:'Walk · Beacon Hill',lists:0,label:'W'},
+      {name:'Boston Athen&aelig;um',id:'d-athenaeum',tier:2,lat:42.3578,lng:-71.0617,tag:'Historic · Beacon Hill',lists:0,label:'H'},
+      {name:'Massachusetts State House',id:'d-state-house',tier:3,lat:42.3588,lng:-71.0638,tag:'Architecture · Downtown',lists:0,label:'A'},
+      {name:'Granary Burying Ground',id:'d-granary',tier:2,lat:42.3573,lng:-71.0617,tag:'Historic · Downtown',lists:0,label:'H'},
+      {name:'Old State House',id:'d-old-state-house',tier:2,lat:42.3587,lng:-71.0577,tag:'Historic · Downtown',lists:0,label:'H'},
+      {name:'Faneuil Hall',id:'d-faneuil',tier:4,lat:42.3601,lng:-71.0566,tag:'Landmark · Downtown',lists:0,label:'★'},
+      {name:'Paul Revere House',id:'d-revere-house',tier:2,lat:42.3638,lng:-71.0537,tag:'Historic · North End',lists:0,label:'H'},
+      {name:'Old North Church',id:'d-old-north',tier:2,lat:42.3663,lng:-71.0544,tag:'Historic · North End',lists:0,label:'H'},
+      {name:'North End Walk',id:'d-north-end',tier:5,lat:42.3647,lng:-71.0542,tag:'Walk · North End',lists:0,label:'W'},
+      {name:'USS Constitution & Museum',id:'d-constitution',tier:2,lat:42.3725,lng:-71.0562,tag:'Historic · Charlestown',lists:0,label:'H'},
+      {name:'Bunker Hill Monument',id:'d-bunker-hill',tier:4,lat:42.3763,lng:-71.061,tag:'Landmark · Charlestown',lists:0,label:'★'},
+      {name:'Harvard Art Museums',id:'d-harvard-art',tier:1,lat:42.3743,lng:-71.114,tag:'Museum · Cambridge',lists:0,label:'M'},
+      {name:'Harvard Museum of Natural History',id:'d-harvard-nat',tier:1,lat:42.3786,lng:-71.1153,tag:'Museum · Cambridge',lists:0,label:'M'},
+      {name:'Harvard Yard',id:'d-harvard-yard',tier:5,lat:42.3744,lng:-71.1169,tag:'Walk · Cambridge',lists:0,label:'W'},
+      {name:'MIT Museum & the Stata Center',id:'d-mit',tier:1,lat:42.3625,lng:-71.0865,tag:'Museum · Cambridge',lists:0,label:'M'},
+      {name:'Institute of Contemporary Art',id:'d-ica',tier:1,lat:42.3531,lng:-71.0466,tag:'Museum · Seaport',lists:0,label:'M'},
+      {name:'JFK Presidential Library & Museum',id:'d-jfk',tier:1,lat:42.3163,lng:-71.0345,tag:'Museum · Columbia Point',lists:0,label:'M'}
+    ];
+    spots.forEach(function(r){
+      var icon = L.divIcon({className:'custom-marker',html:'<div class="custom-pin tier'+r.tier+'">'+r.label+'</div>',iconSize:[28,28],iconAnchor:[14,14]});
+      L.marker([r.lat,r.lng],{icon:icon}).addTo(map).bindPopup(
+        '<div class="pop-name">'+r.name+'</div><div class="pop-tag">'+r.tag+'</div>'+
+        (r.id?'<a href="#'+r.id+'" class="pop-link" onclick="return window.fieldGuideJumpTo(\''+r.id+'\')">View entry \u2192</a>':''));
+    });
+    L.marker([42.3551,-71.0657],{icon:L.divIcon({className:'landmark-marker',html:'<div class=\'landmark-pin\'>Common</div>',iconSize:[70,22],iconAnchor:[35,11]})}).addTo(map);
+    L.marker([42.3744,-71.1169],{icon:L.divIcon({className:'landmark-marker',html:'<div class=\'landmark-pin\'>Harvard</div>',iconSize:[68,22],iconAnchor:[34,11]})}).addTo(map);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMap);else initMap();
+})();
+</script>
+<script>
+(function(){
+  var LABEL_MAP={'fenway':'Fenway / Museum District','back-bay':'Back Bay / Copley','beacon-hill':'Beacon Hill','downtown':'Downtown / Freedom Trail','north-end':'North End','charlestown':'Charlestown','cambridge':'Cambridge','seaport':'Seaport & Columbia Point','museum':'Museum','historic-site':'Historic','architecture':'Architecture','landmark':'Landmark','gallery':'Gallery','neighborhood-walk':'Walk','tour':'Tour'};
+  function label(s){return LABEL_MAP[s]||s.split('-').map(function(w){return w.charAt(0).toUpperCase()+w.slice(1);}).join(' ');}
+  var fc=document.getElementById('filters'); if(!fc)return;
+  var cards=Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]')); if(!cards.length)return;
+  var nb={},cu={};
+  cards.forEach(function(c){nb[c.dataset.neighborhood]=(nb[c.dataset.neighborhood]||0)+1;cu[c.dataset.cuisine]=(cu[c.dataset.cuisine]||0)+1;});
+  function buildRow(fk,rl,counts){
+    var row=document.createElement('details'); row.className='filter-row';
+    var sk='fg-filter-'+fk+'-open',st=null; try{st=window.localStorage.getItem(sk);}catch(e){}
+    row.open=(st===null)?true:(st==='true');
+    row.addEventListener('toggle',function(){try{window.localStorage.setItem(sk,row.open?'true':'false');}catch(e){}});
+    var lb=document.createElement('summary'); lb.className='filter-label'; lb.textContent=rl; row.appendChild(lb);
+    var all=document.createElement('button'); all.type='button'; all.className='filter-chip filter-chip-active'; all.setAttribute('data-filter',fk); all.setAttribute('data-value','all'); all.innerHTML='<span>All</span><span class="filter-chip-count">'+cards.length+'</span>'; row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){var b=document.createElement('button'); b.type='button'; b.className='filter-chip'; b.setAttribute('data-filter',fk); b.setAttribute('data-value',v); b.innerHTML='<span>'+label(v)+'</span><span class="filter-chip-count">'+counts[v]+'</span>'; row.appendChild(b);});
+    return row;
+  }
+  fc.innerHTML=''; fc.appendChild(buildRow('neighborhood','Area',nb)); fc.appendChild(buildRow('cuisine','Category',cu));
+  var status=document.createElement('div'); status.className='filter-status'; status.innerHTML='<span class="filter-count" id="filter-count"><strong>'+cards.length+'</strong> of '+cards.length+' stops</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>'; fc.appendChild(status);
+  var state={neighborhood:'all',cuisine:'all'};
+  function apply(){var vis=0; cards.forEach(function(c){var m=(state.neighborhood==='all'||c.dataset.neighborhood===state.neighborhood)&&(state.cuisine==='all'||c.dataset.cuisine===state.cuisine); if(m){c.style.display='';vis++;}else c.style.display='none';});
+    document.querySelectorAll('section.chapter[id^="tier-"]').forEach(function(s){var any=Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature')).some(function(c){return c.style.display!=='none';}); s.classList.toggle('tier-empty',!any);});
+    var ce=document.getElementById('filter-count'); if(ce)ce.innerHTML='<strong>'+vis+'</strong> of '+cards.length+' stops';}
+  function setF(fk,v){if(state[fk]===v&&v!=='all')v='all'; state[fk]=v; fc.querySelectorAll('[data-filter="'+fk+'"]').forEach(function(b){b.classList.toggle('filter-chip-active',b.getAttribute('data-value')===v);}); apply();}
+  fc.addEventListener('click',function(e){var chip=e.target.closest&&e.target.closest('.filter-chip'); if(chip){e.preventDefault();setF(chip.getAttribute('data-filter'),chip.getAttribute('data-value'));return;} var r=e.target.closest&&e.target.closest('#filter-reset'); if(r){e.preventDefault();setF('neighborhood','all');setF('cuisine','all');}});
+  window.fieldGuideJumpTo=function(id){var el=document.getElementById(id); if(!el)return false; if(el.style.display==='none'){setF('neighborhood','all');setF('cuisine','all');} if(window._fgMap&&window._fgMap.closePopup)window._fgMap.closePopup(); setTimeout(function(){var top=el.getBoundingClientRect().top+window.pageYOffset-90; window.scrollTo({top:top,behavior:'smooth'}); el.classList.remove('highlight'); void el.offsetWidth; el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');},1600);},50); return false;};
+  if(window.location.hash&&window.location.hash.indexOf('#d-')===0){setTimeout(function(){window.fieldGuideJumpTo(window.location.hash.slice(1));},200);}
+})();
+</script>
 <script src="../../shared/site.js" defer></script>
 </body>
 </html>

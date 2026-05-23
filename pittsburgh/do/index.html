@@ -3,29 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What to Do — Field Guide</title>
-<meta name="description" content="What to Do in Pittsburgh. Coming soon. The Andy Warhol Museum, the Duquesne Incline, the Phipps Conservatory, the Strip District morning walk, a P">
+<title>What to Do in Pittsburgh &mdash; Field Guide</title>
+<meta name="description" content="Seventeen things to do in Pittsburgh, by area — the Warhol, the Carnegie museums, the inclines, and a Frank Lloyd Wright day trip. Researched against official sources.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="../../shared/styles.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 <body data-city="pittsburgh">
-
 <div class="topbar">
 <div class="brand"><a href="../../">Field <em>Guide</em></a></div>
 <div class="city-switcher" data-open="false">
 <button class="city-switcher-trigger" type="button" aria-haspopup="true">
-  <span>Issue 03 · <span class="city-switcher-current">Pittsburgh</span></span>
-  <span class="city-switcher-arrow">▾</span>
+  <span>Issue 03 &middot; <span class="city-switcher-current">Pittsburgh</span></span>
+  <span class="city-switcher-arrow">&#9662;</span>
 </button>
 <div class="city-switcher-menu" role="menu">
 <a href="../../" class="city-switcher-item">All Issues<span class="city-switcher-item-meta">Series landing page</span></a>
 <div class="city-switcher-divider"></div>
-<a href="../../boston/" class="city-switcher-item">Boston<span class="city-switcher-item-meta">Issue 01 · Massachusetts</span></a>
-<a href="../../toronto/" class="city-switcher-item">Toronto<span class="city-switcher-item-meta">Issue 02 · Ontario</span></a>
-<a href="../../pittsburgh/" class="city-switcher-item current">Pittsburgh<span class="city-switcher-item-meta">Issue 03 · Pennsylvania</span></a>
-<a href="../../palm-springs/" class="city-switcher-item">Palm Springs<span class="city-switcher-item-meta">Issue 04 · California</span></a>
+<a href="../../boston/" class="city-switcher-item">Boston<span class="city-switcher-item-meta">Issue 01 &middot; Massachusetts</span></a>
+<a href="../../toronto/" class="city-switcher-item">Toronto<span class="city-switcher-item-meta">Issue 02 &middot; Ontario</span></a>
+<a href="../../pittsburgh/" class="city-switcher-item current">Pittsburgh<span class="city-switcher-item-meta">Issue 03 &middot; Pennsylvania</span></a>
+<a href="../../palm-springs/" class="city-switcher-item">Palm Springs<span class="city-switcher-item-meta">Issue 04 &middot; California</span></a>
 </div>
 </div>
 </div>
@@ -38,40 +39,621 @@
 <a href="../do/" class="current">Do</a>
 </div>
 </div>
-
-<section class="hero" style="padding-bottom:6rem">
+<section class="hero">
 <div class="hero-kicker"><span class="hero-pill">Part 4</span> What to do</div>
-<h1 class="hero-title">Day Ideas, <em>Not a Checklist</em>.</h1>
-<p class="hero-dek">Coming soon. The Andy Warhol Museum, the Duquesne Incline, the Phipps Conservatory, the Strip District morning walk, a Pirates game at PNC Park (one of the most beautiful ballparks in America, full stop).</p>
-<div class="pullquote">
-For a three-day couple's trip, the short version: <em>one museum afternoon (Warhol or Carnegie), one incline ride (Duquesne for the view), one Strip District Saturday walk, and a Pirates home game at PNC Park if the schedule cooperates</em>.
-</div>
-<p class="chapter-body" style="margin-top:2rem">A few directions while this section gets researched: <strong>Andy Warhol Museum</strong> (North Shore — the world's largest single-artist museum), <strong>Carnegie Museum of Art</strong> (Oakland — dinosaurs at the natural history half are also worth it), <strong>Duquesne Incline</strong> (the better of the two inclines — Mt Washington station near Altius if you're already going up there for the view), <strong>Phipps Conservatory</strong> (Oakland, the Victorian glasshouse), <strong>PNC Park</strong> (River-side ballpark — Pirates are bad but the view is unbeatable, late-August home stand if scheduled), <strong>Strip District Saturday morning</strong> (the city's signature walk — DeLuca's breakfast, then Penzeys, Stamoolis, the Pittsburgh Public Market).</p>
+<h1 class="hero-title">What to Do in Pittsburgh, by <em>Area and Era</em>.</h1>
+<p class="hero-dek">A mapped, area-organized guide to seventeen things to do — leaning museums, history, and architecture, grouped so you can pair a couple of stops in one outing. Plus the Frank Lloyd Wright day trip the city is quietly famous for.</p>
+<p class="hero-byline">Sources: <strong>the museums &amp; sites themselves</strong> · <strong>Heinz History Center</strong> · <strong>Fallingwater</strong> · <strong>VisitPittsburgh</strong> &mdash; hours and ticketing verified, but confirm before you go.</p>
 </section>
-
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-label">In This Guide</div>
+<ul class="toc">
+<li><a href="#overview">How to Use This</a></li>
+<li><a href="#map">The Map</a></li>
+<li><a href="#tier-oakland"><strong>Oakland (Museum District)</strong> &middot; 4</a></li>
+<li><a href="#tier-north-side"><strong>North Shore / North Side</strong> &middot; 3</a></li>
+<li><a href="#tier-mt-washington"><strong>Mount Washington</strong> &middot; 2</a></li>
+<li><a href="#tier-downtown"><strong>Downtown</strong> &middot; 2</a></li>
+<li><a href="#tier-strip"><strong>Strip District</strong> &middot; 2</a></li>
+<li><a href="#tier-east-end"><strong>East End</strong> &middot; 2</a></li>
+<li><a href="#tier-day-trip"><strong>Laurel Highlands (Frank Lloyd Wright)</strong> &middot; 2</a></li>
+<li><a href="#pairings">Day Ideas &amp; Skips</a></li>
+</ul>
+<div class="filters" id="filters"></div>
+</aside>
+<main class="article">
+<section class="chapter" id="overview">
+<div class="chapter-label">How to Use This</div>
+<h2 class="chapter-title">Pick the <em>Area</em>, Then the Day.</h2>
+<p class="chapter-dek">Pittsburgh's best stops cluster tightly — Oakland's four museums, the North Side's art trio — so the smart move is one area per outing. This section is built for that, and skews to museums, history, and architecture over the outdoors.</p>
+<div class="stat-grid">
+<div class="stat"><div class="stat-num">17</div><div class="stat-label">things to do across 6 areas + a day trip</div></div>
+<div class="stat"><div class="stat-num">2</div><div class="stat-label">Carnegie museums on one ticket, one building</div></div>
+<div class="stat"><div class="stat-num">2</div><div class="stat-label">Frank Lloyd Wright houses, 15 min apart</div></div>
+<div class="stat"><div class="stat-num">Tue</div><div class="stat-label">/ Wed closures to plan around</div></div>
+</div>
+<div class="chapter-body">
+<p>Two scheduling traps shape the three days: the Warhol, both Carnegie museums, and the Frick all close <strong>Tuesdays</strong>, and Fallingwater closes <strong>Wednesdays</strong>. Plan around those two holes and the rest falls into place.</p><p>Oakland is the museum day (the two Carnegies share a building and a ticket, with the Cathedral of Learning and Phipps a short walk away). The North Side pairs the Warhol with the Mattress Factory and the Mexican War Streets. Mount Washington is a quick incline-and-view outing. And the marquee architectural experience &mdash; Fallingwater &mdash; is a ~90-minute drive that's worth the whole day. Book it first; timed tickets sell out.</p>
+</div>
+<div class="pullquote">The shape of it: <em>one Oakland museum day, one North Side art day, one Frank Lloyd Wright day trip</em> &mdash; with the inclines and the Strip as the shorter outings. Book Fallingwater the moment your dates are set.</div>
+<div class="insights">
+<div class="insight"><div class="insight-num">1</div><div class="insight-content"><h3>The Oakland museum day is the anchor.</h3><p>Carnegie Art + Carnegie Natural History (one ticket, one building) + the Cathedral of Learning / Nationality Rooms + Phipps Conservatory — all walkable within ~12 minutes. A genuinely full day. Avoid Tuesday.</p></div></div>
+<div class="insight"><div class="insight-num">2</div><div class="insight-content"><h3>The North Side is the Warhol plus the art-and-architecture walk.</h3><p>The Warhol on the riverfront in the morning, then up to the Mexican War Streets for the Mattress Factory + Randyland + the row-house amble. Avoid Tuesday for the Warhol and Mattress Factory.</p></div></div>
+<div class="insight"><div class="insight-num">3</div><div class="insight-content"><h3>Mount Washington is a 90-minute outing, not a half-day.</h3><p>Ride the Duquesne Incline up, walk the Grandview Avenue overlooks, ride the Monongahela down. Slot it beside a downtown afternoon (Fort Pitt) or a Strip morning (Heinz History Center + market).</p></div></div>
+<div class="insight"><div class="insight-num">4</div><div class="insight-content"><h3>Fallingwater is the day trip — book it first.</h3><p>Fallingwater in the morning (timed, sells out, closed Wednesdays), Kentuck Knob 15 minutes away in the afternoon, both via the rental car. The architectural highlight of the trip.</p></div></div>
+</div>
+</section>
+<section class="chapter map-section" id="map">
+<div class="chapter-label">The Map</div>
+<h2 class="chapter-title">Seventeen stops, <em>six</em> clusters + a day trip.</h2>
+<p class="chapter-dek">Pinned and color-coded by category. Click any marker for details.</p>
+<div id="map"></div>
+<div class="map-legend">
+<div class="legend-item"><span class="legend-dot tier1"></span><span><strong>Museum / Gallery</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier2"></span><span><strong>Historic Site</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier3"></span><span><strong>Architecture</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier4"></span><span><strong>Landmark / Attraction</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier5"></span><span><strong>Walk / District</strong></span></div>
+<div class="legend-item"><span class="legend-dot tier6"></span><span><strong>Quirky / Pride</strong></span></div>
+<div class="legend-item"><span class="legend-dot landmark"></span><span><strong>Orientation</strong></span></div>
+</div>
+</section>
+<section class="chapter" id="tier-oakland">
+<div class="tier-intro">
+<div class="tier-pill">Oakland (Museum District)</div>
+<h2 class="tier-name">Oakland (Museum District) &middot; <em>4 stops</em>.</h2>
+<p class="tier-dek">The densest cluster in the city — four marquee stops within a 12-minute walk on or beside the Pitt campus. The two Carnegie museums share a building and a ticket; the Cathedral of Learning and Phipps round out a full day. Avoid Tuesday (the Carnegies close).</p>
+</div>
+<article class="restaurant-feature" id="d-cma" data-neighborhood="oakland" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Wed-Mon 10-5 (Thu to 8), closed Tue · ticket covers both Carnegie museums · half-price Fri 5-10">$25</span>
+</div>
+<h3 class="r-name">Carnegie Museum of Art</h3>
+<p class="r-tag">Pittsburgh's flagship art museum, where Andrew Carnegie set out in 1896 to collect the old masters of tomorrow.</p>
+<div class="r-pills">
+  <span class="r-pill">Oakland</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$25</span>
+  <span class="r-pill r-pill-accent">The Grande Dame</span>
+</div>
+<p class="r-blurb">Impressionism through contemporary, with a famous Hall of Architecture full of plaster casts — a Gilded Age idea of how to teach a steel town about Europe. One ticket covers the Natural History museum next door, since they share a building. Two hours minimum.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Wed-Mon 10-5 · closed Tue</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$25, covers both Carnegies</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Natural History (same door), Cathedral, Phipps</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://carnegieart.org" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Carnegie+Museum+of+Art+4400+Forbes+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-cmnh" data-neighborhood="oakland" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Wed-Mon 10-5 (Thu to 8), closed Tue · included in the combined Carnegie ticket">$25</span>
+</div>
+<h3 class="r-name">Carnegie Museum of Natural History</h3>
+<p class="r-tag">Same building, same ticket — and one of the great dinosaur halls in the country.</p>
+<div class="r-pills">
+  <span class="r-pill">Oakland</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$25</span>
+  <span class="r-pill r-pill-accent">The Dinosaurs</span>
+</div>
+<p class="r-blurb">Dippy the Diplodocus greets you out front; inside, Dinosaurs in Their Time stages real fossil skeletons in reconstructed environments. The Hillman gem hall and the dioramas are old-school in the best way. Drift between the two museums on one admission.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Wed-Mon 10-5 · closed Tue</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Included with the ~$25 combined ticket</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Carnegie Art (literally next door)</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://carnegiemnh.org" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Carnegie+Museum+of+Natural+History+4400+Forbes+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-cathedral" data-neighborhood="oakland" data-cuisine="architecture">
+<div class="r-header-row">
+  <span class="r-tier-tag">Architecture</span>
+  <span class="r-list-count" tabindex="0" data-lists="Hours vary seasonally — verify · self-guided or docent tour">$10</span>
+</div>
+<h3 class="r-name">Cathedral of Learning &amp; Nationality Rooms</h3>
+<p class="r-tag">Pitt's 42-story Gothic Revival tower — the tallest educational building in the Western Hemisphere — over a soaring stone Commons Room.</p>
+<div class="r-pills">
+  <span class="r-pill">Oakland</span>
+  <span class="r-pill">Architecture</span>
+  <span class="r-pill">$10</span>
+  <span class="r-pill r-pill-accent">The Gothic Skyscraper</span>
+</div>
+<p class="r-blurb">The draw is the Nationality Rooms: 31 working classrooms, each designed in the style of a culture that built Pittsburgh, from a Chinese imperial room to a Scottish hall. The four-story vaulted Commons Room alone is worth the walk in.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Vary seasonally — verify</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>$10 · self-guided or guided</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Phipps (5 min) and the Carnegie museums</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.nationalityrooms.pitt.edu" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Cathedral+of+Learning+4200+Fifth+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-phipps" data-neighborhood="oakland" data-cuisine="garden">
+<div class="r-header-row">
+  <span class="r-tier-tag">Garden</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 9:30-5, extended Fridays · timed tickets online">$18</span>
+</div>
+<h3 class="r-name">Phipps Conservatory</h3>
+<p class="r-tag">A Victorian glasshouse from 1893 — wrought iron and glass domes — and one of the prettiest indoor spaces in the city.</p>
+<div class="r-pills">
+  <span class="r-pill">Oakland</span>
+  <span class="r-pill">Garden</span>
+  <span class="r-pill">$18</span>
+  <span class="r-pill r-pill-accent">The 1893 Glasshouse</span>
+</div>
+<p class="r-blurb">Fourteen rooms run from a palm court to a desert room to a tropical forest, so it works rain or shine and stays firmly on the architecture-and-interiors brief. Late August usually catches the summer flower show. An easy pairing with the museums across the street.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 9:30-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$18 · timed online</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Carnegie and the Cathedral of Learning</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.phipps.conservatory.org" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Phipps+Conservatory+1+Schenley+Dr+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-north-side">
+<div class="tier-intro">
+<div class="tier-pill">North Shore / North Side</div>
+<h2 class="tier-name">North Shore / North Side &middot; <em>3 stops</em>.</h2>
+<p class="tier-dek">The Warhol sits on the riverfront near the ballpark; the Mattress Factory and Randyland are a few minutes north in the historic Mexican War Streets. The rental car or a short rideshare bridges them. Avoid Tuesday.</p>
+</div>
+<article class="restaurant-feature" id="d-warhol" data-neighborhood="north-side" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Mon/Wed/Thu/Sat/Sun 10-5, Fri 10-8, closed Tue · half-price Fri 5-10 · timed ticket">$30</span>
+</div>
+<h3 class="r-name">The Andy Warhol Museum</h3>
+<p class="r-tag">Seven floors devoted to the Pittsburgh-born Pop artist — the most comprehensive Warhol collection anywhere.</p>
+<div class="r-pills">
+  <span class="r-pill">North Shore</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$30</span>
+  <span class="r-pill r-pill-accent">World's Largest Single-Artist Museum</span>
+</div>
+<p class="r-blurb">Move down from the top floor through his career: the early commercial illustration, the soup cans and Marilyns, the Factory films, the silver Clouds room you can wander through. Both a serious archive and genuinely fun. Reserve a timed ticket.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Closed Tue · Fri to 8</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$30 · half-price Fri 5-10</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Mexican War Streets cluster</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.warhol.org" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Andy+Warhol+Museum+117+Sandusky+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-mattress" data-neighborhood="north-side" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Wed 11-8, Thu-Sun 11-6, closed Mon-Tue">$22</span>
+</div>
+<h3 class="r-name">Mattress Factory</h3>
+<p class="r-tag">A contemporary museum built around installation art — whole rooms you walk into.</p>
+<div class="r-pills">
+  <span class="r-pill">North Side</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$22</span>
+  <span class="r-pill r-pill-accent">Room-Sized Art</span>
+</div>
+<p class="r-blurb">Permanent Yayoi Kusama infinity environments and James Turrell light works, across three historic buildings in the Mexican War Streets, so a visit folds into the neighborhood walk. Immersive and a little disorienting in the right way — go for the experience.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Wed 11-8 · Thu-Sun 11-6 · closed Mon-Tue</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$22 · summer Friday specials ~$15</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Randyland + the Mexican War Streets walk</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://mattress.org" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Mattress+Factory+509+Jacksonia+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-randyland" data-neighborhood="north-side" data-cuisine="landmark">
+<div class="r-header-row">
+  <span class="r-tier-tag">Landmark</span>
+  <span class="r-list-count" tabindex="0" data-lists="Courtyard ~daily 10-5:30 · the neighborhood walk is anytime">Free</span>
+</div>
+<h3 class="r-name">Randyland &amp; the Mexican War Streets</h3>
+<p class="r-tag">A free, riotously painted folk-art courtyard — the most photographed corner on the North Side — plus the historic row-house district around it.</p>
+<div class="r-pills">
+  <span class="r-pill">North Side</span>
+  <span class="r-pill">Landmark</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">Folk Art + Historic Blocks</span>
+</div>
+<p class="r-blurb">Randyland is community activist Randy Gilson's painted courtyard; pair it with a stroll through the Mexican War Streets, a compact district of restored 1850s-60s row houses on streets named for the war's battles. A 20-minute architectural amble between Randyland and the Mattress Factory.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Courtyard ~10-5:30 · walk anytime</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Mattress Factory next door</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.randyland.club" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Randyland+1501+Arch+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-mt-washington">
+<div class="tier-intro">
+<div class="tier-pill">Mount Washington</div>
+<h2 class="tier-name">Mount Washington &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">The classic Pittsburgh view, reached by two surviving 19th-century funiculars. Ride one incline up, walk Grandview Avenue's overlooks, ride the other down — a 60-90 minute outing, not a half-day.</p>
+</div>
+<article class="restaurant-feature" id="d-duquesne" data-neighborhood="mt-washington" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily ~6:30am-12:30am · cash only, exact change">$2.75</span>
+</div>
+<h3 class="r-name">Duquesne Incline</h3>
+<p class="r-tag">A cable car from 1877, still running on its original track, with the original wooden cars and visible Victorian machinery up top.</p>
+<div class="r-pills">
+  <span class="r-pill">Mount Washington</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$2.75</span>
+  <span class="r-pill r-pill-accent">The 1877 Funicular</span>
+</div>
+<p class="r-blurb">The upper station has a small free museum about the city's vanished inclines, and the observation deck delivers the postcard view of the three rivers meeting downtown. The more tourist-friendly of the two — better museum, better platform.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily ~6:30am-12:30am</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$2.75 one-way (cash)</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Grandview Ave overlooks + the Mon Incline</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.duquesneincline.org" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Duquesne+Incline+1197+W+Carson+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-mon-incline" data-neighborhood="mt-washington" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Mon-Sat ~5:30am-12:45am, Sun ~8:45am-midnight · cash or card">$2.50</span>
+</div>
+<h3 class="r-name">Monongahela Incline</h3>
+<p class="r-tag">Opened 1870, the oldest continuously operating funicular in the country — about a mile east of the Duquesne.</p>
+<div class="r-pills">
+  <span class="r-pill">Mount Washington</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">$2.50</span>
+  <span class="r-pill r-pill-accent">Oldest in the U.S.</span>
+</div>
+<p class="r-blurb">The more workaday of the two — locals still commute on it, which is part of its charm. Riding one incline up and the other down, with the Grandview overlook walk in between, makes a tidy hour-and-a-half outing.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>~5:30am-12:45am</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$2.50 one-way</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Duquesne and Grandview Ave</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.monongahelaincline.com" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Monongahela+Incline+W+Carson+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-downtown">
+<div class="tier-intro">
+<div class="tier-pill">Downtown</div>
+<h2 class="tier-name">Downtown &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">The historic core at the rivers' confluence. The Fort Pitt Museum is the history anchor; PNC Park is a five-minute drive across the river if a game lines up.</p>
+</div>
+<article class="restaurant-feature" id="d-fort-pitt" data-neighborhood="downtown" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 10-5 · free 3rd Thu & Sun with RAD Pass">$10</span>
+</div>
+<h3 class="r-name">Fort Pitt Museum</h3>
+<p class="r-tag">A history museum at the tip of Point State Park, on the spot where three nations fought for the rivers.</p>
+<div class="r-pills">
+  <span class="r-pill">Downtown</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$10</span>
+  <span class="r-pill r-pill-accent">Where the City Began</span>
+</div>
+<p class="r-blurb">Exhibits cover the French and Indian War, the 1758 founding of Fort Pitt, and the frontier origins of Pittsburgh, with a reconstructed blockhouse nearby that's the oldest building in the city. Frame it as the history museum, not the park — a focused 60-90 minutes.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$10</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A downtown walk or PNC Park across the river</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.heinzhistorycenter.org/visit/fort-pitt" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Fort+Pitt+Museum+601+Commonwealth+Pl+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-pnc" data-neighborhood="downtown" data-cuisine="landmark">
+<div class="r-header-row">
+  <span class="r-tier-tag">Landmark</span>
+  <span class="r-list-count" tabindex="0" data-lists="Game-dependent · verify the late-August home schedule before counting on a game">Game-dep.</span>
+</div>
+<h3 class="r-name">PNC Park</h3>
+<p class="r-tag">Routinely ranked the most beautiful ballpark in baseball — an intimate two-deck stadium framing the skyline and the Clemente Bridge.</p>
+<div class="r-pills">
+  <span class="r-pill">North Shore</span>
+  <span class="r-pill">Landmark</span>
+  <span class="r-pill">Varies</span>
+  <span class="r-pill r-pill-accent">America's Prettiest Ballpark</span>
+</div>
+<p class="r-blurb">Even without a game, the riverfront setting is a sightseeing stop; with a Pirates home game it's a great low-key evening. Verify the late-August home schedule — the published calendar points to home games earlier in the month.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Game-dependent</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Via MLB; verify schedule</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Warhol / North Shore</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.mlb.com/pirates/ballpark" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=PNC+Park+115+Federal+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-strip">
+<div class="tier-intro">
+<div class="tier-pill">Strip District</div>
+<h2 class="tier-name">Strip District &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">A historic wholesale market street that's now the food-and-browsing corridor. The Heinz History Center sits at its edge — go for the market walk in the morning, the museum after.</p>
+</div>
+<article class="restaurant-feature" id="d-heinz" data-neighborhood="strip" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 10-5">$20</span>
+</div>
+<h3 class="r-name">Senator John Heinz History Center</h3>
+<p class="r-tag">The largest history museum in Pennsylvania and a Smithsonian affiliate, telling the full Pittsburgh story across six floors.</p>
+<div class="r-pills">
+  <span class="r-pill">Strip District</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$20</span>
+  <span class="r-pill r-pill-accent">Smithsonian Affiliate, 6 Floors</span>
+</div>
+<p class="r-blurb">The Western Pennsylvania Sports Museum is built in, and exhibits sweep from Heinz ketchup to glass and steel to the original set from Mister Rogers' Neighborhood. A deep, well-made museum — give it two-plus hours. Right at the edge of the Strip.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 10-5</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$20 · free for kids 17 and under</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Strip District market walk</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.heinzhistorycenter.org" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Heinz+History+Center+1212+Smallman+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-strip" data-neighborhood="strip" data-cuisine="neighborhood-walk">
+<div class="r-header-row">
+  <span class="r-tier-tag">Walk</span>
+  <span class="r-list-count" tabindex="0" data-lists="Liveliest mornings · shops vary">Free</span>
+</div>
+<h3 class="r-name">The Strip District (Market Walk)</h3>
+<p class="r-tag">A few blocks of Penn Avenue lined with old-line ethnic grocers, spice and coffee shops, produce stalls, and vendors.</p>
+<div class="r-pills">
+  <span class="r-pill">Strip District</span>
+  <span class="r-pill">Walk</span>
+  <span class="r-pill">Free</span>
+  <span class="r-pill r-pill-accent">The Market Stroll</span>
+</div>
+<p class="r-blurb">The historic terminal-market district at its liveliest in the morning, with wholesale-era brick buildings and sidewalk stands giving it a character no other Pittsburgh street has. Go before noon, then walk straight into the History Center.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Mornings best</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Free</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>The Heinz History Center</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://neighborsinthestrip.com" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Strip+District+Penn+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-east-end">
+<div class="tier-intro">
+<div class="tier-pill">East End</div>
+<h2 class="tier-name">East End &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">Two quieter East End picks that each anchor a half-day: the Gilded Age Frick estate in Point Breeze, and the appointment-only Clemente Museum in a Lawrenceville firehouse, fifteen minutes apart.</p>
+</div>
+<article class="restaurant-feature" id="d-frick" data-neighborhood="east-end" data-cuisine="historic-site">
+<div class="r-header-row">
+  <span class="r-tier-tag">Historic</span>
+  <span class="r-list-count" tabindex="0" data-lists="Tue-Sun 10-5, closed Mon · site/art/car museums free · Clayton mansion tour ticketed + reserve">Free site</span>
+</div>
+<h3 class="r-name">The Frick Pittsburgh</h3>
+<p class="r-tag">The preserved estate of industrialist Henry Clay Frick, centered on Clayton — his Gilded Age mansion, restored to the 1890s.</p>
+<div class="r-pills">
+  <span class="r-pill">Point Breeze</span>
+  <span class="r-pill">Historic</span>
+  <span class="r-pill">Free site</span>
+  <span class="r-pill r-pill-accent">The Gilded Age Estate</span>
+</div>
+<p class="r-blurb">The grounds also hold a free art museum (Old Masters and Italian Renaissance) and a Car and Carriage Museum of early automobiles. General admission is free; the Clayton mansion tour is the paid, reservation-recommended centerpiece and the reason to come.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Tue-Sun 10-5 · closed Mon</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Site free · Clayton tour ticketed + reserve</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A self-contained East End half-day</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.thefrickpittsburgh.org" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=The+Frick+Pittsburgh+7227+Reynolds+St+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-clemente" data-neighborhood="east-end" data-cuisine="museum">
+<div class="r-header-row">
+  <span class="r-tier-tag">Museum</span>
+  <span class="r-list-count" tabindex="0" data-lists="By appointment only · 75-min docent tour · reserve online">$21</span>
+</div>
+<h3 class="r-name">The Clemente Museum</h3>
+<p class="r-tag">The world's largest collection of Roberto Clemente memorabilia, in a restored 1890s firehouse in Lawrenceville.</p>
+<div class="r-pills">
+  <span class="r-pill">Lawrenceville</span>
+  <span class="r-pill">Museum</span>
+  <span class="r-pill">$21</span>
+  <span class="r-pill r-pill-accent">Appointment-Only, 1890s Firehouse</span>
+</div>
+<p class="r-blurb">The 75-minute docent-led tour is the only way in — the quirky-but-substantive pick, blending baseball history with a beautifully preserved building (there's a winery in the basement). Book ahead; it's appointment-only and small.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>By appointment</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$21 · ~$30 Fri night with wine</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>A standalone Lawrenceville visit</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.clementemuseum.com" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Clemente+Museum+3339+Penn+Ave+Pittsburgh" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="tier-day-trip">
+<div class="tier-intro">
+<div class="tier-pill">Laurel Highlands (Frank Lloyd Wright)</div>
+<h2 class="tier-name">Laurel Highlands (Frank Lloyd Wright) &middot; <em>2 stops</em>.</h2>
+<p class="tier-dek">The architectural highlight of the whole trip, ~90 minutes southeast by rental car. Fallingwater and Kentuck Knob are about 15 minutes apart and make one full FLW day. Book Fallingwater first — timed tickets sell out, and it's closed Wednesdays.</p>
+</div>
+<article class="restaurant-feature" id="d-fallingwater" data-neighborhood="day-trip" data-cuisine="architecture">
+<div class="r-header-row">
+  <span class="r-tier-tag">Architecture</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 9-4 except Wed, mid-March-Thanksgiving · timed tickets sell out — book weeks ahead">$40</span>
+</div>
+<h3 class="r-name">Fallingwater</h3>
+<p class="r-tag">Frank Lloyd Wright's 1935 house cantilevered over a waterfall — a UNESCO World Heritage Site, ~90 minutes southeast.</p>
+<div class="r-pills">
+  <span class="r-pill">Laurel Highlands (Day Trip)</span>
+  <span class="r-pill">Architecture</span>
+  <span class="r-pill">$40</span>
+  <span class="r-pill r-pill-accent">Wright's Masterpiece</span>
+</div>
+<p class="r-blurb">The one-hour guided tour walks the main floor, terraces, and guest house; the cantilevered concrete and the sound of the falls live up to the photographs. Reservation reality: tours are timed, sell out, and should be booked weeks ahead for a late-August weekend. Closed Wednesdays.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 9-4 except Wed</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>~$40 guided · book well ahead</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Kentuck Knob, 15 min away</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://www.fallingwater.org" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Fallingwater+1491+Mill+Run+Rd+Mill+Run+PA" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+<article class="restaurant-feature" id="d-kentuck" data-neighborhood="day-trip" data-cuisine="architecture">
+<div class="r-header-row">
+  <span class="r-tier-tag">Architecture</span>
+  <span class="r-list-count" tabindex="0" data-lists="Daily 9-4 (Wed from 12) · reserve ahead (easier than Fallingwater)">$$</span>
+</div>
+<h3 class="r-name">Kentuck Knob</h3>
+<p class="r-tag">A 1956 Wright Usonian house on a hilltop, 15 minutes from Fallingwater — lower-key, less crowded.</p>
+<div class="r-pills">
+  <span class="r-pill">Laurel Highlands (Day Trip)</span>
+  <span class="r-pill">Architecture</span>
+  <span class="r-pill">$$</span>
+  <span class="r-pill r-pill-accent">The Usonian Companion</span>
+</div>
+<p class="r-blurb">The hexagonal-grid design, native stone, and a sculpture meadow on the grounds make it a satisfying second stop. A great counterpoint to its famous neighbor and the natural second half of a Frank Lloyd Wright day.</p>
+<div class="r-details">
+  <div class="r-detail"><dt>Hours</dt><dd>Daily 9-4 (Wed from 12)</dd></div>
+  <div class="r-detail"><dt>Tickets</dt><dd>Ticketed tours · reserve</dd></div>
+  <div class="r-detail"><dt>Pairs with</dt><dd>Fallingwater (the FLW day)</dd></div>
+</div>
+<div class="r-actions">
+  <a class="r-btn" href="https://kentuckknob.com" target="_blank" rel="noopener">Website</a>
+  <a class="r-btn" href="https://maps.google.com/?q=Kentuck+Knob+723+Kentuck+Rd+Chalk+Hill+PA" target="_blank" rel="noopener">Directions</a>
+</div>
+</article>
+</section>
+<section class="chapter" id="pairings">
+<div class="chapter-label">Day Ideas &amp; Skips</div>
+<h2 class="chapter-title">Day Ideas, and What to <em>Skip</em>.</h2>
+<p class="chapter-dek">A few ready-made one-area outings, and the things you can skip.</p>
+<div class="chapter-body">
+<p><strong>The Oakland museum day.</strong> Carnegie Art + Carnegie Natural History (one ticket) + Cathedral of Learning / Nationality Rooms + Phipps. Avoid Tuesday.</p><p><strong>The North Side day.</strong> The Warhol, then the Mattress Factory + Randyland + the Mexican War Streets walk.</p><p><strong>The Mount Washington outing.</strong> Duquesne Incline up, the Grandview overlooks, Monongahela down — ~90 minutes, beside a downtown or Strip afternoon.</p><p><strong>The Frank Lloyd Wright day trip.</strong> Fallingwater (booked weeks ahead) + Kentuck Knob, 15 minutes apart, via the rental car.</p><p><strong>Skip / note:</strong> Bicycle Heaven (the world's largest bike museum) is a fun oddity but niche — the Clemente Museum is the stronger quirky-historic pick. And mind the closures: the Warhol, both Carnegies, and the Frick close Tuesdays; Fallingwater closes Wednesdays. Late-August Pirates home games weren't confirmed — verify before counting on one.</p>
+</div>
+</section>
+</main>
+</div>
 <section class="next-up">
 <div class="next-up-inner">
 <div>
-<div class="next-up-label">— Continue the guide</div>
-<h3>Back to: Where to eat: <em>Read the eat section</em></h3>
+<div class="next-up-label">Continue the Guide</div>
+<h3>Back to: <em>Where to Eat</em></h3>
 </div>
-<a href="../eat/" class="next-up-cta">Read the eat section →</a>
+<a href="../eat/" class="next-up-cta">Read the eat section &rarr;</a>
 </div>
 </section>
-
 <footer>
 <div class="footer-inner">
 <div class="footer-top">
 <div class="footer-brand"><a href="../../">Field <em>Guide</em></a></div>
-<div class="footer-tagline">Issue 03 — Pittsburgh · Part 4, What to Do.</div>
+<div class="footer-tagline">Issue 03 &mdash; Pittsburgh &middot; Part 4, What to do.</div>
 </div>
 <div class="footer-bottom">
-<div>© 2026 Field Guide. Section in progress.</div>
-<div>No affiliate links · No paid placements</div>
+<div>&copy; 2026 Field Guide. Hours and ticketing verified; book Fallingwater well ahead and mind the Tue/Wed closures.</div>
+<div>No affiliate links &middot; No paid placements</div>
 </div>
 </div>
 </footer>
-
+<script>
+(function(){
+  function initMap(){
+    if (typeof L === 'undefined') { setTimeout(initMap, 100); return; }
+    var map = window._fgMap = L.map('map').setView([40.445, -79.985], 12);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+    var spots = [
+      {name:'Carnegie Museum of Art',id:'d-cma',tier:1,lat:40.4435,lng:-79.9498,tag:'Museum · Oakland',lists:0,label:'M'},
+      {name:'Carnegie Museum of Natural History',id:'d-cmnh',tier:1,lat:40.4435,lng:-79.9498,tag:'Museum · Oakland',lists:0,label:'M'},
+      {name:'Cathedral of Learning &amp; Nationality Rooms',id:'d-cathedral',tier:3,lat:40.4444,lng:-79.9534,tag:'Architecture · Oakland',lists:0,label:'A'},
+      {name:'Phipps Conservatory',id:'d-phipps',tier:4,lat:40.4392,lng:-79.9477,tag:'Garden · Oakland',lists:0,label:'★'},
+      {name:'The Andy Warhol Museum',id:'d-warhol',tier:1,lat:40.4486,lng:-80.0024,tag:'Museum · North Shore',lists:0,label:'M'},
+      {name:'Mattress Factory',id:'d-mattress',tier:1,lat:40.457,lng:-80.0107,tag:'Museum · North Side',lists:0,label:'M'},
+      {name:'Randyland &amp; the Mexican War Streets',id:'d-randyland',tier:4,lat:40.4564,lng:-80.0094,tag:'Landmark · North Side',lists:0,label:'★'},
+      {name:'Duquesne Incline',id:'d-duquesne',tier:2,lat:40.4395,lng:-80.0177,tag:'Historic · Mount Washington',lists:0,label:'H'},
+      {name:'Monongahela Incline',id:'d-mon-incline',tier:2,lat:40.4329,lng:-79.9933,tag:'Historic · Mount Washington',lists:0,label:'H'},
+      {name:'Fort Pitt Museum',id:'d-fort-pitt',tier:1,lat:40.4407,lng:-80.0096,tag:'Museum · Downtown',lists:0,label:'M'},
+      {name:'PNC Park',id:'d-pnc',tier:4,lat:40.4469,lng:-80.0057,tag:'Landmark · North Shore',lists:0,label:'★'},
+      {name:'Senator John Heinz History Center',id:'d-heinz',tier:1,lat:40.4506,lng:-79.989,tag:'Museum · Strip District',lists:0,label:'M'},
+      {name:'The Strip District (Market Walk)',id:'d-strip',tier:5,lat:40.4505,lng:-79.987,tag:'Walk · Strip District',lists:0,label:'W'},
+      {name:'The Frick Pittsburgh',id:'d-frick',tier:2,lat:40.447,lng:-79.9,tag:'Historic · Point Breeze',lists:0,label:'H'},
+      {name:'The Clemente Museum',id:'d-clemente',tier:1,lat:40.4626,lng:-79.9677,tag:'Museum · Lawrenceville',lists:0,label:'M'},
+      {name:'Fallingwater',id:'d-fallingwater',tier:3,lat:39.9064,lng:-79.4681,tag:'Architecture · Laurel Highlands (Day Trip)',lists:0,label:'A'},
+      {name:'Kentuck Knob',id:'d-kentuck',tier:3,lat:39.8716,lng:-79.517,tag:'Architecture · Laurel Highlands (Day Trip)',lists:0,label:'A'}
+    ];
+    spots.forEach(function(r){
+      var icon = L.divIcon({className:'custom-marker',html:'<div class="custom-pin tier'+r.tier+'">'+r.label+'</div>',iconSize:[28,28],iconAnchor:[14,14]});
+      L.marker([r.lat,r.lng],{icon:icon}).addTo(map).bindPopup(
+        '<div class="pop-name">'+r.name+'</div><div class="pop-tag">'+r.tag+'</div>'+
+        (r.id?'<a href="#'+r.id+'" class="pop-link" onclick="return window.fieldGuideJumpTo(\''+r.id+'\')">View entry \u2192</a>':''));
+    });
+    L.marker([40.4406,-79.9959],{icon:L.divIcon({className:'landmark-marker',html:'<div class=\'landmark-pin\'>Downtown</div>',iconSize:[80,22],iconAnchor:[40,11]})}).addTo(map);
+    L.marker([40.4435,-79.9498],{icon:L.divIcon({className:'landmark-marker',html:'<div class=\'landmark-pin\'>Oakland</div>',iconSize:[64,22],iconAnchor:[32,11]})}).addTo(map);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMap);else initMap();
+})();
+</script>
+<script>
+(function(){
+  var LABEL_MAP={'oakland':'Oakland','north-side':'North Shore / North Side','mt-washington':'Mount Washington','downtown':'Downtown','strip':'Strip District','east-end':'East End','day-trip':'Laurel Highlands (Day Trip)','museum':'Museum','historic-site':'Historic','architecture':'Architecture','landmark':'Landmark','garden':'Garden','neighborhood-walk':'Walk'};
+  function label(s){return LABEL_MAP[s]||s.split('-').map(function(w){return w.charAt(0).toUpperCase()+w.slice(1);}).join(' ');}
+  var fc=document.getElementById('filters'); if(!fc)return;
+  var cards=Array.prototype.slice.call(document.querySelectorAll('.restaurant-feature[data-neighborhood]')); if(!cards.length)return;
+  var nb={},cu={};
+  cards.forEach(function(c){nb[c.dataset.neighborhood]=(nb[c.dataset.neighborhood]||0)+1;cu[c.dataset.cuisine]=(cu[c.dataset.cuisine]||0)+1;});
+  function buildRow(fk,rl,counts){
+    var row=document.createElement('details'); row.className='filter-row';
+    var sk='fg-filter-'+fk+'-open',st=null; try{st=window.localStorage.getItem(sk);}catch(e){}
+    row.open=(st===null)?true:(st==='true');
+    row.addEventListener('toggle',function(){try{window.localStorage.setItem(sk,row.open?'true':'false');}catch(e){}});
+    var lb=document.createElement('summary'); lb.className='filter-label'; lb.textContent=rl; row.appendChild(lb);
+    var all=document.createElement('button'); all.type='button'; all.className='filter-chip filter-chip-active'; all.setAttribute('data-filter',fk); all.setAttribute('data-value','all'); all.innerHTML='<span>All</span><span class="filter-chip-count">'+cards.length+'</span>'; row.appendChild(all);
+    Object.keys(counts).sort().forEach(function(v){var b=document.createElement('button'); b.type='button'; b.className='filter-chip'; b.setAttribute('data-filter',fk); b.setAttribute('data-value',v); b.innerHTML='<span>'+label(v)+'</span><span class="filter-chip-count">'+counts[v]+'</span>'; row.appendChild(b);});
+    return row;
+  }
+  fc.innerHTML=''; fc.appendChild(buildRow('neighborhood','Area',nb)); fc.appendChild(buildRow('cuisine','Category',cu));
+  var status=document.createElement('div'); status.className='filter-status'; status.innerHTML='<span class="filter-count" id="filter-count"><strong>'+cards.length+'</strong> of '+cards.length+' stops</span><button class="filter-reset" id="filter-reset" type="button">Reset filters</button>'; fc.appendChild(status);
+  var state={neighborhood:'all',cuisine:'all'};
+  function apply(){var vis=0; cards.forEach(function(c){var m=(state.neighborhood==='all'||c.dataset.neighborhood===state.neighborhood)&&(state.cuisine==='all'||c.dataset.cuisine===state.cuisine); if(m){c.style.display='';vis++;}else c.style.display='none';});
+    document.querySelectorAll('section.chapter[id^="tier-"]').forEach(function(s){var any=Array.prototype.slice.call(s.querySelectorAll('.restaurant-feature')).some(function(c){return c.style.display!=='none';}); s.classList.toggle('tier-empty',!any);});
+    var ce=document.getElementById('filter-count'); if(ce)ce.innerHTML='<strong>'+vis+'</strong> of '+cards.length+' stops';}
+  function setF(fk,v){if(state[fk]===v&&v!=='all')v='all'; state[fk]=v; fc.querySelectorAll('[data-filter="'+fk+'"]').forEach(function(b){b.classList.toggle('filter-chip-active',b.getAttribute('data-value')===v);}); apply();}
+  fc.addEventListener('click',function(e){var chip=e.target.closest&&e.target.closest('.filter-chip'); if(chip){e.preventDefault();setF(chip.getAttribute('data-filter'),chip.getAttribute('data-value'));return;} var r=e.target.closest&&e.target.closest('#filter-reset'); if(r){e.preventDefault();setF('neighborhood','all');setF('cuisine','all');}});
+  window.fieldGuideJumpTo=function(id){var el=document.getElementById(id); if(!el)return false; if(el.style.display==='none'){setF('neighborhood','all');setF('cuisine','all');} if(window._fgMap&&window._fgMap.closePopup)window._fgMap.closePopup(); setTimeout(function(){var top=el.getBoundingClientRect().top+window.pageYOffset-90; window.scrollTo({top:top,behavior:'smooth'}); el.classList.remove('highlight'); void el.offsetWidth; el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');},1600);},50); return false;};
+  if(window.location.hash&&window.location.hash.indexOf('#d-')===0){setTimeout(function(){window.fieldGuideJumpTo(window.location.hash.slice(1));},200);}
+})();
+</script>
 <script src="../../shared/site.js" defer></script>
 </body>
 </html>
